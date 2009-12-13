@@ -8525,3 +8525,174 @@ Rendered tasks/_form (159.2ms)
   [4;35;1mProject Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
   [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
 Completed in 220ms (View: 206, DB: 6) | 200 OK [http://localhost/tasks/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:49:49) [GET]
+  [4;36;1mTask Load (0.5ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.3ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 147ms (View: 55, DB: 7) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:55:43) [GET]
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 37ms (View: 24, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:56:19) [GET]
+  [4;36;1mTask Load (0.9ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 39ms (View: 25, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:57:04) [GET]
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.7ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.3ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 47ms (View: 32, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:57:18) [GET]
+  [4;36;1mTask Load (0.5ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 111ms (View: 96, DB: 7) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:58:06) [GET]
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 38ms (View: 25, DB: 7) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:58:23) [GET]
+  [4;36;1mTask Load (1.2ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 40ms (View: 25, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 05:59:35) [GET]
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 40ms (View: 26, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-14 06:00:12) [GET]
+  [4;36;1mTask Load (0.5ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 39ms (View: 24, DB: 8) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-12-14 06:37:22) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mPerson Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `people`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `people` [0m
+  [4;36;1mSkill Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `skills` [0m
+  [4;36;1mProject Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM `projects` [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 126ms (View: 118, DB: 7) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SkillsController#index (for 127.0.0.1 at 2009-12-14 06:37:23) [GET]
+  [4;35;1mSkill Load (0.3ms)[0m   [0mSELECT * FROM `skills` [0m
+Rendering template within layouts/application
+Rendering skills/index
+  [4;36;1mSkill Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 48ms (View: 40, DB: 4) | 200 OK [http://localhost/skills]

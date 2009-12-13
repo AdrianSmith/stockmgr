@@ -11,12 +11,10 @@
   <div id="container">
     <div id="message">
       <p>
-        <%= DateTime.now.strftime("%a %d %b %Y") + " [wk " + Date.today.cweek.to_s + "]" %>
-      </p>
-
-      <p>
+        <%= DateTime.now.strftime("%a %d %b %Y") + " [wk " + Date.today.cweek.to_s + "]" %><br />
+        Project:  
         <% current_project = Project.find(session[:current_project_id]) if session[:current_project_id] %>
-        <%= link_to('Project: ' + current_project.name, project_path(current_project)) if current_project %>
+        <%= link_to(current_project.name, project_path(current_project)) if current_project %>
       </p>
       <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>

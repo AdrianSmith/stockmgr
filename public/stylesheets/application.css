@@ -25,24 +25,24 @@ a {
   clear: both;
   background: white; 
   overflow: auto;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
  }
 
 #message {
   position: absolute;
-  top: 5px;
-  right: 5px; 
-  height: 70px;
+  right: 10px; 
+  height: 50px;
   width: 300px;
   text-align: right;
   font-size: 0.95em;
  }
 
 #title {
-  height: 70px;
+  height: 50px;
   width: 700px;
   overflow: hidden;
-  margin-bottom: 10px;
 }
 
 #flash_notice, #flash_error {
