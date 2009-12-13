@@ -1,0 +1,25 @@
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :skill %><br />
+    <%= f.select 'skill_id', @skills, :prompt => 'Select ...' %>
+  </p>
+  <p>
+    <%= f.label :start %><br />
+    <%= f.date_select :start %>
+  </p>
+  <p>
+    <%= f.label :finish %><br />
+    <%= f.date_select :finish %>
+  </p>
+  <p>
+    <%= f.label :fte_load %><br />
+    <%= f.text_field :fte_load %>
+  </p>
+

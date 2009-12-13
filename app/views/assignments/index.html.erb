@@ -1,0 +1,23 @@
+<h1>Team Assignments</h1>
+
+<table>
+  <tr>
+    <th>Person</th>
+    <th>Task</th>
+  </tr>
+
+<% @assignments.each do |assignment| %>
+  <tr>
+    <td><%=h assignment.person_id %></td>
+    <td><%=h assignment.task_id %></td>
+    <td><%= link_to 'Show', assignment %></td>
+    <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+    <td><%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New assignment', new_assignment_path %> | 
+<%= link_to 'Menu', :controller => 'welcome', :action => 'index' %>

@@ -1,0 +1,27 @@
+<h1>Team People</h1>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Skills</th>
+    <th>Tasks</th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr>
+    <td><%=h person.first_name %></td>
+    <td><%=h person.last_name %></td>
+    <td><%=h person.skill_summary %></td>
+    <td><%= link_to 'Tasks', tasks_path if person.tasks.length > 0 %></td>
+    <td><%= link_to 'Show', person %></td>
+    <td><%= link_to 'Edit', edit_person_path(person) %></td>
+    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New person', new_person_path %> | 
+<%= link_to 'Menu', :controller => 'welcome', :action => 'index' %>

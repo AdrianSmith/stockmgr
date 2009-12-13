@@ -1,0 +1,31 @@
+<h1>Tasks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Skill</th>
+    <th>Start</th>
+    <th>Finish</th>
+    <th>Fte load</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%=h task.name %></td>
+    <td><%=h task.description %></td>
+    <td><%=h task.skill_id %></td>
+    <td><%=h task.start %></td>
+    <td><%=h task.finish %></td>
+    <td><%=h task.fte_load %></td>
+    <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New task', new_task_path %> | 
+<%= link_to 'Menu', :controller => 'welcome', :action => 'index' %>

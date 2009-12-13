@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Provision Database
+  description: Provision database and optimise performance
+  skill_id: 2
+  start: 2009-12-12
+  finish: 2009-12-22
+  fte_load: 0.5
+
+two:
+  id: 2
+  name: Web Interface
+  description: Development of web interface
+  skill_id: 1
+  start: 2009-12-12
+  finish: 2009-12-18
+  fte_load: 1

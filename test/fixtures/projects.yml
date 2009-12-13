@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Shedmaster
+  description: Development of replacement for shedmasta application
+
+two:
+  id: 2
+  name: Windmaster
+  description: Development of a restful web-service for wind load calculations
