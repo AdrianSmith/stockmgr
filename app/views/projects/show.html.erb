@@ -13,13 +13,15 @@
   <table>
     <tr>
       <th>Name</th>
-      <th>Assignee</th>
+      <th>Skill</th>
+      <th>Effort</th>
     </tr>
 
     <% @project.tasks.each do |task| %>
     <tr>
       <td><%=h task.name %></td>
       <td><%=h task.skill.name %></td>
+      <td><%=h task.effort %></td>
     </tr>
     <% end %>
   </table>

@@ -8285,3 +8285,243 @@ Rendering projects/edit
 Rendered projects/_form (1.8ms)
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
 Completed in 25ms (View: 17, DB: 3) | 200 OK [http://localhost/projects/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-12-13 17:16:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/edit
+Rendered projects/_form (2.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 171ms (View: 134, DB: 2) | 200 OK [http://localhost/projects/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-12-13 17:16:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/edit
+Rendered projects/_form (1.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 15ms (View: 8, DB: 3) | 200 OK [http://localhost/projects/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-12-13 17:16:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/edit
+Rendered projects/_form (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 14ms (View: 7, DB: 2) | 200 OK [http://localhost/projects/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-12-13 17:17:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/edit
+Rendered projects/_form (2.3ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 19ms (View: 12, DB: 3) | 200 OK [http://localhost/projects/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#update (for 127.0.0.1 at 2009-12-13 17:17:08) [PUT]
+  Parameters: {"commit"=>"Update", "project"=>{"name"=>"Shedmaster", "description"=>"Development of replacement for shedmasta application"}, "authenticity_token"=>"kXPQQsf1Pz2Kurnn9mTo8AmRW+++UApuD/5Y1Wsav2Q=", "id"=>"1"}
+  [4;36;1mProject Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/1
+Completed in 11ms (DB: 3) | 302 Found [http://localhost/projects/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-12-13 17:17:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.8ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.project_id = 1) [0m
+  [4;35;1mTask Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (1.4ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.3ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 109ms (View: 96, DB: 8) | 200 OK [http://localhost/projects/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-12-13 17:17:12) [GET]
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mProject Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+Completed in 90ms (View: 82, DB: 3) | 200 OK [http://localhost/projects]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-12-13 17:17:15) [GET]
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Rendering template within layouts/application
+Rendering projects/new
+Rendered projects/_form (1.0ms)
+Completed in 30ms (View: 23, DB: 2) | 200 OK [http://localhost/projects/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-12-13 17:17:18) [POST]
+  Parameters: {"commit"=>"Create", "project"=>{"name"=>"asdasd", "description"=>"asdasd"}, "authenticity_token"=>"kXPQQsf1Pz2Kurnn9mTo8AmRW+++UApuD/5Y1Wsav2Q="}
+  [4;36;1mProject Columns (5.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProject Create (0.2ms)[0m   [0;1mINSERT INTO `projects` (`name`, `updated_at`, `description`, `created_at`) VALUES('asdasd', '2009-12-13 07:17:18', 'asdasd', '2009-12-13 07:17:18')[0m
+  [4;35;1mSQL (30.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/3
+Completed in 46ms (DB: 36) | 302 Found [http://localhost/projects]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-12-13 17:17:18) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProject Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (1.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.project_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 3) [0m
+Completed in 19ms (View: 8, DB: 4) | 200 OK [http://localhost/projects/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-12-13 17:17:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProject Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.project_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 3) [0m
+Completed in 16ms (View: 8, DB: 3) | 200 OK [http://localhost/projects/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-12-13 17:17:24) [GET]
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mProject Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 21ms (View: 14, DB: 3) | 200 OK [http://localhost/projects]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-12-13 17:17:25) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mPerson Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `people`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM `people` [0m
+  [4;36;1mSkill Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `skills` [0m
+  [4;36;1mProject Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `projects` [0m
+Completed in 68ms (View: 59, DB: 7) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-12-13 17:17:28) [GET]
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` [0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;35;1mProject Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+Completed in 20ms (View: 13, DB: 2) | 200 OK [http://localhost/projects]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-12-13 17:17:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mTask Load (1.1ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.project_id = 1) [0m
+  [4;35;1mTask Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 28ms (View: 15, DB: 8) | 200 OK [http://localhost/projects/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-12-13 17:18:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.project_id = 1) [0m
+  [4;36;1mTask Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `tasks`[0m
+  [4;35;1mSkill Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `skills`[0m
+  [4;36;1mSkill Load (0.6ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;35;1mSkill Load (0.1ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 32ms (View: 20, DB: 7) | 200 OK [http://localhost/projects/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2009-12-13 17:19:00) [GET]
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` [0m
+Rendering template within layouts/application
+Rendering tasks/index
+  [4;35;1mTask Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `tasks`[0m
+  [4;36;1mSkill Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+  [4;35;1mSkill Load (0.6ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mSkill Load (0.2ms)[0m   [0;1mSELECT * FROM `skills` WHERE (`skills`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `skills` WHERE (`skills`.`id` = 2) [0m
+  [4;36;1mProject Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 45ms (View: 33, DB: 7) | 200 OK [http://localhost/tasks]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TasksController#new (for 127.0.0.1 at 2009-12-13 17:19:03) [GET]
+  [4;36;1mTask Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `tasks`[0m
+  [4;35;1mSkill Load (0.3ms)[0m   [0mSELECT * FROM `skills` ORDER BY name[0m
+  [4;36;1mSkill Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `skills`[0m
+Rendering template within layouts/application
+Rendering tasks/new
+Rendered tasks/_form (159.2ms)
+  [4;35;1mProject Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 1) [0m
+Completed in 220ms (View: 206, DB: 6) | 200 OK [http://localhost/tasks/new]
