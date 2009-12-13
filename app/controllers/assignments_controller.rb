@@ -26,6 +26,8 @@ class AssignmentsController < ApplicationController
   # GET /assignments/new.xml
   def new
     @assignment = Assignment.new
+    @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}
+    @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +38,8 @@ class AssignmentsController < ApplicationController
   # GET /assignments/1/edit
   def edit
     @assignment = Assignment.find(params[:id])
+    @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}
+    @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
   end
 
   # POST /assignments

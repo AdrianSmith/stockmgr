@@ -8,8 +8,8 @@
 
 <% @assignments.each do |assignment| %>
   <tr>
-    <td><%=h assignment.person_id %></td>
-    <td><%=h assignment.task_id %></td>
+    <td><%=h assignment.person.full_name %></td>
+    <td><%=h assignment.task.name %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
     <td><%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -19,5 +19,5 @@
 
 <br />
 
-<%= link_to 'New assignment', new_assignment_path %> | 
+<%= link_to 'New Assignment', new_assignment_path %> | 
 <%= link_to 'Menu', :controller => 'welcome', :action => 'index' %>
