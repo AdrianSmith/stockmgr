@@ -8,6 +8,23 @@
   <%=h @project.description %>
 </p>
 
+<p>
+  <b>Tasks:</b>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Assignee</th>
+    </tr>
+
+    <% @project.tasks.each do |task| %>
+    <tr>
+      <td><%=h task.name %></td>
+      <td><%=h task.skill.name %></td>
+    </tr>
+    <% end %>
+  </table>
+</p>
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

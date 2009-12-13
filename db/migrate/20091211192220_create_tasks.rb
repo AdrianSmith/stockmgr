@@ -3,10 +3,11 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :name, :null => :no
       t.text :description
+      t.integer :project_id, :null => :no
       t.integer :skill_id, :null => :no
       t.date :start, :null => :no
       t.date :finish, :null => :no
-      t.decimal :fte_load, :null => :no
+      t.integer :effort, :null => :no
 
       t.timestamps
     end

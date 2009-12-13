@@ -3,21 +3,19 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
     <th>Skill</th>
+    <th>Effort</th>
     <th>Start</th>
     <th>Finish</th>
-    <th>Fte load</th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
     <td><%=h task.name %></td>
-    <td><%=h task.description %></td>
-    <td><%=h task.skill_id %></td>
-    <td><%=h task.start %></td>
-    <td><%=h task.finish %></td>
-    <td><%=h task.fte_load %></td>
+    <td><%=h task.skill.name %></td>
+    <td><%=h task.effort %></td>
+    <td><%= format_date(task.start) %></td>
+    <td><%= format_date(task.finish) %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -3,6 +3,7 @@ class CreateAssignments < ActiveRecord::Migration
     create_table :assignments do |t|
       t.integer :person_id, :null => :no
       t.integer :task_id, :null => :no
+      t.decimal :fte_load, :null => :no
 
       t.timestamps
     end

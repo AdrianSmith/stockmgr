@@ -14,6 +14,11 @@
 </p>
 
 <p>
+  <b>Effort:</b>
+  <%=h @task.effort %>
+</p>
+
+<p>
   <b>Start:</b>
   <%=h @task.start %>
 </p>
@@ -22,12 +27,6 @@
   <b>Finish:</b>
   <%=h @task.finish %>
 </p>
-
-<p>
-  <b>Fte load:</b>
-  <%=h @task.fte_load %>
-</p>
-
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

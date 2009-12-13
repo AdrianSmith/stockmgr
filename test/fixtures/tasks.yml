@@ -4,16 +4,28 @@ one:
   id: 1
   name: Provision Database
   description: Provision database and optimise performance
+  project_id: 1
   skill_id: 2
+  effort: 40
   start: 2009-12-12
   finish: 2009-12-22
-  fte_load: 0.5
 
 two:
   id: 2
-  name: Web Interface
+  name: Create Web Interface
   description: Development of web interface
+  project_id: 1
   skill_id: 1
+  effort: 200
   start: 2009-12-12
   finish: 2009-12-18
-  fte_load: 1
+
+three:
+  id: 3
+  name: Test System
+  description: System testing of application
+  project_id: 1
+  skill_id: 2
+  effort: 100
+  start: 2009-12-12
+  finish: 2009-12-18

@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20091211192253) do
   create_table "assignments", :force => true do |t|
     t.integer  "person_id"
     t.integer  "task_id"
+    t.integer  "fte_load",   :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20091211192253) do
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "is_virtual", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,10 +51,11 @@ ActiveRecord::Schema.define(:version => 20091211192253) do
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "project_id"
     t.integer  "skill_id"
     t.date     "start"
     t.date     "finish"
-    t.integer  "fte_load",    :limit => 10, :precision => 10, :scale => 0
+    t.integer  "effort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
