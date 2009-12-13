@@ -1,18 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-    <title>Team Player</title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
+<head>
+  <title>TeamWork</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= yield(:head) %>
+</head>
+<body>                 
 
-      <%= yield %>
+  <div id="container">
+    <div id="message">
+      <p>
+        <%= DateTime.now.strftime("%a %d %b %Y") + " [wk " + Date.today.cweek.to_s + "]"%>
+      </p>
+
+      <p>
+        <%= link_to('Project:' + session[:current_project_id].to_s, project_path(Project.find(session[:current_project_id]))) if session[:current_project_id] %>
+      </p>
+      <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
     </div>
-  </body>
+    
+    <div id="title">
+      <h1>TeamWork</h1>
+    </div>
+
+    <%= yield %>
+  </div>
+</body>
 </html>

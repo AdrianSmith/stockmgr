@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects.xml
   def index
     @projects = Project.all
+    clear_current_project
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +16,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-
+    store_current_project(@project)   
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
@@ -26,6 +28,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    store_current_project(@project)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,12 +39,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    store_current_project(@project)
   end
 
   # POST /projects
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    store_current_project(@project)
 
     respond_to do |format|
       if @project.save
@@ -59,6 +64,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    store_current_project(@project)
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -77,6 +83,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    clear_current_project
 
     respond_to do |format|
       format.html { redirect_to(projects_url) }

@@ -19,12 +19,30 @@ a {
 }
 
 #container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+  width: 1000px; 
+  margin: 0 auto 0 auto; 
+  position: relative;
+  clear: both;
+  background: white; 
+  overflow: auto;
+  padding: 10px;
+ }
+
+#message {
+  position: absolute;
+  top: 5px;
+  right: 5px; 
+  height: 70px;
+  width: 300px;
+  text-align: right;
+  font-size: 0.95em;
+ }
+
+#title {
+  height: 70px;
+  width: 700px;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 #flash_notice, #flash_error {
