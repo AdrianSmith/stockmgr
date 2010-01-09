@@ -1,0 +1,8 @@
+# ignore log files
+*.log
+
+# ignore all uploads
+uploads
+
+# ignore textmate project files
+*.tmproj

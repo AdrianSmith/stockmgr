@@ -1,4 +1,6 @@
 one:
   username: admin
-  email: admin@teamwork.com
+  email: brit_selina@hotmail.com
   crypted_password: test
+  first_name: Brit
+  last_name: Stephensen
