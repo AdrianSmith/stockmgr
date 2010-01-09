@@ -1,6 +1,3 @@
-class PaymentType < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: payment_types
@@ -12,3 +9,8 @@ end
 #  updated_at  :datetime
 #
 
+class PaymentType < ActiveRecord::Base
+  has_many :payments
+  validates_uniqueness_of :name
+
+end

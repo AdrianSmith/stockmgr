@@ -1,8 +1,3 @@
-class UnitsOfMeasure < ActiveRecord::Base
-  has_many :products
-
-end
-
 # == Schema Information
 #
 # Table name: units_of_measures
@@ -14,4 +9,11 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+
+class UnitsOfMeasure < ActiveRecord::Base
+  has_many :products
+
+  validates_uniqueness_of :name
+
+end
 

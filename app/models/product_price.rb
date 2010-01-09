@@ -1,7 +1,3 @@
-class ProductPrice < ActiveRecord::Base
-end
-
-
 # == Schema Information
 #
 # Table name: product_prices
@@ -14,3 +10,25 @@ end
 #  updated_at :datetime
 #
 
+class ProductPrice < ActiveRecord::Base
+  belongs_to :product
+  
+  validates_presence_of :amount
+  validates_numericality_of :amount
+ 
+  def to_s
+    "#ProductPrice " + self.id.to_s + " [Product Id: " + self.product_id.to_s + "Price: " + self.amount.to_s + ", Comment: " + self.comment.to_s + "]"
+  end 
+  
+  def price
+    amount
+  end
+  
+  protected
+  def validate
+    if amount
+      errors.add(:amount, "cannot be negative") if amount < 0
+    end
+  end
+
+end

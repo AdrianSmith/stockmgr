@@ -1,8 +1,3 @@
-class PhysicalForm < ActiveRecord::Base
-  has_many :products
-
-end
-
 # == Schema Information
 #
 # Table name: physical_forms
@@ -14,3 +9,8 @@ end
 #  updated_at  :datetime
 #
 
+class PhysicalForm < ActiveRecord::Base
+  has_many :products
+  validates_uniqueness_of :name
+
+end

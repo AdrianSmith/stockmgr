@@ -1,6 +1,3 @@
-class PurchaseOrderState < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: purchase_order_states
@@ -11,4 +8,10 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+
+class PurchaseOrderState < ActiveRecord::Base
+  has_many :purchase_order
+  validates_uniqueness_of :name
+
+end
 

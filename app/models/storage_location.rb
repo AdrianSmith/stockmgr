@@ -1,8 +1,3 @@
-class StorageLocation < ActiveRecord::Base
-  has_many :products
-
-end
-
 # == Schema Information
 #
 # Table name: storage_locations
@@ -13,4 +8,10 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+
+class StorageLocation < ActiveRecord::Base
+  has_many :products
+  
+  validates_uniqueness_of :name
+end
 

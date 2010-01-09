@@ -1,6 +1,3 @@
-class ProductType < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: product_types
@@ -11,4 +8,10 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+
+class ProductType < ActiveRecord::Base
+  has_many :products
+  validates_uniqueness_of :name
+
+end
 

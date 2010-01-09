@@ -1,7 +1,7 @@
 class CreateSuppliersContactDetails < ActiveRecord::Migration
   def self.up
     create_table :suppliers_contact_details do |t|
-      t.integer :user_id
+      t.integer :supplier_id
       t.integer :contact_detail_id
       t.integer :contact_detail_type_id
 

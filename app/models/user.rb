@@ -1,8 +1,3 @@
-class User < ActiveRecord::Base
-#  attr_accessible :username, :email, :password
-  acts_as_authentic
-end
-
 # == Schema Information
 #
 # Table name: users
@@ -25,3 +20,14 @@ end
 #  lock_version           :integer(4)      default(0)
 #
 
+class User < ActiveRecord::Base
+#  attr_accessible :username, :email, :password
+  acts_as_authentic 
+  has_many :sales_orders
+  has_many :payments
+  
+  def pretty_name
+    self.first_name.titleize + " " + self.last_name.titleize
+  end  
+  
+end

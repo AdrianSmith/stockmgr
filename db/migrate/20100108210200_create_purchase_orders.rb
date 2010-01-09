@@ -1,6 +1,7 @@
 class CreatePurchaseOrders < ActiveRecord::Migration
   def self.up
     create_table :purchase_orders do |t|
+      t.integer :purchase_order_id
       t.integer :supplier_id
       t.text :comment
       t.integer :created_by_user_id

@@ -1,7 +1,3 @@
-class PurchaseOrderItem < ActiveRecord::Base
-end
-
-
 # == Schema Information
 #
 # Table name: purchase_order_items
@@ -13,4 +9,17 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
+
+class PurchaseOrderItem < ActiveRecord::Base 
+  belongs_to :purchase_order
+  belongs_to :supplier    
+  
+  validates_presence_of :supplier, :purchase_order
+  
+end
+
+
+
+
+
 

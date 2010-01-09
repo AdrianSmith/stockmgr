@@ -1,7 +1,3 @@
-class Payment < ActiveRecord::Base
-end
-
-
 # == Schema Information
 #
 # Table name: payments
@@ -16,4 +12,16 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #
+
+class Payment < ActiveRecord::Base
+  belongs_to :user     
+  belongs_to :payment_type
+
+  def created_by
+    User.find(self.created_by_user_id) if User.exists?(self.created_by_user_id)
+  end
+
+end
+
+
 

@@ -1,6 +1,3 @@
-class Certifier < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: certifiers
@@ -13,4 +10,9 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #
+
+class Certifier < ActiveRecord::Base
+  has_one :product
+  validates_uniqueness_of :name
+end
 

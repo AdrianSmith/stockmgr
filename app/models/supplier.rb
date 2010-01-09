@@ -1,8 +1,3 @@
-class Supplier < ActiveRecord::Base
-  has_many :products
-  
-end
-
 # == Schema Information
 #
 # Table name: suppliers
@@ -19,4 +14,9 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #
+
+class Supplier < ActiveRecord::Base
+  has_many :products
+  
+end
 

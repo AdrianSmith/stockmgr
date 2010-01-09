@@ -1,6 +1,7 @@
 class CreateSalesOrderItems < ActiveRecord::Migration
   def self.up
     create_table :sales_order_items do |t|
+      t.integer :sales_order_id
       t.integer :product_id
       t.decimal :quantity
       t.integer :percentage_discount

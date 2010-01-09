@@ -8,11 +8,13 @@ class SalesOrderItemTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: sales_order_items
 #
 #  id                  :integer(4)      not null, primary key
+#  sales_order_id      :integer(4)
 #  product_id          :integer(4)
 #  quantity            :integer(10)
 #  percentage_discount :integer(4)

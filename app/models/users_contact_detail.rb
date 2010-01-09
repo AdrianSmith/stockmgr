@@ -1,6 +1,3 @@
-class UsersContactDetail < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: users_contact_details
@@ -12,4 +9,10 @@ end
 #  created_at             :datetime
 #  updated_at             :datetime
 #
+
+class UsersContactDetail < ActiveRecord::Base 
+  belongs_to :user
+  belongs_to :contact_detail_type
+  has_one :contact_detail
+end
 

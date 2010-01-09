@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100109214555) do
+ActiveRecord::Schema.define(:version => 20100109231647) do
 
   create_table "certifiers", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "updated_at"
   end
 
+  add_index "payments", ["payment_type_id"], :name => "index_payments_on_payment_type_id"
+  add_index "payments", ["user_id"], :name => "index_payments_on_user_id"
+
   create_table "physical_forms", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -71,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "product_prices", ["product_id"], :name => "index_product_prices_on_product_id"
 
   create_table "product_types", :force => true do |t|
     t.string   "name"
@@ -95,13 +100,24 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "updated_at"
   end
 
+  add_index "products", ["certifier_id"], :name => "index_products_on_certifier_id"
+  add_index "products", ["physical_form_id"], :name => "index_products_on_physical_form_id"
+  add_index "products", ["product_type_id"], :name => "index_products_on_product_type_id"
+  add_index "products", ["storage_location_id"], :name => "index_products_on_storage_location_id"
+  add_index "products", ["storage_type_id"], :name => "index_products_on_storage_type_id"
+  add_index "products", ["supplier_id"], :name => "index_products_on_supplier_id"
+  add_index "products", ["units_of_measure_id"], :name => "index_products_on_units_of_measure_id"
+
   create_table "purchase_order_items", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "quantity",   :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "price",                    :precision => 8,  :scale => 2, :default => 0.0
+    t.integer  "purchase_order_id"
+    t.integer  "quantity",          :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "price",                           :precision => 8,  :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "purchase_order_items", ["purchase_order_id"], :name => "index_purchase_order_items_on_purchase_order_id"
 
   create_table "purchase_order_states", :force => true do |t|
     t.string   "name"
@@ -111,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
   end
 
   create_table "purchase_orders", :force => true do |t|
+    t.integer  "purchase_order_id"
     t.integer  "supplier_id"
     t.text     "comment"
     t.integer  "created_by_user_id"
@@ -120,7 +137,11 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "updated_at"
   end
 
+  add_index "purchase_orders", ["purchase_order_state_id"], :name => "index_purchase_orders_on_purchase_order_state_id"
+  add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
+
   create_table "sales_order_items", :force => true do |t|
+    t.integer  "sales_order_id"
     t.integer  "product_id"
     t.integer  "quantity",            :limit => 10, :precision => 10, :scale => 0
     t.integer  "percentage_discount"
@@ -128,6 +149,8 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sales_order_items", ["sales_order_id"], :name => "index_sales_order_items_on_sales_order_id"
 
   create_table "sales_order_states", :force => true do |t|
     t.string   "name"
@@ -147,6 +170,9 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sales_orders", ["sales_order_state_id"], :name => "index_sales_orders_on_sales_order_state_id"
+  add_index "sales_orders", ["user_id"], :name => "index_sales_orders_on_user_id"
 
   create_table "storage_locations", :force => true do |t|
     t.string   "name"
@@ -176,12 +202,15 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
   end
 
   create_table "suppliers_contact_details", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "supplier_id"
     t.integer  "contact_detail_id"
     t.integer  "contact_detail_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "suppliers_contact_details", ["contact_detail_type_id"], :name => "index_suppliers_contact_details_on_contact_detail_type_id"
+  add_index "suppliers_contact_details", ["supplier_id"], :name => "index_suppliers_contact_details_on_supplier_id"
 
   create_table "units_of_measures", :force => true do |t|
     t.string   "name"
@@ -216,5 +245,8 @@ ActiveRecord::Schema.define(:version => 20100109214555) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users_contact_details", ["contact_detail_type_id"], :name => "index_users_contact_details_on_contact_detail_type_id"
+  add_index "users_contact_details", ["user_id"], :name => "index_users_contact_details_on_user_id"
 
 end
