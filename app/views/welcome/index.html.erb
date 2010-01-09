@@ -1,5 +1,8 @@
 <h1>Dashboard</h1>
 
-<%= link_to(Person.count.to_s + ' People', people_path) %><br />
-<%= link_to(Skill.count.to_s + ' Skills', skills_path) %><br />
-<%= link_to(Project.count.to_s + ' Projects', projects_path) %><br />
+<%= link_to('Customers', users_path) %><br />
+<%= link_to('Suppliers', suppliers_path) %><br />
+<%= link_to('Products', products_path) %><br />
+<%= link_to('Purchase Orders', purchase_orders_path) %><br />
+<%= link_to('Sales Orders', sales_orders_path) %><br />
+<%= link_to('Administration', :controller => 'administration', :action => 'index') %>

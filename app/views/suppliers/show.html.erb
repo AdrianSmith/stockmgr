@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @supplier.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @supplier.description %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @supplier.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @supplier.email %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @supplier.comment %>
+</p>
+
+<p>
+  <b>Delivery rules:</b>
+  <%=h @supplier.delivery_rules %>
+</p>
+
+
+<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<%= link_to 'Back', suppliers_path %>

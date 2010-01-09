@@ -1,0 +1,4464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+    
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+.rcov_run a, .rcov_not_run a {
+  text-decoration: none;
+}
+.rcov_run a {
+  color: #333;
+}
+.rcov_not_run a {
+  color: #000;
+}
+.rcov_overflow {
+  overflow: auto;
+  font-size: 50%;
+}
+
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">team</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Rcov Code Coverage Results</h3>
+
+<p>C0 code coverage information.</p>
+
+<img src="rcov.png?Fri Dec 25 20:18:20 +1000 2009">
+
+<p>Total Coverage: 85.3% </p>
+<table>
+  <tr>
+    <th>File Path</th>
+    <th>Percent run</th>
+  </tr>
+  
+  
+    <tr>
+      <td><a href="#app_helpers_application_helper_rb">app/helpers/application_helper.rb</a></td>
+      <td>54</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_user_sessions_controller_rb">app/controllers/user_sessions_controller.rb</a></td>
+      <td>65</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_users_controller_rb">app/controllers/users_controller.rb</a></td>
+      <td>76</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_person_rb">app/models/person.rb</a></td>
+      <td>80</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_people_controller_rb">app/controllers/people_controller.rb</a></td>
+      <td>86</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_tasks_controller_rb">app/controllers/tasks_controller.rb</a></td>
+      <td>86</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_people_skills_controller_rb">app/controllers/people_skills_controller.rb</a></td>
+      <td>86</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_skills_controller_rb">app/controllers/skills_controller.rb</a></td>
+      <td>86</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_projects_controller_rb">app/controllers/projects_controller.rb</a></td>
+      <td>87</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_assignments_controller_rb">app/controllers/assignments_controller.rb</a></td>
+      <td>87</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_application_controller_rb">app/controllers/application_controller.rb</a></td>
+      <td>95</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_task_rb">app/models/task.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_users_helper_rb">app/helpers/users_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_skills_helper_rb">app/helpers/skills_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_user_sessions_helper_rb">app/helpers/user_sessions_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_people_skills_helper_rb">app/helpers/people_skills_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_user_rb">app/models/user.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_people_skill_rb">app/models/people_skill.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_project_rb">app/models/project.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_assignments_helper_rb">app/helpers/assignments_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_tasks_helper_rb">app/helpers/tasks_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_projects_helper_rb">app/helpers/projects_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_welcome_controller_rb">app/controllers/welcome_controller.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_assignment_rb">app/models/assignment.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_skill_rb">app/models/skill.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_people_helper_rb">app/helpers/people_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_user_session_rb">app/models/user_session.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+</table>
+
+
+  <h2 id="app_helpers_application_helper_rb"> app/helpers/application_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=1'><pre>   # Methods added to this helper will be available to all templates in the application.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=2'><pre>   module ApplicationHelper </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=3'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=4'><pre>     def format_currency(number, hide_zero=false)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=5'><pre>       format = String.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=6'><pre>       if number</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=7'><pre>         if number < 0 then</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=8'><pre>           format = %q[<span style="color: red">] + number_to_currency(number) + "</span>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=9'><pre>         elsif hide_zero && number == 0.0 </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=10'><pre>           format = ""</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=11'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=12'><pre>           format = number_to_currency(number)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=13'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=14'><pre>       end    </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=15'><pre>       format  </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=16'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=17'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=18'><pre>     def format_date(date)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=19'><pre>       date.strftime("%a %d %b %y") if date</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=20'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=21'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=22'><pre>     def format_time(time)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=23'><pre>       time.strftime("%H:%M") if time</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=24'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=25'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/application_helper.rb&line=26'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_user_sessions_controller_rb"> app/controllers/user_sessions_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=1'><pre>   class UserSessionsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=2'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=3'><pre>       @user_session = UserSession.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=4'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=5'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=6'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=7'><pre>       @user_session = UserSession.new(params[:user_session])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=8'><pre>       if @user_session.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=9'><pre>         flash[:notice] = "Successful Login"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=10'><pre>         redirect_to root_url</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=11'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=12'><pre>         render :action => 'new'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=13'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=14'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=15'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=16'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=17'><pre>       @user_session = UserSession.find</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=18'><pre>       @user_session.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=19'><pre>       flash[:notice] = "Successful Logout"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=20'><pre>       redirect_to root_url</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=21'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=22'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/user_sessions_controller.rb&line=23'><pre>                         </pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_users_controller_rb"> app/controllers/users_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=1'><pre>   class UsersController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=2'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=3'><pre>       @user = User.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=4'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=5'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=6'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=7'><pre>       @user = User.new(params[:user])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=8'><pre>       if @user.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=9'><pre>         flash[:notice] = "Registration Successful"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=10'><pre>         redirect_to root_url</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=11'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=12'><pre>         render :action => 'new'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=13'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=14'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=15'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=16'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=17'><pre>       @user = current_user</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=18'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=19'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=20'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=21'><pre>       @user = current_user</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=22'><pre>       if @user.update_attributes(params[:user])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=23'><pre>         flash[:notice] = "Successfully Updated Profile"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=24'><pre>         redirect_to root_url</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=25'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=26'><pre>         render :action => 'edit'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=27'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=28'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/users_controller.rb&line=29'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_person_rb"> app/models/person.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=1'><pre>   class Person < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=2'><pre>     has_many :assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=3'><pre>     has_many :people_skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=4'><pre>     has_many :tasks, :through => :assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=5'><pre>     has_many :skills, :through => :people_skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=6'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=8'><pre>     def full_name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=9'><pre>       (first_name + ' ' + last_name).titleize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=10'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=11'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=12'><pre>     def skill_summary</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=13'><pre>       skills.collect{|s| s.name + ', '}.to_s.chop.chop</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=14'><pre>     end       </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=15'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=16'><pre>     def task_summary</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=17'><pre>       tasks.collect{|s| s.name + ', '}.to_s.chop.chop</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=18'><pre>     end       </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=19'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/person.rb&line=20'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_people_controller_rb"> app/controllers/people_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=1'><pre>   class PeopleController < ApplicationController </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=2'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=3'><pre>     # GET /people</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=4'><pre>     # GET /people.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=6'><pre>       @people = Person.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=8'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=9'><pre>         format.html # index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=10'><pre>         format.xml  { render :xml => @people }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=11'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=12'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=13'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=14'><pre>     # GET /people/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=15'><pre>     # GET /people/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=16'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=17'><pre>       @person = Person.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=18'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=19'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=20'><pre>         format.html # show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=21'><pre>         format.xml  { render :xml => @person }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=22'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=23'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=24'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=25'><pre>     # GET /people/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=26'><pre>     # GET /people/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=27'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=28'><pre>       @person = Person.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=29'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=30'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=31'><pre>         format.html # new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=32'><pre>         format.xml  { render :xml => @person }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=33'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=34'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=35'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=36'><pre>     # GET /people/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=37'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=38'><pre>       @person = Person.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=39'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=40'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=41'><pre>     # POST /people</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=42'><pre>     # POST /people.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=43'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=44'><pre>       @person = Person.new(params[:person])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=45'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=46'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=47'><pre>         if @person.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=48'><pre>           flash[:notice] = 'Person was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=49'><pre>           format.html { redirect_to(@person) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=50'><pre>           format.xml  { render :xml => @person, :status => :created, :location => @person }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=51'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=52'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=53'><pre>           format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=54'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=55'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=56'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=57'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=58'><pre>     # PUT /people/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=59'><pre>     # PUT /people/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=60'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=61'><pre>       @person = Person.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=62'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=63'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=64'><pre>         if @person.update_attributes(params[:person])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=65'><pre>           flash[:notice] = 'Person was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=66'><pre>           format.html { redirect_to(@person) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=67'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=68'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=69'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=70'><pre>           format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=71'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=72'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=73'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=74'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=75'><pre>     # DELETE /people/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=76'><pre>     # DELETE /people/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=77'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=78'><pre>       @person = Person.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=79'><pre>       @person.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=80'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=81'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=82'><pre>         format.html { redirect_to(people_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=83'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=84'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=85'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_controller.rb&line=86'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_tasks_controller_rb"> app/controllers/tasks_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=1'><pre>   class TasksController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=2'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=3'><pre>     # GET /tasks</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=4'><pre>     # GET /tasks.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=6'><pre>       @tasks = Task.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=8'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=9'><pre>         format.html #index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=10'><pre>         format.xml  { render :xml => @tasks }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=11'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=12'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=13'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=14'><pre>     # GET /tasks/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=15'><pre>     # GET /tasks/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=16'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=17'><pre>       @task = Task.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=18'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=19'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=20'><pre>         format.html #show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=21'><pre>         format.xml  { render :xml => @task }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=22'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=23'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=24'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=25'><pre>     # GET /tasks/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=26'><pre>     # GET /tasks/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=27'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=28'><pre>       @task = Task.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=29'><pre>       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=30'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=31'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=32'><pre>         format.html #new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=33'><pre>         format.xml  { render :xml => @task }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=34'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=35'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=36'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=37'><pre>     # GET /tasks/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=38'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=39'><pre>       @task = Task.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=40'><pre>       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=41'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=42'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=43'><pre>     # POST /tasks</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=44'><pre>     # POST /tasks.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=45'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=46'><pre>       @task = Task.new(params[:task])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=47'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=48'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=49'><pre>         if @task.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=50'><pre>           flash[:notice] = 'Task was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=51'><pre>           format.html { redirect_to(@task) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=52'><pre>           format.xml  { render :xml => @task, :status => :created, :location => @task }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=53'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=54'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=55'><pre>           format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=56'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=57'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=58'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=59'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=60'><pre>     # PUT /tasks/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=61'><pre>     # PUT /tasks/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=62'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=63'><pre>       @task = Task.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=64'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=65'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=66'><pre>         if @task.update_attributes(params[:task])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=67'><pre>           flash[:notice] = 'Task was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=68'><pre>           format.html { redirect_to(@task) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=69'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=70'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=71'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=72'><pre>           format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=73'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=74'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=75'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=76'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=77'><pre>     # DELETE /tasks/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=78'><pre>     # DELETE /tasks/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=79'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=80'><pre>       @task = Task.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=81'><pre>       @task.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=82'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=83'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=84'><pre>         format.html { redirect_to(tasks_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=85'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=86'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=87'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/tasks_controller.rb&line=88'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_people_skills_controller_rb"> app/controllers/people_skills_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=1'><pre>   class PeopleSkillsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=2'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=3'><pre>     # GET /people_skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=4'><pre>     # GET /people_skills.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=6'><pre>       @people_skills = PeopleSkill.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=8'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=9'><pre>         format.html # index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=10'><pre>         format.xml  { render :xml => @people_skills }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=11'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=12'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=13'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=14'><pre>     # GET /people_skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=15'><pre>     # GET /people_skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=16'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=17'><pre>       @people_skill = PeopleSkill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=18'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=19'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=20'><pre>         format.html # show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=21'><pre>         format.xml  { render :xml => @people_skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=22'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=23'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=24'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=25'><pre>     # GET /people_skills/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=26'><pre>     # GET /people_skills/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=27'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=28'><pre>       @people_skill = PeopleSkill.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=29'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=30'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=31'><pre>         format.html # new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=32'><pre>         format.xml  { render :xml => @people_skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=33'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=34'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=35'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=36'><pre>     # GET /people_skills/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=37'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=38'><pre>       @people_skill = PeopleSkill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=39'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=40'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=41'><pre>     # POST /people_skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=42'><pre>     # POST /people_skills.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=43'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=44'><pre>       @people_skill = PeopleSkill.new(params[:people_skill])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=45'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=46'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=47'><pre>         if @people_skill.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=48'><pre>           flash[:notice] = 'PeopleSkill was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=49'><pre>           format.html { redirect_to(@people_skill) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=50'><pre>           format.xml  { render :xml => @people_skill, :status => :created, :location => @people_skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=51'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=52'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=53'><pre>           format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=54'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=55'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=56'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=57'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=58'><pre>     # PUT /people_skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=59'><pre>     # PUT /people_skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=60'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=61'><pre>       @people_skill = PeopleSkill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=62'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=63'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=64'><pre>         if @people_skill.update_attributes(params[:people_skill])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=65'><pre>           flash[:notice] = 'PeopleSkill was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=66'><pre>           format.html { redirect_to(@people_skill) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=67'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=68'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=69'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=70'><pre>           format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=71'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=72'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=73'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=74'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=75'><pre>     # DELETE /people_skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=76'><pre>     # DELETE /people_skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=77'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=78'><pre>       @people_skill = PeopleSkill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=79'><pre>       @people_skill.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=80'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=81'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=82'><pre>         format.html { redirect_to(people_skills_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=83'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=84'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=85'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/people_skills_controller.rb&line=86'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_skills_controller_rb"> app/controllers/skills_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=1'><pre>   class SkillsController < ApplicationController </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=2'><pre>    </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=3'><pre>     # GET /skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=4'><pre>     # GET /skills.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=6'><pre>       @skills = Skill.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=8'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=9'><pre>         format.html # index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=10'><pre>         format.xml  { render :xml => @skills }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=11'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=12'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=13'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=14'><pre>     # GET /skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=15'><pre>     # GET /skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=16'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=17'><pre>       @skill = Skill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=18'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=19'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=20'><pre>         format.html # show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=21'><pre>         format.xml  { render :xml => @skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=22'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=23'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=24'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=25'><pre>     # GET /skills/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=26'><pre>     # GET /skills/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=27'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=28'><pre>       @skill = Skill.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=29'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=30'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=31'><pre>         format.html # new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=32'><pre>         format.xml  { render :xml => @skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=33'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=34'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=35'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=36'><pre>     # GET /skills/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=37'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=38'><pre>       @skill = Skill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=39'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=40'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=41'><pre>     # POST /skills</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=42'><pre>     # POST /skills.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=43'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=44'><pre>       @skill = Skill.new(params[:skill])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=45'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=46'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=47'><pre>         if @skill.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=48'><pre>           flash[:notice] = 'Skill was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=49'><pre>           format.html { redirect_to(@skill) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=50'><pre>           format.xml  { render :xml => @skill, :status => :created, :location => @skill }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=51'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=52'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=53'><pre>           format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=54'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=55'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=56'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=57'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=58'><pre>     # PUT /skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=59'><pre>     # PUT /skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=60'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=61'><pre>       @skill = Skill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=62'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=63'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=64'><pre>         if @skill.update_attributes(params[:skill])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=65'><pre>           flash[:notice] = 'Skill was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=66'><pre>           format.html { redirect_to(@skill) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=67'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=68'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=69'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=70'><pre>           format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=71'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=72'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=73'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=74'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=75'><pre>     # DELETE /skills/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=76'><pre>     # DELETE /skills/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=77'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=78'><pre>       @skill = Skill.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=79'><pre>       @skill.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=80'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=81'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=82'><pre>         format.html { redirect_to(skills_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=83'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=84'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=85'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/skills_controller.rb&line=86'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_projects_controller_rb"> app/controllers/projects_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=1'><pre>   class ProjectsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=2'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=3'><pre>     # GET /projects</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=4'><pre>     # GET /projects.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=6'><pre>       @projects = Project.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=7'><pre>       clear_current_project</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=8'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=9'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=10'><pre>         format.html # index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=11'><pre>         format.xml  { render :xml => @projects }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=12'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=13'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=14'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=15'><pre>     # GET /projects/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=16'><pre>     # GET /projects/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=17'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=18'><pre>       @project = Project.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=19'><pre>       store_current_project(@project)   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=20'><pre>       </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=21'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=22'><pre>         format.html # show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=23'><pre>         format.xml  { render :xml => @project }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=24'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=25'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=26'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=27'><pre>     # GET /projects/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=28'><pre>     # GET /projects/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=29'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=30'><pre>       @project = Project.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=31'><pre>       store_current_project(@project)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=32'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=33'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=34'><pre>         format.html # new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=35'><pre>         format.xml  { render :xml => @project }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=36'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=37'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=38'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=39'><pre>     # GET /projects/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=40'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=41'><pre>       @project = Project.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=42'><pre>       store_current_project(@project)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=43'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=44'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=45'><pre>     # POST /projects</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=46'><pre>     # POST /projects.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=47'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=48'><pre>       @project = Project.new(params[:project])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=49'><pre>       store_current_project(@project)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=50'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=51'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=52'><pre>         if @project.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=53'><pre>           flash[:notice] = 'Project was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=54'><pre>           format.html { redirect_to(@project) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=55'><pre>           format.xml  { render :xml => @project, :status => :created, :location => @project }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=56'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=57'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=58'><pre>           format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=59'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=60'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=61'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=62'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=63'><pre>     # PUT /projects/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=64'><pre>     # PUT /projects/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=65'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=66'><pre>       @project = Project.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=67'><pre>       store_current_project(@project)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=68'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=69'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=70'><pre>         if @project.update_attributes(params[:project])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=71'><pre>           flash[:notice] = 'Project was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=72'><pre>           format.html { redirect_to(@project) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=73'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=74'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=75'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=76'><pre>           format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=77'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=78'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=79'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=80'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=81'><pre>     # DELETE /projects/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=82'><pre>     # DELETE /projects/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=83'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=84'><pre>       @project = Project.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=85'><pre>       @project.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=86'><pre>       clear_current_project</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=87'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=88'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=89'><pre>         format.html { redirect_to(projects_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=90'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=91'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=92'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/projects_controller.rb&line=93'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_assignments_controller_rb"> app/controllers/assignments_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=1'><pre>   class AssignmentsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=2'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=3'><pre>     # GET /assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=4'><pre>     # GET /assignments.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=5'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=6'><pre>       @assignments = Assignment.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=8'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=9'><pre>         format.html # index.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=10'><pre>         format.xml  { render :xml => @assignments }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=11'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=12'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=13'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=14'><pre>     # GET /assignments/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=15'><pre>     # GET /assignments/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=16'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=17'><pre>       @assignment = Assignment.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=18'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=19'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=20'><pre>         format.html # show.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=21'><pre>         format.xml  { render :xml => @assignment }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=22'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=23'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=24'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=25'><pre>     # GET /assignments/new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=26'><pre>     # GET /assignments/new.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=27'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=28'><pre>       @assignment = Assignment.new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=29'><pre>       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=30'><pre>       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=31'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=32'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=33'><pre>         format.html # new.html.erb</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=34'><pre>         format.xml  { render :xml => @assignment }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=35'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=36'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=37'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=38'><pre>     # GET /assignments/1/edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=39'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=40'><pre>       @assignment = Assignment.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=41'><pre>       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=42'><pre>       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=43'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=44'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=45'><pre>     # POST /assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=46'><pre>     # POST /assignments.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=47'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=48'><pre>       @assignment = Assignment.new(params[:assignment])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=49'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=50'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=51'><pre>         if @assignment.save</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=52'><pre>           flash[:notice] = 'Assignment was successfully created.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=53'><pre>           format.html { redirect_to(@assignment) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=54'><pre>           format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=55'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=56'><pre>           format.html { render :action => "new" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=57'><pre>           format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=58'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=59'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=60'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=61'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=62'><pre>     # PUT /assignments/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=63'><pre>     # PUT /assignments/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=64'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=65'><pre>       @assignment = Assignment.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=66'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=67'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=68'><pre>         if @assignment.update_attributes(params[:assignment])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=69'><pre>           flash[:notice] = 'Assignment was successfully updated.'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=70'><pre>           format.html { redirect_to(@assignment) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=71'><pre>           format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=72'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=73'><pre>           format.html { render :action => "edit" }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=74'><pre>           format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=75'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=76'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=77'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=78'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=79'><pre>     # DELETE /assignments/1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=80'><pre>     # DELETE /assignments/1.xml</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=81'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=82'><pre>       @assignment = Assignment.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=83'><pre>       @assignment.destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=84'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=85'><pre>       respond_to do |format|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=86'><pre>         format.html { redirect_to(assignments_url) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=87'><pre>         format.xml  { head :ok }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=88'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=89'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/assignments_controller.rb&line=90'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_application_controller_rb"> app/controllers/application_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=1'><pre>   # Filters added to this controller apply to all controllers in the application.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=2'><pre>   # Likewise, all the methods added will be available for all controllers.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=3'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=4'><pre>   class ApplicationController < ActionController::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=5'><pre>     helper :all # include all helpers, all the time</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=6'><pre>     protect_from_forgery # See ActionController::RequestForgeryProtection for details</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=7'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=8'><pre>     # Scrub sensitive parameters from your log</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=9'><pre>     # filter_parameter_logging :password      </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=10'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=11'><pre>     helper_method :current_user</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=12'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=13'><pre>     # Methods to extract objects based on session store</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=14'><pre>      def store_current_project(project)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=15'><pre>        session[:current_project_id] = project.id</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=16'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=17'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=18'><pre>      # Methods to extract objects based on session store</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=19'><pre>      def current_project</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=20'><pre>        Project.find(session[:current_project_id]) if session[:current_project_id]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=21'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=22'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=23'><pre>      # Methods to clear session store</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=24'><pre>       def clear_current_project</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=25'><pre>         session[:current_project_id] = nil</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=26'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=27'><pre>       </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=28'><pre>       private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=29'><pre>       </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=30'><pre>       def current_user_session</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=31'><pre>         return @current_user_session if defined?(@current_user_session)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=32'><pre>         @current_user_session = UserSession.find</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=33'><pre>       end  </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=34'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=35'><pre>       def current_user</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=36'><pre>         return @current_user if defined?(@current_user)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=37'><pre>         @current_user = current_user_session && current_user_session.record</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=38'><pre>       end  </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=39'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/application_controller.rb&line=40'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_task_rb"> app/models/task.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=1'><pre>   class Task < ActiveRecord::Base </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=2'><pre>     belongs_to :skill</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=3'><pre>     belongs_to :project</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=4'><pre>     has_many :assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=5'><pre>     has_many :people, :through => :assignments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/task.rb&line=6'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_users_helper_rb"> app/helpers/users_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/users_helper.rb&line=1'><pre>   module UsersHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/users_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_skills_helper_rb"> app/helpers/skills_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/skills_helper.rb&line=1'><pre>   module SkillsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/skills_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_user_sessions_helper_rb"> app/helpers/user_sessions_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/user_sessions_helper.rb&line=1'><pre>   module UserSessionsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/user_sessions_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_people_skills_helper_rb"> app/helpers/people_skills_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/people_skills_helper.rb&line=1'><pre>   module PeopleSkillsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/people_skills_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_user_rb"> app/models/user.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user.rb&line=1'><pre>   class User < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user.rb&line=2'><pre>   #  attr_accessible :username, :email, :password</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user.rb&line=3'><pre>     acts_as_authentic</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user.rb&line=4'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_people_skill_rb"> app/models/people_skill.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/people_skill.rb&line=1'><pre>   class PeopleSkill < ActiveRecord::Base      </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/people_skill.rb&line=2'><pre>     belongs_to :person</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/people_skill.rb&line=3'><pre>     belongs_to :skill</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/people_skill.rb&line=4'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_project_rb"> app/models/project.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/project.rb&line=1'><pre>   class Project < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/project.rb&line=2'><pre>     has_many :tasks</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/project.rb&line=3'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_assignments_helper_rb"> app/helpers/assignments_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/assignments_helper.rb&line=1'><pre>   module AssignmentsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/assignments_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_tasks_helper_rb"> app/helpers/tasks_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/tasks_helper.rb&line=1'><pre>   module TasksHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/tasks_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_projects_helper_rb"> app/helpers/projects_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/projects_helper.rb&line=1'><pre>   module ProjectsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/projects_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_welcome_controller_rb"> app/controllers/welcome_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=1'><pre>   class WelcomeController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=2'><pre>   	</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=3'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=4'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=5'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/controllers/welcome_controller.rb&line=6'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_assignment_rb"> app/models/assignment.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/assignment.rb&line=1'><pre>   class Assignment < ActiveRecord::Base </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/assignment.rb&line=2'><pre>     belongs_to :person</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/assignment.rb&line=3'><pre>     belongs_to :task</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/assignment.rb&line=4'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_skill_rb"> app/models/skill.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/skill.rb&line=1'><pre>   class Skill < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/skill.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_people_helper_rb"> app/helpers/people_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/people_helper.rb&line=1'><pre>   module PeopleHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/helpers/people_helper.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_user_session_rb"> app/models/user_session.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user_session.rb&line=1'><pre>   class UserSession < Authlogic::Session::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='txmt://open/?url=file:///Users/adrian/Development/Rails/team/app/models/user_session.rb&line=2'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+<p>Generated on Fri Dec 25 20:18:20 +1000 2009</p>	
+
+    </div>
+  </body>
+</html>

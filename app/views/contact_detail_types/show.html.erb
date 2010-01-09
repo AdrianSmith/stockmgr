@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @contact_detail_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @contact_detail_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_detail_type_path(@contact_detail_type) %> |
+<%= link_to 'Back', contact_detail_types_path %>

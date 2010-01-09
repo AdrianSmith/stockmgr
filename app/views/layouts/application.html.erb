@@ -2,27 +2,32 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-  <title>TeamWork</title>
+  <title>Stock and Sales Manager</title>
   <%= stylesheet_link_tag 'application' %>
   <%= yield(:head) %>
 </head>
 <body>                 
 
   <div id="container">
-    <div id="message">
+    <div id="message"> 
+      <% if current_user  %>
+        <%= link_to 'Dashboard', :controller => 'welcome' %> |
+        <%= link_to 'Edit Profile', edit_user_path(:current) %> |
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to 'Register', new_user_path %> |
+        <%= link_to 'Login', login_path %>
+      <% end %>
       <p>
         <%= DateTime.now.strftime("%a %d %b %Y") + " [wk " + Date.today.cweek.to_s + "]" %><br />
-        Project:  
-        <% current_project = Project.find(session[:current_project_id]) if session[:current_project_id] %>
-        <%= link_to(current_project.name, project_path(current_project)) if current_project %>
       </p>
       <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
     </div>
-    
+
     <div id="title">
-      <h1>TeamWork</h1>
+      <h1>Stock and Sales Manager</h1>
     </div>
 
     <%= yield %>

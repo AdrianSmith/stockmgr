@@ -7,20 +7,19 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password      
-  
-  # Methods to extract objects based on session store
-   def store_current_project(project)
-     session[:current_project_id] = project.id
-   end
 
-   # Methods to extract objects based on session store
-   def current_project
-     Project.find(session[:current_project_id]) if session[:current_project_id]
-   end
+  helper_method :current_user
 
-   # Methods to clear session store
-    def clear_current_project
-      session[:current_project_id] = nil
-    end
-  
+  private
+
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end  
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.record
+  end  
+
 end

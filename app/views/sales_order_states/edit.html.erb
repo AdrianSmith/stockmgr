@@ -1,0 +1,20 @@
+<h1>Editing sales_order_state</h1>
+
+<% form_for(@sales_order_state) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description,  :cols => 40, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sales_order_state %> |
+<%= link_to 'Back', sales_order_states_path %>

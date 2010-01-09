@@ -1,0 +1,38 @@
+<p>
+  <b>User:</b>
+  <%=h @sales_order.user_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @sales_order.comment %>
+</p>
+
+<p>
+  <b>Created by user:</b>
+  <%=h @sales_order.created_by_user_id %>
+</p>
+
+<p>
+  <b>Sales order state:</b>
+  <%=h @sales_order.sales_order_state_id %>
+</p>
+
+<p>
+  <b>Is invoiced:</b>
+  <%=h @sales_order.is_invoiced %>
+</p>
+
+<p>
+  <b>Invoice amount:</b>
+  <%=h @sales_order.invoice_amount %>
+</p>
+
+<p>
+  <b>Invoiced at:</b>
+  <%=h @sales_order.invoiced_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_sales_order_path(@sales_order) %> |
+<%= link_to 'Back', sales_orders_path %>

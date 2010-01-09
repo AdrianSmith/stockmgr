@@ -1,0 +1,867 @@
+Loaded suite /usr/bin/rcov
+Started
+........BrowsingTest#test_homepage (117 ms warmup)
+        process_time: 106 ms
+              memory: unsupported
+             objects: unsupported
+...........................................EE.F..E.EE
+Finished in 6.080994 seconds.
+
+  1) Error:
+test_create_valid(UserSessionsControllerTest):
+NoMethodError: undefined method `persistence_token' for nil:NilClass
+    authlogic (2.1.3) [v] lib/authlogic/session/cookies.rb:118:in `save_cookie'
+    authlogic (2.1.3) [v] lib/authlogic/session/callbacks.rb:72:in `after_save'
+    authlogic (2.1.3) [v] lib/authlogic/session/existence.rb:71:in `save'
+    app/controllers/user_sessions_controller.rb:8:in `create'
+    /test/functional/user_sessions_controller_test.rb:17:in `test_create_valid'
+
+  2) Error:
+test_destroy(UserSessionsControllerTest):
+NoMethodError: undefined method `first' for UserSession:Class
+    /test/functional/user_sessions_controller_test.rb:22:in `test_destroy'
+
+  3) Failure:
+test_should_be_valid(UserTest) [/test/unit/user_test.rb:5]:
+<false> is not true.
+
+  4) Error:
+test_edit(UsersControllerTest):
+ActionView::TemplateError: Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id
+    On line #1 of app/views/users/_form.html.erb
+    
+        1: <% form_for @user do |f| %>
+        2:   <%= f.error_messages %>
+        3:   <p>
+        4:     <%= f.label :username %><br />
+    
+        app/views/users/_form.html.erb:1
+        app/views/users/edit.html.erb:3
+        /test/functional/users_controller_test.rb:22:in `test_edit'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+        /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/test/unit.rb:278
+        /usr/bin/rcov:19
+
+  5) Error:
+test_update_invalid(UsersControllerTest):
+NoMethodError: You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.update_attributes
+    app/controllers/users_controller.rb:22:in `update'
+    /test/functional/users_controller_test.rb:28:in `test_update_invalid'
+
+  6) Error:
+test_update_valid(UsersControllerTest):
+NoMethodError: You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.update_attributes
+    app/controllers/users_controller.rb:22:in `update'
+    /test/functional/users_controller_test.rb:34:in `test_update_valid'
+
+63 tests, 72 assertions, 1 failures, 5 errors
+================================================================================
+app/helpers/application_helper.rb
+================================================================================
+   # Methods added to this helper will be available to all templates in the application.
+   module ApplicationHelper 
+     
+     def format_currency(number, hide_zero=false)
+!!     format = String.new
+!!     if number
+!!       if number < 0 then
+!!         format = %q[<span style="color: red">] + number_to_currency(number) + "</span>"
+!!       elsif hide_zero && number == 0.0 
+!!         format = ""
+!!       else
+!!         format = number_to_currency(number)
+!!       end
+!!     end    
+!!     format  
+!!   end
+   
+     def format_date(date)
+       date.strftime("%a %d %b %y") if date
+     end
+   
+     def format_time(time)
+       time.strftime("%H:%M") if time
+     end
+     
+   end
+================================================================================
+app/controllers/user_sessions_controller.rb
+================================================================================
+   class UserSessionsController < ApplicationController
+     def new
+       @user_session = UserSession.new
+     end
+     
+     def create
+       @user_session = UserSession.new(params[:user_session])
+       if @user_session.save
+!!       flash[:notice] = "Successful Login"
+!!       redirect_to root_url
+       else
+         render :action => 'new'
+       end
+     end
+     
+     def destroy
+!!     @user_session = UserSession.find
+!!     @user_session.destroy
+!!     flash[:notice] = "Successful Logout"
+!!     redirect_to root_url
+!!   end
+!! end
+                         
+================================================================================
+app/controllers/users_controller.rb
+================================================================================
+   class UsersController < ApplicationController
+     def new
+       @user = User.new
+     end
+     
+     def create
+       @user = User.new(params[:user])
+       if @user.save
+         flash[:notice] = "Registration Successful"
+         redirect_to root_url
+       else
+         render :action => 'new'
+       end
+     end
+     
+     def edit
+       @user = current_user
+     end
+     
+     def update
+       @user = current_user
+       if @user.update_attributes(params[:user])
+!!       flash[:notice] = "Successfully Updated Profile"
+!!       redirect_to root_url
+!!     else
+!!       render :action => 'edit'
+!!     end
+!!   end
+!! end
+================================================================================
+app/controllers/people_skills_controller.rb
+================================================================================
+   class PeopleSkillsController < ApplicationController
+     
+     # GET /people_skills
+     # GET /people_skills.xml
+     def index
+       @people_skills = PeopleSkill.all
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @people_skills }
+       end
+     end
+   
+     # GET /people_skills/1
+     # GET /people_skills/1.xml
+     def show
+       @people_skill = PeopleSkill.find(params[:id])
+   
+       respond_to do |format|
+         format.html # show.html.erb
+         format.xml  { render :xml => @people_skill }
+       end
+     end
+   
+     # GET /people_skills/new
+     # GET /people_skills/new.xml
+     def new
+       @people_skill = PeopleSkill.new
+   
+       respond_to do |format|
+         format.html # new.html.erb
+         format.xml  { render :xml => @people_skill }
+       end
+     end
+   
+     # GET /people_skills/1/edit
+     def edit
+       @people_skill = PeopleSkill.find(params[:id])
+     end
+   
+     # POST /people_skills
+     # POST /people_skills.xml
+     def create
+       @people_skill = PeopleSkill.new(params[:people_skill])
+   
+       respond_to do |format|
+         if @people_skill.save
+           flash[:notice] = 'PeopleSkill was successfully created.'
+           format.html { redirect_to(@people_skill) }
+           format.xml  { render :xml => @people_skill, :status => :created, :location => @people_skill }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /people_skills/1
+     # PUT /people_skills/1.xml
+     def update
+       @people_skill = PeopleSkill.find(params[:id])
+   
+       respond_to do |format|
+         if @people_skill.update_attributes(params[:people_skill])
+           flash[:notice] = 'PeopleSkill was successfully updated.'
+           format.html { redirect_to(@people_skill) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /people_skills/1
+     # DELETE /people_skills/1.xml
+     def destroy
+       @people_skill = PeopleSkill.find(params[:id])
+       @people_skill.destroy
+   
+       respond_to do |format|
+         format.html { redirect_to(people_skills_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/models/person.rb
+================================================================================
+   class Person < ActiveRecord::Base
+     has_many :assignments
+     has_many :people_skills
+     has_many :tasks, :through => :assignments
+     has_many :skills, :through => :people_skills
+     
+   
+     def full_name
+       (first_name + ' ' + last_name).titleize
+     end
+     
+     def skill_summary
+       skills.collect{|s| s.name + ', '}.to_s.chop.chop
+     end       
+   
+     def task_summary
+!!     tasks.collect{|s| s.name + ', '}.to_s.chop.chop
+!!   end       
+!!   
+!! end
+================================================================================
+app/controllers/skills_controller.rb
+================================================================================
+   class SkillsController < ApplicationController 
+    
+     # GET /skills
+     # GET /skills.xml
+     def index
+       @skills = Skill.all
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @skills }
+       end
+     end
+   
+     # GET /skills/1
+     # GET /skills/1.xml
+     def show
+       @skill = Skill.find(params[:id])
+   
+       respond_to do |format|
+         format.html # show.html.erb
+         format.xml  { render :xml => @skill }
+       end
+     end
+   
+     # GET /skills/new
+     # GET /skills/new.xml
+     def new
+       @skill = Skill.new
+   
+       respond_to do |format|
+         format.html # new.html.erb
+         format.xml  { render :xml => @skill }
+       end
+     end
+   
+     # GET /skills/1/edit
+     def edit
+       @skill = Skill.find(params[:id])
+     end
+   
+     # POST /skills
+     # POST /skills.xml
+     def create
+       @skill = Skill.new(params[:skill])
+   
+       respond_to do |format|
+         if @skill.save
+           flash[:notice] = 'Skill was successfully created.'
+           format.html { redirect_to(@skill) }
+           format.xml  { render :xml => @skill, :status => :created, :location => @skill }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /skills/1
+     # PUT /skills/1.xml
+     def update
+       @skill = Skill.find(params[:id])
+   
+       respond_to do |format|
+         if @skill.update_attributes(params[:skill])
+           flash[:notice] = 'Skill was successfully updated.'
+           format.html { redirect_to(@skill) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /skills/1
+     # DELETE /skills/1.xml
+     def destroy
+       @skill = Skill.find(params[:id])
+       @skill.destroy
+   
+       respond_to do |format|
+         format.html { redirect_to(skills_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/controllers/people_controller.rb
+================================================================================
+   class PeopleController < ApplicationController 
+     
+     # GET /people
+     # GET /people.xml
+     def index
+       @people = Person.all
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @people }
+       end
+     end
+   
+     # GET /people/1
+     # GET /people/1.xml
+     def show
+       @person = Person.find(params[:id])
+   
+       respond_to do |format|
+         format.html # show.html.erb
+         format.xml  { render :xml => @person }
+       end
+     end
+   
+     # GET /people/new
+     # GET /people/new.xml
+     def new
+       @person = Person.new
+   
+       respond_to do |format|
+         format.html # new.html.erb
+         format.xml  { render :xml => @person }
+       end
+     end
+   
+     # GET /people/1/edit
+     def edit
+       @person = Person.find(params[:id])
+     end
+   
+     # POST /people
+     # POST /people.xml
+     def create
+       @person = Person.new(params[:person])
+   
+       respond_to do |format|
+         if @person.save
+           flash[:notice] = 'Person was successfully created.'
+           format.html { redirect_to(@person) }
+           format.xml  { render :xml => @person, :status => :created, :location => @person }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /people/1
+     # PUT /people/1.xml
+     def update
+       @person = Person.find(params[:id])
+   
+       respond_to do |format|
+         if @person.update_attributes(params[:person])
+           flash[:notice] = 'Person was successfully updated.'
+           format.html { redirect_to(@person) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /people/1
+     # DELETE /people/1.xml
+     def destroy
+       @person = Person.find(params[:id])
+       @person.destroy
+   
+       respond_to do |format|
+         format.html { redirect_to(people_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/controllers/tasks_controller.rb
+================================================================================
+   class TasksController < ApplicationController
+     
+     # GET /tasks
+     # GET /tasks.xml
+     def index
+       @tasks = Task.all
+   
+       respond_to do |format|
+         format.html #index.html.erb
+         format.xml  { render :xml => @tasks }
+       end
+     end
+   
+     # GET /tasks/1
+     # GET /tasks/1.xml
+     def show
+       @task = Task.find(params[:id])
+   
+       respond_to do |format|
+         format.html #show.html.erb
+         format.xml  { render :xml => @task }
+       end
+     end
+   
+     # GET /tasks/new
+     # GET /tasks/new.xml
+     def new
+       @task = Task.new
+       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
+   
+       respond_to do |format|
+         format.html #new.html.erb
+         format.xml  { render :xml => @task }
+       end
+     end
+   
+     # GET /tasks/1/edit
+     def edit
+       @task = Task.find(params[:id])
+       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
+     end
+   
+     # POST /tasks
+     # POST /tasks.xml
+     def create
+       @task = Task.new(params[:task])
+   
+       respond_to do |format|
+         if @task.save
+           flash[:notice] = 'Task was successfully created.'
+           format.html { redirect_to(@task) }
+           format.xml  { render :xml => @task, :status => :created, :location => @task }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /tasks/1
+     # PUT /tasks/1.xml
+     def update
+       @task = Task.find(params[:id])
+   
+       respond_to do |format|
+         if @task.update_attributes(params[:task])
+           flash[:notice] = 'Task was successfully updated.'
+           format.html { redirect_to(@task) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /tasks/1
+     # DELETE /tasks/1.xml
+     def destroy
+       @task = Task.find(params[:id])
+       @task.destroy
+   
+       respond_to do |format|
+         format.html { redirect_to(tasks_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/controllers/assignments_controller.rb
+================================================================================
+   class AssignmentsController < ApplicationController
+     
+     # GET /assignments
+     # GET /assignments.xml
+     def index
+       @assignments = Assignment.all
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @assignments }
+       end
+     end
+   
+     # GET /assignments/1
+     # GET /assignments/1.xml
+     def show
+       @assignment = Assignment.find(params[:id])
+   
+       respond_to do |format|
+         format.html # show.html.erb
+         format.xml  { render :xml => @assignment }
+       end
+     end
+   
+     # GET /assignments/new
+     # GET /assignments/new.xml
+     def new
+       @assignment = Assignment.new
+       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}
+       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
+   
+       respond_to do |format|
+         format.html # new.html.erb
+         format.xml  { render :xml => @assignment }
+       end
+     end
+   
+     # GET /assignments/1/edit
+     def edit
+       @assignment = Assignment.find(params[:id])
+       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}
+       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}
+     end
+   
+     # POST /assignments
+     # POST /assignments.xml
+     def create
+       @assignment = Assignment.new(params[:assignment])
+   
+       respond_to do |format|
+         if @assignment.save
+           flash[:notice] = 'Assignment was successfully created.'
+           format.html { redirect_to(@assignment) }
+           format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /assignments/1
+     # PUT /assignments/1.xml
+     def update
+       @assignment = Assignment.find(params[:id])
+   
+       respond_to do |format|
+         if @assignment.update_attributes(params[:assignment])
+           flash[:notice] = 'Assignment was successfully updated.'
+           format.html { redirect_to(@assignment) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /assignments/1
+     # DELETE /assignments/1.xml
+     def destroy
+       @assignment = Assignment.find(params[:id])
+       @assignment.destroy
+   
+       respond_to do |format|
+         format.html { redirect_to(assignments_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/controllers/projects_controller.rb
+================================================================================
+   class ProjectsController < ApplicationController
+     
+     # GET /projects
+     # GET /projects.xml
+     def index
+       @projects = Project.all
+       clear_current_project
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.xml  { render :xml => @projects }
+       end
+     end
+   
+     # GET /projects/1
+     # GET /projects/1.xml
+     def show
+       @project = Project.find(params[:id])
+       store_current_project(@project)   
+       
+       respond_to do |format|
+         format.html # show.html.erb
+         format.xml  { render :xml => @project }
+       end
+     end
+   
+     # GET /projects/new
+     # GET /projects/new.xml
+     def new
+       @project = Project.new
+       store_current_project(@project)
+   
+       respond_to do |format|
+         format.html # new.html.erb
+         format.xml  { render :xml => @project }
+       end
+     end
+   
+     # GET /projects/1/edit
+     def edit
+       @project = Project.find(params[:id])
+       store_current_project(@project)
+     end
+   
+     # POST /projects
+     # POST /projects.xml
+     def create
+       @project = Project.new(params[:project])
+       store_current_project(@project)
+   
+       respond_to do |format|
+         if @project.save
+           flash[:notice] = 'Project was successfully created.'
+           format.html { redirect_to(@project) }
+           format.xml  { render :xml => @project, :status => :created, :location => @project }
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # PUT /projects/1
+     # PUT /projects/1.xml
+     def update
+       @project = Project.find(params[:id])
+       store_current_project(@project)
+   
+       respond_to do |format|
+         if @project.update_attributes(params[:project])
+           flash[:notice] = 'Project was successfully updated.'
+           format.html { redirect_to(@project) }
+           format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /projects/1
+     # DELETE /projects/1.xml
+     def destroy
+       @project = Project.find(params[:id])
+       @project.destroy
+       clear_current_project
+   
+       respond_to do |format|
+         format.html { redirect_to(projects_url) }
+         format.xml  { head :ok }
+       end
+     end
+   end
+================================================================================
+app/controllers/application_controller.rb
+================================================================================
+   # Filters added to this controller apply to all controllers in the application.
+   # Likewise, all the methods added will be available for all controllers.
+   
+   class ApplicationController < ActionController::Base
+     helper :all # include all helpers, all the time
+     protect_from_forgery # See ActionController::RequestForgeryProtection for details
+   
+     # Scrub sensitive parameters from your log
+     # filter_parameter_logging :password      
+     
+     helper_method :current_user
+     
+     # Methods to extract objects based on session store
+      def store_current_project(project)
+        session[:current_project_id] = project.id
+      end
+   
+      # Methods to extract objects based on session store
+      def current_project
+!!      Project.find(session[:current_project_id]) if session[:current_project_id]
+!!    end
+   
+      # Methods to clear session store
+       def clear_current_project
+         session[:current_project_id] = nil
+       end
+       
+       private
+       
+       def current_user_session
+         return @current_user_session if defined?(@current_user_session)
+         @current_user_session = UserSession.find
+       end  
+   
+       def current_user
+         return @current_user if defined?(@current_user)
+         @current_user = current_user_session && current_user_session.record
+       end  
+     
+   end
+================================================================================
+app/models/task.rb
+================================================================================
+   class Task < ActiveRecord::Base 
+     belongs_to :skill
+     belongs_to :project
+     has_many :assignments
+     has_many :people, :through => :assignments
+   end
+================================================================================
+app/helpers/users_helper.rb
+================================================================================
+   module UsersHelper
+   end
+================================================================================
+app/helpers/assignments_helper.rb
+================================================================================
+   module AssignmentsHelper
+   end
+================================================================================
+app/models/user.rb
+================================================================================
+   class User < ActiveRecord::Base
+   #  attr_accessible :username, :email, :password
+     acts_as_authentic
+   end
+================================================================================
+app/models/people_skill.rb
+================================================================================
+   class PeopleSkill < ActiveRecord::Base      
+     belongs_to :person
+     belongs_to :skill
+   end
+================================================================================
+app/models/project.rb
+================================================================================
+   class Project < ActiveRecord::Base
+     has_many :tasks
+   end
+================================================================================
+app/helpers/people_helper.rb
+================================================================================
+   module PeopleHelper
+   end
+================================================================================
+app/helpers/people_skills_helper.rb
+================================================================================
+   module PeopleSkillsHelper
+   end
+================================================================================
+app/helpers/tasks_helper.rb
+================================================================================
+   module TasksHelper
+   end
+================================================================================
+app/helpers/projects_helper.rb
+================================================================================
+   module ProjectsHelper
+   end
+================================================================================
+app/helpers/user_sessions_helper.rb
+================================================================================
+   module UserSessionsHelper
+   end
+================================================================================
+app/models/assignment.rb
+================================================================================
+   class Assignment < ActiveRecord::Base 
+     belongs_to :person
+     belongs_to :task
+   end
+================================================================================
+app/models/skill.rb
+================================================================================
+   class Skill < ActiveRecord::Base
+   end
+================================================================================
+app/controllers/welcome_controller.rb
+================================================================================
+   class WelcomeController < ApplicationController
+   	
+     def index
+     end
+     
+   end
+================================================================================
+app/helpers/skills_helper.rb
+================================================================================
+   module SkillsHelper
+   end
+================================================================================
+app/models/user_session.rb
+================================================================================
+   class UserSession < Authlogic::Session::Base
+   end

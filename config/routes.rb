@@ -1,15 +1,50 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :people_skills
+  map.resources :product_types
 
-  map.resources :assignments
+  map.resources :units_of_measures
 
-  map.resources :projects
+  map.resources :purchase_order_items
 
-  map.resources :tasks
+  map.resources :purchase_orders
 
-  map.resources :skills
+  map.resources :sales_order_items
 
-  map.resources :people
+  map.resources :product_prices
+
+  map.resources :sales_orders
+
+  map.resources :products
+
+  map.resources :contact_detail_types
+
+  map.resources :suppliers_contact_details
+
+  map.resources :users_contact_details
+
+  map.resources :contact_details
+
+  map.resources :suppliers
+
+  map.resources :sales_order_states
+
+  map.resources :purchase_order_states
+
+  map.resources :physical_forms
+
+  map.resources :storage_locations
+
+  map.resources :storage_types
+
+  map.resources :payment_types
+
+  map.resources :payments
+  
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  
+  map.resources :user_sessions
+
+  map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -44,6 +79,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   map.root :controller => "welcome"
+  map.adminsistration '/administration', :controller => 'administration', :action => 'index'
 
   # See how all your routes lay out with "rake routes"
 

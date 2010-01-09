@@ -1,0 +1,38 @@
+<p>
+  <b>Address line 1:</b>
+  <%=h @contact_detail.address_line_1 %>
+</p>
+
+<p>
+  <b>Address line 2:</b>
+  <%=h @contact_detail.address_line_2 %>
+</p>
+
+<p>
+  <b>Suburb town:</b>
+  <%=h @contact_detail.suburb_town %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @contact_detail.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @contact_detail.state %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%=h @contact_detail.postcode %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @contact_detail.country %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_detail_path(@contact_detail) %> |
+<%= link_to 'Back', contact_details_path %>

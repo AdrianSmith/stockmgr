@@ -1,0 +1,26 @@
+<h1>Listing Sales_Order_Items</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Percentage discount</th>
+    <th>Price</th>
+  </tr>
+
+<% @sales_order_items.each do |sales_order_item| %>
+  <tr>
+    <td><%=h sales_order_item.product_id %></td>
+    <td><%=h sales_order_item.quantity %></td>
+    <td><%=h sales_order_item.percentage_discount %></td>
+    <td><%=h sales_order_item.price %></td>
+    <td><%= link_to 'Show', sales_order_item %></td>
+    <td><%= link_to 'Edit', edit_sales_order_item_path(sales_order_item) %></td>
+    <td><%= link_to 'Destroy', sales_order_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sales_order_item', new_sales_order_item_path %>

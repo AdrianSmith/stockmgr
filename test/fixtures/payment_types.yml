@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Cash
+
+two:
+  id: 2
+  name: Cheque
+
+three:
+  id: 3
+  name: Transfer

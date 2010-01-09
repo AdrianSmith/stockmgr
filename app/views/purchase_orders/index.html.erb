@@ -1,0 +1,28 @@
+<h1>Listing Purchase_Orders</h1>
+
+<table>
+  <tr>
+    <th>Supplier</th>
+    <th>Comment</th>
+    <th>Created by user</th>
+    <th>Purchase order state</th>
+    <th>Price</th>
+  </tr>
+
+<% @purchase_orders.each do |purchase_order| %>
+  <tr>
+    <td><%=h purchase_order.supplier_id %></td>
+    <td><%=h purchase_order.comment %></td>
+    <td><%=h purchase_order.created_by_user_id %></td>
+    <td><%=h purchase_order.purchase_order_state_id %></td>
+    <td><%=h purchase_order.price %></td>
+    <td><%= link_to 'Show', purchase_order %></td>
+    <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>
+    <td><%= link_to 'Destroy', purchase_order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New purchase_order', new_purchase_order_path %>

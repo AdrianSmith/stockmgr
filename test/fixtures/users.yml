@@ -1,0 +1,4 @@
+one:
+  username: admin
+  email: admin@teamwork.com
+  crypted_password: test

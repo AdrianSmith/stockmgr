@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @payment_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @payment_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_payment_type_path(@payment_type) %> |
+<%= link_to 'Back', payment_types_path %>

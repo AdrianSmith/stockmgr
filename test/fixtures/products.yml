@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Cocoa Butter
+  description: Organic cocoa butter
+  product_type_id: 1
+  supplier_id: 1
+  storage_type_id: 1
+  units_of_measure_id: 1
+  storage_location_id: 1
+  physical_form_id: 1
+  stock_amount: 9.99
+
+two:
+  name: MyString
+  description: MyText
+  product_type_id: 1
+  supplier_id: 1
+  storage_type_id: 1
+  units_of_measure_id: 1
+  storage_location_id: 1
+  physical_form_id: 1
+  stock_amount: 9.99

@@ -1,7 +1,8 @@
 body {
   background-color: #444258;
-  font-family: Verdana, Helvetica, Arial;
+  font-family: Helvetica, Arial;
   font-size: 14px;
+  color: #333;
 }
 
 a img {
@@ -33,16 +34,18 @@ a {
 #message {
   position: absolute;
   right: 10px; 
-  height: 50px;
+  height: 60px;
   width: 300px;
   text-align: right;
   font-size: 0.95em;
+  padding-top: 5px;
  }
 
 #title {
-  height: 50px;
+  height: 60px;
   width: 700px;
   overflow: hidden;
+  font-size: 1.2em;
 }
 
 #flash_notice, #flash_error {

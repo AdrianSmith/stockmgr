@@ -1,0 +1,32 @@
+<h1>Listing Sales_Orders</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Comment</th>
+    <th>Created by user</th>
+    <th>Sales order state</th>
+    <th>Is invoiced</th>
+    <th>Invoice amount</th>
+    <th>Invoiced at</th>
+  </tr>
+
+<% @sales_orders.each do |sales_order| %>
+  <tr>
+    <td><%=h sales_order.user_id %></td>
+    <td><%=h sales_order.comment %></td>
+    <td><%=h sales_order.created_by_user_id %></td>
+    <td><%=h sales_order.sales_order_state_id %></td>
+    <td><%=h sales_order.is_invoiced %></td>
+    <td><%=h sales_order.invoice_amount %></td>
+    <td><%=h sales_order.invoiced_at %></td>
+    <td><%= link_to 'Show', sales_order %></td>
+    <td><%= link_to 'Edit', edit_sales_order_path(sales_order) %></td>
+    <td><%= link_to 'Destroy', sales_order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sales_order', new_sales_order_path %>

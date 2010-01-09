@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Eco Farms
+  description: "Established in 1986, Eco-Farms is Australia's leading dedicated supplier and exporter of certified organic and biodynamic food.
+Suppling to the independent organic and wholefood specialist retailers, healthfood stores, major supermarkets, cafes, caterers and manufacturers throughout Australia. We have also developed a number of key export markets with customers in Asia, New Zealand, Europe and the USA.
+Eco-Farms boasts a full range of certified organic fresh produce and Australia's most extensive range of quality organic grocery lines. Our products are free from farm chemicals, from artificial flavours, from colours and preservatives. ... no nasties.
+As a pioneer of the Australian organic food industry, Eco-Farms strongly believes in the importance of organic and biodynamic agriculture - not only to provide the best-tasting, highest quality organic food but also to ensure environmental sustainability and bio-diversity. We are supplied by hundreds of quality growers and processors throughout Australia who are committed to the principles of organic and biodynamic agriculture. By purchasing products from Eco-Farms, you support over 10 million hectares - and growing - of certified organic and biodynamic agriculture."
+  website: http://www.ecofarms.com.au/
+  comment: Avoid bring children as they are strict about health and safety in their warehouse
+  delivery_rules: Orders over $200 may be delivered for free
+
+two:
+  id: 2
+  name: Plasdene
+  description: "Plasdene Glass-Pak Pty Ltd is a 100% Australian, family owned and operated company incorporated in 1987."
+  website: http://www.plasdene.com.au/
+  comment: Avoid bring children as they are strict about health and safety in their warehouse
+  delivery_rules: Orders over $200 may be delivered for free
+
+
+ 

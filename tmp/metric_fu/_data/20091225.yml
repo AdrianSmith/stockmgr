@@ -1,0 +1,3797 @@
+--- 
+:saikuro: 
+  :methods: 
+  - :lines: 13
+    :name: PeopleController#update
+    :complexity: 7
+  - :lines: 13
+    :name: SkillsController#create
+    :complexity: 7
+  - :lines: 13
+    :name: PeopleSkillsController#update
+    :complexity: 7
+  - :lines: 13
+    :name: SkillsController#update
+    :complexity: 7
+  - :lines: 13
+    :name: AssignmentsController#create
+    :complexity: 7
+  - :lines: 13
+    :name: AssignmentsController#update
+    :complexity: 7
+  - :lines: 13
+    :name: PeopleSkillsController#create
+    :complexity: 7
+  - :lines: 13
+    :name: PeopleController#create
+    :complexity: 7
+  - :lines: 14
+    :name: ProjectsController#create
+    :complexity: 7
+  - :lines: 14
+    :name: ProjectsController#update
+    :complexity: 7
+  - :lines: 13
+    :name: TasksController#update
+    :complexity: 7
+  - :lines: 13
+    :name: TasksController#create
+    :complexity: 7
+  - :lines: 9
+    :name: AssignmentsController#new
+    :complexity: 5
+  - :lines: 8
+    :name: PeopleController#destroy
+    :complexity: 4
+  - :lines: 8
+    :name: TasksController#new
+    :complexity: 4
+  - :lines: 9
+    :name: ProjectsController#destroy
+    :complexity: 4
+  - :lines: 12
+    :name: ApplicationHelper#format_currency
+    :complexity: 4
+  - :lines: 8
+    :name: SkillsController#destroy
+    :complexity: 4
+  - :lines: 8
+    :name: AssignmentsController#destroy
+    :complexity: 4
+  - :lines: 8
+    :name: TasksController#destroy
+    :complexity: 4
+  - :lines: 8
+    :name: PeopleSkillsController#destroy
+    :complexity: 4
+  - :lines: 7
+    :name: AssignmentsController#index
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleController#new
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleSkillsController#new
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleSkillsController#show
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleSkillsController#index
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleController#show
+    :complexity: 3
+  - :lines: 7
+    :name: PeopleController#index
+    :complexity: 3
+  - :lines: 7
+    :name: TasksController#show
+    :complexity: 3
+  - :lines: 7
+    :name: SkillsController#index
+    :complexity: 3
+  - :lines: 7
+    :name: SkillsController#new
+    :complexity: 3
+  - :lines: 8
+    :name: ProjectsController#show
+    :complexity: 3
+  - :lines: 8
+    :name: ProjectsController#index
+    :complexity: 3
+  - :lines: 7
+    :name: TasksController#index
+    :complexity: 3
+  - :lines: 4
+    :name: AssignmentsController#edit
+    :complexity: 3
+  - :lines: 7
+    :name: AssignmentsController#show
+    :complexity: 3
+  - :lines: 7
+    :name: SkillsController#show
+    :complexity: 3
+  - :lines: 8
+    :name: ProjectsController#new
+    :complexity: 3
+  - :lines: 8
+    :name: UserSessionsController#create
+    :complexity: 2
+  - :lines: 2
+    :name: Person#task_summary
+    :complexity: 2
+  - :lines: 2
+    :name: Person#skill_summary
+    :complexity: 2
+  - :lines: 8
+    :name: UsersController#update
+    :complexity: 2
+  - :lines: 2
+    :name: ApplicationController#current_project
+    :complexity: 2
+  - :lines: 8
+    :name: UsersController#create
+    :complexity: 2
+  - :lines: 3
+    :name: TasksController#edit
+    :complexity: 2
+  - :lines: 3
+    :name: ApplicationController#current_user_session
+    :complexity: 2
+  - :lines: 3
+    :name: ApplicationController#current_user
+    :complexity: 2
+  - :lines: 2
+    :name: ApplicationHelper#format_date
+    :complexity: 2
+  - :lines: 2
+    :name: ApplicationHelper#format_time
+    :complexity: 2
+  - :lines: 2
+    :name: UsersController#new
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationController#clear_current_project
+    :complexity: 1
+  - :lines: 2
+    :name: PeopleController#edit
+    :complexity: 1
+  - :lines: 2
+    :name: UsersController#edit
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationController#store_current_project
+    :complexity: 1
+  - :lines: 2
+    :name: Person#full_name
+    :complexity: 1
+  - :lines: 2
+    :name: PeopleSkillsController#edit
+    :complexity: 1
+  - :lines: 3
+    :name: ProjectsController#edit
+    :complexity: 1
+  - :lines: 2
+    :name: UserSessionsController#new
+    :complexity: 1
+  - :lines: 2
+    :name: SkillsController#edit
+    :complexity: 1
+  - :lines: 5
+    :name: UserSessionsController#destroy
+    :complexity: 1
+  - :lines: 1
+    :name: WelcomeController#index
+    :complexity: 1
+  :files: 
+  - :filename: assignments_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 13
+        :name: AssignmentsController#update
+        :complexity: 7
+      - :lines: 13
+        :name: AssignmentsController#create
+        :complexity: 7
+      - :lines: 9
+        :name: AssignmentsController#new
+        :complexity: 5
+      - :lines: 8
+        :name: AssignmentsController#destroy
+        :complexity: 4
+      - :lines: 4
+        :name: AssignmentsController#edit
+        :complexity: 3
+      - :lines: 7
+        :name: AssignmentsController#show
+        :complexity: 3
+      - :lines: 7
+        :name: AssignmentsController#index
+        :complexity: 3
+      :lines: 89
+      :class_name: AssignmentsController
+      :complexity: 32
+  - :filename: tasks_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 13
+        :name: TasksController#create
+        :complexity: 7
+      - :lines: 13
+        :name: TasksController#update
+        :complexity: 7
+      - :lines: 8
+        :name: TasksController#destroy
+        :complexity: 4
+      - :lines: 8
+        :name: TasksController#new
+        :complexity: 4
+      - :lines: 7
+        :name: TasksController#show
+        :complexity: 3
+      - :lines: 7
+        :name: TasksController#index
+        :complexity: 3
+      - :lines: 3
+        :name: TasksController#edit
+        :complexity: 2
+      :lines: 87
+      :class_name: TasksController
+      :complexity: 30
+  - :filename: people_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 13
+        :name: PeopleController#create
+        :complexity: 7
+      - :lines: 13
+        :name: PeopleController#update
+        :complexity: 7
+      - :lines: 8
+        :name: PeopleController#destroy
+        :complexity: 4
+      - :lines: 7
+        :name: PeopleController#show
+        :complexity: 3
+      - :lines: 7
+        :name: PeopleController#new
+        :complexity: 3
+      - :lines: 7
+        :name: PeopleController#index
+        :complexity: 3
+      - :lines: 2
+        :name: PeopleController#edit
+        :complexity: 1
+      :lines: 85
+      :class_name: PeopleController
+      :complexity: 28
+  - :filename: skills_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 13
+        :name: SkillsController#create
+        :complexity: 7
+      - :lines: 13
+        :name: SkillsController#update
+        :complexity: 7
+      - :lines: 8
+        :name: SkillsController#destroy
+        :complexity: 4
+      - :lines: 7
+        :name: SkillsController#show
+        :complexity: 3
+      - :lines: 7
+        :name: SkillsController#new
+        :complexity: 3
+      - :lines: 7
+        :name: SkillsController#index
+        :complexity: 3
+      - :lines: 2
+        :name: SkillsController#edit
+        :complexity: 1
+      :lines: 85
+      :class_name: SkillsController
+      :complexity: 28
+  - :filename: projects_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 14
+        :name: ProjectsController#create
+        :complexity: 7
+      - :lines: 14
+        :name: ProjectsController#update
+        :complexity: 7
+      - :lines: 9
+        :name: ProjectsController#destroy
+        :complexity: 4
+      - :lines: 8
+        :name: ProjectsController#show
+        :complexity: 3
+      - :lines: 8
+        :name: ProjectsController#new
+        :complexity: 3
+      - :lines: 8
+        :name: ProjectsController#index
+        :complexity: 3
+      - :lines: 3
+        :name: ProjectsController#edit
+        :complexity: 1
+      :lines: 92
+      :class_name: ProjectsController
+      :complexity: 28
+  - :filename: people_skills_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 13
+        :name: PeopleSkillsController#create
+        :complexity: 7
+      - :lines: 13
+        :name: PeopleSkillsController#update
+        :complexity: 7
+      - :lines: 8
+        :name: PeopleSkillsController#destroy
+        :complexity: 4
+      - :lines: 7
+        :name: PeopleSkillsController#show
+        :complexity: 3
+      - :lines: 7
+        :name: PeopleSkillsController#new
+        :complexity: 3
+      - :lines: 7
+        :name: PeopleSkillsController#index
+        :complexity: 3
+      - :lines: 2
+        :name: PeopleSkillsController#edit
+        :complexity: 1
+      :lines: 85
+      :class_name: PeopleSkillsController
+      :complexity: 28
+  - :filename: application_controller.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 3
+        :name: ApplicationController#current_user
+        :complexity: 2
+      - :lines: 3
+        :name: ApplicationController#current_user_session
+        :complexity: 2
+      - :lines: 2
+        :name: ApplicationController#current_project
+        :complexity: 2
+      - :lines: 2
+        :name: ApplicationController#clear_current_project
+        :complexity: 1
+      - :lines: 2
+        :name: ApplicationController#store_current_project
+        :complexity: 1
+      :lines: 36
+      :class_name: ApplicationController
+      :complexity: 8
+  - :filename: application_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 12
+        :name: ApplicationHelper#format_currency
+        :complexity: 4
+      - :lines: 2
+        :name: ApplicationHelper#format_date
+        :complexity: 2
+      - :lines: 2
+        :name: ApplicationHelper#format_time
+        :complexity: 2
+      :lines: 24
+      :class_name: ApplicationHelper
+      :complexity: 8
+  - :filename: users_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 8
+        :name: UsersController#update
+        :complexity: 2
+      - :lines: 8
+        :name: UsersController#create
+        :complexity: 2
+      - :lines: 2
+        :name: UsersController#edit
+        :complexity: 1
+      - :lines: 2
+        :name: UsersController#new
+        :complexity: 1
+      :lines: 28
+      :class_name: UsersController
+      :complexity: 6
+  - :filename: person.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: Person#task_summary
+        :complexity: 2
+      - :lines: 2
+        :name: Person#skill_summary
+        :complexity: 2
+      - :lines: 2
+        :name: Person#full_name
+        :complexity: 1
+      :lines: 19
+      :class_name: Person
+      :complexity: 5
+  - :filename: user_sessions_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 8
+        :name: UserSessionsController#create
+        :complexity: 2
+      - :lines: 5
+        :name: UserSessionsController#destroy
+        :complexity: 1
+      - :lines: 2
+        :name: UserSessionsController#new
+        :complexity: 1
+      :lines: 21
+      :class_name: UserSessionsController
+      :complexity: 4
+  - :filename: welcome_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 1
+        :name: WelcomeController#index
+        :complexity: 1
+      :lines: 5
+      :class_name: WelcomeController
+      :complexity: 1
+  - :filename: people_skills_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: PeopleSkillsHelper
+      :complexity: 0
+  - :filename: projects_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ProjectsHelper
+      :complexity: 0
+  - :filename: people_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: PeopleHelper
+      :complexity: 0
+  - :filename: assignments_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: AssignmentsHelper
+      :complexity: 0
+  - :filename: skills_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: SkillsHelper
+      :complexity: 0
+  - :filename: tasks_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: TasksHelper
+      :complexity: 0
+  - :filename: user_sessions_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: UserSessionsHelper
+      :complexity: 0
+  - :filename: users_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: UsersHelper
+      :complexity: 0
+  - :filename: assignment.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 3
+      :class_name: Assignment
+      :complexity: 0
+  - :filename: people_skill.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 3
+      :class_name: PeopleSkill
+      :complexity: 0
+  - :filename: project.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 2
+      :class_name: Project
+      :complexity: 0
+  - :filename: skill.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: Skill
+      :complexity: 0
+  - :filename: task.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 5
+      :class_name: Task
+      :complexity: 0
+  - :filename: user.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 3
+      :class_name: User
+      :complexity: 0
+  - :filename: user_session.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: UserSession
+      :complexity: 0
+  :classes: 
+  - :lines: 89
+    :name: AssignmentsController
+    :defs: 
+    - :lines: 7
+      :name: AssignmentsController#index
+      :complexity: 3
+    - :lines: 7
+      :name: AssignmentsController#show
+      :complexity: 3
+    - :lines: 9
+      :name: AssignmentsController#new
+      :complexity: 5
+    - :lines: 4
+      :name: AssignmentsController#edit
+      :complexity: 3
+    - :lines: 13
+      :name: AssignmentsController#create
+      :complexity: 7
+    - :lines: 13
+      :name: AssignmentsController#update
+      :complexity: 7
+    - :lines: 8
+      :name: AssignmentsController#destroy
+      :complexity: 4
+    :complexity: 32
+  - :lines: 87
+    :name: TasksController
+    :defs: 
+    - :lines: 7
+      :name: TasksController#index
+      :complexity: 3
+    - :lines: 7
+      :name: TasksController#show
+      :complexity: 3
+    - :lines: 8
+      :name: TasksController#new
+      :complexity: 4
+    - :lines: 3
+      :name: TasksController#edit
+      :complexity: 2
+    - :lines: 13
+      :name: TasksController#create
+      :complexity: 7
+    - :lines: 13
+      :name: TasksController#update
+      :complexity: 7
+    - :lines: 8
+      :name: TasksController#destroy
+      :complexity: 4
+    :complexity: 30
+  - :lines: 85
+    :name: PeopleSkillsController
+    :defs: 
+    - :lines: 7
+      :name: PeopleSkillsController#index
+      :complexity: 3
+    - :lines: 7
+      :name: PeopleSkillsController#show
+      :complexity: 3
+    - :lines: 7
+      :name: PeopleSkillsController#new
+      :complexity: 3
+    - :lines: 2
+      :name: PeopleSkillsController#edit
+      :complexity: 1
+    - :lines: 13
+      :name: PeopleSkillsController#create
+      :complexity: 7
+    - :lines: 13
+      :name: PeopleSkillsController#update
+      :complexity: 7
+    - :lines: 8
+      :name: PeopleSkillsController#destroy
+      :complexity: 4
+    :complexity: 28
+  - :lines: 85
+    :name: SkillsController
+    :defs: 
+    - :lines: 7
+      :name: SkillsController#index
+      :complexity: 3
+    - :lines: 7
+      :name: SkillsController#show
+      :complexity: 3
+    - :lines: 7
+      :name: SkillsController#new
+      :complexity: 3
+    - :lines: 2
+      :name: SkillsController#edit
+      :complexity: 1
+    - :lines: 13
+      :name: SkillsController#create
+      :complexity: 7
+    - :lines: 13
+      :name: SkillsController#update
+      :complexity: 7
+    - :lines: 8
+      :name: SkillsController#destroy
+      :complexity: 4
+    :complexity: 28
+  - :lines: 92
+    :name: ProjectsController
+    :defs: 
+    - :lines: 8
+      :name: ProjectsController#index
+      :complexity: 3
+    - :lines: 8
+      :name: ProjectsController#show
+      :complexity: 3
+    - :lines: 8
+      :name: ProjectsController#new
+      :complexity: 3
+    - :lines: 3
+      :name: ProjectsController#edit
+      :complexity: 1
+    - :lines: 14
+      :name: ProjectsController#create
+      :complexity: 7
+    - :lines: 14
+      :name: ProjectsController#update
+      :complexity: 7
+    - :lines: 9
+      :name: ProjectsController#destroy
+      :complexity: 4
+    :complexity: 28
+  - :lines: 85
+    :name: PeopleController
+    :defs: 
+    - :lines: 7
+      :name: PeopleController#index
+      :complexity: 3
+    - :lines: 7
+      :name: PeopleController#show
+      :complexity: 3
+    - :lines: 7
+      :name: PeopleController#new
+      :complexity: 3
+    - :lines: 2
+      :name: PeopleController#edit
+      :complexity: 1
+    - :lines: 13
+      :name: PeopleController#create
+      :complexity: 7
+    - :lines: 13
+      :name: PeopleController#update
+      :complexity: 7
+    - :lines: 8
+      :name: PeopleController#destroy
+      :complexity: 4
+    :complexity: 28
+  - :lines: 24
+    :name: ApplicationHelper
+    :defs: 
+    - :lines: 12
+      :name: ApplicationHelper#format_currency
+      :complexity: 4
+    - :lines: 2
+      :name: ApplicationHelper#format_date
+      :complexity: 2
+    - :lines: 2
+      :name: ApplicationHelper#format_time
+      :complexity: 2
+    :complexity: 8
+  - :lines: 36
+    :name: ApplicationController
+    :defs: 
+    - :lines: 2
+      :name: ApplicationController#store_current_project
+      :complexity: 1
+    - :lines: 2
+      :name: ApplicationController#current_project
+      :complexity: 2
+    - :lines: 2
+      :name: ApplicationController#clear_current_project
+      :complexity: 1
+    - :lines: 3
+      :name: ApplicationController#current_user_session
+      :complexity: 2
+    - :lines: 3
+      :name: ApplicationController#current_user
+      :complexity: 2
+    :complexity: 8
+  - :lines: 28
+    :name: UsersController
+    :defs: 
+    - :lines: 2
+      :name: UsersController#new
+      :complexity: 1
+    - :lines: 8
+      :name: UsersController#create
+      :complexity: 2
+    - :lines: 2
+      :name: UsersController#edit
+      :complexity: 1
+    - :lines: 8
+      :name: UsersController#update
+      :complexity: 2
+    :complexity: 6
+  - :lines: 19
+    :name: Person
+    :defs: 
+    - :lines: 2
+      :name: Person#full_name
+      :complexity: 1
+    - :lines: 2
+      :name: Person#skill_summary
+      :complexity: 2
+    - :lines: 2
+      :name: Person#task_summary
+      :complexity: 2
+    :complexity: 5
+  - :lines: 21
+    :name: UserSessionsController
+    :defs: 
+    - :lines: 2
+      :name: UserSessionsController#new
+      :complexity: 1
+    - :lines: 8
+      :name: UserSessionsController#create
+      :complexity: 2
+    - :lines: 5
+      :name: UserSessionsController#destroy
+      :complexity: 1
+    :complexity: 4
+  - :lines: 5
+    :name: WelcomeController
+    :defs: 
+    - :lines: 1
+      :name: WelcomeController#index
+      :complexity: 1
+    :complexity: 1
+  - :lines: 1
+    :name: PeopleSkillsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: ProjectsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: PeopleHelper
+    :complexity: 0
+  - :lines: 1
+    :name: AssignmentsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: SkillsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: TasksHelper
+    :complexity: 0
+  - :lines: 1
+    :name: UserSessionsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: UsersHelper
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 3
+    :name: Assignment
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 3
+    :name: PeopleSkill
+    :complexity: 0
+  - :lines: 2
+    :name: Project
+    :complexity: 0
+  - :lines: 1
+    :name: Skill
+    :complexity: 0
+  - :lines: 5
+    :name: Task
+    :complexity: 0
+  - :lines: 3
+    :name: User
+    :complexity: 0
+  - :lines: 1
+    :name: UserSession
+    :complexity: 0
+:rcov: 
+  app/models/person.rb: 
+    :percent_run: 80
+    :lines: 
+    - :was_run: true
+      :content: "   class Person < ActiveRecord::Base"
+    - :was_run: true
+      :content: "     has_many :assignments"
+    - :was_run: true
+      :content: "     has_many :people_skills"
+    - :was_run: true
+      :content: "     has_many :tasks, :through => :assignments"
+    - :was_run: true
+      :content: "     has_many :skills, :through => :people_skills"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     def full_name"
+    - :was_run: true
+      :content: "       (first_name + ' ' + last_name).titleize"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def skill_summary"
+    - :was_run: true
+      :content: "       skills.collect{|s| s.name + ', '}.to_s.chop.chop"
+    - :was_run: true
+      :content: "     end       "
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     def task_summary"
+    - :was_run: false
+      :content: "       tasks.collect{|s| s.name + ', '}.to_s.chop.chop"
+    - :was_run: false
+      :content: "     end       "
+    - :was_run: false
+      :content: "     "
+    - :was_run: false
+      :content: "   end"
+  app/controllers/tasks_controller.rb: 
+    :percent_run: 86
+    :lines: 
+    - :was_run: true
+      :content: "   class TasksController < ApplicationController"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # GET /tasks"
+    - :was_run: true
+      :content: "     # GET /tasks.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @tasks = Task.all"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html #index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @tasks }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /tasks/1"
+    - :was_run: true
+      :content: "     # GET /tasks/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @task = Task.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html #show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @task }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /tasks/new"
+    - :was_run: true
+      :content: "     # GET /tasks/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @task = Task.new"
+    - :was_run: true
+      :content: "       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html #new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @task }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /tasks/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @task = Task.find(params[:id])"
+    - :was_run: true
+      :content: "       @skills = Skill.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /tasks"
+    - :was_run: true
+      :content: "     # POST /tasks.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @task = Task.new(params[:task])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @task.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Task was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@task) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @task, :status => :created, :location => @task }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /tasks/1"
+    - :was_run: true
+      :content: "     # PUT /tasks/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @task = Task.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @task.update_attributes(params[:task])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Task was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@task) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /tasks/1"
+    - :was_run: true
+      :content: "     # DELETE /tasks/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @task = Task.find(params[:id])"
+    - :was_run: true
+      :content: "       @task.destroy"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(tasks_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/skills_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module SkillsHelper"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/people_controller.rb: 
+    :percent_run: 86
+    :lines: 
+    - :was_run: true
+      :content: "   class PeopleController < ApplicationController "
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # GET /people"
+    - :was_run: true
+      :content: "     # GET /people.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @people = Person.all"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @people }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people/1"
+    - :was_run: true
+      :content: "     # GET /people/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @person = Person.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @person }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people/new"
+    - :was_run: true
+      :content: "     # GET /people/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @person = Person.new"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @person }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @person = Person.find(params[:id])"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /people"
+    - :was_run: true
+      :content: "     # POST /people.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @person = Person.new(params[:person])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @person.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Person was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@person) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @person, :status => :created, :location => @person }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /people/1"
+    - :was_run: true
+      :content: "     # PUT /people/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @person = Person.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @person.update_attributes(params[:person])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Person was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@person) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /people/1"
+    - :was_run: true
+      :content: "     # DELETE /people/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @person = Person.find(params[:id])"
+    - :was_run: true
+      :content: "       @person.destroy"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(people_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/assignments_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module AssignmentsHelper"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/people_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module PeopleHelper"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/welcome_controller.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class WelcomeController < ApplicationController"
+    - :was_run: true
+      :content: "   \t"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "   end"
+  :global_percent_run: 85.3
+  app/controllers/user_sessions_controller.rb: 
+    :percent_run: 65
+    :lines: 
+    - :was_run: true
+      :content: "   class UserSessionsController < ApplicationController"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @user_session = UserSession.new"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @user_session = UserSession.new(params[:user_session])"
+    - :was_run: true
+      :content: "       if @user_session.save"
+    - :was_run: false
+      :content: "         flash[:notice] = \"Successful Login\""
+    - :was_run: false
+      :content: "         redirect_to root_url"
+    - :was_run: true
+      :content: "       else"
+    - :was_run: true
+      :content: "         render :action => 'new'"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: false
+      :content: "       @user_session = UserSession.find"
+    - :was_run: false
+      :content: "       @user_session.destroy"
+    - :was_run: false
+      :content: "       flash[:notice] = \"Successful Logout\""
+    - :was_run: false
+      :content: "       redirect_to root_url"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: false
+      :content: "   end"
+    - :was_run: true
+      :content: "                         "
+  app/controllers/projects_controller.rb: 
+    :percent_run: 87
+    :lines: 
+    - :was_run: true
+      :content: "   class ProjectsController < ApplicationController"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # GET /projects"
+    - :was_run: true
+      :content: "     # GET /projects.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @projects = Project.all"
+    - :was_run: true
+      :content: "       clear_current_project"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @projects }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /projects/1"
+    - :was_run: true
+      :content: "     # GET /projects/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @project = Project.find(params[:id])"
+    - :was_run: true
+      :content: "       store_current_project(@project)   "
+    - :was_run: true
+      :content: "       "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @project }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /projects/new"
+    - :was_run: true
+      :content: "     # GET /projects/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @project = Project.new"
+    - :was_run: true
+      :content: "       store_current_project(@project)"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @project }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /projects/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @project = Project.find(params[:id])"
+    - :was_run: true
+      :content: "       store_current_project(@project)"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /projects"
+    - :was_run: true
+      :content: "     # POST /projects.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @project = Project.new(params[:project])"
+    - :was_run: true
+      :content: "       store_current_project(@project)"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @project.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Project was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@project) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @project, :status => :created, :location => @project }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /projects/1"
+    - :was_run: true
+      :content: "     # PUT /projects/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @project = Project.find(params[:id])"
+    - :was_run: true
+      :content: "       store_current_project(@project)"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @project.update_attributes(params[:project])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Project was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@project) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /projects/1"
+    - :was_run: true
+      :content: "     # DELETE /projects/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @project = Project.find(params[:id])"
+    - :was_run: true
+      :content: "       @project.destroy"
+    - :was_run: true
+      :content: "       clear_current_project"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(projects_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/user_sessions_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module UserSessionsHelper"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/skills_controller.rb: 
+    :percent_run: 86
+    :lines: 
+    - :was_run: true
+      :content: "   class SkillsController < ApplicationController "
+    - :was_run: true
+      :content: "    "
+    - :was_run: true
+      :content: "     # GET /skills"
+    - :was_run: true
+      :content: "     # GET /skills.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @skills = Skill.all"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @skills }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /skills/1"
+    - :was_run: true
+      :content: "     # GET /skills/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @skill = Skill.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @skill }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /skills/new"
+    - :was_run: true
+      :content: "     # GET /skills/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @skill = Skill.new"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @skill }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /skills/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @skill = Skill.find(params[:id])"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /skills"
+    - :was_run: true
+      :content: "     # POST /skills.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @skill = Skill.new(params[:skill])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @skill.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Skill was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@skill) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @skill, :status => :created, :location => @skill }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /skills/1"
+    - :was_run: true
+      :content: "     # PUT /skills/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @skill = Skill.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @skill.update_attributes(params[:skill])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Skill was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@skill) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /skills/1"
+    - :was_run: true
+      :content: "     # DELETE /skills/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @skill = Skill.find(params[:id])"
+    - :was_run: true
+      :content: "       @skill.destroy"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(skills_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/people_skills_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module PeopleSkillsHelper"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/users_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module UsersHelper"
+    - :was_run: true
+      :content: "   end"
+  app/models/user_session.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class UserSession < Authlogic::Session::Base"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/application_controller.rb: 
+    :percent_run: 95
+    :lines: 
+    - :was_run: true
+      :content: "   # Filters added to this controller apply to all controllers in the application."
+    - :was_run: true
+      :content: "   # Likewise, all the methods added will be available for all controllers."
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "   class ApplicationController < ActionController::Base"
+    - :was_run: true
+      :content: "     helper :all # include all helpers, all the time"
+    - :was_run: true
+      :content: "     protect_from_forgery # See ActionController::RequestForgeryProtection for details"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # Scrub sensitive parameters from your log"
+    - :was_run: true
+      :content: "     # filter_parameter_logging :password      "
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     helper_method :current_user"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # Methods to extract objects based on session store"
+    - :was_run: true
+      :content: "      def store_current_project(project)"
+    - :was_run: true
+      :content: "        session[:current_project_id] = project.id"
+    - :was_run: true
+      :content: "      end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "      # Methods to extract objects based on session store"
+    - :was_run: true
+      :content: "      def current_project"
+    - :was_run: false
+      :content: "        Project.find(session[:current_project_id]) if session[:current_project_id]"
+    - :was_run: false
+      :content: "      end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "      # Methods to clear session store"
+    - :was_run: true
+      :content: "       def clear_current_project"
+    - :was_run: true
+      :content: "         session[:current_project_id] = nil"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "       "
+    - :was_run: true
+      :content: "       private"
+    - :was_run: true
+      :content: "       "
+    - :was_run: true
+      :content: "       def current_user_session"
+    - :was_run: true
+      :content: "         return @current_user_session if defined?(@current_user_session)"
+    - :was_run: true
+      :content: "         @current_user_session = UserSession.find"
+    - :was_run: true
+      :content: "       end  "
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       def current_user"
+    - :was_run: true
+      :content: "         return @current_user if defined?(@current_user)"
+    - :was_run: true
+      :content: "         @current_user = current_user_session && current_user_session.record"
+    - :was_run: true
+      :content: "       end  "
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "   end"
+  app/models/task.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class Task < ActiveRecord::Base "
+    - :was_run: true
+      :content: "     belongs_to :skill"
+    - :was_run: true
+      :content: "     belongs_to :project"
+    - :was_run: true
+      :content: "     has_many :assignments"
+    - :was_run: true
+      :content: "     has_many :people, :through => :assignments"
+    - :was_run: true
+      :content: "   end"
+  app/models/user.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class User < ActiveRecord::Base"
+    - :was_run: true
+      :content: "   #  attr_accessible :username, :email, :password"
+    - :was_run: true
+      :content: "     acts_as_authentic"
+    - :was_run: true
+      :content: "   end"
+  app/models/people_skill.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class PeopleSkill < ActiveRecord::Base      "
+    - :was_run: true
+      :content: "     belongs_to :person"
+    - :was_run: true
+      :content: "     belongs_to :skill"
+    - :was_run: true
+      :content: "   end"
+  app/models/project.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class Project < ActiveRecord::Base"
+    - :was_run: true
+      :content: "     has_many :tasks"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/assignments_controller.rb: 
+    :percent_run: 87
+    :lines: 
+    - :was_run: true
+      :content: "   class AssignmentsController < ApplicationController"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # GET /assignments"
+    - :was_run: true
+      :content: "     # GET /assignments.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @assignments = Assignment.all"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @assignments }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /assignments/1"
+    - :was_run: true
+      :content: "     # GET /assignments/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @assignment = Assignment.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @assignment }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /assignments/new"
+    - :was_run: true
+      :content: "     # GET /assignments/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @assignment = Assignment.new"
+    - :was_run: true
+      :content: "       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}"
+    - :was_run: true
+      :content: "       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @assignment }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /assignments/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @assignment = Assignment.find(params[:id])"
+    - :was_run: true
+      :content: "       @people = Person.find(:all, :order => 'first_name').map{|t| [t.full_name.titleize, t.id]}"
+    - :was_run: true
+      :content: "       @tasks = Task.find(:all, :order => 'name').map{|t| [t.name.titleize, t.id]}"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /assignments"
+    - :was_run: true
+      :content: "     # POST /assignments.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @assignment = Assignment.new(params[:assignment])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @assignment.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Assignment was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@assignment) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /assignments/1"
+    - :was_run: true
+      :content: "     # PUT /assignments/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @assignment = Assignment.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @assignment.update_attributes(params[:assignment])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'Assignment was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@assignment) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /assignments/1"
+    - :was_run: true
+      :content: "     # DELETE /assignments/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @assignment = Assignment.find(params[:id])"
+    - :was_run: true
+      :content: "       @assignment.destroy"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(assignments_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/tasks_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module TasksHelper"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/projects_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   module ProjectsHelper"
+    - :was_run: true
+      :content: "   end"
+  app/controllers/people_skills_controller.rb: 
+    :percent_run: 86
+    :lines: 
+    - :was_run: true
+      :content: "   class PeopleSkillsController < ApplicationController"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     # GET /people_skills"
+    - :was_run: true
+      :content: "     # GET /people_skills.xml"
+    - :was_run: true
+      :content: "     def index"
+    - :was_run: true
+      :content: "       @people_skills = PeopleSkill.all"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # index.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @people_skills }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people_skills/1"
+    - :was_run: true
+      :content: "     # GET /people_skills/1.xml"
+    - :was_run: true
+      :content: "     def show"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # show.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @people_skill }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people_skills/new"
+    - :was_run: true
+      :content: "     # GET /people_skills/new.xml"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.new"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html # new.html.erb"
+    - :was_run: true
+      :content: "         format.xml  { render :xml => @people_skill }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # GET /people_skills/1/edit"
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.find(params[:id])"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # POST /people_skills"
+    - :was_run: true
+      :content: "     # POST /people_skills.xml"
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.new(params[:people_skill])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @people_skill.save"
+    - :was_run: true
+      :content: "           flash[:notice] = 'PeopleSkill was successfully created.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@people_skill) }"
+    - :was_run: true
+      :content: "           format.xml  { render :xml => @people_skill, :status => :created, :location => @people_skill }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"new\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # PUT /people_skills/1"
+    - :was_run: true
+      :content: "     # PUT /people_skills/1.xml"
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.find(params[:id])"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         if @people_skill.update_attributes(params[:people_skill])"
+    - :was_run: true
+      :content: "           flash[:notice] = 'PeopleSkill was successfully updated.'"
+    - :was_run: true
+      :content: "           format.html { redirect_to(@people_skill) }"
+    - :was_run: true
+      :content: "           format.xml  { head :ok }"
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format.html { render :action => \"edit\" }"
+    - :was_run: false
+      :content: "           format.xml  { render :xml => @people_skill.errors, :status => :unprocessable_entity }"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     # DELETE /people_skills/1"
+    - :was_run: true
+      :content: "     # DELETE /people_skills/1.xml"
+    - :was_run: true
+      :content: "     def destroy"
+    - :was_run: true
+      :content: "       @people_skill = PeopleSkill.find(params[:id])"
+    - :was_run: true
+      :content: "       @people_skill.destroy"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "       respond_to do |format|"
+    - :was_run: true
+      :content: "         format.html { redirect_to(people_skills_url) }"
+    - :was_run: true
+      :content: "         format.xml  { head :ok }"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   end"
+  app/models/assignment.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class Assignment < ActiveRecord::Base "
+    - :was_run: true
+      :content: "     belongs_to :person"
+    - :was_run: true
+      :content: "     belongs_to :task"
+    - :was_run: true
+      :content: "   end"
+  app/models/skill.rb: 
+    :percent_run: 100
+    :lines: 
+    - :was_run: true
+      :content: "   class Skill < ActiveRecord::Base"
+    - :was_run: true
+      :content: "   end"
+  app/helpers/application_helper.rb: 
+    :percent_run: 54
+    :lines: 
+    - :was_run: true
+      :content: "   # Methods added to this helper will be available to all templates in the application."
+    - :was_run: true
+      :content: "   module ApplicationHelper "
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def format_currency(number, hide_zero=false)"
+    - :was_run: false
+      :content: "       format = String.new"
+    - :was_run: false
+      :content: "       if number"
+    - :was_run: false
+      :content: "         if number < 0 then"
+    - :was_run: false
+      :content: "           format = %q[<span style=\"color: red\">] + number_to_currency(number) + \"</span>\""
+    - :was_run: false
+      :content: "         elsif hide_zero && number == 0.0 "
+    - :was_run: false
+      :content: "           format = \"\""
+    - :was_run: false
+      :content: "         else"
+    - :was_run: false
+      :content: "           format = number_to_currency(number)"
+    - :was_run: false
+      :content: "         end"
+    - :was_run: false
+      :content: "       end    "
+    - :was_run: false
+      :content: "       format  "
+    - :was_run: false
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     def format_date(date)"
+    - :was_run: true
+      :content: "       date.strftime(\"%a %d %b %y\") if date"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "   "
+    - :was_run: true
+      :content: "     def format_time(time)"
+    - :was_run: true
+      :content: "       time.strftime(\"%H:%M\") if time"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "   end"
+  app/controllers/users_controller.rb: 
+    :percent_run: 76
+    :lines: 
+    - :was_run: true
+      :content: "   class UsersController < ApplicationController"
+    - :was_run: true
+      :content: "     def new"
+    - :was_run: true
+      :content: "       @user = User.new"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def create"
+    - :was_run: true
+      :content: "       @user = User.new(params[:user])"
+    - :was_run: true
+      :content: "       if @user.save"
+    - :was_run: true
+      :content: "         flash[:notice] = \"Registration Successful\""
+    - :was_run: true
+      :content: "         redirect_to root_url"
+    - :was_run: true
+      :content: "       else"
+    - :was_run: true
+      :content: "         render :action => 'new'"
+    - :was_run: true
+      :content: "       end"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def edit"
+    - :was_run: true
+      :content: "       @user = current_user"
+    - :was_run: true
+      :content: "     end"
+    - :was_run: true
+      :content: "     "
+    - :was_run: true
+      :content: "     def update"
+    - :was_run: true
+      :content: "       @user = current_user"
+    - :was_run: true
+      :content: "       if @user.update_attributes(params[:user])"
+    - :was_run: false
+      :content: "         flash[:notice] = \"Successfully Updated Profile\""
+    - :was_run: false
+      :content: "         redirect_to root_url"
+    - :was_run: false
+      :content: "       else"
+    - :was_run: false
+      :content: "         render :action => 'edit'"
+    - :was_run: false
+      :content: "       end"
+    - :was_run: false
+      :content: "     end"
+    - :was_run: false
+      :content: "   end"
+:stats: 
+  :codeLOC: 522
+  :lines: 
+  - :loc_per_method: 6
+    :methods: 55
+    :lines: 627
+    :name: Controllers
+    :loc: 446
+    :classes: 10
+    :methods_per_class: 5
+  - :loc_per_method: 10
+    :methods: 3
+    :lines: 42
+    :name: Helpers
+    :loc: 37
+    :classes: 0
+    :methods_per_class: 0
+  - :loc_per_method: 11
+    :methods: 3
+    :lines: 45
+    :name: Models
+    :loc: 39
+    :classes: 8
+    :methods_per_class: 0
+  - :loc_per_method: 0
+    :methods: 0
+    :lines: 0
+    :name: Libraries
+    :loc: 0
+    :classes: 0
+    :methods_per_class: 0
+  - :loc_per_method: 0
+    :methods: 0
+    :lines: 0
+    :name: Integration tests
+    :loc: 0
+    :classes: 0
+    :methods_per_class: 0
+  - :loc_per_method: 25
+    :methods: 10
+    :lines: 334
+    :name: Functional tests
+    :loc: 270
+    :classes: 8
+    :methods_per_class: 1
+  - :loc_per_method: 20
+    :methods: 3
+    :lines: 88
+    :name: Unit tests
+    :loc: 66
+    :classes: 13
+    :methods_per_class: 0
+  - :loc_per_method: 9
+    :methods: 74
+    :lines: 1136
+    :name: Total
+    :loc: 858
+    :classes: 39
+    :methods_per_class: 1
+  :testLOC: 336
+  :code_to_test_ratio: 0.6
+:flog: 
+  :average: 11.4
+  :total: 762.9
+  :pages: 
+  - :scanned_methods: 
+    - :score: 28.4
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: store_current_project
+      - :score: 1.2
+        :operator: find
+      :name: ProjectsController#update
+    - :score: 25.4
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: store_current_project
+      :name: ProjectsController#create
+    - :score: 16.0
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: projects_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: clear_current_project
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: find
+      :name: ProjectsController#destroy
+    - :score: 11.5
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: store_current_project
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: ProjectsController#show
+    - :score: 8.7
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: store_current_project
+      :name: ProjectsController#new
+    - :score: 8.7
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: clear_current_project
+      - :score: 1.2
+        :operator: all
+      :name: ProjectsController#index
+    - :score: 5.5
+      :operators: 
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: store_current_project
+      - :score: 1.2
+        :operator: find
+      :name: ProjectsController#edit
+    :score: 104.2
+    :path: /app/controllers/projects_controller.rb
+    :highest_score: 28.4
+    :average_score: 14.9
+  - :scanned_methods: 
+    - :score: 27.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleController#update
+    - :score: 24.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: html
+      - :score: 3.0
+        :operator: xml
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: new
+      :name: PeopleController#create
+    - :score: 14.9
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: people_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleController#destroy
+    - :score: 10.3
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleController#show
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      :name: PeopleController#new
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: all
+      - :score: 1.2
+        :operator: respond_to
+      :name: PeopleController#index
+    - :score: 4.4
+      :operators: 
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: find
+      :name: PeopleController#edit
+    :score: 96.4
+    :path: /app/controllers/people_controller.rb
+    :highest_score: 27.3
+    :average_score: 13.8
+  - :scanned_methods: 
+    - :score: 27.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: AssignmentsController#update
+    - :score: 24.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: html
+      - :score: 3.0
+        :operator: xml
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      :name: AssignmentsController#create
+    - :score: 22.0
+      :operators: 
+      - :score: 7.5
+        :operator: assignment
+      - :score: 5.0
+        :operator: branch
+      - :score: 2.8
+        :operator: find
+      - :score: 2.6
+        :operator: titleize
+      - :score: 2.6
+        :operator: id
+      - :score: 2.4
+        :operator: map
+      - :score: 1.5
+        :operator: render
+      - :score: 1.5
+        :operator: full_name
+      - :score: 1.5
+        :operator: name
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      :name: AssignmentsController#new
+    - :score: 18.8
+      :operators: 
+      - :score: 6.2
+        :operator: assignment
+      - :score: 4.0
+        :operator: find
+      - :score: 2.6
+        :operator: id
+      - :score: 2.6
+        :operator: titleize
+      - :score: 2.4
+        :operator: branch
+      - :score: 2.4
+        :operator: map
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: full_name
+      - :score: 1.5
+        :operator: name
+      - :score: 1.4
+        :operator: "[]"
+      :name: AssignmentsController#edit
+    - :score: 14.9
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: assignments_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: AssignmentsController#destroy
+    - :score: 10.3
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: AssignmentsController#show
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: all
+      - :score: 1.2
+        :operator: respond_to
+      :name: AssignmentsController#index
+    :score: 125.2
+    :path: /app/controllers/assignments_controller.rb
+    :highest_score: 27.3
+    :average_score: 17.9
+  - :scanned_methods: 
+    - :score: 27.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: SkillsController#update
+    - :score: 24.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: html
+      - :score: 3.0
+        :operator: xml
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: new
+      :name: SkillsController#create
+    - :score: 14.9
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: skills_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: SkillsController#destroy
+    - :score: 10.3
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: SkillsController#show
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      :name: SkillsController#new
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: all
+      - :score: 1.2
+        :operator: respond_to
+      :name: SkillsController#index
+    - :score: 4.4
+      :operators: 
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: find
+      :name: SkillsController#edit
+    :score: 96.4
+    :path: /app/controllers/skills_controller.rb
+    :highest_score: 27.3
+    :average_score: 13.8
+  - :scanned_methods: 
+    - :score: 27.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: TasksController#update
+    - :score: 24.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: new
+      :name: TasksController#create
+    - :score: 14.9
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: tasks_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: find
+      :name: TasksController#destroy
+    - :score: 14.8
+      :operators: 
+      - :score: 5.0
+        :operator: assignment
+      - :score: 3.8
+        :operator: branch
+      - :score: 1.5
+        :operator: render
+      - :score: 1.5
+        :operator: name
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: find
+      - :score: 1.3
+        :operator: titleize
+      - :score: 1.3
+        :operator: id
+      - :score: 1.2
+        :operator: map
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: new
+      :name: TasksController#new
+    - :score: 11.6
+      :operators: 
+      - :score: 3.7
+        :operator: assignment
+      - :score: 2.6
+        :operator: find
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: name
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: titleize
+      - :score: 1.3
+        :operator: id
+      - :score: 1.2
+        :operator: branch
+      - :score: 1.2
+        :operator: map
+      :name: TasksController#edit
+    - :score: 10.3
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: TasksController#show
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: all
+      - :score: 1.2
+        :operator: respond_to
+      :name: TasksController#index
+    :score: 110.8
+    :path: /app/controllers/tasks_controller.rb
+    :highest_score: 27.3
+    :average_score: 15.8
+  - :scanned_methods: 
+    - :score: 27.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.3
+        :operator: params
+      - :score: 3.2
+        :operator: render
+      - :score: 3.0
+        :operator: xml
+      - :score: 3.0
+        :operator: html
+      - :score: 2.9
+        :operator: "[]"
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: head
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.3
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleSkillsController#update
+    - :score: 24.3
+      :operators: 
+      - :score: 8.5
+        :operator: branch
+      - :score: 4.8
+        :operator: render
+      - :score: 4.0
+        :operator: assignment
+      - :score: 3.0
+        :operator: html
+      - :score: 3.0
+        :operator: xml
+      - :score: 1.8
+        :operator: errors
+      - :score: 1.6
+        :operator: redirect_to
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: save
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: new
+      :name: PeopleSkillsController#create
+    - :score: 14.9
+      :operators: 
+      - :score: 4.0
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.7
+        :operator: people_skills_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: redirect_to
+      - :score: 1.5
+        :operator: head
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleSkillsController#destroy
+    - :score: 10.3
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.6
+        :operator: params
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: respond_to
+      - :score: 1.2
+        :operator: find
+      :name: PeopleSkillsController#show
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: html
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: respond_to
+      :name: PeopleSkillsController#new
+    - :score: 7.6
+      :operators: 
+      - :score: 2.6
+        :operator: branch
+      - :score: 2.5
+        :operator: assignment
+      - :score: 1.5
+        :operator: render
+      - :score: 1.4
+        :operator: xml
+      - :score: 1.4
+        :operator: html
+      - :score: 1.2
+        :operator: all
+      - :score: 1.2
+        :operator: respond_to
+      :name: PeopleSkillsController#index
+    - :score: 4.4
+      :operators: 
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: find
+      :name: PeopleSkillsController#edit
+    :score: 96.4
+    :path: /app/controllers/people_skills_controller.rb
+    :highest_score: 27.3
+    :average_score: 13.8
+  - :scanned_methods: 
+    - :score: 13.4
+      :operators: 
+      - :score: 6.8
+        :operator: assignment
+      - :score: 5.3
+        :operator: branch
+      - :score: 3.3
+        :operator: number_to_currency
+      - :score: 3.0
+        :operator: +
+      - :score: 1.5
+        :operator: ==
+      - :score: 1.3
+        :operator: <
+      - :score: 1.2
+        :operator: new
+      :name: ApplicationHelper#format_currency
+    - :score: 1.8
+      :operators: 
+      - :score: 1.3
+        :operator: strftime
+      - :score: 1.2
+        :operator: branch
+      :name: ApplicationHelper#format_time
+    - :score: 1.8
+      :operators: 
+      - :score: 1.3
+        :operator: strftime
+      - :score: 1.2
+        :operator: branch
+      :name: ApplicationHelper#format_date
+    :score: 17.0
+    :path: /app/helpers/application_helper.rb
+    :highest_score: 13.4
+    :average_score: 5.7
+  - :scanned_methods: 
+    - :score: 12.3
+      :operators: 
+      - :score: 2.6
+        :operator: chop
+      - :score: 2.1
+        :operator: name
+      - :score: 2.0
+        :operator: skills
+      - :score: 1.9
+        :operator: +
+      - :score: 1.9
+        :operator: assignment
+      - :score: 1.8
+        :operator: branch
+      - :score: 1.8
+        :operator: collect
+      - :score: 1.6
+        :operator: to_s
+      :name: Person#skill_summary
+    - :score: 12.3
+      :operators: 
+      - :score: 2.6
+        :operator: chop
+      - :score: 2.1
+        :operator: name
+      - :score: 2.0
+        :operator: tasks
+      - :score: 1.9
+        :operator: +
+      - :score: 1.9
+        :operator: assignment
+      - :score: 1.8
+        :operator: collect
+      - :score: 1.8
+        :operator: branch
+      - :score: 1.6
+        :operator: to_s
+      :name: Person#task_summary
+    - :score: 7.6
+      :operators: 
+      - :score: 3.0
+        :operator: +
+      - :score: 1.8
+        :operator: first_name
+      - :score: 1.6
+        :operator: last_name
+      - :score: 1.2
+        :operator: titleize
+      :name: Person#full_name
+    - :score: 4.4
+      :operators: 
+      - :score: 4.4
+        :operator: has_many
+      :name: Person#none
+    :score: 36.6
+    :path: /app/models/person.rb
+    :highest_score: 12.3
+    :average_score: 9.1
+  - :scanned_methods: 
+    - :score: 11.5
+      :operators: 
+      - :score: 2.6
+        :operator: assignment
+      - :score: 1.6
+        :operator: root_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: flash
+      - :score: 1.4
+        :operator: redirect_to
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: render
+      - :score: 1.2
+        :operator: save
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: branch
+      :name: UserSessionsController#create
+    - :score: 6.6
+      :operators: 
+      - :score: 2.4
+        :operator: assignment
+      - :score: 1.4
+        :operator: root_url
+      - :score: 1.2
+        :operator: flash
+      - :score: 1.2
+        :operator: redirect_to
+      - :score: 1.2
+        :operator: destroy
+      - :score: 1.2
+        :operator: find
+      :name: UserSessionsController#destroy
+    - :score: 1.7
+      :operators: 
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: new
+      :name: UserSessionsController#new
+    :score: 19.8
+    :path: /app/controllers/user_sessions_controller.rb
+    :highest_score: 11.5
+    :average_score: 6.6
+  - :scanned_methods: 
+    - :score: 11.5
+      :operators: 
+      - :score: 2.6
+        :operator: assignment
+      - :score: 1.6
+        :operator: root_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: redirect_to
+      - :score: 1.4
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: render
+      - :score: 1.2
+        :operator: save
+      - :score: 1.2
+        :operator: new
+      - :score: 1.2
+        :operator: branch
+      :name: UsersController#create
+    - :score: 11.5
+      :operators: 
+      - :score: 2.6
+        :operator: assignment
+      - :score: 1.6
+        :operator: root_url
+      - :score: 1.6
+        :operator: params
+      - :score: 1.4
+        :operator: redirect_to
+      - :score: 1.4
+        :operator: flash
+      - :score: 1.4
+        :operator: "[]"
+      - :score: 1.3
+        :operator: render
+      - :score: 1.2
+        :operator: update_attributes
+      - :score: 1.2
+        :operator: branch
+      - :score: 1.2
+        :operator: current_user
+      :name: UsersController#update
+    - :score: 1.7
+      :operators: 
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: new
+      :name: UsersController#new
+    - :score: 1.7
+      :operators: 
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: current_user
+      :name: UsersController#edit
+    :score: 26.3
+    :path: /app/controllers/users_controller.rb
+    :highest_score: 11.5
+    :average_score: 6.6
+  - :scanned_methods: 
+    - :score: 7.2
+      :operators: 
+      - :score: 3.1
+        :operator: session
+      - :score: 2.7
+        :operator: "[]"
+      - :score: 1.3
+        :operator: find
+      - :score: 1.2
+        :operator: branch
+      :name: ApplicationController#current_project
+    - :score: 4.9
+      :operators: 
+      - :score: 2.8
+        :operator: current_user_session
+      - :score: 2.4
+        :operator: branch
+      - :score: 1.3
+        :operator: record
+      - :score: 1.2
+        :operator: assignment
+      :name: ApplicationController#current_user
+    - :score: 4.4
+      :operators: 
+      - :score: 1.1
+        :operator: helper
+      - :score: 1.1
+        :operator: private
+      - :score: 1.1
+        :operator: protect_from_forgery
+      - :score: 1.1
+        :operator: helper_method
+      :name: ApplicationController#none
+    - :score: 2.7
+      :operators: 
+      - :score: 1.2
+        :operator: session
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: id
+      :name: ApplicationController#store_current_project
+    - :score: 2.1
+      :operators: 
+      - :score: 1.2
+        :operator: assignment
+      - :score: 1.2
+        :operator: find
+      - :score: 1.2
+        :operator: branch
+      :name: ApplicationController#current_user_session
+    - :score: 1.7
+      :operators: 
+      - :score: 1.2
+        :operator: session
+      - :score: 1.2
+        :operator: assignment
+      :name: ApplicationController#clear_current_project
+    :score: 23.0
+    :path: /app/controllers/application_controller.rb
+    :highest_score: 7.2
+    :average_score: 3.8
+  - :scanned_methods: 
+    - :score: 4.4
+      :operators: 
+      - :score: 2.2
+        :operator: belongs_to
+      - :score: 2.2
+        :operator: has_many
+      :name: Task#none
+    :score: 4.4
+    :path: /app/models/task.rb
+    :highest_score: 4.4
+    :average_score: 4.4
+  - :scanned_methods: 
+    - :score: 2.2
+      :operators: 
+      - :score: 2.2
+        :operator: belongs_to
+      :name: PeopleSkill#none
+    :score: 2.2
+    :path: /app/models/people_skill.rb
+    :highest_score: 2.2
+    :average_score: 2.2
+  - :scanned_methods: 
+    - :score: 2.2
+      :operators: 
+      - :score: 2.2
+        :operator: belongs_to
+      :name: Assignment#none
+    :score: 2.2
+    :path: /app/models/assignment.rb
+    :highest_score: 2.2
+    :average_score: 2.2
+  - :scanned_methods: 
+    - :score: 1.0
+      :operators: 
+      - :score: 1.0
+        :operator: has_many
+      :name: Project#none
+    :score: 1.0
+    :path: /app/models/project.rb
+    :highest_score: 1.0
+    :average_score: 1.0
+  - :scanned_methods: 
+    - :score: 1.0
+      :operators: 
+      - :score: 1.0
+        :operator: acts_as_authentic
+      :name: User#none
+    :score: 1.0
+    :path: /app/models/user.rb
+    :highest_score: 1.0
+    :average_score: 1.0
+:flay: 
+  :matches: 
+  - :matches: 
+    - :line: "86"
+      :name: app/controllers/people_controller.rb
+    - :line: "86"
+      :name: app/controllers/people_skills_controller.rb
+    - :line: "86"
+      :name: app/controllers/skills_controller.rb
+    :reason: 1) Similar code found in :scope (mass = 816)
+  - :matches: 
+    - :line: "29"
+      :name: app/controllers/assignments_controller.rb
+    - :line: "30"
+      :name: app/controllers/assignments_controller.rb
+    - :line: "41"
+      :name: app/controllers/assignments_controller.rb
+    - :line: "42"
+      :name: app/controllers/assignments_controller.rb
+    - :line: "29"
+      :name: app/controllers/tasks_controller.rb
+    - :line: "40"
+      :name: app/controllers/tasks_controller.rb
+    :reason: 2) Similar code found in :iasgn (mass = 126)
+  - :matches: 
+    - :line: "6"
+      :name: app/controllers/user_sessions_controller.rb
+    - :line: "6"
+      :name: app/controllers/users_controller.rb
+    :reason: 3) Similar code found in :defn (mass = 66)
+  - :matches: 
+    - :line: "12"
+      :name: app/models/person.rb
+    - :line: "16"
+      :name: app/models/person.rb
+    :reason: 4) Similar code found in :defn (mass = 44)
+  :total_score: "1052"
+:reek: 
+  :matches: 
+  - :code_smells: []
+
+    :file_path: app/controllers/application_controller.rb
+:churn: 
+  :changes: []
+
+:roodi: 
+  :problems: []
+
+  :total: 
+  - Found 0 errors.

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @physical_form.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @physical_form.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_physical_form_path(@physical_form) %> |
+<%= link_to 'Back', physical_forms_path %>

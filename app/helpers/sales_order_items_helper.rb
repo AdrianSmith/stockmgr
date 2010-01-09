@@ -1,0 +1,2 @@
+module SalesOrderItemsHelper
+end

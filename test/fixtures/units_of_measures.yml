@@ -1,0 +1,54 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: each
+  description: Each
+  short_name: ea
+
+two:
+  id: 2
+  name: litre
+  description: Litres
+  short_name: L
+
+three:
+  id: 3
+  name: kilo
+  description: Kilograms
+  short_name: kg
+
+four:
+  id: 4
+  name: millilitre
+  description: Millilitres
+  short_name: ml
+
+five:
+  id: 5
+  name: gram
+  description: Grams
+  short_name: g
+
+six:
+  id: 6
+  name: dozen
+  description: 12 Items
+  short_name: doz
+
+seven:
+  id: 7
+  name: 1/2 dozen
+  description: 6 Items
+  short_name: 1/2 doz
+
+eight:
+  id: 8
+  name: bunch
+  description: Bunch
+  short_name: bunch
+
+nine:
+  id: 9
+  name: Other
+  description: Undefined

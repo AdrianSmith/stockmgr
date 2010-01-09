@@ -1,0 +1,17 @@
+    17.0: flog total
+     5.7: flog/method average
+
+    13.4: ApplicationHelper#format_currency
+     6.8: assignment
+     5.3: branch
+     3.3: number_to_currency
+     3.0: +
+     1.5: ==
+     1.3: <
+     1.2: new
+     1.8: ApplicationHelper#format_time
+     1.3: strftime
+     1.2: branch
+     1.8: ApplicationHelper#format_date
+     1.3: strftime
+     1.2: branch

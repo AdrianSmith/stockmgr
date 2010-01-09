@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @purchase_order_state.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @purchase_order_state.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_order_state_path(@purchase_order_state) %> |
+<%= link_to 'Back', purchase_order_states_path %>

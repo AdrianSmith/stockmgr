@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  address_line_1: 25 Devon Street
+  suburb_town: Annerley
+  city: Brisbane
+  state: QLD
+  postcode: 4103
+  country: Australia
+
+two:
+  id: 2
+  address_line_1: PO Box 2262
+  suburb_town: Toowong
+  city: Brisbane
+  state: QLD
+  postcode: 4066
+  country: Australia
+
+three:
+  id: 3
+  address_line_1: Flat 6
+  address_line_2: 52 Gordon Road
+  suburb_town: Ealing
+  city: London
+  state: QLD
+  postcode: W5-6AR
+  country: United Kingdom

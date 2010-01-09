@@ -1,0 +1,32 @@
+<h1>Editing purchase_order</h1>
+
+<% form_for(@purchase_order) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :supplier_id %><br />
+    <%= f.text_field :supplier_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment,  :cols => 40, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.label :created_by_user_id %><br />
+    <%= f.text_field :created_by_user_id %>
+  </p>
+  <p>
+    <%= f.label :purchase_order_state_id %><br />
+    <%= f.text_field :purchase_order_state_id %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @purchase_order %> |
+<%= link_to 'Back', purchase_orders_path %>

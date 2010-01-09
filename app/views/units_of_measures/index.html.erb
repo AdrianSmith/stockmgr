@@ -1,0 +1,24 @@
+<h1>Listing Units_of_Measures</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Short name</th>
+  </tr>
+
+<% @units_of_measures.each do |units_of_measure| %>
+  <tr>
+    <td><%=h units_of_measure.name %></td>
+    <td><%=h units_of_measure.description %></td>
+    <td><%=h units_of_measure.short_name %></td>
+    <td><%= link_to 'Show', units_of_measure %></td>
+    <td><%= link_to 'Edit', edit_units_of_measure_path(units_of_measure) %></td>
+    <td><%= link_to 'Destroy', units_of_measure, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New units_of_measure', new_units_of_measure_path %>
