@@ -4,7 +4,7 @@ class CreateSalesOrderItems < ActiveRecord::Migration
       t.integer :product_id
       t.decimal :quantity
       t.integer :percentage_discount
-      t.decimal :price
+      t.decimal :price, :precision => 8, :scale => 2, :default => 0.0
 
       t.timestamps
     end

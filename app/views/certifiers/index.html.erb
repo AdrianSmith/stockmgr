@@ -1,0 +1,26 @@
+<h1>Listing certifiers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Website</th>
+    <th>Logo image url</th>
+  </tr>
+
+<% @certifiers.each do |certifier| %>
+  <tr>
+    <td><%=h certifier.name %></td>
+    <td><%=h certifier.description %></td>
+    <td><%=h certifier.website %></td>
+    <td><%=h certifier.logo_image_url %></td>
+    <td><%= link_to 'Show', certifier %></td>
+    <td><%= link_to 'Edit', edit_certifier_path(certifier) %></td>
+    <td><%= link_to 'Destroy', certifier, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New certifier', new_certifier_path %>

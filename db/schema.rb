@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100108222247) do
+ActiveRecord::Schema.define(:version => 20100109214555) do
+
+  create_table "certifiers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website"
+    t.string   "logo_image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contact_detail_types", :force => true do |t|
     t.string   "name"
@@ -38,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
   end
 
   create_table "payments", :force => true do |t|
-    t.integer  "amount",             :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "amount",             :precision => 8, :scale => 2, :default => 0.0
     t.integer  "payment_type_id"
     t.integer  "user_id"
     t.integer  "created_by_user_id"
@@ -57,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
 
   create_table "product_prices", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "amount",     :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "amount",     :precision => 8, :scale => 2, :default => 0.0
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -72,9 +81,11 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
+    t.string   "image_url"
     t.text     "description"
     t.integer  "product_type_id"
     t.integer  "supplier_id"
+    t.integer  "certifier_id"
     t.integer  "storage_type_id"
     t.integer  "units_of_measure_id"
     t.integer  "storage_location_id"
@@ -87,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
   create_table "purchase_order_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "quantity",   :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price",      :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "price",                    :precision => 8,  :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
     t.text     "comment"
     t.integer  "created_by_user_id"
     t.integer  "purchase_order_state_id"
-    t.integer  "price",                   :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "amount",                  :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -113,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
     t.integer  "product_id"
     t.integer  "quantity",            :limit => 10, :precision => 10, :scale => 0
     t.integer  "percentage_discount"
-    t.integer  "price",               :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "price",                             :precision => 8,  :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -156,6 +167,8 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
     t.text     "description"
     t.string   "website"
     t.string   "email"
+    t.string   "account_name"
+    t.string   "account_number"
     t.text     "comment"
     t.text     "delivery_rules"
     t.datetime "created_at"
@@ -188,16 +201,8 @@ ActiveRecord::Schema.define(:version => 20100108222247) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "address_line_1",                                                    :default => "",    :null => false
-    t.string   "address_line_2"
-    t.string   "suburb",                                                            :default => "",    :null => false
-    t.string   "postcode",                                                          :default => "",    :null => false
-    t.string   "phone_mobile"
-    t.string   "phone_home"
-    t.string   "phone_work"
     t.boolean  "is_admin",                                                          :default => false
     t.boolean  "is_staff",                                                          :default => false
-    t.boolean  "is_supplier",                                                       :default => false
     t.boolean  "is_customer",                                                       :default => true
     t.decimal  "account_balance_cached",              :precision => 8, :scale => 2, :default => 0.0
     t.integer  "percentage_discount",    :limit => 3,                               :default => 0

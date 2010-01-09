@@ -2,7 +2,7 @@ class CreateProductPrices < ActiveRecord::Migration
   def self.up
     create_table :product_prices do |t|
       t.integer :product_id
-      t.decimal :amount
+      t.decimal :amount, :precision => 8, :scale => 2, :default => 0.0
       t.text :comment
 
       t.timestamps

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :certifiers
+
   map.resources :product_types
 
   map.resources :units_of_measures

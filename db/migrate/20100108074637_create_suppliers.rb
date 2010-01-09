@@ -5,6 +5,8 @@ class CreateSuppliers < ActiveRecord::Migration
       t.text :description
       t.string :website
       t.string :email
+      t.string :account_name
+      t.string :account_number
       t.text :comment
       t.text :delivery_rules
 

@@ -14,3 +14,15 @@ three:
   id: 3
   name: Dry
   description: Stored below 25 degrees C and below 50% relative humidity
+
+# == Schema Information
+#
+# Table name: storage_types
+#
+#  id          :integer(4)      not null, primary key
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
