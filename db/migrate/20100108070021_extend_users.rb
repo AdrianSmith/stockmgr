@@ -1,13 +1,5 @@
 class ExtendUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :address_line_1, :string, :null => false
-    add_column :users, :address_line_2, :string
-    add_column :users, :suburb, :string, :null => false
-    add_column :users, :postcode, :string, :null => false
-    add_column :users, :phone_mobile, :string
-    add_column :users, :phone_home, :string
-    add_column :users, :phone_work, :string 
-
     add_column :users, :is_admin, :boolean, :default => false
     add_column :users, :is_staff, :boolean, :default => false
     add_column :users, :is_supplier, :boolean, :default => false
@@ -19,14 +11,6 @@ class ExtendUsers < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :users, :address_line_1
-    remove_column :users, :address_line_2
-    remove_column :users, :suburb
-    remove_column :users, :postcode
-    remove_column :users, :phone_mobile
-    remove_column :users, :phone_home
-    remove_column :users, :phone_work
-
     remove_column :users, :is_admin
     remove_column :users, :is_staff
     remove_column :users, :is_supplier
