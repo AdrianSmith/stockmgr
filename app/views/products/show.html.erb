@@ -10,37 +10,37 @@
 
 <p>
   <b>Product type:</b>
-  <%=h @product.product_type_id %>
+  <%=h @product.product_type.name %>
 </p>
 
 <p>
   <b>Supplier:</b>
-  <%=h @product.supplier_id %>
-</p>
-
-<p>
-  <b>Storage type:</b>
-  <%=h @product.storage_type_id %>
+  <%=h @product.supplier.name %>
 </p>
 
 <p>
   <b>Units of measure:</b>
-  <%=h @product.units_of_measure_id %>
+  <%=h @product.units_of_measure.name %>
+</p>
+
+<p>
+  <b>Storage type:</b>
+  <%=h @product.storage_type.name %>
 </p>
 
 <p>
   <b>Storage location:</b>
-  <%=h @product.storage_location_id %>
+  <%=h @product.storage_location.name %>
 </p>
 
 <p>
   <b>Physical form:</b>
-  <%=h @product.physical_form_id %>
+  <%=h @product.physical_form.name %>
 </p>
 
 <p>
   <b>Stock amount:</b>
-  <%=h @product.stock_amount %>
+  <%=h @product.stock_amount.to_s + @product.units_of_measure.short_name %>
 </p>
 
 

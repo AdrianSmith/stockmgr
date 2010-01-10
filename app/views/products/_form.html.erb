@@ -8,27 +8,31 @@
 </p>
 <p>
   <%= f.label :product_type_id %><br />
-  <%= f.text_field :product_type_id %>
+  <%= f.select :product_type_id, @product_types, :prompt => 'Select ...' %>
 </p>
 <p>
   <%= f.label :supplier_id %><br />
-  <%= f.text_field :supplier_id %>
+  <%= f.select :supplier_id, @suppliers, :prompt => 'Select ...' %>
 </p>
 <p>
-  <%= f.label :storage_type_id %><br />
-  <%= f.text_field :storage_type_id %>
+  <%= f.label :certifier_id %><br />
+  <%= f.select :certifier_id, @certifiers, :prompt => 'Select ...' %>
 </p>
 <p>
   <%= f.label :units_of_measure_id %><br />
-  <%= f.text_field :units_of_measure_id %>
+  <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
+</p>
+<p>
+  <%= f.label :storage_type_id %><br />
+  <%= f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  %>
 </p>
 <p>
   <%= f.label :storage_location_id %><br />
-  <%= f.text_field :storage_location_id %>
+  <%= f.select :storage_location_id, @storage_locations, :prompt => 'Select ...'  %>
 </p>
 <p>
   <%= f.label :physical_form_id %><br />
-  <%= f.text_field :physical_form_id %>
+  <%= f.select :physical_form_id, @physical_forms, :prompt => 'Select ...'  %>
 </p>
 <p>
   <%= f.label :stock_amount %><br />

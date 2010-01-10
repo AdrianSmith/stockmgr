@@ -26,6 +26,14 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
 
+    @product_types = ProductType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @suppliers = Supplier.find(:all).map{|t| [t.name.titleize, t.id]}
+    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.name, t.id]}
+    @storage_types = StorageType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @storage_locations = StorageLocation.find(:all).map{|t| [t.name.titleize, t.id]}
+    @physical_forms = PhysicalForm.find(:all).map{|t| [t.name.titleize, t.id]}
+    @certifiers = Certifier.find(:all).map{|t| [t.name.titleize, t.id]}    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product }
@@ -35,12 +43,29 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+
+    @product_types = ProductType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @suppliers = Supplier.find(:all).map{|t| [t.name.titleize, t.id]}
+    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.name, t.id]}
+    @storage_types = StorageType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @storage_locations = StorageLocation.find(:all).map{|t| [t.name.titleize, t.id]}
+    @physical_forms = PhysicalForm.find(:all).map{|t| [t.name.titleize, t.id]}    
+    @certifiers = Certifier.find(:all).map{|t| [t.name.titleize, t.id]}    
+    
   end
 
   # POST /products
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
+
+    @product_types = ProductType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @suppliers = Supplier.find(:all).map{|t| [t.name.titleize, t.id]}
+    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.name, t.id]}
+    @storage_types = StorageType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @storage_locations = StorageLocation.find(:all).map{|t| [t.name.titleize, t.id]}
+    @physical_forms = PhysicalForm.find(:all).map{|t| [t.name.titleize, t.id]}    
+    @certifiers = Certifier.find(:all).map{|t| [t.name.titleize, t.id]}    
 
     respond_to do |format|
       if @product.save
@@ -58,6 +83,14 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
+
+    @product_types = ProductType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @suppliers = Supplier.find(:all).map{|t| [t.name.titleize, t.id]}
+    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.name, t.id]}
+    @storage_types = StorageType.find(:all).map{|t| [t.name.titleize, t.id]}
+    @storage_locations = StorageLocation.find(:all).map{|t| [t.name.titleize, t.id]}
+    @physical_forms = PhysicalForm.find(:all).map{|t| [t.name.titleize, t.id]}    
+    @certifiers = Certifier.find(:all).map{|t| [t.name.titleize, t.id]}    
 
     respond_to do |format|
       if @product.update_attributes(params[:product])

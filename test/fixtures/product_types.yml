@@ -1,13 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  id: 1
-  name: Grains & Cereals
-
-two:
-  id: 2
-  name: Storage Containers
-
 # == Schema Information
 #
 # Table name: product_types
@@ -18,4 +8,19 @@ two:
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+one:
+  id: 1
+  name: Grains
+
+two:
+  id: 2
+  name: Nuts & Seeds
+
+three:
+  id: 3
+  name: Condiments
+
+four:
+  id: 4
+  name: Dairy
 

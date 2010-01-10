@@ -16115,3 +16115,1616 @@ Migrating to AddIndexes (20100109231647)
   [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `users_contact_details`[0m
   [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-10 13:06:47) [GET]
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` [0m
+  [4;35;1mSupplier Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mProduct Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `products` [0m
+  [4;35;1mPurchaseOrder Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `purchase_orders`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mSalesOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `sales_orders`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 58ms (View: 11, DB: 15) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SuppliersController#index (for 127.0.0.1 at 2010-01-10 13:06:49) [GET]
+  [4;35;1mSupplier Load (8.6ms)[0m   [0mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering suppliers/index
+  [4;36;1mSupplier Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 68ms (View: 48, DB: 14) | 200 OK [http://localhost/suppliers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-01-10 13:07:04) [GET]
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 26ms (View: 11, DB: 3) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-01-10 13:07:08) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"admin", "password"=>"admin"}, "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs="}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'admin') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update with optimistic locking (0.3ms)[0m   [0;1m UPDATE `users`
+ SET `persistence_token` = 'cf74cec1cf2d1ce4badb51ea3441440c354c9889215d4fe1c0eda0c2fbe3bbf1bfb0f4e2a2fd947fdd8679966331e2cd092afef9ec61a08086077612a5846381', `lock_version` = 1, `updated_at` = '2010-01-10 03:07:08'
+ WHERE id = 1
+ AND `lock_version` = 0
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 25ms (DB: 5) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-10 13:07:08) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;36;1mProduct Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mPurchaseOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `purchase_orders`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;36;1mSalesOrder Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sales_orders`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 50ms (View: 11, DB: 12) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 13:07:11) [GET]
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;35;1mSupplier Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.9ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.8ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 161ms (View: 135, DB: 18) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-10 13:07:15) [GET]
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mProduct Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `products` [0m
+  [4;35;1mPurchaseOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `purchase_orders`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mSalesOrder Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `sales_orders`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 51ms (View: 10, DB: 12) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-01-10 13:07:17) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-10 17:57:57) [GET]
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mProduct Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `products` [0m
+  [4;35;1mPurchaseOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `purchase_orders`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mSalesOrder Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `sales_orders`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 155ms (View: 15, DB: 18) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 17:58:00) [GET]
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.9ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.6ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #19 of app/views/products/index.html.erb:
+16:     <td><%=h product.name %></td>
+17:     <td><%=h product.product_type.name %></td>
+18:     <td><%=h product.supplier.name %></td>
+19:     <td><%=h product.storage_type.name %></td>
+20:     <td><%=h product.storage_location.name %></td>
+21:     <td><%=h product.physical_form.name %></td>
+22:     <td><%=h product.stock_amount.to_s + product.units_of_measure.short_name %></td>
+
+    app/views/products/index.html.erb:19
+    app/views/products/index.html.erb:14:in `each'
+    app/views/products/index.html.erb:14
+    app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (44.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 17:59:05) [GET]
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (2.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.7ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.7ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 110ms (View: 79, DB: 21) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:03:10) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.7ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (25.3ms)
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 111ms (View: 96, DB: 7) | 200 OK [http://localhost/products/51697271/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-01-10 18:03:23) [GET]
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 40ms (View: 24, DB: 3) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-01-10 18:03:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #1 of app/views/users/_form.html.erb:
+1: <% form_for @user do |f| %>
+2:   <%= f.error_messages %>
+3:   <p>
+4:     <%= f.label :first_name %><br />
+
+    app/views/users/_form.html.erb:1
+    app/views/users/edit.html.erb:3
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:03:53) [GET]
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProduct Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.7ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (1.5ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.6ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (1.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 110ms (View: 81, DB: 21) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SuppliersController#index (for 127.0.0.1 at 2010-01-10 18:03:56) [GET]
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering suppliers/index
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 50ms (View: 39, DB: 5) | 200 OK [http://localhost/suppliers]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:04:08) [GET]
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.8ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.6ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.6ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.7ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.8ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.6ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 108ms (View: 79, DB: 20) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:04:10) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 63ms (View: 48, DB: 6) | 200 OK [http://localhost/products/51697271]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:05:37) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.7ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mProductType Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.7ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.6ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mStorageType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.6ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.6ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.6ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 84ms (View: 54, DB: 19) | 200 OK [http://localhost/products/51697271]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:06:09) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.6ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.6ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (1.3ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+ActionView::TemplateError (String can't be coerced into Fixnum) on line #43 of app/views/products/show.html.erb:
+40: 
+41: <p>
+42:   <b>Stock amount:</b>
+43:   <%=h @product.stock_amount + @product.units_of_measure.short_name %>
+44: </p>
+45: 
+46: 
+
+    app/views/products/show.html.erb:43:in `+'
+    app/views/products/show.html.erb:43
+    app/controllers/products_controller.rb:18:in `show'
+
+Rendered rescues/_trace (122.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:06:18) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.6ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.6ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.7ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.7ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 83ms (View: 54, DB: 19) | 200 OK [http://localhost/products/51697271]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:06:26) [GET]
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (1.6ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.6ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.6ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.7ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 110ms (View: 81, DB: 20) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:06:29) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (6.8ms)
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 43ms (View: 29, DB: 6) | 200 OK [http://localhost/products/51697271/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:12:53) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (6.8ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+
+NameError (uninitialized constant ProductsController::UnitOfMeasure):
+  app/controllers/products_controller.rb:40:in `edit'
+
+Rendered rescues/_trace (33.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:13:08) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.3ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+Rendering template within layouts/application
+Rendering products/edit
+ERROR: compiling _run_erb_app47views47products47_form46html46erb_locals_f_form_object RAISED compile error
+/Users/adrian/Development/Rails/stockmgr/app/views/products/_form.html.erb:19: syntax error, unexpected ':', expecting ')'
+...easure_id, @units_of_measure :prompt => 'Select ...'  ).to_s...
+                              ^
+Function body:           def _run_erb_app47views47products47_form46html46erb_locals_f_form_object(local_assigns)
+            old_output_buffer = output_buffer;f = local_assigns[:f];form = local_assigns[:form];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.text_field :name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :description ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.text_area :description,  :cols => 40, :rows => 4 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :product_type_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :product_type_id, @product_types, :prompt => 'Select ...' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :supplier_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :supplier_id, @suppliers, :prompt => 'Select ...' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :units_of_measure_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :units_of_measure_id, @units_of_measure :prompt => 'Select ...'  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :storage_type_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :storage_location_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :storage_location_id, @storage_locations, :prompt => 'Select ...'  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :physical_form_id ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.select :physical_form_id, @physical_forms, :prompt => 'Select ...'  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.label :stock_amount ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.text_field :stock_amount ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/adrian/Development/Rails/stockmgr/app/views/products/_form.html.erb:40:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/adrian/Development/Rails/stockmgr/app/views/products/edit.html.erb:5:in `_run_erb_app47views47products47edit46html46erb'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/helpers/form_helper.rb:499:in `fields_for'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/helpers/form_helper.rb:282:in `form_for'
+/Users/adrian/Development/Rails/stockmgr/app/views/products/edit.html.erb:3:in `_run_erb_app47views47products47edit46html46erb'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/adrian/Development/Rails/stockmgr/app/views/products/_form.html.erb:19: syntax error, unexpected ':', expecting ')'
+...easure_id, @units_of_measure :prompt => 'Select ...'  ).to_s...
+                              ^) on line #19 of app/views/products/_form.html.erb:
+16: </p>
+17: <p>
+18:   <%= f.label :units_of_measure_id %><br />
+19:   <%= f.select :units_of_measure_id, @units_of_measure :prompt => 'Select ...'  %>
+20: </p>
+21: <p>
+22:   <%= f.label :storage_type_id %><br />
+
+    app/views/products/_form.html.erb:40:in `compile!'
+    app/views/products/edit.html.erb:5
+    app/views/products/edit.html.erb:3
+
+Rendered rescues/_trace (129.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:13:23) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.9ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (7.2ms)
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 85ms (View: 34, DB: 16) | 200 OK [http://localhost/products/51697271/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-01-10 18:13:33) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"Cashew Nuts", "stock_amount"=>"1", "storage_location_id"=>"1", "storage_type_id"=>"1", "description"=>"Cashew nuts", "physical_form_id"=>"2", "supplier_id"=>"6", "units_of_measure_id"=>"3", "product_type_id"=>"2"}, "id"=>"51697271"}
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.7ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCertifier Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `certifiers`[0m
+  [4;35;1mCertifier Load (0.8ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.6ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProduct Update (0.3ms)[0m   [0;1mUPDATE `products` SET `physical_form_id` = 2, `updated_at` = '2010-01-10 08:13:33' WHERE `id` = 51697271[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/products/51697271
+Completed in 132ms (DB: 14) | 302 Found [http://localhost/products/51697271]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:13:33) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mProductType Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.6ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (1.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mStorageType Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.9ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.9ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (3.3ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 81ms (View: 50, DB: 21) | 200 OK [http://localhost/products/51697271]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:13:38) [GET]
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.7ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.8ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.8ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.5ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 190ms (View: 161, DB: 20) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:13:57) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.4ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (4.8ms)
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 81ms (View: 28, DB: 16) | 200 OK [http://localhost/products/51697271/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:14:26) [GET]
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.7ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.7ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 199ms (View: 169, DB: 20) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-01-10 18:14:28) [GET]
+  [4;36;1mProduct Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mProductType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mSupplier Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mUnitsOfMeasure Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mStorageLocation Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mPhysicalForm Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (4.8ms)
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 91ms (View: 43, DB: 15) | 200 OK [http://localhost/products/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-01-10 18:14:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"qweq", "stock_amount"=>"12", "storage_location_id"=>"2", "storage_type_id"=>"1", "description"=>"qweqwe", "physical_form_id"=>"2", "supplier_id"=>"1", "units_of_measure_id"=>"2", "product_type_id"=>"2"}}
+  [4;36;1mProduct Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.4ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.7ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering products/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.inject) on line #11 of app/views/products/_form.html.erb:
+8: </p>
+9: <p>
+10:   <%= f.label :product_type_id %><br />
+11:   <%= f.select :product_type_id, @product_types, :prompt => 'Select ...' %>
+12: </p>
+13: <p>
+14:   <%= f.label :supplier_id %><br />
+
+    app/views/products/_form.html.erb:11
+    app/views/products/new.html.erb:5
+    app/views/products/new.html.erb:3
+    app/controllers/products_controller.rb:66:in `create'
+    app/controllers/products_controller.rb:60:in `create'
+
+Rendered rescues/_trace (53.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-01-10 18:16:06) [GET]
+  [4;35;1mProduct Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.5ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.7ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (5.6ms)
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 165ms (View: 114, DB: 16) | 200 OK [http://localhost/products/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-01-10 18:16:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"qweq", "stock_amount"=>"12", "storage_location_id"=>"2", "storage_type_id"=>"1", "description"=>"qweqwe", "physical_form_id"=>"2", "supplier_id"=>"1", "units_of_measure_id"=>"2", "product_type_id"=>"2"}}
+  [4;35;1mProduct Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (4.8ms)
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 82ms (View: 25, DB: 16) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-01-10 18:55:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"qweq", "stock_amount"=>"12", "storage_location_id"=>"2", "storage_type_id"=>"1", "description"=>"qweqwe", "physical_form_id"=>"2", "supplier_id"=>"1", "units_of_measure_id"=>"2", "product_type_id"=>"2"}}
+  [4;36;1mProduct Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mProductType Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageType Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageLocation Load (0.3ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mStorageLocation Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mPhysicalForm Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mCertifier Load (0.3ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mCertifier Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `certifiers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (12.2ms)
+  [4;36;1mUser Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 231ms (View: 73, DB: 21) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-01-10 18:55:17) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"qweq", "stock_amount"=>"12", "storage_location_id"=>"2", "certifier_id"=>"5", "storage_type_id"=>"1", "description"=>"qweqwe", "physical_form_id"=>"2", "supplier_id"=>"1", "units_of_measure_id"=>"2", "product_type_id"=>"2"}}
+  [4;35;1mProduct Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mCertifier Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `certifiers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCertifier Load (0.1ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 5) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;35;1mProduct Create (0.2ms)[0m   [0mINSERT INTO `products` (`name`, `image_url`, `stock_amount`, `updated_at`, `certifier_id`, `storage_location_id`, `description`, `storage_type_id`, `supplier_id`, `physical_form_id`, `product_type_id`, `units_of_measure_id`, `created_at`) VALUES('qweq', NULL, 12, '2010-01-10 08:55:17', 5, 2, 'qweqwe', 1, 1, 2, 2, 2, '2010-01-10 08:55:17')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/products/980190963
+Completed in 64ms (DB: 16) | 302 Found [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:55:17) [GET]
+  Parameters: {"id"=>"980190963"}
+  [4;35;1mProduct Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 980190963) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.6ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.7ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.7ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;35;1mStorageType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.4ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 2) [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 169ms (View: 140, DB: 18) | 200 OK [http://localhost/products/980190963]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:55:22) [GET]
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProduct Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProductType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (1.5ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.6ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.7ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (1.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.6ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.7ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 116ms (View: 87, DB: 21) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:55:33) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mProductType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mSupplier Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mUnitsOfMeasure Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mStorageType Load (0.5ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageType Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mStorageLocation Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mPhysicalForm Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mCertifier Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `certifiers`[0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (5.8ms)
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 171ms (View: 30, DB: 19) | 200 OK [http://localhost/products/51697271/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-01-10 18:55:37) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"Cashew Nuts", "stock_amount"=>"1", "storage_location_id"=>"1", "certifier_id"=>"3", "storage_type_id"=>"1", "description"=>"Cashew nuts", "physical_form_id"=>"2", "supplier_id"=>"2", "units_of_measure_id"=>"3", "product_type_id"=>"2"}, "id"=>"51697271"}
+  [4;36;1mProduct Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mCertifier Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `certifiers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 2) [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProduct Update (0.2ms)[0m   [0mUPDATE `products` SET `supplier_id` = 2, `updated_at` = '2010-01-10 08:55:37' WHERE `id` = 51697271[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/products/51697271
+Completed in 64ms (DB: 17) | 302 Found [http://localhost/products/51697271]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:55:37) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;35;1mProduct Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (0.9ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.8ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.7ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 2) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.6ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.7ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.3ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 168ms (View: 139, DB: 19) | 200 OK [http://localhost/products/51697271]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-01-10 18:55:43) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mSupplier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mUnitsOfMeasure Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageType Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mCertifier Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `certifiers`[0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (5.5ms)
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 85ms (View: 28, DB: 18) | 200 OK [http://localhost/products/51697271/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-01-10 18:55:47) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs=", "product"=>{"name"=>"Cashew Nuts", "stock_amount"=>"1", "storage_location_id"=>"1", "certifier_id"=>"3", "storage_type_id"=>"1", "description"=>"Cashew nuts", "physical_form_id"=>"2", "supplier_id"=>"2", "units_of_measure_id"=>"6", "product_type_id"=>"2"}, "id"=>"51697271"}
+  [4;35;1mProduct Columns (7.5ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mProduct Load (5.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mProductType Columns (12.7ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mSupplier Load (0.8ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUnitsOfMeasure Load (0.5ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mUnitsOfMeasure Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mStorageType Load (0.3ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageType Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageLocation Load (0.8ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mPhysicalForm Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mCertifier Load (0.4ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mCertifier Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `certifiers`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 2) [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 3) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 6) [0m
+  [4;36;1mProduct Update (0.3ms)[0m   [0;1mUPDATE `products` SET `units_of_measure_id` = 6, `updated_at` = '2010-01-10 08:55:47' WHERE `id` = 51697271[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/products/51697271
+Completed in 217ms (DB: 42) | 302 Found [http://localhost/products/51697271]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-01-10 18:55:48) [GET]
+  Parameters: {"id"=>"51697271"}
+  [4;36;1mProduct Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 51697271) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;36;1mProductType Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `product_types`[0m
+  [4;35;1mProductType Load (0.6ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSupplier Load (0.7ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;35;1mUnitsOfMeasure Load (0.7ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 6) [0m
+  [4;36;1mStorageType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_types`[0m
+  [4;35;1mStorageType Load (0.4ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `storage_locations`[0m
+  [4;35;1mStorageLocation Load (0.6ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mPhysicalForm Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `physical_forms`[0m
+  [4;35;1mPhysicalForm Load (0.7ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 79ms (View: 47, DB: 21) | 200 OK [http://localhost/products/51697271]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-01-10 18:55:54) [GET]
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;36;1mProduct Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProductType Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `product_types`[0m
+  [4;36;1mProductType Load (0.7ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.7ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 2) [0m
+  [4;35;1mStorageType Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `storage_types`[0m
+  [4;36;1mStorageType Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `storage_locations`[0m
+  [4;36;1mStorageLocation Load (0.6ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `physical_forms`[0m
+  [4;36;1mPhysicalForm Load (0.6ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;35;1mUnitsOfMeasure Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `units_of_measures`[0m
+  [4;36;1mUnitsOfMeasure Load (0.6ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 2) [0m
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 195ms (View: 166, DB: 20) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-01-10 18:58:45) [GET]
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 26ms (View: 11, DB: 4) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-01-10 18:58:50) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"brit", "password"=>"brit"}, "authenticity_token"=>"I96fySn8OVKZ05uXYRVUGEabGWI1B6uPreoMmg0mIzs="}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'brit') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update with optimistic locking (0.3ms)[0m   [0;1m UPDATE `users`
+ SET `persistence_token` = '421fa7a0050556ba08c3a1515988e3cdb406efde546090a6fa22e68cd25d51111ad1e8632ddc36c169efdb0ae1ca79f3eba4c9b6fdb32cd20282b215308e00ef', `lock_version` = 1, `updated_at` = '2010-01-10 08:58:50'
+ WHERE id = 2
+ AND `lock_version` = 0
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 22ms (DB: 4) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-10 18:58:50) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+  [4;36;1mSupplier Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;36;1mProduct Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mPurchaseOrder Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `purchase_orders`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;36;1mSalesOrder Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `sales_orders`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 142ms (View: 12, DB: 11) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SuppliersController#index (for 127.0.0.1 at 2010-01-10 18:58:52) [GET]
+  [4;35;1mSupplier Load (0.4ms)[0m   [0mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering suppliers/index
+  [4;36;1mSupplier Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `suppliers`[0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 51ms (View: 40, DB: 5) | 200 OK [http://localhost/suppliers]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SuppliersController#edit (for 127.0.0.1 at 2010-01-10 18:58:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSupplier Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `suppliers`[0m
+  [4;36;1mSupplier Load (0.6ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering suppliers/edit
+Rendered suppliers/_form (7.4ms)
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 93ms (View: 81, DB: 6) | 200 OK [http://localhost/suppliers/1/edit]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PurchaseOrdersController#index (for 127.0.0.1 at 2010-01-10 18:59:01) [GET]
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` [0m
+Rendering template within layouts/application
+Rendering purchase_orders/index
+  [4;36;1mPurchaseOrder Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `purchase_orders`[0m
+
+ActionView::TemplateError (undefined method `is_invoiced' for #<PurchaseOrder:0x609b54>) on line #18 of app/views/purchase_orders/index.html.erb:
+15:     <td><%=h purchase_order.comment %></td>
+16:     <td><%=h purchase_order.created_by_user_id %></td>
+17:     <td><%=h purchase_order.purchase_order_state_id %></td>
+18:     <td><%=h purchase_order.price %></td>
+19:     <td><%= link_to 'Show', purchase_order %></td>
+20:     <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>
+21:     <td><%= link_to 'Destroy', purchase_order, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/models/purchase_order.rb:35:in `price'
+    app/views/purchase_orders/index.html.erb:18
+    app/views/purchase_orders/index.html.erb:12:in `each'
+    app/views/purchase_orders/index.html.erb:12
+    app/controllers/purchase_orders_controller.rb:7:in `index'
+
+Rendered rescues/_trace (43.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)

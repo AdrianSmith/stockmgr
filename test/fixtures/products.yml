@@ -1,28 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: Cocoa Butter
-  description: Organic cocoa butter
-  product_type_id: 1
-  supplier_id: 1
-  storage_type_id: 1
-  units_of_measure_id: 1
-  storage_location_id: 1
-  physical_form_id: 1
-  stock_amount: 9.99
-
-two:
-  name: MyString
-  description: MyText
-  product_type_id: 1
-  supplier_id: 1
-  storage_type_id: 1
-  units_of_measure_id: 1
-  storage_location_id: 1
-  physical_form_id: 1
-  stock_amount: 9.99
-
-
 # == Schema Information
 #
 # Table name: products
@@ -42,4 +17,74 @@ two:
 #  created_at          :datetime
 #  updated_at          :datetime
 #
+almonds:
+  name: Almond Nuts
+  description: Almond nuts
+  product_type_id: 2
+  supplier_id: 1
+  certifier_id: 3
+  units_of_measure_id: 3
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 20
 
+brazils:
+  name: Brazil Nuts
+  description: Brazil nuts
+  product_type_id: 2
+  supplier_id: 1
+  certifier_id: 3
+  units_of_measure_id: 3
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 10
+
+carob:
+  name: Carob
+  description: Carob powder
+  product_type_id: 3
+  supplier_id: 6
+  certifier_id: 3
+  units_of_measure_id: 3
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 2
+
+cashews:
+  name: Cashew Nuts
+  description: Cashew nuts
+  product_type_id: 2
+  supplier_id: 6
+  certifier_id: 3
+  units_of_measure_id: 3
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 1
+
+cocoa:
+  name: Cocoa Beans
+  description: Cocoa beans
+  product_type_id: 2
+  supplier_id: 6
+  certifier_id: 3
+  units_of_measure_id: 3
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 2
+
+cheddar:
+  name: Cheddar Cheese
+  description: Cheddar cheese
+  product_type_id: 4
+  supplier_id: 1
+  certifier_id: 4
+  units_of_measure_id: 5
+  storage_location_id: 1
+  storage_type_id: 1
+  physical_form_id: 1
+  stock_amount: 1
