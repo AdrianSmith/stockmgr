@@ -1,4 +1,12 @@
-<h1>Edit User</h1>
+<h1>Editing Customer</h1>
 
-<%= render :partial => 'form' %>
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'form' , :locals=>{:f => f}%>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
 
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

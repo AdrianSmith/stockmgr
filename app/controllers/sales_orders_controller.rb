@@ -25,6 +25,8 @@ class SalesOrdersController < ApplicationController
   # GET /sales_orders/new.xml
   def new
     @sales_order = SalesOrder.new
+    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
+    @sales_order_states = SalesOrderState.find(:all).map{|t| [t.name.titleize, t.id]}
 
     respond_to do |format|
       format.html # new.html.erb

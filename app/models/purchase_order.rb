@@ -1,6 +1,20 @@
+# == Schema Information
+#
+# Table name: purchase_orders
+#
+#  id                      :integer(4)      not null, primary key
+#  purchase_order_id       :integer(4)
+#  supplier_id             :integer(4)
+#  comment                 :text
+#  created_by_user_id      :integer(4)
+#  purchase_order_state_id :integer(4)
+#  amount                  :decimal(8, 2)   default(0.0)
+#  created_at              :datetime
+#  updated_at              :datetime
+#
+
 class PurchaseOrder < ActiveRecord::Base
   belongs_to :supplier
-  belongs_to :purchase_order_state
   has_many :purchase_order_items
   
   validates_presence_of :supplier_id, :purchase_order_state   
@@ -57,19 +71,4 @@ class PurchaseOrder < ActiveRecord::Base
 end
 
 
-
-# == Schema Information
-#
-# Table name: purchase_orders
-#
-#  id                      :integer(4)      not null, primary key
-#  purchase_order_id       :integer(4)
-#  supplier_id             :integer(4)
-#  comment                 :text
-#  created_by_user_id      :integer(4)
-#  purchase_order_state_id :integer(4)
-#  amount                  :decimal(8, 2)   default(0.0)
-#  created_at              :datetime
-#  updated_at              :datetime
-#
 

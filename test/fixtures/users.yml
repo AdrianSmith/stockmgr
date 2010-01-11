@@ -6,6 +6,8 @@ admin:
   first_name: System
   last_name: Admin
   is_admin: true
+  is_customer: false
+  is_staff: false
   
 brit:
   id: 2

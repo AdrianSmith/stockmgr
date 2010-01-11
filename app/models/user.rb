@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
   
   def pretty_name
     self.first_name.titleize + " " + self.last_name.titleize
-  end  
+  end 
+  
+  def self.customers
+    self.find(:all, :conditions => ["is_customer = ?", true])
+  end
+     
   
 end

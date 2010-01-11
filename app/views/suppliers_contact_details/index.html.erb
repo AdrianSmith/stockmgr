@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Supplier</th>
     <th>Contact detail</th>
     <th>Contact detail type</th>
   </tr>
 
 <% @suppliers_contact_details.each do |suppliers_contact_detail| %>
   <tr>
-    <td><%=h suppliers_contact_detail.user_id %></td>
+    <td><%=h suppliers_contact_detail.supplier_id %></td>
     <td><%=h suppliers_contact_detail.contact_detail_id %></td>
     <td><%=h suppliers_contact_detail.contact_detail_type_id %></td>
     <td><%= link_to 'Show', suppliers_contact_detail %></td>

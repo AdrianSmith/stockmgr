@@ -27,10 +27,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :suppliers
 
-  map.resources :sales_order_states
-
-  map.resources :purchase_order_states
-
   map.resources :physical_forms
 
   map.resources :storage_locations

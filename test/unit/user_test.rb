@@ -1,11 +1,3 @@
-require 'test_helper'
-
-class UserTest < ActiveSupport::TestCase
-  def test_should_be_valid
-    assert User.new.valid?
-  end
-end
-
 # == Schema Information
 #
 # Table name: users
@@ -27,4 +19,13 @@ end
 #  percentage_discount    :integer(3)      default(0)
 #  lock_version           :integer(4)      default(0)
 #
+require 'test_helper'
+
+class UserTest < ActiveSupport::TestCase
+  
+  def test_customers_find_method
+    assert_equal(3, User.customers.length)
+  end
+end
+
 

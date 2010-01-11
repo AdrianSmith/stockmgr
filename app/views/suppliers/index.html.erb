@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
     <th>Website</th>
     <th>Email</th>
     <th>Comment</th>
@@ -13,8 +12,7 @@
 <% @suppliers.each do |supplier| %>
   <tr>
     <td><%=h supplier.name %></td>
-    <td><%=h supplier.description %></td>
-    <td><%=h supplier.website %></td>
+    <td><%= link_to supplier.website, supplier.website %></td>
     <td><%=h supplier.email %></td>
     <td><%=h supplier.comment %></td>
     <td><%=h supplier.delivery_rules %></td>

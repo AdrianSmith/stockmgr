@@ -1,0 +1,14 @@
+<h1><%= @user.pretty_name %></h1>
+
+
+
+
+  
+<p>
+  <b>Account Balance:</b>
+  <%=format_currency(@user.account_balance_cached) %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

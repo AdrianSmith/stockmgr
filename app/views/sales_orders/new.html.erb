@@ -1,37 +1,9 @@
-<h1>New sales_order</h1>
+<h1>New Sales Order</h1>
 
 <% form_for(@sales_order) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment,  :cols => 40, :rows => 4 %>
-  </p>
-  <p>
-    <%= f.label :created_by_user_id %><br />
-    <%= f.text_field :created_by_user_id %>
-  </p>
-  <p>
-    <%= f.label :sales_order_state_id %><br />
-    <%= f.text_field :sales_order_state_id %>
-  </p>
-  <p>
-    <%= f.label :is_invoiced %><br />
-    <%= f.check_box :is_invoiced %>
-  </p>
-  <p>
-    <%= f.label :invoice_amount %><br />
-    <%= f.text_field :invoice_amount %>
-  </p>
-  <p>
-    <%= f.label :invoiced_at %><br />
-    <%= f.datetime_select :invoiced_at %>
-  </p>
-  <p>
+  <%= render :partial => 'form' , :locals=>{:f => f}%>
+   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

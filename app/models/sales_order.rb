@@ -16,7 +16,6 @@
 
 class SalesOrder < ActiveRecord::Base
   belongs_to :user
-  belongs_to :sales_order_state
   has_many :sales_order_items
 
   validates_presence_of :user_id, :sales_order_state

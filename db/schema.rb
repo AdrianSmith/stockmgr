@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.string   "name"
     t.string   "image_url"
     t.text     "description"
+    t.text     "supplier_reference"
     t.integer  "product_type_id"
     t.integer  "supplier_id"
     t.integer  "certifier_id"
@@ -119,17 +120,13 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
 
   add_index "purchase_order_items", ["purchase_order_id"], :name => "index_purchase_order_items_on_purchase_order_id"
 
-  create_table "purchase_order_states", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "purchase_orders", :force => true do |t|
     t.integer  "purchase_order_id"
     t.integer  "supplier_id"
     t.text     "comment"
+    t.boolean  "is_created"
+    t.boolean  "is_paid"
+    t.boolean  "is_received"
     t.integer  "created_by_user_id"
     t.integer  "purchase_order_state_id"
     t.decimal  "amount",                  :precision => 8, :scale => 2, :default => 0.0
@@ -137,7 +134,6 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.datetime "updated_at"
   end
 
-  add_index "purchase_orders", ["purchase_order_state_id"], :name => "index_purchase_orders_on_purchase_order_state_id"
   add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
 
   create_table "sales_order_items", :force => true do |t|
@@ -152,26 +148,20 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
 
   add_index "sales_order_items", ["sales_order_id"], :name => "index_sales_order_items_on_sales_order_id"
 
-  create_table "sales_order_states", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sales_orders", :force => true do |t|
     t.integer  "user_id"
     t.text     "comment"
     t.integer  "created_by_user_id"
     t.integer  "sales_order_state_id"
+    t.boolean  "is_ordered"
     t.boolean  "is_invoiced"
+    t.boolean  "is_paid"
     t.integer  "invoice_amount",       :limit => 10, :precision => 10, :scale => 0
     t.datetime "invoiced_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sales_orders", ["sales_order_state_id"], :name => "index_sales_orders_on_sales_order_state_id"
   add_index "sales_orders", ["user_id"], :name => "index_sales_orders_on_user_id"
 
   create_table "storage_locations", :force => true do |t|

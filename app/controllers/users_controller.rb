@@ -1,14 +1,25 @@
 class UsersController < ApplicationController 
   
   def index
-    @users = User.all
+    @users = User.find(:all, :conditions => ["is_customer = ?", true])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
   end
-  
+
+  # GET /users_contact_details/1
+  # GET /users_contact_details/1.xml
+  def show
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
+    
   def new
     @user = User.new
   end
@@ -24,7 +35,8 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_user
+    #@user = current_user 
+    @user = User.find(params[:id])
   end
   
   def update
@@ -36,4 +48,5 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+  
 end

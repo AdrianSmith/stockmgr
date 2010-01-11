@@ -27,7 +27,8 @@ almonds:
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
-  stock_amount: 20
+  stock_amount: 20 
+  supplier_reference: abc123
 
 brazils:
   name: Brazil Nuts
@@ -40,6 +41,7 @@ brazils:
   storage_type_id: 1
   physical_form_id: 1
   stock_amount: 10
+  supplier_reference: 1231231
 
 carob:
   name: Carob
@@ -52,6 +54,7 @@ carob:
   storage_type_id: 1
   physical_form_id: 1
   stock_amount: 2
+  supplier_reference: 123werwe
 
 cashews:
   name: Cashew Nuts
@@ -64,6 +67,7 @@ cashews:
   storage_type_id: 1
   physical_form_id: 1
   stock_amount: 1
+  supplier_reference: 12sdf
 
 cocoa:
   name: Cocoa Beans
@@ -76,6 +80,7 @@ cocoa:
   storage_type_id: 1
   physical_form_id: 1
   stock_amount: 2
+  supplier_reference: 12sdds
 
 cheddar:
   name: Cheddar Cheese
@@ -88,3 +93,5 @@ cheddar:
   storage_type_id: 1
   physical_form_id: 1
   stock_amount: 1
+  supplier_reference: 121212s
+  

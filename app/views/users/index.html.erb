@@ -1,28 +1,27 @@
-<h1>Listing Users</h1>
+<h1>Listing Customers</h1>
 
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Name</th>
     <th>Email</th>
-    <th>Username</th>
+    <th>Orders</th>
+    <th>Payments</th>
     <th>Account Balance</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.first_name %></td>
-    <td><%=h user.last_name %></td>
+    <td><%= link_to(user.pretty_name, user) %></td>
     <td><%=h user.email %></td>
-    <td><%=h user.username %></td>
-    <td><%=h user.account_balance_cached %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= format_currency(user.account_balance_cached) %></td>
+    <td><%= format_currency(user.account_balance_cached) %></td>
+    <td><%= format_currency(user.account_balance_cached) %></td>
+    <td><%= link_to icon_edit, edit_user_path(user) %></td>
+    <td><%= link_to icon_delete, user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New user', new_user_path %>
+<%= link_to 'New Customer', new_user_path %>

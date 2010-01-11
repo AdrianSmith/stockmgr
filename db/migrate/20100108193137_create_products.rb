@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.string :image_url
       t.text :description
+      t.text :supplier_reference
       t.integer :product_type_id
       t.integer :supplier_id
       t.integer :certifier_id

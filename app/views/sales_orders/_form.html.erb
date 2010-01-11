@@ -1,0 +1,20 @@
+<p>
+  <%= f.label :user_id %><br />
+  <%= f.select :user_id, @customers, :prompt => 'Select ...' %>
+</p>
+<p>
+  <%= f.label :comment %><br />
+  <%= f.text_area :comment,  :cols => 40, :rows => 4 %>
+</p>
+<p>
+  <%= f.label :sales_order_state_id %><br />
+  <%= f.select :sales_order_state_id, @sales_order_states, :prompt => 'Select ...' %>
+</p>
+<p>
+  <%= f.label :is_invoiced %><br />
+  <%= f.check_box :is_invoiced %>
+</p>
+<p>
+  <%= f.label :invoice_amount %><br />
+  <%= f.text_field :invoice_amount %>
+</p>

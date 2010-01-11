@@ -15,6 +15,10 @@
   <%= f.select :supplier_id, @suppliers, :prompt => 'Select ...' %>
 </p>
 <p>
+  <%= f.label :supplier_product_code %><br />
+  <%= f.text_field :supplier_reference %>
+</p>
+<p>
   <%= f.label :certifier_id %><br />
   <%= f.select :certifier_id, @certifiers, :prompt => 'Select ...' %>
 </p>
