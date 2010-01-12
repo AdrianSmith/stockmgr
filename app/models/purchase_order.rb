@@ -2,7 +2,7 @@ class PurchaseOrder < ActiveRecord::Base
   belongs_to :supplier
   has_many :purchase_order_items
   
-  validates_presence_of :supplier_id, :purchase_order_state   
+  validates_presence_of :supplier   
   
   def to_s
     "#Order " + self.id.to_s + " [User: " + self.user_id.to_s + 

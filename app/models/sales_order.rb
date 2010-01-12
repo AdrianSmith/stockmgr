@@ -19,7 +19,7 @@ class SalesOrder < ActiveRecord::Base
   belongs_to :user
   has_many :sales_order_items
 
-  validates_presence_of :user_id, :sales_order_state
+  validates_presence_of :user_id
   
   def total_price
     total = 0.0

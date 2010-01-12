@@ -1,8 +1,8 @@
 class PurchaseOrderItem < ActiveRecord::Base 
   belongs_to :purchase_order
-  belongs_to :supplier    
+  belongs_to :product    
   
-  validates_presence_of :supplier, :purchase_order
+  validates_presence_of :product, :purchase_order
   
 end
 
