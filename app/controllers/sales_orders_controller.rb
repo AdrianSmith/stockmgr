@@ -26,7 +26,6 @@ class SalesOrdersController < ApplicationController
   def new
     @sales_order = SalesOrder.new
     @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
-    @sales_order_states = SalesOrderState.find(:all).map{|t| [t.name.titleize, t.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +36,14 @@ class SalesOrdersController < ApplicationController
   # GET /sales_orders/1/edit
   def edit
     @sales_order = SalesOrder.find(params[:id])
+    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
   end
 
   # POST /sales_orders
   # POST /sales_orders.xml
   def create
     @sales_order = SalesOrder.new(params[:sales_order])
+    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
 
     respond_to do |format|
       if @sales_order.save
@@ -60,6 +61,7 @@ class SalesOrdersController < ApplicationController
   # PUT /sales_orders/1.xml
   def update
     @sales_order = SalesOrder.find(params[:id])
+    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
 
     respond_to do |format|
       if @sales_order.update_attributes(params[:sales_order])

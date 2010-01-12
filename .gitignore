@@ -6,3 +6,9 @@ uploads
 
 # ignore textmate project files
 *.tmproj
+
+# ignore .DStore
+*.DS_Store
+
+# ignore netbeans
+netbeans
