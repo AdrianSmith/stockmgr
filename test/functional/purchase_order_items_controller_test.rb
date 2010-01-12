@@ -31,7 +31,7 @@ class PurchaseOrderItemsControllerTest < ActionController::TestCase
   end
 
   test "should update purchase_order_item" do
-    put :update, :id => purchase_order_items(:one).to_param, :purchase_order_item => { }
+    put :update, :id => purchase_order_items(:one).to_param, :purchase_order_item => {}
     assert_redirected_to purchase_order_item_path(assigns(:purchase_order_item))
   end
 
