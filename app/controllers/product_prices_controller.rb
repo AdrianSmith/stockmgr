@@ -1,8 +1,9 @@
 class ProductPricesController < ApplicationController
+
   # GET /product_prices
   # GET /product_prices.xml
   def index
-    @product_prices = ProductPrice.all
+    @product_prices = ProductPrice.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,7 +12,8 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :units_of_measure_id
       t.integer :storage_location_id
       t.integer :physical_form_id
-      t.decimal :stock_amount
+      t.decimal :stock_quantity
+      t.decimal :stock_unit_cost
 
       t.timestamps
     end

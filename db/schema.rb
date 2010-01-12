@@ -96,7 +96,8 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.integer  "units_of_measure_id"
     t.integer  "storage_location_id"
     t.integer  "physical_form_id"
-    t.integer  "stock_amount",        :limit => 10, :precision => 10, :scale => 0
+    t.integer  "stock_quantity",      :limit => 10, :precision => 10, :scale => 0
+    t.integer  "stock_unit_cost",     :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -128,8 +129,7 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.boolean  "is_paid"
     t.boolean  "is_received"
     t.integer  "created_by_user_id"
-    t.integer  "purchase_order_state_id"
-    t.decimal  "amount",                  :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "amount",             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -152,11 +152,10 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.integer  "user_id"
     t.text     "comment"
     t.integer  "created_by_user_id"
-    t.integer  "sales_order_state_id"
     t.boolean  "is_ordered"
     t.boolean  "is_invoiced"
     t.boolean  "is_paid"
-    t.integer  "invoice_amount",       :limit => 10, :precision => 10, :scale => 0
+    t.integer  "invoice_amount",     :limit => 10, :precision => 10, :scale => 0
     t.datetime "invoiced_at"
     t.datetime "created_at"
     t.datetime "updated_at"

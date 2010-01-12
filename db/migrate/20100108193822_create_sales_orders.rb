@@ -4,7 +4,6 @@ class CreateSalesOrders < ActiveRecord::Migration
       t.integer :user_id
       t.text :comment
       t.integer :created_by_user_id
-      t.integer :sales_order_state_id
       t.boolean :is_ordered
       t.boolean :is_invoiced
       t.boolean :is_paid

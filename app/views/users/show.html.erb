@@ -1,14 +1,11 @@
 <h1><%= @user.pretty_name %></h1>
 
-
-
-
-  
+<h2>Account Summary</h2>
 <p>
-  <b>Account Balance:</b>
-  <%=format_currency(@user.account_balance_cached) %>
+  Total Orders <%= format_currency(@user.total_sales_orders) %><br />
+  Total Payments <%= format_currency(@user.total_sales_orders) %><br />
+  Account Balance <%= format_currency(@user.account_balance) %><br />
 </p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

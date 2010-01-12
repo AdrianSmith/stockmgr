@@ -21,18 +21,37 @@
 #
 
 class User < ActiveRecord::Base
-#  attr_accessible :username, :email, :password
+  #  attr_accessible :username, :email, :password
   acts_as_authentic 
   has_many :sales_orders
   has_many :payments
-  
+
   def pretty_name
     self.first_name.titleize + " " + self.last_name.titleize
   end 
-  
+
   def self.customers
     self.find(:all, :conditions => ["is_customer = ?", true])
   end
-     
-  
+
+  def total_orders
+    total = 0.0
+    sales_orders.each do |order|
+      total += order.total_price
+    end
+    total
+  end
+
+  def total_payments
+    total = 0.0
+    payments.each do |payment|
+      total += payment.amount
+    end
+    total
+  end
+
+  def account_balance
+    total_payments - total_orders
+  end      
+
 end

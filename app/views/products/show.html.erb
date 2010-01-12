@@ -24,6 +24,11 @@
 </p>
 
 <p>
+  <b>Unit Price:</b>
+  <%= format_currency(@product.price) %>
+</p>
+
+<p>
   <b>Units of measure:</b>
   <%=h @product.units_of_measure.name %>
 </p>
@@ -45,7 +50,12 @@
 
 <p>
   <b>Stock amount:</b>
-  <%=h @product.stock_amount.to_s + @product.units_of_measure.short_name %>
+  <%=h @product.stock_quantity.to_s + @product.units_of_measure.short_name %>
+</p>
+
+<p>
+  <b>Stock value:</b>
+  <%= format_currency(@product.stock_value) %>
 </p>
 
 

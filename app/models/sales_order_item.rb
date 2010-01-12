@@ -15,8 +15,13 @@
 class SalesOrderItem < ActiveRecord::Base
   belongs_to :sales_order
   belongs_to :user
+  belongs_to :product
   
-  validates_presence_of :user, :sales_order
+  validates_presence_of :user, :sales_order, :product 
+  
+  def cost
+    product.cost * quantity
+  end
   
 end
 
