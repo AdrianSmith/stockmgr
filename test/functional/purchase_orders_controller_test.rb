@@ -14,7 +14,7 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
 
   test "should create purchase_order" do
     assert_difference('PurchaseOrder.count') do
-      post :create, :purchase_order => { }
+      post :create, :purchase_order => {:supplier_id => 1 }
     end
 
     assert_redirected_to purchase_order_path(assigns(:purchase_order))
