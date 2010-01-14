@@ -13,9 +13,9 @@
   <tr>
     <td><%= link_to(user.pretty_name, user) %></td>
     <td><%=h user.email %></td>
-    <td><%= format_currency(user.account_balance_cached) %></td>
-    <td><%= format_currency(user.account_balance_cached) %></td>
-    <td><%= format_currency(user.account_balance_cached) %></td>
+    <td><%= format_currency(user.total_orders) %></td>
+    <td><%= format_currency(user.total_payments) %></td>
+    <td><%= format_currency(user.account_balance) %></td>
     <td><%= link_to icon_edit, edit_user_path(user) %></td>
     <td><%= link_to icon_delete, user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

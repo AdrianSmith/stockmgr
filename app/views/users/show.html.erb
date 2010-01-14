@@ -1,11 +1,99 @@
-<h1><%= @user.pretty_name %></h1>
+<div id="center">
+  <h1><%= @user.pretty_name %></h1>
+</div>            
 
-<h2>Account Summary</h2>
-<p>
-  Total Orders <%= format_currency(@user.total_sales_orders) %><br />
-  Total Payments <%= format_currency(@user.total_sales_orders) %><br />
-  Account Balance <%= format_currency(@user.account_balance) %><br />
-</p>
+<div id='right_small'>
+  <h2>Account</h2>
+  <table>
+    <tr><td>Total Orders</td><td class="number"><%= format_currency(@user.total_orders) %></td></tr>
+    <tr><td>Total Payments</td><td class="number"><%= format_currency(@user.total_payments) %></td></tr>
+    <tr><td>Account Balance</td><td class="number"><%= format_currency(@user.account_balance) %></td></tr>
+  </table>
+</div>  
 
+<div id='left_large'>
+  <h2>Details</h2>
+  <table width="80%">
+    <tr><td>Address</td><td><%= @user.pretty_address %></td></tr>
+    <tr>
+      <td>Email</td>
+      <td>
+        <%= mail_to(@user.email, @user.email,
+        :subject => "StockMgr",
+        :body => "Hi " + @user.first_name
+        ) %>  
+      </td>
+    </tr>
+    <tr><td>Phone</td><td><%= @user.pretty_phone %></td></tr>
+  </table>
+</div>
+
+
+<div id="center">
+  <h2>Orders <%= link_to('Add', new_sales_order_path) %></h2>
+  <table class="listing" width="100%">
+    <tr>
+      <th>Order</th>
+      <th>Created</th>
+      <th>Invoiced?</th>
+      <th>Paid?</th>
+
+      <th>Product</th>
+      <th>Supplier</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% @user.sales_orders.each do |order| %>
+    <% rows = order.sales_order_items.length + 1 %>
+    <td class="status" rowspan=<%= rows %> width="15%">
+      <%= link_to order.id, order %>
+      <%= link_to icon_edit, edit_sales_order_path(order) %>
+      <%= link_to icon_delete, sales_order_path(order), :confirm => 'Delete - Are you sure?', :method => :delete %>
+    </td>
+    <td class="status" rowspan=<%= rows %> width="10%"><%= format_date(order.created_at) %></td>
+    <td class="status" rowspan=<%= rows %> width="8%"><%= format_boolean(order.is_invoiced) %></td>
+    <td class="status" rowspan=<%= rows %> width="8%"><%= format_boolean(order.is_paid) %></td>
+
+    <% order.sales_order_items.each do |item| %>
+    <td class="text"><%= link_to(item.product.name, item.product) %></td>
+    <td class="text"><%= item.product.supplier.name %></td>
+    <td class="number" width="12%"><%= format_currency(item.product.price) + ' / ' + item.product.units_of_measure.short_name %></td>
+    <td class="status" width="8%"><%= item.quantity.to_s + ' ' + item.product.units_of_measure.short_name %></td>
+    <td class="number" width="8%"><%= format_currency(item.price) %></td>
+  </tr>
+  <% end %> 
+  <td class="number" colspan="4">Total</td>
+  <td class="number_bothline"><%= format_currency(order.total_price) %></td>
+</tr>
+<% end %>  
+</table>
+
+<h2>Payments  <%= link_to('Add', new_sales_order_path) %></h2>
+<table class="listing" width="100%">
+  <tr>
+    <th>Payment</th>
+    <th>Created</th>
+    <th>Received</th>
+    <th>Type</th>
+    <th>Comment</th>
+    <th>Amount</th>
+  </tr>
+  <% @user.payments.each do |payment| %>
+  <tr class="<%= cycle('','even') %>">
+    <td class="status" width="15%">
+      <%= link_to payment.id, payment %>
+      <%= link_to icon_edit, edit_payment_path(payment) %>
+      <%= link_to icon_delete, payment_path(payment), :confirm => 'Delete - Are you sure?', :method => :delete %>
+    </td>
+    <td class="status" width="10%"><%= format_date(payment.created_at) %></td>
+    <td class="status" width="10%"><%= format_date(payment.received_at) %></td>
+    <td class="status"><%= payment.payment_type.name %></td>
+    <td class="text"><%= payment.comment %></td>
+    <td class="number" width="10%"><%= format_currency(payment.amount) %></td>
+  </tr>
+  <% end %> 
+</table>
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

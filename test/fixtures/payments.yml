@@ -14,19 +14,39 @@
 #
 
 one:
+  id: 1
   amount: 10
   payment_type_id: 1
   user_id: 2
   created_by_user_id: 1
   received_at: 2010-01-08 17:26:11
-  comment: MyText
+  comment: Example payment 1
 
 two:
+  id: 2
   amount: 5
   payment_type_id: 1
   user_id: 2
   created_by_user_id: 1
   received_at: 2010-01-08 17:26:11
-  comment: MyText
+  comment: Example payment 2
+
+three:
+  id: 3
+  amount: 122
+  payment_type_id: 3
+  user_id: 2
+  created_by_user_id: 1
+  received_at: 2010-01-08 17:26:11
+  comment:  Example payment 3
+
+four:
+  id: 4
+  amount: 53.87
+  payment_type_id: 2
+  user_id: 2
+  created_by_user_id: 1
+  received_at: 2010-01-08 17:26:11
+  comment:  Example payment 4
 
 

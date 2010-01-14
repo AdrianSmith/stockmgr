@@ -1,14 +1,14 @@
 one:
   id: 1
   user_id: 2
-  comment: MyText
+  comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   created_by_user_id: 1
   is_invoiced: false
 
 two:
   id: 2
   user_id: 2
-  comment: MyText
+  comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   created_by_user_id: 1
   is_invoiced: true
   invoice_amount: 45.99

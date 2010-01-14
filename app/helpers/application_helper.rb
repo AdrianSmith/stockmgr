@@ -23,6 +23,13 @@ module ApplicationHelper
     time.strftime("%H:%M") if time
   end  
   
+  def format_boolean(status)
+    if status
+      icon_tick
+    else
+      icon_cross
+    end
+  end
   
   def icon_csv(alt_text='CSV File')
     image_tag("/images/csv48x48.jpg", :class => 'status', :size =>"32x32", :alt => alt_text)

@@ -11,7 +11,7 @@
 #  created_at          :datetime
 #  updated_at          :datetime
 #
-  
+
 one:
   id: 1
   sales_order_id: 1
@@ -35,25 +35,25 @@ three:
 
 four:
   id: 4
-  sales_order_id: 3
+  sales_order_id: 2
   product_id: 1
   quantity: 2
+
+five:
+  id: 5
+  sales_order_id: 2
+  product_id: 5
+  quantity: 12
+
+six:
+  id: 6
+  sales_order_id: 2
+  product_id: 3
+  quantity: 21
   price: 4
 
 
 
 
-# == Schema Information
-#
-# Table name: sales_order_items
-#
-#  id                  :integer(4)      not null, primary key
-#  sales_order_id      :integer(4)
-#  product_id          :integer(4)
-#  quantity            :integer(10)
-#  percentage_discount :integer(4)
-#  price               :decimal(8, 2)   default(0.0)
-#  created_at          :datetime
-#  updated_at          :datetime
-#
+
 

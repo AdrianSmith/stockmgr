@@ -186,6 +186,16 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.string   "account_number"
     t.text     "comment"
     t.text     "delivery_rules"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "suburb_town"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.string   "phone_mobile"
+    t.string   "phone_home"
+    t.string   "phone_work"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -225,6 +235,16 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.decimal  "account_balance_cached",              :precision => 8, :scale => 2, :default => 0.0
     t.integer  "percentage_discount",    :limit => 3,                               :default => 0
     t.integer  "lock_version",                                                      :default => 0
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "suburb_town"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.string   "phone_mobile"
+    t.string   "phone_home"
+    t.string   "phone_work"
   end
 
   create_table "users_contact_details", :force => true do |t|

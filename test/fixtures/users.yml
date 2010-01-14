@@ -1,3 +1,34 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer(4)      not null, primary key
+#  username               :string(255)
+#  email                  :string(255)
+#  crypted_password       :string(255)
+#  password_salt          :string(255)
+#  persistence_token      :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  is_admin               :boolean(1)      default(FALSE)
+#  is_staff               :boolean(1)      default(FALSE)
+#  is_customer            :boolean(1)      default(TRUE)
+#  account_balance_cached :decimal(8, 2)   default(0.0)
+#  percentage_discount    :integer(3)      default(0)
+#  lock_version           :integer(4)      default(0)
+#  address_line_1         :string(255)
+#  address_line_2         :string(255)
+#  suburb_town            :string(255)
+#  city                   :string(255)
+#  state                  :string(255)
+#  country                :string(255)
+#  phone_mobile           :string(255)
+#  phone_home             :string(255)
+#  phone_work             :string(255)
+#
+
 admin:
   id: 1
   username: admin
@@ -20,7 +51,16 @@ brit:
   is_admin: true
   is_customer: true
   is_staff: true
-
+  address_line_1: 25 Devon Street   
+  address_line_2:   
+  suburb_town: Annerley     
+  city: Brisbane            
+  state: Queensland           
+  country: Australia         
+  phone_mobile: "+61 434 247 990"     
+  phone_home:  "+61 7 3160 5008"     
+  phone_work: "+61 7 3160 5008"
+         
 libby:
   id: 3
   username: libby
@@ -45,25 +85,3 @@ adrian:
   is_staff: true
   
   
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer(4)      not null, primary key
-#  username               :string(255)
-#  email                  :string(255)
-#  crypted_password       :string(255)
-#  password_salt          :string(255)
-#  persistence_token      :string(255)
-#  first_name             :string(255)
-#  last_name              :string(255)
-#  created_at             :datetime
-#  updated_at             :datetime
-#  is_admin               :boolean(1)      default(FALSE)
-#  is_staff               :boolean(1)      default(FALSE)
-#  is_customer            :boolean(1)      default(TRUE)
-#  account_balance_cached :decimal(8, 2)   default(0.0)
-#  percentage_discount    :integer(3)      default(0)
-#  lock_version           :integer(4)      default(0)
-#
-

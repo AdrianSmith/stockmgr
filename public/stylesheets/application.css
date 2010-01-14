@@ -19,6 +19,83 @@ a {
   overflow: hidden;
 }
 
+
+/* Regions */
+#center {
+    background : white;
+    text-align: justify;
+    padding: 5px;
+}
+
+#right_half {
+    float: right;
+    width: 500px;
+    background : white;
+    text-align: justify;
+    padding: 5px;
+}
+
+#left_half {
+    margin-right: 510px;
+    text-align: justify;
+    padding: 5px;
+    background: white;
+}
+
+#right_large {
+    float: right;
+    width: 700px;
+    background : white;
+    text-align: justify;
+    padding: 5px;
+}
+
+#left_small {
+    margin-right: 710px;
+    text-align: justify;
+    padding: 5px;
+    background: white;
+}
+
+#right_small {
+    float: right;
+    width: 300px;
+    background : white;
+    text-align: justify;
+    padding: 5px;
+}
+
+#left_large {
+    margin-right: 310px;
+    text-align: justify;
+    padding: 5px;
+    background: white;
+}
+
+
+
+/* Navigation */
+
+#link {
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: #999 solid thin;
+    padding: 0;
+}
+
+#link a {
+    text-decoration: none;
+	color: #6BB4FB;
+	padding:10px 10px;
+}
+
+#link a:hover {
+    color: #000; 
+    background: #999; 
+    text-decoration: none; 
+}
+
 #container {
   width: 1000px; 
   margin: 0 auto 0 auto; 
@@ -100,3 +177,104 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+/* TABLE STYLES */
+table.listing th {
+  background-color: #333;
+  color: #CCC;
+  padding: 2px;
+}
+
+table.listing tbody tr.even {
+    background-color: #CCC;
+}
+
+table.td.button{
+    height: 50px;
+    background-color: #3333ff;
+}
+
+table td.status {
+    text-align: center;
+    padding: 2px;
+}
+
+table td.text {
+    text-align: left;
+    padding: 2px;
+}
+
+table td.number {
+    text-align: right;
+    padding: 2px;
+}
+
+table td.number_overline {
+    text-align: right;
+    padding: 2px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+table td.number_underline {
+    text-align: right;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+table td.number_bothline {
+    text-align: right;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+table td.text_overline {
+    text-align: left;
+    padding: 2px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+table td.text_underline {
+    text-align: left;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+table td.text_bothline {
+    text-align: left;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+table td.status_overline {
+    text-align: center;
+    padding: 2px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+table td.status_underline {
+    text-align: center;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+table td.status_bothline {
+    text-align: center;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
