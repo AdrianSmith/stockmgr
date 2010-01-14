@@ -25,7 +25,9 @@ class PaymentsController < ApplicationController
   # GET /payments/new.xml
   def new
     @payment = Payment.new
-
+    @customers = User.customers.map{|t| [t.pretty_name, t.id]}
+    @payment_types = PaymentType.find(:all).map{|t| [t.name.titleize, t.id]}
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @payment }

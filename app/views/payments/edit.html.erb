@@ -2,31 +2,7 @@
 
 <% form_for(@payment) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </p>
-  <p>
-    <%= f.label :payment_type_id %><br />
-    <%= f.text_field :payment_type_id %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :created_by_user_id %><br />
-    <%= f.text_field :created_by_user_id %>
-  </p>
-  <p>
-    <%= f.label :received_at %><br />
-    <%= f.datetime_select :received_at %>
-  </p>
-  <p>
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment,  :cols => 40, :rows => 4 %>
-  </p>
+  <%= render :partial => 'form' , :locals=>{:f => f}%>
   <p>
     <%= f.submit 'Update' %>
   </p>

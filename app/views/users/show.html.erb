@@ -4,7 +4,7 @@
 
 <div id='right_small'>
   <h2>Account</h2>
-  <table>
+  <table width="80%">
     <tr><td>Total Orders</td><td class="number"><%= format_currency(@user.total_orders) %></td></tr>
     <tr><td>Total Payments</td><td class="number"><%= format_currency(@user.total_payments) %></td></tr>
     <tr><td>Account Balance</td><td class="number"><%= format_currency(@user.account_balance) %></td></tr>
@@ -69,11 +69,10 @@
 <% end %>  
 </table>
 
-<h2>Payments  <%= link_to('Add', new_sales_order_path) %></h2>
+<h2>Payments  <%= link_to('Add', new_payment_path) %></h2>
 <table class="listing" width="100%">
   <tr>
     <th>Payment</th>
-    <th>Created</th>
     <th>Received</th>
     <th>Type</th>
     <th>Comment</th>
@@ -86,7 +85,6 @@
       <%= link_to icon_edit, edit_payment_path(payment) %>
       <%= link_to icon_delete, payment_path(payment), :confirm => 'Delete - Are you sure?', :method => :delete %>
     </td>
-    <td class="status" width="10%"><%= format_date(payment.created_at) %></td>
     <td class="status" width="10%"><%= format_date(payment.received_at) %></td>
     <td class="status"><%= payment.payment_type.name %></td>
     <td class="text"><%= payment.comment %></td>
