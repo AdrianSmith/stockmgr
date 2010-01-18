@@ -1,5 +1,41 @@
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
+<div id='right_half'>
+  <h2>Contact Details</h2>
+  <p>
+    <%= f.label :address_line_1 %><br />
+    <%= f.text_field :address_line_1 %>
+  </p>
+  <p>
+    <%= f.label :address_line_2 %><br />
+    <%= f.text_field :address_line_2 %>
+  </p>
+  <p>
+    <%= f.label :suburb_town %><br />
+    <%= f.text_field :suburb_town %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :postcode %><br />
+    <%= f.text_field :postcode %>
+  </p>
+  <p>
+    <%= f.label :phone_mobile %><br />
+    <%= f.text_field :phone_mobile %>
+  </p>
+  <p>
+    <%= f.label :phone_home %><br />
+    <%= f.text_field :phone_home %>
+  </p>
+  <p>
+    <%= f.label :phone_work %><br />
+    <%= f.text_field :phone_work %>
+  </p>
+</div>
+
+<div id='left_half'>
+  <h2>Account Details</h2>
   <p>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
@@ -24,5 +60,4 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+</div>

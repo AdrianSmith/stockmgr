@@ -44,10 +44,25 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully Updated Profile"
-      redirect_to root_url
+      redirect_to(@user)
     else
       render :action => 'edit'
     end
+  end
+  
+  def toggle_order_invoiced_status
+    order = SalesOrder.find(params[:order_id])
+    order.is_invoiced = !order.is_invoiced
+    order.save!
+    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])  
+  end
+
+  def toggle_order_paid_status
+    order = SalesOrder.find(params[:order_id])
+    order.is_paid = !order.is_paid
+    order.is_invoiced = true if order.is_paid
+    order.save!
+    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])  
   end
   
 end

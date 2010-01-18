@@ -37,6 +37,8 @@ class PaymentsController < ApplicationController
   # GET /payments/1/edit
   def edit
     @payment = Payment.find(params[:id])
+    @customers = User.customers.map{|t| [t.pretty_name, t.id]}
+    @payment_types = PaymentType.find(:all).map{|t| [t.name.titleize, t.id]}
   end
 
   # POST /payments
@@ -47,7 +49,7 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       if @payment.save
         flash[:notice] = 'Payment was successfully created.'
-        format.html { redirect_to(@payment) }
+        format.html { redirect_to(@payment.user) }
         format.xml  { render :xml => @payment, :status => :created, :location => @payment }
       else
         format.html { render :action => "new" }
@@ -77,10 +79,11 @@ class PaymentsController < ApplicationController
   # DELETE /payments/1.xml
   def destroy
     @payment = Payment.find(params[:id])
+    user = @payment.user
     @payment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(payments_url) }
+      format.html { redirect_to(user) }
       format.xml  { head :ok }
     end
   end

@@ -21,7 +21,8 @@ a {
 
 
 /* Regions */
-#center {
+#center { 
+  	clear: both;
     background : white;
     text-align: justify;
     padding: 5px;
