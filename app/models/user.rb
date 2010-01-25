@@ -23,6 +23,7 @@
 #  suburb_town            :string(255)
 #  city                   :string(255)
 #  state                  :string(255)
+#  postcode               :string(255)
 #  country                :string(255)
 #  phone_mobile           :string(255)
 #  phone_home             :string(255)
@@ -54,8 +55,8 @@ class User < ActiveRecord::Base
   def pretty_address
     address = String.new
     address += self.address_line_1.titleize if self.address_line_1
-    address += "\n" + self.address_line_2.titleize if (self.address_line_2 and self.address_line_2.length > 0)
-    address += "\n" + self.suburb_town.titleize if self.suburb_town
+    address += ", " + self.address_line_2.titleize if (self.address_line_2 and self.address_line_2.length > 0)
+    address += ", " + self.suburb_town.titleize if self.suburb_town
     address += " " + self.postcode.upcase if self.postcode
     address
   end

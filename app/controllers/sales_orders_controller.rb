@@ -25,12 +25,13 @@ class SalesOrdersController < ApplicationController
   # GET /sales_orders/new.xml
   def new
     @sales_order = SalesOrder.new
-    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
+    @user = User.find(params[:id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sales_order }
-    end
+    @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
+    @available_products = []
+    @available_quantities = (1..10).to_a
+    @basket = find_basket
+    
   end
 
   # GET /sales_orders/1/edit
@@ -42,20 +43,25 @@ class SalesOrdersController < ApplicationController
   # POST /sales_orders
   # POST /sales_orders.xml
   def create
-    @sales_order = SalesOrder.new(params[:sales_order])
-    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
-
-    respond_to do |format|
-      if @sales_order.save
-        flash[:notice] = 'SalesOrder was successfully created.'
-        format.html { redirect_to(@sales_order) }
-        format.xml  { render :xml => @sales_order, :status => :created, :location => @sales_order }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @sales_order.errors, :status => :unprocessable_entity }
-      end
+    user = User.find(params[:id])
+    basket = find_basket
+    
+    # Create Sales Order
+    sales_order = SalesOrder.new
+    sales_order.user_id = user.id
+    sales_order.save
+    
+    # Create Sales Order Items
+    basket.items.each do |item|
+      sales_order_item = SalesOrderItem.new
+      sales_order_item.sales_order_id = sales_order.id
+      sales_order_item.product_id = item.product_id
+      sales_order_item.quantity = item.quantity
+      sales_order_item.save
     end
-  end
+    empty_basket     
+    redirect_to :controller => :users, :action => :show, :id => user.id
+  end         
 
   # PUT /sales_orders/1
   # PUT /sales_orders/1.xml
@@ -79,11 +85,58 @@ class SalesOrdersController < ApplicationController
   # DELETE /sales_orders/1.xml
   def destroy
     @sales_order = SalesOrder.find(params[:id])
+    @user = @sales_order.user
     @sales_order.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sales_orders_url) }
+      format.html { redirect_to(@user) }
       format.xml  { head :ok }
     end
   end
+
+  def invoice_pdf
+    sales_order = SalesOrder.find(params[:id])
+    report = sales_order.create_invoice_pdf
+    filename = 'Invoice ' + sales_order.user.pretty_name + Date.today.to_s + '.pdf'
+    send_data report.render, :filename => filename, :type => "application/pdf"
+  end
+
+  def update_products 
+    products = Product.find(:all, :conditions => ['product_type_id = ?', params[:product_type]], :order => 'name')
+    @available_products = ["Select ..."] + products.map{|p| [p.name, p.id]}
+    render :update do |page|
+      page.replace_html 'product', :partial => 'product', :object => nil
+    end
+  end
+
+  def add_item
+    basket = find_basket
+    item = BasketItem.new
+    product = Product.find(params[:product_id])
+    item.product_id = params[:product_id]
+    item.quantity = params[:quantity] 
+    
+    item.product_type_name = product.product_type.name
+    item.product_name = product.name
+    item.supplier_name = product.supplier.name
+    item.units_of_measure = product.units_of_measure.short_name
+    item.units_of_measure = product.units_of_measure.short_name
+    item.price = product.price
+    item.total_price = product.price * item.quantity.to_i
+    
+    basket.add(item)
+    
+    redirect_to :action => :new, :id => params[:id]
+  end
+
+  private
+  
+  def find_basket
+    session[:basket] ||= Basket.new
+  end
+  
+  def empty_basket
+    session[:basket] = nil
+  end
+
 end

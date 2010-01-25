@@ -12,9 +12,23 @@
 #  updated_at          :datetime
 #
 
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class SalesOrderItemTest < ActiveSupport::TestCase
+  
+  def test_refresh_available_products_valid_selected_product_type
+    item = SalesOrderItem.new
+    item.selected_product_type = ProductType.find(2)
+    item.refresh_available_products
+    assert_equal(4, item.available_products.length)
+  end
+
+  def test_refresh_available_products_missing_selected_product_type
+    item = SalesOrderItem.new
+    item.refresh_available_products
+    assert_equal(6, item.available_products.length)
+  end
+
 end
 
 

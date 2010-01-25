@@ -5,23 +5,13 @@
 
   <p>
     <%= f.label :product_id %><br />
-    <%= f.text_field :product_id %>
+    <%= f.select :product_id, @available_products, :prompt => 'Select ...' %>
   </p>
   <p>
     <%= f.label :quantity %><br />
-    <%= f.text_field :quantity %>
-  </p>
-  <p>
-    <%= f.label :percentage_discount %><br />
-    <%= f.text_field :percentage_discount %>
-  </p>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.select :quantity, @available_quantities, :prompt => 'Select ...' %>
   </p>
   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', sales_order_items_path %>

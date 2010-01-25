@@ -51,6 +51,16 @@ class SalesOrderTest < ActiveSupport::TestCase
     assert_equal(BigDecimal.new("3.0"), SalesOrder.find(1).total_cost)
   end
   
+  def status_message
+    assert_equal("NOT INVOICED", SalesOrder.find(1))
+  end
+
+  def status_message_is_invoice
+  end
+
+  def status_message_is_paid
+  end
+  
 end
 
 

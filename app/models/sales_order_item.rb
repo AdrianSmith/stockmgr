@@ -25,7 +25,7 @@ class SalesOrderItem < ActiveRecord::Base
   def price
     product.price * quantity
   end
-  
+    
 end
 
 

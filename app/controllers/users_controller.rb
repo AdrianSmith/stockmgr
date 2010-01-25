@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully Updated Profile"
       redirect_to(@user)
@@ -64,5 +64,5 @@ class UsersController < ApplicationController
     order.save!
     redirect_to(:controller => 'users', :action => 'show', :id => params[:id])  
   end
-  
+    
 end

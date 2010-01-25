@@ -1,11 +1,23 @@
 <h1>Editing sales_order</h1>
 
 <% form_for(@sales_order) do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => 'form' , :locals=>{:f => f}%>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+<%= f.error_messages %>
+<%= render :partial => 'form' , :locals=>{:f => f}%>
+<p>
+  <%= f.label :invoiced? %><br />
+  <%= f.check_box :is_invoiced %>
+</p>
+<p>
+  <%= f.label :invoice_amount %><br />
+  <%= f.text_field :invoice_amount %>
+</p>
+<p>
+  <%= f.label :paid? %><br />
+  <%= f.check_box :is_paid %>
+</p>
+<p>
+  <%= f.submit 'Update' %>
+</p>
 <% end %>
 
 <%= link_to 'Show', @sales_order %> |

@@ -23,6 +23,7 @@
 #  suburb_town            :string(255)
 #  city                   :string(255)
 #  state                  :string(255)
+#  postcode               :string(255)
 #  country                :string(255)
 #  phone_mobile           :string(255)
 #  phone_home             :string(255)

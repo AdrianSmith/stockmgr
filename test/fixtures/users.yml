@@ -23,6 +23,7 @@
 #  suburb_town            :string(255)
 #  city                   :string(255)
 #  state                  :string(255)
+#  postcode               :string(255)
 #  country                :string(255)
 #  phone_mobile           :string(255)
 #  phone_home             :string(255)
@@ -56,6 +57,7 @@ brit:
   suburb_town: Annerley     
   city: Brisbane            
   state: Queensland           
+  postcode: 4103           
   country: Australia         
   phone_mobile: "+61 434 247 990"     
   phone_home:  "+61 7 3160 5008"     

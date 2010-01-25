@@ -26,6 +26,12 @@ class SalesOrderItemsController < ApplicationController
   def new
     @sales_order_item = SalesOrderItem.new
 
+    @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
+    #@available_products = []
+
+    @available_products = Product.find(:all).map{|p| [p.name, p.id]}
+    @available_quantities = (1..10).to_a
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @sales_order_item }
@@ -41,6 +47,11 @@ class SalesOrderItemsController < ApplicationController
   # POST /sales_order_items.xml
   def create
     @sales_order_item = SalesOrderItem.new(params[:sales_order_item])
+    basket = session[:basket]
+    item = BasketItem.new
+    item.product_id = params[:product_id]
+    item.product_id = params[:quantity]
+    basket.add(item)
 
     respond_to do |format|
       if @sales_order_item.save
@@ -82,4 +93,5 @@ class SalesOrderItemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+    
 end

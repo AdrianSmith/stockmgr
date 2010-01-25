@@ -30,7 +30,7 @@
 
 
 <div id="center">
-  <h2>Orders <%= link_to('Add', new_sales_order_path) %></h2>
+  <h2>Orders <%= link_to('Add', {:controller => 'sales_orders', :action => 'new', :id => @user.id}) %></h2>
   <table class="listing" width="100%">
     <tr>
       <th>Order</th>
@@ -48,7 +48,7 @@
     <% rows = order.sales_order_items.length + 1 %>
     <td class="status" rowspan=<%= rows %> width="15%">
       <%= link_to order.id, order %>
-      <%= link_to icon_pdf, order %>
+      <%= link_to(icon_pdf, :controller => 'sales_orders', :action => 'invoice_pdf', :id => order.id) %>
       <%= link_to icon_edit, edit_sales_order_path(order) %>
       <%= link_to icon_delete, sales_order_path(order), :confirm => 'Delete - Are you sure?', :method => :delete %>
     </td>
