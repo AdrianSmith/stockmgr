@@ -26,12 +26,6 @@ class SalesOrderItemsController < ApplicationController
   def new
     @sales_order_item = SalesOrderItem.new
 
-    @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
-    #@available_products = []
-
-    @available_products = Product.find(:all).map{|p| [p.name, p.id]}
-    @available_quantities = (1..10).to_a
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @sales_order_item }
@@ -46,17 +40,16 @@ class SalesOrderItemsController < ApplicationController
   # POST /sales_order_items
   # POST /sales_order_items.xml
   def create
-    @sales_order_item = SalesOrderItem.new(params[:sales_order_item])
-    basket = session[:basket]
-    item = BasketItem.new
-    item.product_id = params[:product_id]
-    item.product_id = params[:quantity]
-    basket.add(item)
+    @sales_order = SalesOrder.find(params[:id])
+    @sales_order_item = SalesOrderItem.new
+    @sales_order_item.sales_order_id = @sales_order.id
+    @sales_order_item.product_id = params[:product_id]
+    @sales_order_item.quantity = params[:quantity]
 
     respond_to do |format|
       if @sales_order_item.save
         flash[:notice] = 'SalesOrderItem was successfully created.'
-        format.html { redirect_to(@sales_order_item) }
+        format.html { redirect_to(edit_sales_order_path(@sales_order)) }
         format.xml  { render :xml => @sales_order_item, :status => :created, :location => @sales_order_item }
       else
         format.html { render :action => "new" }
@@ -86,12 +79,14 @@ class SalesOrderItemsController < ApplicationController
   # DELETE /sales_order_items/1.xml
   def destroy
     @sales_order_item = SalesOrderItem.find(params[:id])
+    @sales_order = @sales_order_item.sales_order
     @sales_order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sales_order_items_url) }
+      # format.html { redirect_to(:controller => :sales_orders, :action => :new, :id => @sales_order.id) }
+      format.html { redirect_to edit_sales_order_path(@sales_order) }
       format.xml  { head :ok }
     end
   end
-    
+
 end

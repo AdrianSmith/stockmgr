@@ -37,7 +37,13 @@ class SalesOrdersController < ApplicationController
   # GET /sales_orders/1/edit
   def edit
     @sales_order = SalesOrder.find(params[:id])
-    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
+    @user = @sales_order.user
+
+    @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
+    @available_products = []
+    @available_quantities = (1..10).to_a
+    @basket = find_basket
+
   end
 
   # POST /sales_orders
@@ -49,6 +55,7 @@ class SalesOrdersController < ApplicationController
     # Create Sales Order
     sales_order = SalesOrder.new
     sales_order.user_id = user.id
+    sales_order.comment = params[:comment]
     sales_order.save
     
     # Create Sales Order Items
@@ -109,7 +116,18 @@ class SalesOrdersController < ApplicationController
     end
   end
 
-  def add_item
+
+  def add_basket_item_new
+    add_basket_item
+    redirect_to :action => :new, :id => params[:id]
+  end
+
+  def add_basket_item_edit
+    add_basket_item
+    redirect_to :action => :edit, :id => params[:id]
+  end
+
+  def add_basket_item
     basket = find_basket
     item = BasketItem.new
     product = Product.find(params[:product_id])
@@ -125,8 +143,21 @@ class SalesOrdersController < ApplicationController
     item.total_price = product.price * item.quantity.to_i
     
     basket.add(item)
-    
+  end 
+  
+  def remove_basket_item_new
+    remove_basket_item
     redirect_to :action => :new, :id => params[:id]
+  end
+
+  def remove_basket_item_edit
+    remove_basket_item
+    redirect_to :action => :edit, :id => params[:id]
+  end
+
+  def remove_basket_item
+    @basket = find_basket
+    @basket.items.delete_at(params[:array_position].to_i - 1)
   end
 
   private

@@ -26,19 +26,11 @@ class SalesOrder < ActiveRecord::Base
   PAYMENT_DAYS = 14
 
   def total_price
-    total = 0.0
-    sales_order_items.each do |item|
-      total += item.price
-    end
-    total
+    sales_order_items.inject(0){|sum, o| sum + o.price} 
   end
 
   def total_cost
-    total = 0.0
-    sales_order_items.each do |item|
-      total += item.product.stock_unit_cost
-    end
-    total
+    sales_order_items.inject(0){|sum, o| sum + o.cost} 
   end
 
   def due_on

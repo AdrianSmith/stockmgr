@@ -1,33 +1,37 @@
-<p>
-  <b>User:</b>
-  <%=h @sales_order.user_id %>
-</p>
+<h1>Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
 
-<p>
-  <b>Comment:</b>
-  <%=h @sales_order.comment %>
-</p>
+<table width="500">
+  <tr><td width="100"><b>Created</b></td><td><%= format_date(@sales_order.created_at) %></td></tr>
+  <tr><td width="100"><b>Invoiced?</b></td><td><%= format_boolean(@sales_order.is_invoiced) %></td></tr>
+  <tr><td width="100"><b>Paid?</b></td><td><%= format_boolean(@sales_order.is_paid) %></td></tr>
+  <tr><td width="100"><b>Status:</b></td><td><%= @sales_order.status_message %></td></tr>
+  <tr><td width="100"><b>Comment:</b></td><td><%=h @sales_order.comment %></td></tr>
+</table>  
 
-<p>
-  <b>Created by user:</b>
-  <%=h @sales_order.created_by_user_id %>
-</p>
+<hr>
 
-<p>
-  <b>Is invoiced:</b>
-  <%=h @sales_order.is_invoiced %>
-</p>
+<table class="listing" width="100%">
+  <tr>
+    <th>Type</th>
+    <th>Product</th>
+    <th>Supplier</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Price</th>
+  </tr>
 
-<p>
-  <b>Invoice amount:</b>
-  <%=h @sales_order.invoice_amount %>
-</p>
-
-<p>
-  <b>Invoiced at:</b>
-  <%=h @sales_order.invoiced_at %>
-</p>
-
-
-<%= link_to 'Edit', edit_sales_order_path(@sales_order) %> |
-<%= link_to 'Back', sales_orders_path %>
+  <% @sales_order.sales_order_items.each do |item| %>
+  <tr class="<%= cycle('','even') %>">
+    <td class="text"><%= item.product.product_type.name %></td>
+    <td class="text"><%= item.product.name %></td>
+    <td class="text"><%= item.product.supplier.name %></td>
+    <td class="status"><%= item.quantity %> <%= item.product.units_of_measure.short_name %></td>
+    <td class="number"><%= format_currency(item.product.price) %></td>
+    <td class="number"><%= format_currency(item.price) %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td class="number" colspan="5">Total</td>
+    <td class="number_bothline"><%= format_currency(@sales_order.total_price) %></td>
+    </tr>
+</table>

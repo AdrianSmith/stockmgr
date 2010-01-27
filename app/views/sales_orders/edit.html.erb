@@ -1,24 +1,60 @@
-<h1>Editing sales_order</h1>
+<h1>Editing Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
+
+<% form_tag :controller => :sales_order_items, :action => :create, :id => @sales_order.id do %>
+<p>
+  Product Type <%= select_tag :product_type,  options_for_select(@available_product_types), {:onchange => remote_function(:url => {:action => :update_products}, :with => "'product_type='+value")} %>
+</p>
+
+<p>
+  <div id="product"><%= render :partial => 'product', :object => @available_products %></div>
+</p>
+
+<p>
+  Quantity <%= select_tag :quantity, options_for_select(@available_quantities) %>
+</p>
+
+<%= submit_tag 'Add Item' %>
+<% end %> 
+
+<hr>
+
+<table class="listing" width="100%">
+  <tr>
+    <th>Item</th>
+    <th>Type</th>
+    <th>Product</th>
+    <th>Supplier</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+
+  <% @sales_order.sales_order_items.each do |item| %>
+  <tr class="<%= cycle('','even') %>">
+    <td class="status"><%= item.id %></td>
+    <td class="text"><%= item.product.product_type.name %></td>
+    <td class="text"><%= item.product.name %></td>
+    <td class="text"><%= item.product.supplier.name %></td>
+    <td class="status"><%= item.quantity %> <%= item.product.units_of_measure.short_name %></td>
+    <td class="number"><%= format_currency(item.product.price) %></td>
+    <td class="number"><%= format_currency(item.price) %></td>
+    <td class="status"><%= link_to(icon_delete, {:controller => 'sales_order_items', :action => 'destroy', :id => item.id}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td class="number" colspan="6">Total</td>
+    <td class="number_bothline"><%= format_currency(@sales_order.total_price) %></td>
+  </tr>
+</table>
 
 <% form_for(@sales_order) do |f| %>
-<%= f.error_messages %>
-<%= render :partial => 'form' , :locals=>{:f => f}%>
-<p>
-  <%= f.label :invoiced? %><br />
-  <%= f.check_box :is_invoiced %>
-</p>
-<p>
-  <%= f.label :invoice_amount %><br />
-  <%= f.text_field :invoice_amount %>
-</p>
-<p>
-  <%= f.label :paid? %><br />
-  <%= f.check_box :is_paid %>
-</p>
-<p>
-  <%= f.submit 'Update' %>
-</p>
-<% end %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.text_area :comment,  :cols => 40, :rows => 4 %>
+  </p>
 
-<%= link_to 'Show', @sales_order %> |
-<%= link_to 'Back', sales_orders_path %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+  <% end %>
