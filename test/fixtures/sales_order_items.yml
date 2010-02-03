@@ -2,14 +2,14 @@
 #
 # Table name: sales_order_items
 #
-#  id                  :integer(4)      not null, primary key
-#  sales_order_id      :integer(4)
-#  product_id          :integer(4)
-#  quantity            :integer(10)
-#  percentage_discount :integer(4)
-#  price               :decimal(8, 2)   default(0.0)
-#  created_at          :datetime
-#  updated_at          :datetime
+#  id               :integer(4)      not null, primary key
+#  sales_order_id   :integer(4)
+#  product_id       :integer(4)
+#  quantity         :integer(4)
+#  custom_price     :decimal(8, 2)   default(0.0)
+#  use_custom_price :boolean(1)      default(FALSE)
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 one:
@@ -17,21 +17,21 @@ one:
   sales_order_id: 1
   product_id: 1
   quantity: 10
-  price: 6
+  custom_price: 6
 
 two:
   id: 2
   sales_order_id: 1
   product_id: 2
   quantity: 3
-  price: 40
+  custom_price: 40
 
 three:
   id: 3
   sales_order_id: 2
   product_id: 4
   quantity: 1
-  price: 40
+  custom_price: 40
 
 four:
   id: 4
@@ -50,7 +50,7 @@ six:
   sales_order_id: 2
   product_id: 3
   quantity: 21
-  price: 4
+  custom_price: 4
 
 
 

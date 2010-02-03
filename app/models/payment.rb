@@ -16,6 +16,8 @@
 class Payment < ActiveRecord::Base
   belongs_to :user     
   belongs_to :payment_type
+  
+  validates_presence_of :user
 
   def created_by
     User.find(self.created_by_user_id) if User.exists?(self.created_by_user_id)

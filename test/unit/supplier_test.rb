@@ -28,9 +28,20 @@
 require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+
+  context "A valid supplier" do
+     setup do
+       @supplier = Factory.build(:supplier)
+     end
+   
+     should "create a pretty address string" do
+       assert_not_nil(@supplier.pretty_address)
+     end             
+
+     should "create a pretty phone string" do
+       assert_not_nil(@supplier.pretty_phone)
+     end             
+   end           
+
 end
 

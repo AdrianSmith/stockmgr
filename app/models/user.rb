@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
   has_many :sales_orders
   has_many :payments
 
+  validates_presence_of :username, :email
+  validates_uniqueness_of :username, :email
+
   def pretty_name
     self.first_name.titleize + " " + self.last_name.titleize
   end 
@@ -60,29 +63,25 @@ class User < ActiveRecord::Base
     address += " " + self.postcode.upcase if self.postcode
     address
   end
-  
+
   def self.customers
     self.find(:all, :conditions => ["is_customer = ?", true])
   end
 
   def total_orders
-    total = 0.0
-    sales_orders.each do |order|
-      total += order.total_price
-    end
-    total
+    sales_orders.inject(0){|sum, o| sum + o.total_price}
   end
 
   def total_payments
-    total = 0.0
-    payments.each do |payment|
-      total += payment.amount
-    end
-    total
+    payments.inject(0){|sum, p| sum + p.amount}
   end
 
   def account_balance
-    total_payments - total_orders
+    self.account_balance_cached = total_payments - total_orders
+    unless self.save(false)
+      logger.warn("Error encountered when updating account balance for " + self.pretty_name)
+    end
+    self.account_balance_cached
   end      
 
 end

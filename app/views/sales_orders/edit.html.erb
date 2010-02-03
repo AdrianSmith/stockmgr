@@ -1,17 +1,20 @@
 <h1>Editing Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
 
 <% form_tag :controller => :sales_order_items, :action => :create, :id => @sales_order.id do %>
-<p>
-  Product Type <%= select_tag :product_type,  options_for_select(@available_product_types), {:onchange => remote_function(:url => {:action => :update_products}, :with => "'product_type='+value")} %>
-</p>
 
-<p>
+<div class="field required">
+  <label for="product_type">Product Type</label>
+  <%= select_tag :product_type,  options_for_select(@available_product_types), {:onchange => remote_function(:url => {:action => :update_products}, :with => "'product_type='+value")} %>
+</div>
+
+<div class="field required">
   <div id="product"><%= render :partial => 'product', :object => @available_products %></div>
-</p>
+</div>
 
-<p>
-  Quantity <%= select_tag :quantity, options_for_select(@available_quantities) %>
-</p>
+<div class="field required">
+  <label for="quantity">Quantity</label>
+   <%= select_tag :quantity, options_for_select(@available_quantities) %> <%= @uom %>
+</div>
 
 <%= submit_tag 'Add Item' %>
 <% end %> 

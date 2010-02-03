@@ -1,15 +1,25 @@
-require File.dirname(__FILE__) + '/../test_helper'
-
-class ProductTest < ActiveSupport::TestCase
-  
-  def test_price
-    p = Product.find(1)
-    assert_equal(9.99, p.price)
-  end
-end
-
-
-
+# == Schema Information
+#
+# Table name: products
+#
+#  id                  :integer(4)      not null, primary key
+#  name                :string(255)
+#  image_url           :string(255)
+#  description         :text
+#  supplier_reference  :text
+#  product_type_id     :integer(4)
+#  supplier_id         :integer(4)
+#  certifier_id        :integer(4)
+#  storage_type_id     :integer(4)
+#  units_of_measure_id :integer(4)
+#  storage_location_id :integer(4)
+#  physical_form_id    :integer(4)
+#  stock_quantity      :integer(10)
+#  stock_cost          :decimal(8, 2)   default(0.0)
+#  sale_price          :decimal(8, 2)   default(0.0)
+#  created_at          :datetime
+#  updated_at          :datetime
+#
 
 # == Schema Information
 #
@@ -28,8 +38,46 @@ end
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
-#  stock_unit_cost     :integer(10)
+#  stock_cost          :integer(10)
+#  sale_price          :integer(10)
 #  created_at          :datetime
 #  updated_at          :datetime
 #
+require "test_helper"
+
+class ProductTest < ActiveSupport::TestCase
+  should_belong_to :product_type
+  should_belong_to :supplier
+  should_belong_to :certifier
+  should_belong_to :units_of_measure
+  should_belong_to :storage_type
+  should_belong_to :storage_location
+  should_belong_to :physical_form
+  should_have_many :sales_order_items
+  should_have_many :purchase_order_items 
+  
+  should_validate_presence_of :name
+  should_validate_presence_of :product_type
+  should_validate_presence_of :supplier
+  should_validate_presence_of :certifier
+  should_validate_presence_of :units_of_measure
+
+  context "A valid product instance" do
+     setup do
+       @product = Factory.build(:product)
+     end
+   
+     should "calculate cost" do
+       assert_equal(BigDecimal.new("2.53"), @product.cost)
+     end
+            
+     should "calculate price" do
+       assert_equal(BigDecimal.new("5.24"), @product.price)
+     end
+   end           
+
+end
+
+
+
 

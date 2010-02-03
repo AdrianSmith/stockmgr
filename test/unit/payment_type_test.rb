@@ -1,12 +1,3 @@
-require 'test_helper'
-
-class PaymentTypeTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
-end
-
 # == Schema Information
 #
 # Table name: payment_types
@@ -18,3 +9,12 @@ end
 #  updated_at  :datetime
 #
 
+require 'test_helper'
+
+class PaymentTypeTest < ActiveSupport::TestCase
+  should_have_many :payments
+
+  should_validate_presence_of :name
+  should_validate_uniqueness_of :name
+
+end

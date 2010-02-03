@@ -21,11 +21,6 @@ class AddIndexes < ActiveRecord::Migration
     add_index :products, :storage_type_id
     add_index :products, :storage_location_id
     add_index :products, :physical_form_id
-    add_index :product_prices, :product_id
-    add_index :suppliers_contact_details, :supplier_id
-    add_index :suppliers_contact_details, :contact_detail_type_id
-    add_index :users_contact_details, :contact_detail_type_id
-    add_index :users_contact_details, :user_id
     add_index :sales_orders, :user_id
     add_index :sales_order_items, :sales_order_id
     add_index :purchase_orders, :supplier_id
@@ -42,11 +37,6 @@ class AddIndexes < ActiveRecord::Migration
     remove_index :products, :storage_type_id
     remove_index :products, :storage_location_id
     remove_index :products, :physical_form_id
-    remove_index :product_prices, :product_id
-    remove_index :suppliers_contact_details, :supplier_id
-    remove_index :suppliers_contact_details, :contact_detail_type_id
-    remove_index :users_contact_details, :contact_detail_type_id
-    remove_index :users_contact_details, :user_id
     remove_index :sales_orders, :user_id
     remove_index :sales_order_items, :sales_order_id
     remove_index :purchase_orders, :supplier_id

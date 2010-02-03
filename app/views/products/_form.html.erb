@@ -1,52 +1,40 @@
-<p>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+
+ <p>
+  <%= f.label :name %> <%= f.text_field :name %>
 </p>
 <p>
-  <%= f.label :description %><br />
-  <%= f.text_area :description,  :cols => 40, :rows => 4 %>
+  <%= f.label :description %> <%= f.text_area :description,  :cols => 40, :rows => 4 %>
 </p>
 <p>
-  <%= f.label :product_type_id %><br />
-  <%= f.select :product_type_id, @product_types, :prompt => 'Select ...' %>
+  <%= f.label :product_type_id %> <%= f.select :product_type_id, @product_types, :prompt => 'Select ...' %>
 </p>
 <p>
-  <%= f.label :supplier_id %><br />
-  <%= f.select :supplier_id, @suppliers, :prompt => 'Select ...' %>
+  <%= f.label :supplier_id %> <%= f.select :supplier_id, @suppliers, :prompt => 'Select ...' %>
 </p>
 <p>
-  <%= f.label :supplier_product_code %><br />
-  <%= f.text_field :supplier_reference %>
+  <%= f.label :supplier_product_code %> <%= f.text_field :supplier_reference %>
 </p>
 <p>
-  <%= f.label :certifier_id %><br />
-  <%= f.select :certifier_id, @certifiers, :prompt => 'Select ...' %>
+  <%= f.label :certifier_id %> <%= f.select :certifier_id, @certifiers, :prompt => 'Select ...' %>
 </p>
 <p>
-  <%= f.label :units_of_measure_id %><br />
-  <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
+  <%= f.label :units_of_measure_id %> <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
 </p>
 <p>
-  <%= f.label :storage_type_id %><br />
-  <%= f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  %>
+  <%= f.label :storage_type_id %> <%= f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  %>
 </p>
 <p>
-  <%= f.label :storage_location_id %><br />
-  <%= f.select :storage_location_id, @storage_locations, :prompt => 'Select ...'  %>
+  <%= f.label :storage_location_id %> <%= f.select :storage_location_id, @storage_locations, :prompt => 'Select ...'  %>
 </p>
 <p>
-  <%= f.label :physical_form_id %><br />
-  <%= f.select :physical_form_id, @physical_forms, :prompt => 'Select ...'  %>
+  <%= f.label :physical_form_id %> <%= f.select :physical_form_id, @physical_forms, :prompt => 'Select ...'  %>
 </p>
 <p>
-  <%= f.label :stock_quantity %><br />
-  <%= f.text_field :stock_quantity %>
+  <%= f.label :stock_quantity %> <%= f.text_field :stock_quantity %>
 </p>
 <p>
-  <label for="price">Price</label><br /> 
-  <%= text_field :product_price, :amount, :value => @price %>
+  <label for="price">Price</label> <%= text_field :product_price, :amount, :value => @price %>
 </p>
 <p>
-  <label for="comment">Price Comment</label><br /> 
-  <%= text_area :product_price, :comment, :value => @price_comment,  :cols => 40, :rows => 2 %>
+  <label for="comment">Price Comment</label> <%= text_area :product_price, :comment, :value => @price_comment,  :cols => 40, :rows => 2 %>
 </p>

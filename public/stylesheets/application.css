@@ -280,3 +280,23 @@ table td.status_bothline {
     border-top-width: 1px;
 }
 
+/* FORM STYLES */
+label {
+    font-weight: normal;
+}
+
+input[type="submit"] {
+    font-size:   13px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+form .field {
+    margin-bottom: 4px;
+}
+
+form .field.required label,
+form span.required {
+    font-weight: bold;
+}
+

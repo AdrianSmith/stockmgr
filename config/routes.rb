@@ -11,19 +11,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :sales_order_items
 
-  map.resources :product_prices
-
   map.resources :sales_orders
 
   map.resources :products
-
-  map.resources :contact_detail_types
-
-  map.resources :suppliers_contact_details
-
-  map.resources :users_contact_details
-
-  map.resources :contact_details
 
   map.resources :suppliers
 

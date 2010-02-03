@@ -20,25 +20,6 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.datetime "updated_at"
   end
 
-  create_table "contact_detail_types", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "contact_details", :force => true do |t|
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "suburb_town"
-    t.string   "city"
-    t.string   "state"
-    t.string   "postcode"
-    t.string   "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "payment_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -67,16 +48,6 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.datetime "updated_at"
   end
 
-  create_table "product_prices", :force => true do |t|
-    t.integer  "product_id"
-    t.decimal  "amount",     :precision => 8, :scale => 2, :default => 0.0
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "product_prices", ["product_id"], :name => "index_product_prices_on_product_id"
-
   create_table "product_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -97,7 +68,8 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.integer  "storage_location_id"
     t.integer  "physical_form_id"
     t.integer  "stock_quantity",      :limit => 10, :precision => 10, :scale => 0
-    t.integer  "stock_unit_cost",     :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "stock_cost",                        :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "sale_price",                        :precision => 8,  :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -113,8 +85,7 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
   create_table "purchase_order_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "purchase_order_id"
-    t.integer  "quantity",          :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "price",                           :precision => 8,  :scale => 2, :default => 0.0
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -139,9 +110,9 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
   create_table "sales_order_items", :force => true do |t|
     t.integer  "sales_order_id"
     t.integer  "product_id"
-    t.integer  "quantity",            :limit => 10, :precision => 10, :scale => 0
-    t.integer  "percentage_discount"
-    t.decimal  "price",                             :precision => 8,  :scale => 2, :default => 0.0
+    t.integer  "quantity"
+    t.decimal  "custom_price",     :precision => 8, :scale => 2, :default => 0.0
+    t.boolean  "use_custom_price",                               :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -155,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.boolean  "is_ordered"
     t.boolean  "is_invoiced"
     t.boolean  "is_paid"
-    t.integer  "invoice_amount",     :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "invoice_amount",     :precision => 8, :scale => 2, :default => 0.0
     t.datetime "invoiced_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -200,17 +171,6 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.datetime "updated_at"
   end
 
-  create_table "suppliers_contact_details", :force => true do |t|
-    t.integer  "supplier_id"
-    t.integer  "contact_detail_id"
-    t.integer  "contact_detail_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "suppliers_contact_details", ["contact_detail_type_id"], :name => "index_suppliers_contact_details_on_contact_detail_type_id"
-  add_index "suppliers_contact_details", ["supplier_id"], :name => "index_suppliers_contact_details_on_supplier_id"
-
   create_table "units_of_measures", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -246,16 +206,5 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.string   "phone_home"
     t.string   "phone_work"
   end
-
-  create_table "users_contact_details", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "contact_detail_id"
-    t.integer  "contact_detail_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "users_contact_details", ["contact_detail_type_id"], :name => "index_users_contact_details_on_contact_detail_type_id"
-  add_index "users_contact_details", ["user_id"], :name => "index_users_contact_details_on_user_id"
 
 end

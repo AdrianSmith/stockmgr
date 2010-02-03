@@ -7,7 +7,7 @@ class CreateSalesOrders < ActiveRecord::Migration
       t.boolean :is_ordered
       t.boolean :is_invoiced
       t.boolean :is_paid
-      t.decimal :invoice_amount
+      t.decimal :invoice_amount, :precision => 8, :scale => 2, :default => 0.0
       t.timestamp :invoiced_at
 
       t.timestamps

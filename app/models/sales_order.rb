@@ -9,11 +9,12 @@
 #  is_ordered         :boolean(1)
 #  is_invoiced        :boolean(1)
 #  is_paid            :boolean(1)
-#  invoice_amount     :integer(10)
+#  invoice_amount     :decimal(8, 2)   default(0.0)
 #  invoiced_at        :datetime
 #  created_at         :datetime
 #  updated_at         :datetime
 #
+
 require 'rubygems'
 require 'prawn'
 
@@ -21,7 +22,7 @@ class SalesOrder < ActiveRecord::Base
   belongs_to :user
   has_many :sales_order_items
 
-  validates_presence_of :user_id
+  validates_presence_of :user
 
   PAYMENT_DAYS = 14
 
@@ -46,14 +47,15 @@ class SalesOrder < ActiveRecord::Base
   end
 
   def status_message
-    status = "" 
+    status = ""
+    
     if self.is_paid
       status = "PAID"
     else
       if self.is_invoiced
         status = "ISSUED"
         if self.is_overdue
-          status += ' (' + self.due_days.to_s + "days overdue)"
+          status += ' (' + self.due_days.abs.to_s + " days overdue)"
         else
           status += " (due in " + self.due_days.to_s + ' days)'
         end
@@ -67,7 +69,6 @@ class SalesOrder < ActiveRecord::Base
   def create_invoice_pdf
     helper = PdfHelper.new
     pdf = helper.create_document
-    #    helper.add_footer(pdf)
     helper.add_spacer(pdf)
     helper.add_title(pdf, "TAX INVOICE")
 

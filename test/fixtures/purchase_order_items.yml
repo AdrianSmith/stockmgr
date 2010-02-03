@@ -1,21 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  id: 1
-  purchase_order_id: 2
-  product_id: 1
-  quantity: 4
-  price: 9.99
-
-two:
-  id: 2
-  purchase_order_id: 1
-  product_id: 2
-  quantity: 5
-  price: 9.99
-
-
-
 # == Schema Information
 #
 # Table name: purchase_order_items
@@ -23,9 +5,24 @@ two:
 #  id                :integer(4)      not null, primary key
 #  product_id        :integer(4)
 #  purchase_order_id :integer(4)
-#  quantity          :integer(10)
-#  price             :decimal(8, 2)   default(0.0)
+#  quantity          :integer(4)
 #  created_at        :datetime
 #  updated_at        :datetime
 #
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  purchase_order_id: 2
+  product_id: 1
+  quantity: 4
+
+two:
+  id: 2
+  purchase_order_id: 1
+  product_id: 2
+  quantity: 5
+
+
 

@@ -13,7 +13,8 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :storage_location_id
       t.integer :physical_form_id
       t.decimal :stock_quantity
-      t.decimal :stock_unit_cost
+      t.decimal :stock_cost, :precision => 8, :scale => 2, :default => 0.0
+      t.decimal :sale_price, :precision => 8, :scale => 2, :default => 0.0
 
       t.timestamps
     end

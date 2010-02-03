@@ -1,5 +1,5 @@
 <div id="center">
-  <h1><%= @user.pretty_name %></h1>
+  <h1><%= @user.pretty_name %> <%= link_to '[All Customers]', users_path %></h1>
 </div>            
 
 <div id='right_small'>
@@ -36,7 +36,7 @@
       <tr>
         <th>Order</th>
         <th>Created</th>
-        <th>Comment</th>
+        <th>Comment</th>                        
         <th>Invoiced?</th>
         <th>Paid?</th>
         <th>Price</th>

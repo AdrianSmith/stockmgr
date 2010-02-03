@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.all
+    @total_stock_cost = @products.inject(0) {|sum, o| sum + o.total_stock_cost }
+    @total_stock_price = @products.inject(0) {|sum, o| sum + o.total_stock_price }
 
     respond_to do |format|
       format.html # index.html.erb
