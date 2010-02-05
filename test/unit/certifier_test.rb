@@ -1,12 +1,3 @@
-require 'test_helper'
-
-class CertifierTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
-end
-
 # == Schema Information
 #
 # Table name: certifiers
@@ -19,4 +10,14 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #
+
+require 'test_helper'
+
+class CertifierTest < ActiveSupport::TestCase
+  should_have_one :product
+  should_validate_presence_of :name
+  should_validate_uniqueness_of :name
+end
+
+
 

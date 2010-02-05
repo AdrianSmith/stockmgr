@@ -14,22 +14,13 @@
 #  updated_at         :datetime
 #
 
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  id: 1
-  supplier_id: 1
-  comment: MyText
-  created_by_user_id: 1
-  amount: 9.99
-
-two:
-  id: 2
-  supplier_id: 1
-  comment: MyText
-  created_by_user_id: 1
-  amount: 9.99
-
-
+Factory.define :purchase_order do |o|
+  o.supplier { Supplier.new }
+  o.is_created true
+  o.is_paid true
+  o.is_received true
+  o.amount
+  o.created_at {DateTime.now}
+end
 
 

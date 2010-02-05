@@ -3,7 +3,6 @@
 # Table name: purchase_orders
 #
 #  id                 :integer(4)      not null, primary key
-#  purchase_order_id  :integer(4)
 #  supplier_id        :integer(4)
 #  comment            :text
 #  is_created         :boolean(1)

@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
   add_index "purchase_order_items", ["purchase_order_id"], :name => "index_purchase_order_items_on_purchase_order_id"
 
   create_table "purchase_orders", :force => true do |t|
-    t.integer  "purchase_order_id"
     t.integer  "supplier_id"
     t.text     "comment"
     t.boolean  "is_created"

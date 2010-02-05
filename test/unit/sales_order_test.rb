@@ -22,17 +22,20 @@ class SalesOrderTest < ActiveSupport::TestCase
   should_have_many :sales_order_items
   should_belong_to :user
 
-  context "A valid sales_order" do
+  context "A valid Sales Order" do
     setup do
+      items = [Factory.build(:sales_order_item), Factory.build(:sales_order_item)]
       @sales_order = Factory.build(:sales_order)
+      @sales_order.sales_order_items = items
     end
 
     should "calculate total cost" do
+      assert_equal(BigDecimal.new("300.0"), @sales_order.total_cost)
     end
 
     should "calculate total price" do
+      assert_equal(BigDecimal.new("500.0"), @sales_order.total_price)
     end
-
   end
 
   context "An un-invoiced Sales Order" do
