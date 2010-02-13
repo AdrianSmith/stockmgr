@@ -1,4 +1,4 @@
-authlogic --version '>= 2.1.3'
+authlogic --version '>= 2.1.3' --source 'http://gemcutter.org'
 declarative_authorization --version '>= 0.4' --source 'http://gemcutter.org'
 prawn --version '>= 0.7.1'
 prawn-core --version '>= 0.7.1'

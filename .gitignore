@@ -12,3 +12,6 @@ uploads
 
 # ignore netbeans
 netbeans
+
+# ignore tmp
+tmp
