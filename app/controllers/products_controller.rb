@@ -41,15 +41,12 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])    
-    @price = @product.price
-    @price_comment = @product.price_comment
   end
 
   # POST /products
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
-    @product.product_prices.build(params[:product_price])
 
     respond_to do |format|
       if @product.save
@@ -67,37 +64,17 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
-    @product.attributes = params[:product]
-
-    # For different prices - create a new product price
-    if BigDecimal.new(params[:product_price][:amount]) != @product.price
-      logger.info("Creating new product price")
-      new_price = ProductPrice.new
-      new_price.attributes = params[:product_price]
-      new_price.product_id = params[:id]
-      if new_price.valid?
-        new_price.save!
-      end
-    end
-
-    # For different comment - update comment only
-    if params[:product_price][:comment] != @product.price_comment
-      current_product_price = @product.product_price
-      current_product_price.comment = params[:product_price][:comment]
-      current_product_price.save!
-    end
 
     respond_to do |format|
-      if @product.valid?
-        @product.save!
-        flash[:notice] = 'Product was successfully updated.'
+      if @product.update_attributes(params[:product])
+        flash[:notice] = 'UnitsOfMeasure was successfully updated.'
         format.html { redirect_to(@product) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
       end
-    end
+    end    
   end
 
   # DELETE /products/1

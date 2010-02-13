@@ -4,9 +4,9 @@ class CreateSalesOrders < ActiveRecord::Migration
       t.integer :user_id
       t.text :comment
       t.integer :created_by_user_id
-      t.boolean :is_ordered
-      t.boolean :is_invoiced
-      t.boolean :is_paid
+      t.boolean :is_ordered, :default => false
+      t.boolean :is_invoiced, :default => false
+      t.boolean :is_paid, :default => false
       t.decimal :invoice_amount, :precision => 8, :scale => 2, :default => 0.0
       t.timestamp :invoiced_at
 

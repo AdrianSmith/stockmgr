@@ -12,6 +12,7 @@
 #  certifier_id        :integer(4)
 #  storage_type_id     :integer(4)
 #  units_of_measure_id :integer(4)
+#  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
@@ -55,26 +56,35 @@ class ProductTest < ActiveSupport::TestCase
   should_belong_to :physical_form
   should_have_many :sales_order_items
   should_have_many :purchase_order_items 
-  
+
   should_validate_presence_of :name
   should_validate_presence_of :product_type
   should_validate_presence_of :supplier
   should_validate_presence_of :certifier
   should_validate_presence_of :units_of_measure
+  should_validate_presence_of :minimum_quantity
 
   context "A valid product instance" do
-     setup do
-       @product = Factory.build(:product)
-     end
-   
-     should "calculate cost" do
-       assert_equal(BigDecimal.new("2.53"), @product.cost)
-     end
-            
-     should "calculate price" do
-       assert_equal(BigDecimal.new("5.24"), @product.price)
-     end
-   end           
+    setup do
+      @product = Factory.build(:product)
+    end
+
+    should "calculate cost" do
+      assert_equal(BigDecimal.new("2.53"), @product.cost)
+    end
+
+    should "calculate price" do
+      assert_equal(BigDecimal.new("5.24"), @product.price)
+    end
+  end  
+
+  context "A valid product with a minimum quantity" do
+    should "calculate suggested quantities" do
+      product = Factory.build(:product, :minimum_quantity => 10)
+      expected_data = [10, 20, 30, 40, 50, 100, 200, 500, 1000]
+      assert_equal(expected_data, product.suggested_quantities)
+    end
+  end            
 
 end
 

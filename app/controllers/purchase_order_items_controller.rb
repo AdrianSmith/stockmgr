@@ -39,16 +39,21 @@ class PurchaseOrderItemsController < ApplicationController
 
   # POST /purchase_order_items
   # POST /purchase_order_items.xml
-  def create
-    @purchase_order_item = PurchaseOrderItem.new(params[:purchase_order_item])
-
+  def create 
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order_item = PurchaseOrderItem.new
+    @purchase_order_item.purchase_order_id = @purchase_order.id
+    @purchase_order_item.product_id = params[:product]
+    @purchase_order_item.quantity = params[:quantity]
+    
     respond_to do |format|
       if @purchase_order_item.save
         flash[:notice] = 'PurchaseOrderItem was successfully created.'
-        format.html { redirect_to(@purchase_order_item) }
+        format.html { redirect_to(edit_purchase_order_path(@purchase_order)) }
         format.xml  { render :xml => @purchase_order_item, :status => :created, :location => @purchase_order_item }
       else
-        format.html { render :action => "new" }
+        flash[:notice] = 'PurchaseOrderItem was NOT created.'
+        format.html { redirect_to(edit_purchase_order_path(@purchase_order)) }
         format.xml  { render :xml => @purchase_order_item.errors, :status => :unprocessable_entity }
       end
     end
@@ -75,10 +80,11 @@ class PurchaseOrderItemsController < ApplicationController
   # DELETE /purchase_order_items/1.xml
   def destroy
     @purchase_order_item = PurchaseOrderItem.find(params[:id])
+    @purchase_order = @purchase_order_item.purchase_order
     @purchase_order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(purchase_order_items_url) }
+      format.html { redirect_to edit_purchase_order_path(@purchase_order) }
       format.xml  { head :ok }
     end
   end

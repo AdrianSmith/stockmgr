@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.integer  "certifier_id"
     t.integer  "storage_type_id"
     t.integer  "units_of_measure_id"
+    t.integer  "minimum_quantity"
     t.integer  "storage_location_id"
     t.integer  "physical_form_id"
     t.integer  "stock_quantity",      :limit => 10, :precision => 10, :scale => 0
@@ -95,9 +96,8 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
   create_table "purchase_orders", :force => true do |t|
     t.integer  "supplier_id"
     t.text     "comment"
-    t.boolean  "is_created"
-    t.boolean  "is_paid"
-    t.boolean  "is_received"
+    t.boolean  "is_paid",                                          :default => false
+    t.boolean  "is_received",                                      :default => false
     t.integer  "created_by_user_id"
     t.decimal  "amount",             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(:version => 20100109231647) do
     t.integer  "user_id"
     t.text     "comment"
     t.integer  "created_by_user_id"
-    t.boolean  "is_ordered"
-    t.boolean  "is_invoiced"
-    t.boolean  "is_paid"
+    t.boolean  "is_ordered",                                       :default => false
+    t.boolean  "is_invoiced",                                      :default => false
+    t.boolean  "is_paid",                                          :default => false
     t.decimal  "invoice_amount",     :precision => 8, :scale => 2, :default => 0.0
     t.datetime "invoiced_at"
     t.datetime "created_at"

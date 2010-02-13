@@ -12,6 +12,7 @@
 #  certifier_id        :integer(4)
 #  storage_type_id     :integer(4)
 #  units_of_measure_id :integer(4)
+#  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
@@ -32,7 +33,7 @@ class Product < ActiveRecord::Base
   has_many :sales_order_items
   has_many :purchase_order_items 
   
-  validates_presence_of :name, :product_type, :supplier, :certifier, :units_of_measure
+  validates_presence_of :name, :product_type, :supplier, :certifier, :units_of_measure, :minimum_quantity
 
    def price
      self.sale_price
@@ -48,6 +49,10 @@ class Product < ActiveRecord::Base
 
    def total_stock_cost
      cost * stock_quantity
+   end
+   
+   def suggested_quantities
+     [1, 2, 3, 4, 5, 10, 20, 50, 100].collect{|f| f * minimum_quantity}
    end
      
 end

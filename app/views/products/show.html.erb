@@ -24,13 +24,18 @@
 </p>
 
 <p>
+  <b>Certifier:</b>
+  <%=h @product.certifier.name %>
+</p>
+
+<p>
   <b>Unit Price:</b>
   <%= format_currency(@product.price) %>
 </p>
 
 <p>
-  <b>Units of measure:</b>
-  <%=h @product.units_of_measure.name %>
+  <b>Minimum Quantity:</b>
+  <%= @product.minimum_quantity.to_s + ' ' + @product.units_of_measure.name %>
 </p>
 
 <p>
@@ -54,8 +59,13 @@
 </p>
 
 <p>
-  <b>Stock value:</b>
-  <%= format_currency(@product.stock_value) %>
+  <b>Stock Cost:</b>
+  <%= format_currency(@product.total_stock_cost) %>
+</p>
+
+<p>
+  <b>Stock Vale:</b>
+  <%= format_currency(@product.total_stock_price) %>
 </p>
 
 

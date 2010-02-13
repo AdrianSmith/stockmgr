@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :certifier_id
       t.integer :storage_type_id
       t.integer :units_of_measure_id
+      t.integer :minimum_quantity
       t.integer :storage_location_id
       t.integer :physical_form_id
       t.decimal :stock_quantity

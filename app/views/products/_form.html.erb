@@ -21,6 +21,9 @@
   <%= f.label :units_of_measure_id %> <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
 </p>
 <p>
+  <%= f.label :minimum_quantity %> <%= f.text_field :minimum_quantity %>
+</p>
+<p>
   <%= f.label :storage_type_id %> <%= f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  %>
 </p>
 <p>
@@ -34,7 +37,4 @@
 </p>
 <p>
   <label for="price">Price</label> <%= text_field :product_price, :amount, :value => @price %>
-</p>
-<p>
-  <label for="comment">Price Comment</label> <%= text_area :product_price, :comment, :value => @price_comment,  :cols => 40, :rows => 2 %>
 </p>

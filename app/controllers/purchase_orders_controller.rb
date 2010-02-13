@@ -25,6 +25,7 @@ class PurchaseOrdersController < ApplicationController
   # GET /purchase_orders/new.xml
   def new
     @purchase_order = PurchaseOrder.new
+    @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,8 @@ class PurchaseOrdersController < ApplicationController
   # GET /purchase_orders/1/edit
   def edit
     @purchase_order = PurchaseOrder.find(params[:id])
+    @available_products = @available_products = ["Select ..."] + Product.find(:all, :conditions => ['supplier_id = ?', @purchase_order.supplier_id]).map{|p| [p.name + ' [' + p.minimum_quantity.to_s + p.units_of_measure.name + ']', p.id]}
+    @available_quantities = (1..10).to_a
   end
 
   # POST /purchase_orders
@@ -45,7 +48,7 @@ class PurchaseOrdersController < ApplicationController
     respond_to do |format|
       if @purchase_order.save
         flash[:notice] = 'PurchaseOrder was successfully created.'
-        format.html { redirect_to(@purchase_order) }
+        format.html { redirect_to edit_purchase_order_path(@purchase_order) }
         format.xml  { render :xml => @purchase_order, :status => :created, :location => @purchase_order }
       else
         format.html { render :action => "new" }

@@ -12,6 +12,7 @@
 #  certifier_id        :integer(4)
 #  storage_type_id     :integer(4)
 #  units_of_measure_id :integer(4)
+#  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)

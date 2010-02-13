@@ -12,6 +12,7 @@
 #  certifier_id        :integer(4)
 #  storage_type_id     :integer(4)
 #  units_of_measure_id :integer(4)
+#  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
@@ -30,6 +31,7 @@ almonds:
   supplier_id: 1
   certifier_id: 3
   units_of_measure_id: 3
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
@@ -46,6 +48,7 @@ brazils:
   supplier_id: 1
   certifier_id: 3
   units_of_measure_id: 3
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
@@ -62,6 +65,7 @@ carob:
   supplier_id: 6
   certifier_id: 3
   units_of_measure_id: 3
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
@@ -78,6 +82,7 @@ cashews:
   supplier_id: 6
   certifier_id: 3
   units_of_measure_id: 3
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
@@ -94,6 +99,7 @@ cocoa:
   supplier_id: 6
   certifier_id: 3
   units_of_measure_id: 3
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1
@@ -110,6 +116,7 @@ cheddar:
   supplier_id: 1
   certifier_id: 4
   units_of_measure_id: 5
+  minimum_quantity: 1
   storage_location_id: 1
   storage_type_id: 1
   physical_form_id: 1

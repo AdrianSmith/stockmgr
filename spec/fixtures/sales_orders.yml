@@ -6,9 +6,9 @@
 #  user_id            :integer(4)
 #  comment            :text
 #  created_by_user_id :integer(4)
-#  is_ordered         :boolean(1)
-#  is_invoiced        :boolean(1)
-#  is_paid            :boolean(1)
+#  is_ordered         :boolean(1)      default(FALSE)
+#  is_invoiced        :boolean(1)      default(FALSE)
+#  is_paid            :boolean(1)      default(FALSE)
 #  invoice_amount     :decimal(8, 2)   default(0.0)
 #  invoiced_at        :datetime
 #  created_at         :datetime

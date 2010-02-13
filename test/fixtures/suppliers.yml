@@ -33,6 +33,7 @@ eco_farms:
   description: "Established in 1986, Eco-Farms is Australia's leading dedicated supplier and exporter of certified organic and biodynamic food.
 Suppling to the independent organic and wholefood specialist retailers, healthfood stores, major supermarkets, cafes, caterers and manufacturers throughout Australia. We have also developed a number of key export markets with customers in Asia, New Zealand, Europe and the USA."
   website: http://www.ecofarms.com.au/
+  email: sales@ecofarms.com.au
   comment: Avoid bring children as they are strict about health and safety in their warehouse
   delivery_rules: Orders over $200 may be delivered for free
 
@@ -41,6 +42,7 @@ complete_health:
   name: Complete Health
   description: "Complete Health is a fully Australian owned and operated company, a division of Evelyn Faye Nutrition, established in Melbourne 1974. Complete Health's' mission is to provide the largest range of products at the lowest cost, relating to the most important aspect of their life their health."
   website: http://www.completehealth.com.au
+  email: sales@completehealth.com.au
   comment: 
   delivery_rules: Orders over $200 may be delivered for free    
 

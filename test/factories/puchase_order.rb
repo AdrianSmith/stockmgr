@@ -16,9 +16,6 @@
 
 Factory.define :purchase_order do |o|
   o.supplier { Supplier.new }
-  o.is_created true
-  o.is_paid true
-  o.is_received true
   o.amount
   o.created_at {DateTime.now}
 end
