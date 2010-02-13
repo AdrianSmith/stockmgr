@@ -48,7 +48,7 @@ class SalesOrder < ActiveRecord::Base
 
   def status_message
     status = ""
-    
+
     if self.is_paid
       status = "PAID"
     else
@@ -69,16 +69,26 @@ class SalesOrder < ActiveRecord::Base
   def create_invoice_pdf
     helper = PdfHelper.new
     pdf = helper.create_document
+
     helper.add_spacer(pdf)
     helper.add_title(pdf, "TAX INVOICE")
-
     helper.add_sub_title(pdf, "*** Invoice Overdue ***") if self.is_overdue
-
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)                
+    
+    invoice_summary(pdf)
+    helper.add_spacer(pdf)     
+    helper.add_spacer(pdf)
 
+    invoice_details(pdf)
+    pdf
+  end
+
+  private
+
+  def invoice_summary(pdf)
     helper.add_heading(pdf, "Invoice Details")
 
     table_data =  [
@@ -97,17 +107,17 @@ class SalesOrder < ActiveRecord::Base
     :column_widths      => {0 => 70, 1 => 180, 2 => 70, 3 => 200},
     :align              => :left,
     :vertical_padding   => 2,
-    :horizontal_padding => 4 
+    :horizontal_padding => 4
+  end
 
-    helper.add_spacer(pdf)     
-    helper.add_spacer(pdf)
 
+  def invoice_details(pdf)
     helper.add_heading(pdf, "Order Details")
 
     table_data =  Array.new
     self.sales_order_items.each do |item|
       table_data << [item.product.id,
-        item.product.name, 
+        item.product.name,
         item.product.supplier.name,
         item.quantity.to_s + ' ' + item.product.units_of_measure.short_name,
         FormatHelper.format_currency(item.product.price)  + ' / ' + item.product.units_of_measure.short_name,
@@ -126,9 +136,7 @@ class SalesOrder < ActiveRecord::Base
     :align_headers      => {3 => :center, 4 => :right, 5 => :right},
     :align              => {0 => :left, 3 => :center, 4 => :right, 5 => :right},
     :vertical_padding   => 2,
-    :horizontal_padding => 4 
-
-    pdf
+    :horizontal_padding => 4
   end
 
 end

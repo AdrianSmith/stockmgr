@@ -85,4 +85,19 @@ class PurchaseOrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def toggle_order_paid_status
+      order = PurchaseOrder.find(params[:id])
+      order.is_paid = !order.is_paid
+      order.save!
+      redirect_to(:controller => 'purchase_orders', :action => 'index')  
+  end
+  
+  def toggle_order_received_status
+    order = PurchaseOrder.find(params[:id])
+    order.is_received = !order.is_received
+    order.is_paid = true if order.is_received
+    order.save!
+    redirect_to(:controller => 'purchase_orders', :action => 'index')  
+  end
 end

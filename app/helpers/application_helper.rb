@@ -1,6 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper 
-  
+
   def format_currency(number, hide_zero=false)
     format = String.new
     if number
@@ -22,15 +22,15 @@ module ApplicationHelper
   def format_time(time)
     time.strftime("%H:%M") if time
   end  
-  
+
   def format_boolean(status)
     if status
       icon_tick
-    else
+    else 
       icon_cross
     end
   end
-  
+
   def icon_csv(alt_text='CSV File')
     build_image_tag("/images/csv48x48.jpg", alt_text)
   end
@@ -92,13 +92,13 @@ module ApplicationHelper
   end
 
   def icon_not_ok(alt_text='NOT OK')
-    build_image_tag("/images/icons/001_19.png",alt_text)
+    build_image_tag("/images/icons/001_19.png", alt_text)
   end  
-  
+
   private
-  
+
   def build_image_tag(image_file, alt_text)
-    image_tag(image_file, :class => 'status', :size =>"20x20", :alt => alt_text) 
+    image_tag(image_file, :size =>"20x20", :alt => alt_text) 
   end
-  
+
 end

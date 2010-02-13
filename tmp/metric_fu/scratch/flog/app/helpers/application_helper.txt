@@ -1,17 +1,95 @@
-    17.0: flog total
-     5.7: flog/method average
+    49.3: flog total
+     2.2: flog/method average
 
-    13.4: ApplicationHelper#format_currency
-     6.8: assignment
-     5.3: branch
-     3.3: number_to_currency
-     3.0: +
-     1.5: ==
-     1.3: <
-     1.2: new
-     1.8: ApplicationHelper#format_time
-     1.3: strftime
-     1.2: branch
-     1.8: ApplicationHelper#format_date
-     1.3: strftime
-     1.2: branch
+    13.4: ApplicationHelper#format_currency app/helpers/application_helper.rb:4
+     6.8:   assignment
+     5.3:   branch
+     3.3:   number_to_currency
+     3.0:   +
+     1.5:   ==
+     1.3:   <
+     1.2:   new
+
+     2.9: ApplicationHelper#format_boolean app/helpers/application_helper.rb:26
+     1.3:   icon_cross
+     1.3:   icon_tick
+     1.2:   branch
+
+     1.8: ApplicationHelper#format_date    app/helpers/application_helper.rb:18
+     1.3:   strftime
+     1.2:   branch
+
+     1.8: ApplicationHelper#format_time    app/helpers/application_helper.rb:22
+     1.3:   strftime
+     1.2:   branch
+
+     1.7: ApplicationHelper#icon_pdf       app/helpers/application_helper.rb:42
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_edit      app/helpers/application_helper.rb:82
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_play      app/helpers/application_helper.rb:74
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_warning   app/helpers/application_helper.rb:62
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_html      app/helpers/application_helper.rb:38
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_csv       app/helpers/application_helper.rb:34
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_show      app/helpers/application_helper.rb:78
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_cross     app/helpers/application_helper.rb:50
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_delete    app/helpers/application_helper.rb:86
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_add       app/helpers/application_helper.rb:66
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_ok        app/helpers/application_helper.rb:90
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_stop      app/helpers/application_helper.rb:54
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_exclaim   app/helpers/application_helper.rb:58
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_tick      app/helpers/application_helper.rb:46
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_not_ok    app/helpers/application_helper.rb:94
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.7: ApplicationHelper#icon_subtract  app/helpers/application_helper.rb:70
+     1.2:   build_image_tag
+     1.2:   assignment
+
+     1.2: ApplicationHelper#build_image_tag app/helpers/application_helper.rb:100
+     1.2:   image_tag
+
+     1.1: ApplicationHelper#none
+     1.1:   private
+

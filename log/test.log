@@ -49540,3 +49540,2597 @@ Rendering users/new
 Rendered users/_form (7.8ms)
 Completed in 14ms (View: 14, DB: 0) | 200 OK [http://test.host/users/new]
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `certifiers` [0m
+
+
+Processing CertifiersController#create (for 0.0.0.0 at 2010-02-13 12:47:48) [POST]
+  Parameters: {"certifier"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT `certifiers`.id FROM `certifiers` WHERE (`certifiers`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering certifiers/new
+Completed in 28ms (View: 18, DB: 94) | 200 OK [http://test.host/certifiers?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#destroy (for 0.0.0.0 at 2010-02-13 12:47:48) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCertifier Destroy (0.2ms)[0m   [0mDELETE FROM `certifiers` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/certifiers
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/certifiers/1]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#edit (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering certifiers/edit
+Completed in 12ms (View: 11, DB: 1) | 200 OK [http://test.host/certifiers/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing CertifiersController#index (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+Rendering template within layouts/application
+Rendering certifiers/index
+Completed in 23ms (View: 22, DB: 1) | 200 OK [http://test.host/certifiers]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing CertifiersController#new (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+Rendering template within layouts/application
+Rendering certifiers/new
+Completed in 9ms (View: 9, DB: 0) | 200 OK [http://test.host/certifiers/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#show (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering certifiers/show
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/certifiers/1]
+  [4;35;1mSQL (0.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCertifier Load (0.3ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#update (for 0.0.0.0 at 2010-02-13 12:47:48) [PUT]
+  Parameters: {"certifier"=>{}, "id"=>"1"}
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT `certifiers`.id FROM `certifiers` WHERE (`certifiers`.`name` = BINARY 'Uncertified Organic' AND `certifiers`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/certifiers/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/certifiers/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payment_types` [0m
+
+
+Processing PaymentTypesController#create (for 0.0.0.0 at 2010-02-13 12:47:48) [POST]
+  Parameters: {"payment_type"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT `payment_types`.id FROM `payment_types` WHERE (`payment_types`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering payment_types/new
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://test.host/payment_types?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#destroy (for 0.0.0.0 at 2010-02-13 12:47:48) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPaymentType Destroy (0.2ms)[0m   [0mDELETE FROM `payment_types` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payment_types
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/payment_types/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#edit (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payment_types/edit
+Completed in 11ms (View: 10, DB: 2) | 200 OK [http://test.host/payment_types/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PaymentTypesController#index (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payment_types/index
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://test.host/payment_types]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PaymentTypesController#new (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+Rendering template within layouts/application
+Rendering payment_types/new
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/payment_types/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPaymentType Load (0.3ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#show (for 0.0.0.0 at 2010-02-13 12:47:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payment_types/show
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/payment_types/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#update (for 0.0.0.0 at 2010-02-13 12:47:48) [PUT]
+  Parameters: {"id"=>"1", "payment_type"=>{}}
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPaymentType Load (0.3ms)[0m   [0;1mSELECT `payment_types`.id FROM `payment_types` WHERE (`payment_types`.`name` = BINARY 'Cash' AND `payment_types`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payment_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/payment_types/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payments` [0m
+
+
+Processing PaymentsController#create (for 0.0.0.0 at 2010-02-13 12:47:48) [POST]
+  Parameters: {"payment"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering payments/new
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payments` [0m
+  [4;36;1mPayment Load (0.2ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPayment Destroy (0.2ms)[0m   [0;1mDELETE FROM `payments` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/2
+Completed in 8ms (DB: 1) | 302 Found [http://test.host/payments/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payments` [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPayment Load (0.2ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;36;1mPaymentType Load (0.1ms)[0m   [0;1mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payments/edit
+Rendered payments/_form (135.1ms)
+Completed in 148ms (View: 146, DB: 2) | 200 OK [http://test.host/payments/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PaymentsController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mPayment Load (0.3ms)[0m   [0mSELECT * FROM `payments` [0m
+Rendering template within layouts/application
+Rendering payments/index
+Completed in 20ms (View: 19, DB: 1) | 200 OK [http://test.host/payments]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PaymentsController#new (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;35;1mPaymentType Load (0.1ms)[0m   [0mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payments/new
+Rendered payments/_form (7.1ms)
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://test.host/payments/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPayment Load (0.3ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#show (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payments/show
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://test.host/payments/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPayment Load (0.3ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#update (for 0.0.0.0 at 2010-02-13 12:47:49) [PUT]
+  Parameters: {"id"=>"1", "payment"=>{}}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payments/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/payments/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `physical_forms` [0m
+
+
+Processing PhysicalFormsController#create (for 0.0.0.0 at 2010-02-13 12:47:49) [POST]
+  Parameters: {"physical_form"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT `physical_forms`.id FROM `physical_forms` WHERE (`physical_forms`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering physical_forms/new
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://test.host/physical_forms?]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPhysicalForm Destroy (0.2ms)[0m   [0;1mDELETE FROM `physical_forms` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/physical_forms
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/physical_forms/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering physical_forms/edit
+Completed in 10ms (View: 9, DB: 2) | 200 OK [http://test.host/physical_forms/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PhysicalFormsController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+Rendering template within layouts/application
+Rendering physical_forms/index
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://test.host/physical_forms]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PhysicalFormsController#new (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+Rendering template within layouts/application
+Rendering physical_forms/new
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/physical_forms/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhysicalForm Load (0.4ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#show (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering physical_forms/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/physical_forms/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhysicalForm Load (0.3ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#update (for 0.0.0.0 at 2010-02-13 12:47:49) [PUT]
+  Parameters: {"physical_form"=>{}, "id"=>"1"}
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT `physical_forms`.id FROM `physical_forms` WHERE (`physical_forms`.`name` = BINARY 'Liquid' AND `physical_forms`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/physical_forms/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/physical_forms/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `product_types` [0m
+
+
+Processing ProductTypesController#create (for 0.0.0.0 at 2010-02-13 12:47:49) [POST]
+  Parameters: {"product_type"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT `product_types`.id FROM `product_types` WHERE (`product_types`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering product_types/new
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://test.host/product_types?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProductType Destroy (0.2ms)[0m   [0;1mDELETE FROM `product_types` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/product_types
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/product_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering product_types/edit
+Completed in 10ms (View: 10, DB: 2) | 200 OK [http://test.host/product_types/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductTypesController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+Rendering template within layouts/application
+Rendering product_types/index
+Completed in 18ms (View: 17, DB: 0) | 200 OK [http://test.host/product_types]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing ProductTypesController#new (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+Rendering template within layouts/application
+Rendering product_types/new
+Completed in 7ms (View: 7, DB: 0) | 200 OK [http://test.host/product_types/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.4ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#show (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering product_types/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/product_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#update (for 0.0.0.0 at 2010-02-13 12:47:49) [PUT]
+  Parameters: {"product_type"=>{}, "id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT `product_types`.id FROM `product_types` WHERE (`product_types`.`name` = BINARY 'Grains' AND `product_types`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/product_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/product_types/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+
+
+Processing ProductsController#create (for 0.0.0.0 at 2010-02-13 12:47:49) [POST]
+  Parameters: {"product"=>{"name"=>"test", "certifier_id"=>1, "supplier_id"=>1, "units_of_measure_id"=>1, "product_type_id"=>1}}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (12.6ms)
+Completed in 44ms (View: 21, DB: 3) | 200 OK [http://test.host/products?product%5Bcertifier_id%5D=1&product%5Bname%5D=test&product%5Bproduct_type_id%5D=1&product%5Bsupplier_id%5D=1&product%5Bunits_of_measure_id%5D=1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `products` [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mPhysicalForm Load (0.1ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProduct Destroy (0.2ms)[0m   [0mDELETE FROM `products` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed in 7ms (DB: 3) | 302 Found [http://test.host/products/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (8.3ms)
+Completed in 23ms (View: 17, DB: 3) | 200 OK [http://test.host/products/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductsController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.4ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Load (0.1ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Load (0.1ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+Completed in 64ms (View: 53, DB: 7) | 200 OK [http://test.host/products]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductsController#new (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.6ms)[0m   [0mSELECT * FROM `certifiers` [0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (8.1ms)
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://test.host/products/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#show (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Load (0.1ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Completed in 21ms (View: 14, DB: 3) | 200 OK [http://test.host/products/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+
+
+Processing PurchaseOrderItemsController#create (for 0.0.0.0 at 2010-02-13 12:47:49) [POST]
+  Parameters: {"purchase_order_item"=>{"purchase_order_id"=>1, "product_id"=>1}}
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPurchaseOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPurchaseOrderItem Destroy (0.2ms)[0m   [0;1mDELETE FROM `purchase_order_items` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/2/edit
+Completed in 4ms (DB: 2) | 302 Found [http://test.host/purchase_order_items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrderItem Load (1.8ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/edit
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 16ms (View: 15, DB: 4) | 200 OK [http://test.host/purchase_order_items/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PurchaseOrderItemsController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/index
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Completed in 17ms (View: 15, DB: 1) | 200 OK [http://test.host/purchase_order_items]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PurchaseOrderItemsController#new (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+Rendering template within layouts/application
+Rendering purchase_order_items/new
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#show (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/show
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/purchase_order_items/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#update (for 0.0.0.0 at 2010-02-13 12:47:49) [PUT]
+  Parameters: {"purchase_order_item"=>{}, "id"=>"1"}
+  [4;35;1mPurchaseOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mPurchaseOrder Load (0.1ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_order_items/1
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/purchase_order_items/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+
+
+Processing PurchaseOrdersController#create (for 0.0.0.0 at 2010-02-13 12:47:49) [POST]
+  Parameters: {"purchase_order"=>{"supplier_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mPurchaseOrder Create (0.2ms)[0m   [0mINSERT INTO `purchase_orders` (`updated_at`, `is_received`, `is_paid`, `amount`, `supplier_id`, `created_by_user_id`, `comment`, `created_at`) VALUES('2010-02-13 02:47:49', 0, 0, 0.0, 1, NULL, NULL, '2010-02-13 02:47:49')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/3/edit
+Completed in 8ms (DB: 1) | 302 Found [http://test.host/purchase_orders?purchase_order%5Bsupplier_id%5D=1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mPurchaseOrder Load (0.2ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#destroy (for 0.0.0.0 at 2010-02-13 12:47:49) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPurchaseOrder Destroy (0.2ms)[0m   [0;1mDELETE FROM `purchase_orders` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders
+Completed in 2ms (DB: 2) | 302 Found [http://test.host/purchase_orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.2ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#edit (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (supplier_id = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+Rendering template within layouts/application
+Rendering purchase_orders/edit
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 25ms (View: 20, DB: 3) | 200 OK [http://test.host/purchase_orders/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PurchaseOrdersController#index (for 0.0.0.0 at 2010-02-13 12:47:49) [GET]
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` [0m
+Rendering template within layouts/application
+Rendering purchase_orders/index
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mPurchaseOrderItem Load (0.4ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 2) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 21ms (View: 19, DB: 2) | 200 OK [http://test.host/purchase_orders]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PurchaseOrdersController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering purchase_orders/new
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/purchase_orders/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.2ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_orders/show
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 16ms (View: 14, DB: 1) | 200 OK [http://test.host/purchase_orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"id"=>"1", "purchase_order"=>{}}
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/purchase_orders/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+
+
+Processing SalesOrderItemsController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"sales_order_item"=>{"product_id"=>1, "sales_order_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+  [4;36;1mSalesOrder Load (0.5ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSalesOrderItem Destroy (0.2ms)[0m   [0;1mDELETE FROM `sales_order_items` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_orders/1/edit
+Completed in 4ms (DB: 2) | 302 Found [http://test.host/sales_order_items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_order_items/edit
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SalesOrderItemsController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;35;1mSalesOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `sales_order_items` [0m
+Rendering template within layouts/application
+Rendering sales_order_items/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SalesOrderItemsController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering sales_order_items/new
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSalesOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_order_items/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"sales_order_item"=>{}, "id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_order_items/1
+Completed in 7ms (DB: 1) | 302 Found [http://test.host/sales_order_items/1?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+
+
+Processing SalesOrdersController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"sales_order"=>{"user_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_orders` [0m
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSalesOrder Destroy (0.2ms)[0m   [0;1mDELETE FROM `sales_orders` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/2
+Completed in 3ms (DB: 2) | 302 Found [http://test.host/sales_orders/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mProductType Load (0.1ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+Rendering template within layouts/application
+Rendering sales_orders/edit
+Rendered sales_orders/_product (0.7ms)
+  [4;35;1mSalesOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.sales_order_id = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mProductType Load (0.1ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;35;1mProductType Load (0.1ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.4ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 33ms (View: 29, DB: 4) | 200 OK [http://test.host/sales_orders/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SalesOrdersController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;36;1mSalesOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering sales_orders/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Completed in 113ms (View: 111, DB: 1) | 200 OK [http://test.host/sales_orders]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SalesOrdersController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.3ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_orders/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSalesOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.sales_order_id = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mProductType Load (0.1ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 21ms (View: 18, DB: 3) | 200 OK [http://test.host/sales_orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"sales_order"=>{}, "id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_orders/1
+Completed in 5ms (DB: 2) | 302 Found [http://test.host/sales_orders/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_locations` [0m
+
+
+Processing StorageLocationsController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"storage_location"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT `storage_locations`.id FROM `storage_locations` WHERE (`storage_locations`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering storage_locations/new
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://test.host/storage_locations?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mStorageLocation Destroy (0.2ms)[0m   [0;1mDELETE FROM `storage_locations` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_locations
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/storage_locations/1]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_locations/edit
+Completed in 11ms (View: 10, DB: 2) | 200 OK [http://test.host/storage_locations/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing StorageLocationsController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;35;1mStorageLocation Load (0.3ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+Rendering template within layouts/application
+Rendering storage_locations/index
+Completed in 13ms (View: 12, DB: 1) | 200 OK [http://test.host/storage_locations]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing StorageLocationsController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering storage_locations/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/storage_locations/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStorageLocation Load (0.3ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_locations/show
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/storage_locations/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"id"=>"1", "storage_location"=>{}}
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT `storage_locations`.id FROM `storage_locations` WHERE (`storage_locations`.`name` = BINARY 'Fridge 2' AND `storage_locations`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_locations/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/storage_locations/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_types` [0m
+
+
+Processing StorageTypesController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"storage_type"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT `storage_types`.id FROM `storage_types` WHERE (`storage_types`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering storage_types/new
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://test.host/storage_types?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mStorageType Destroy (0.2ms)[0m   [0;1mDELETE FROM `storage_types` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_types
+Completed in 2ms (DB: 2) | 302 Found [http://test.host/storage_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStorageType Load (0.3ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_types/edit
+Completed in 11ms (View: 10, DB: 2) | 200 OK [http://test.host/storage_types/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing StorageTypesController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+Rendering template within layouts/application
+Rendering storage_types/index
+Completed in 15ms (View: 14, DB: 0) | 200 OK [http://test.host/storage_types]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing StorageTypesController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering storage_types/new
+Completed in 7ms (View: 7, DB: 0) | 200 OK [http://test.host/storage_types/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageType Load (0.3ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_types/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/storage_types/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"storage_type"=>{}, "id"=>"1"}
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageType Load (0.3ms)[0m   [0mSELECT `storage_types`.id FROM `storage_types` WHERE (`storage_types`.`name` = BINARY 'Cold' AND `storage_types`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/storage_types/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+
+
+Processing SuppliersController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"supplier"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSupplier Create (0.2ms)[0m   [0mINSERT INTO `suppliers` (`name`, `account_name`, `city`, `phone_mobile`, `updated_at`, `postcode`, `country`, `website`, `delivery_rules`, `suburb_town`, `phone_home`, `description`, `address_line_1`, `phone_work`, `address_line_2`, `account_number`, `comment`, `email`, `state`, `created_at`) VALUES(NULL, NULL, NULL, NULL, '2010-02-13 02:47:50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2010-02-13 02:47:50')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers/7
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/suppliers?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Destroy (0.2ms)[0m   [0;1mDELETE FROM `suppliers` WHERE `id` = 6[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers
+Completed in 2ms (DB: 2) | 302 Found [http://test.host/suppliers/6]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering suppliers/edit
+Rendered suppliers/_form (5.4ms)
+Completed in 15ms (View: 14, DB: 1) | 200 OK [http://test.host/suppliers/6/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SuppliersController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering suppliers/index
+Completed in 31ms (View: 30, DB: 1) | 200 OK [http://test.host/suppliers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SuppliersController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering suppliers/new
+Rendered suppliers/_form (3.3ms)
+Completed in 10ms (View: 10, DB: 0) | 200 OK [http://test.host/suppliers/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering suppliers/show
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/suppliers/6]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"supplier"=>{}, "id"=>"6"}
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers/6
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/suppliers/6?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+
+
+Processing UnitsOfMeasuresController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  Parameters: {"units_of_measure"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUnitsOfMeasure Load (1.5ms)[0m   [0;1mSELECT `units_of_measures`.id FROM `units_of_measures` WHERE (`units_of_measures`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering units_of_measures/new
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://test.host/units_of_measures?]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#destroy (for 0.0.0.0 at 2010-02-13 12:47:50) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUnitsOfMeasure Destroy (0.1ms)[0m   [0mDELETE FROM `units_of_measures` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/units_of_measures
+Completed in 2ms (DB: 2) | 302 Found [http://test.host/units_of_measures/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#edit (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering units_of_measures/edit
+Completed in 14ms (View: 14, DB: 3) | 200 OK [http://test.host/units_of_measures/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UnitsOfMeasuresController#index (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  [4;36;1mUnitsOfMeasure Load (0.5ms)[0m   [0;1mSELECT * FROM `units_of_measures` [0m
+Rendering template within layouts/application
+Rendering units_of_measures/index
+Completed in 40ms (View: 38, DB: 1) | 200 OK [http://test.host/units_of_measures]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing UnitsOfMeasuresController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering units_of_measures/new
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://test.host/units_of_measures/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#show (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUnitsOfMeasure Load (1.4ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering units_of_measures/show
+Completed in 9ms (View: 7, DB: 2) | 200 OK [http://test.host/units_of_measures/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#update (for 0.0.0.0 at 2010-02-13 12:47:50) [PUT]
+  Parameters: {"id"=>"1", "units_of_measure"=>{}}
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT `units_of_measures`.id FROM `units_of_measures` WHERE (`units_of_measures`.`name` = BINARY 'each' AND `units_of_measures`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/units_of_measures/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/units_of_measures/1?]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+
+
+Processing UserSessionsController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 14ms (View: 10, DB: 1) | 200 OK [http://test.host/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UserSessionsController#new (for 0.0.0.0 at 2010-02-13 12:47:50) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UsersController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (12.4ms)
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://test.host/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UsersController#create (for 0.0.0.0 at 2010-02-13 12:47:50) [POST]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`is_staff`, `city`, `updated_at`, `account_balance_cached`, `phone_mobile`, `crypted_password`, `postcode`, `username`, `password_salt`, `is_admin`, `lock_version`, `country`, `suburb_town`, `phone_home`, `percentage_discount`, `address_line_1`, `phone_work`, `persistence_token`, `address_line_2`, `first_name`, `is_customer`, `last_name`, `email`, `created_at`, `state`) VALUES(0, NULL, '2010-02-13 02:47:50', 0.0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2010-02-13 02:47:50', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed in 121ms (DB: 1) | 302 Found [http://test.host/users]
+  [4;35;1mSQL (1.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+
+
+Processing UsersController#edit (for 0.0.0.0 at 2010-02-13 12:47:51) [GET]
+  Parameters: {"id"=>#<User id: 1, username: "admin", email: nil, crypted_password: "6678977ac7b8f92f98f48bf9ab9d36ad8c8d3fa1500dd0d7af3...", password_salt: "a88f8d1f92678a0f74d2db29eddc3c4d677361b26f53be2d406...", persistence_token: nil, first_name: "System", last_name: "Admin", created_at: "2010-02-13 02:47:48", updated_at: "2010-02-13 02:47:48", is_admin: true, is_staff: false, is_customer: false, account_balance_cached: #<BigDecimal:4393ca4,'0.0',4(8)>, percentage_discount: 0, lock_version: 0, address_line_1: nil, address_line_2: nil, suburb_town: nil, city: nil, state: nil, postcode: nil, country: nil, phone_mobile: nil, phone_home: nil, phone_work: nil>}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (11.6ms)
+Completed in 22ms (View: 20, DB: 2) | 200 OK [http://test.host/users/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing UsersController#new (for 0.0.0.0 at 2010-02-13 12:47:51) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (8.0ms)
+Completed in 15ms (View: 14, DB: 0) | 200 OK [http://test.host/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (49.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `certifiers` [0m
+
+
+Processing CertifiersController#create (for 0.0.0.0 at 2010-02-13 19:25:51) [POST]
+  Parameters: {"certifier"=>{}}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT `certifiers`.id FROM `certifiers` WHERE (`certifiers`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering certifiers/new
+Completed in 162ms (View: 151, DB: 3522) | 200 OK [http://test.host/certifiers?]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#destroy (for 0.0.0.0 at 2010-02-13 19:25:51) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mCertifier Destroy (0.2ms)[0m   [0mDELETE FROM `certifiers` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/certifiers
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/certifiers/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `certifiers` [0m
+  [4;36;1mSQL (28.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#edit (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCertifier Load (0.3ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering certifiers/edit
+Completed in 17ms (View: 16, DB: 29) | 200 OK [http://test.host/certifiers/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing CertifiersController#index (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+Rendering template within layouts/application
+Rendering certifiers/index
+Completed in 25ms (View: 23, DB: 1) | 200 OK [http://test.host/certifiers]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing CertifiersController#new (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+Rendering template within layouts/application
+Rendering certifiers/new
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://test.host/certifiers/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCertifier Load (0.3ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#show (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering certifiers/show
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/certifiers/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCertifier Load (0.3ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+
+
+Processing CertifiersController#update (for 0.0.0.0 at 2010-02-13 19:25:51) [PUT]
+  Parameters: {"certifier"=>{}, "id"=>"1"}
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mCertifier Load (0.3ms)[0m   [0;1mSELECT `certifiers`.id FROM `certifiers` WHERE (`certifiers`.`name` = BINARY 'Uncertified Organic' AND `certifiers`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/certifiers/1
+Completed in 4ms (DB: 2) | 302 Found [http://test.host/certifiers/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payment_types` [0m
+
+
+Processing PaymentTypesController#create (for 0.0.0.0 at 2010-02-13 19:25:51) [POST]
+  Parameters: {"payment_type"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPaymentType Load (0.3ms)[0m   [0;1mSELECT `payment_types`.id FROM `payment_types` WHERE (`payment_types`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering payment_types/new
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://test.host/payment_types?]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#destroy (for 0.0.0.0 at 2010-02-13 19:25:51) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPaymentType Destroy (0.2ms)[0m   [0mDELETE FROM `payment_types` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payment_types
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/payment_types/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payment_types` [0m
+  [4;36;1mSQL (95.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mPaymentType Load (0.3ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#edit (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPaymentType Load (0.3ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payment_types/edit
+Completed in 12ms (View: 11, DB: 97) | 200 OK [http://test.host/payment_types/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PaymentTypesController#index (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payment_types/index
+Completed in 16ms (View: 15, DB: 0) | 200 OK [http://test.host/payment_types]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PaymentTypesController#new (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+Rendering template within layouts/application
+Rendering payment_types/new
+Completed in 7ms (View: 7, DB: 0) | 200 OK [http://test.host/payment_types/new]
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPaymentType Load (0.3ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#show (for 0.0.0.0 at 2010-02-13 19:25:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payment_types/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/payment_types/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+
+
+Processing PaymentTypesController#update (for 0.0.0.0 at 2010-02-13 19:25:51) [PUT]
+  Parameters: {"id"=>"1", "payment_type"=>{}}
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPaymentType Load (0.3ms)[0m   [0;1mSELECT `payment_types`.id FROM `payment_types` WHERE (`payment_types`.`name` = BINARY 'Cash' AND `payment_types`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payment_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/payment_types/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payments` [0m
+
+
+Processing PaymentsController#create (for 0.0.0.0 at 2010-02-13 19:25:51) [POST]
+  Parameters: {"payment"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering payments/new
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `payments` [0m
+  [4;36;1mPayment Load (0.2ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:51) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPayment Destroy (0.2ms)[0m   [0;1mDELETE FROM `payments` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/2
+Completed in 9ms (DB: 2) | 302 Found [http://test.host/payments/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `payments` [0m
+  [4;35;1mSQL (214.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPayment Load (0.3ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#edit (for 0.0.0.0 at 2010-02-13 19:25:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPayment Load (0.3ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;36;1mPaymentType Load (0.2ms)[0m   [0;1mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payments/edit
+Rendered payments/_form (1584.3ms)
+Completed in 1600ms (View: 1597, DB: 216) | 200 OK [http://test.host/payments/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PaymentsController#index (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  [4;35;1mPayment Load (0.4ms)[0m   [0mSELECT * FROM `payments` [0m
+Rendering template within layouts/application
+Rendering payments/index
+Completed in 29ms (View: 27, DB: 1) | 200 OK [http://test.host/payments]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PaymentsController#new (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` [0m
+Rendering template within layouts/application
+Rendering payments/new
+Rendered payments/_form (8.2ms)
+Completed in 17ms (View: 15, DB: 1) | 200 OK [http://test.host/payments/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPayment Load (0.4ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#show (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering payments/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mPaymentType Load (0.2ms)[0m   [0mSELECT * FROM `payment_types` WHERE (`payment_types`.`id` = 1) [0m
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://test.host/payments/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPayment Load (0.3ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+
+
+Processing PaymentsController#update (for 0.0.0.0 at 2010-02-13 19:25:53) [PUT]
+  Parameters: {"id"=>"1", "payment"=>{}}
+  [4;35;1mPayment Load (0.2ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/payments/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/payments/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `physical_forms` [0m
+
+
+Processing PhysicalFormsController#create (for 0.0.0.0 at 2010-02-13 19:25:53) [POST]
+  Parameters: {"physical_form"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT `physical_forms`.id FROM `physical_forms` WHERE (`physical_forms`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering physical_forms/new
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://test.host/physical_forms?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:53) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPhysicalForm Destroy (0.2ms)[0m   [0;1mDELETE FROM `physical_forms` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/physical_forms
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/physical_forms/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `physical_forms` [0m
+  [4;35;1mSQL (54.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#edit (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPhysicalForm Load (0.3ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering physical_forms/edit
+Completed in 17ms (View: 16, DB: 55) | 200 OK [http://test.host/physical_forms/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PhysicalFormsController#index (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  [4;35;1mPhysicalForm Load (0.3ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+Rendering template within layouts/application
+Rendering physical_forms/index
+Completed in 21ms (View: 20, DB: 1) | 200 OK [http://test.host/physical_forms]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PhysicalFormsController#new (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+Rendering template within layouts/application
+Rendering physical_forms/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/physical_forms/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhysicalForm Load (0.3ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#show (for 0.0.0.0 at 2010-02-13 19:25:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering physical_forms/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/physical_forms/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+
+
+Processing PhysicalFormsController#update (for 0.0.0.0 at 2010-02-13 19:25:53) [PUT]
+  Parameters: {"physical_form"=>{}, "id"=>"1"}
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPhysicalForm Load (0.2ms)[0m   [0mSELECT `physical_forms`.id FROM `physical_forms` WHERE (`physical_forms`.`name` = BINARY 'Liquid' AND `physical_forms`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/physical_forms/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/physical_forms/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `product_types` [0m
+
+
+Processing ProductTypesController#create (for 0.0.0.0 at 2010-02-13 19:25:53) [POST]
+  Parameters: {"product_type"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT `product_types`.id FROM `product_types` WHERE (`product_types`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering product_types/new
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://test.host/product_types?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#destroy (for 0.0.0.0 at 2010-02-13 19:25:53) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProductType Destroy (0.2ms)[0m   [0;1mDELETE FROM `product_types` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/product_types
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/product_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `product_types` [0m
+  [4;35;1mSQL (44.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#edit (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering product_types/edit
+Completed in 16ms (View: 15, DB: 46) | 200 OK [http://test.host/product_types/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductTypesController#index (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` [0m
+Rendering template within layouts/application
+Rendering product_types/index
+Completed in 116ms (View: 114, DB: 1) | 200 OK [http://test.host/product_types]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing ProductTypesController#new (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+Rendering template within layouts/application
+Rendering product_types/new
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/product_types/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.3ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#show (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering product_types/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/product_types/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+
+
+Processing ProductTypesController#update (for 0.0.0.0 at 2010-02-13 19:25:54) [PUT]
+  Parameters: {"product_type"=>{}, "id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT `product_types`.id FROM `product_types` WHERE (`product_types`.`name` = BINARY 'Grains' AND `product_types`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/product_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/product_types/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+
+
+Processing ProductsController#create (for 0.0.0.0 at 2010-02-13 19:25:54) [POST]
+  Parameters: {"product"=>{"name"=>"test", "certifier_id"=>1, "supplier_id"=>1, "product_type_id"=>1, "units_of_measure_id"=>1}}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mPhysicalForm Load (0.1ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProductType Load (0.4ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 1) [0m
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mCertifier Load (0.1ms)[0m   [0;1mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (12.5ms)
+Completed in 43ms (View: 21, DB: 3) | 200 OK [http://test.host/products?product%5Bcertifier_id%5D=1&product%5Bname%5D=test&product%5Bproduct_type_id%5D=1&product%5Bsupplier_id%5D=1&product%5Bunits_of_measure_id%5D=1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `products` [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:54) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;35;1mStorageType Load (0.1ms)[0m   [0mSELECT * FROM `storage_types` [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` [0m
+  [4;35;1mPhysicalForm Load (0.1ms)[0m   [0mSELECT * FROM `physical_forms` [0m
+  [4;36;1mCertifier Load (0.2ms)[0m   [0;1mSELECT * FROM `certifiers` [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProduct Destroy (0.2ms)[0m   [0mDELETE FROM `products` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed in 7ms (DB: 3) | 302 Found [http://test.host/products/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `products` [0m
+  [4;36;1mSQL (69.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#edit (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.2ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering products/edit
+Rendered products/_form (12.5ms)
+Completed in 33ms (View: 25, DB: 72) | 200 OK [http://test.host/products/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductsController#index (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;35;1mProductType Load (0.3ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` [0m
+Rendering template within layouts/application
+Rendering products/index
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 3) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mStorageType Load (0.1ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProductType Load (0.2ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 4) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+Completed in 61ms (View: 51, DB: 7) | 200 OK [http://test.host/products]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ProductsController#new (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+Rendering template within layouts/application
+Rendering products/new
+Rendered products/_form (7.7ms)
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://test.host/products/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+
+
+Processing ProductsController#show (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` ORDER BY id[0m
+  [4;36;1mStorageType Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_types` [0m
+  [4;35;1mStorageLocation Load (0.1ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+  [4;36;1mPhysicalForm Load (0.1ms)[0m   [0;1mSELECT * FROM `physical_forms` [0m
+  [4;35;1mCertifier Load (0.2ms)[0m   [0mSELECT * FROM `certifiers` [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering products/show
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mCertifier Load (0.1ms)[0m   [0mSELECT * FROM `certifiers` WHERE (`certifiers`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mStorageType Load (0.1ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mStorageLocation Load (0.1ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mPhysicalForm Load (0.1ms)[0m   [0mSELECT * FROM `physical_forms` WHERE (`physical_forms`.`id` = 1) [0m
+Completed in 20ms (View: 14, DB: 3) | 200 OK [http://test.host/products/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+
+
+Processing PurchaseOrderItemsController#create (for 0.0.0.0 at 2010-02-13 19:25:54) [POST]
+  Parameters: {"purchase_order_item"=>{"purchase_order_id"=>1, "product_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:54) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPurchaseOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPurchaseOrderItem Destroy (0.2ms)[0m   [0;1mDELETE FROM `purchase_order_items` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/2/edit
+Completed in 3ms (DB: 2) | 302 Found [http://test.host/purchase_order_items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_order_items` [0m
+  [4;35;1mSQL (55.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#edit (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/edit
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 15ms (View: 14, DB: 56) | 200 OK [http://test.host/purchase_order_items/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PurchaseOrderItemsController#index (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/index
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+Completed in 15ms (View: 14, DB: 1) | 200 OK [http://test.host/purchase_order_items]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PurchaseOrderItemsController#new (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+Rendering template within layouts/application
+Rendering purchase_order_items/new
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#show (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_order_items/show
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://test.host/purchase_order_items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+
+
+Processing PurchaseOrderItemsController#update (for 0.0.0.0 at 2010-02-13 19:25:54) [PUT]
+  Parameters: {"purchase_order_item"=>{}, "id"=>"1"}
+  [4;35;1mPurchaseOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_order_items/1
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/purchase_order_items/1?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+
+
+Processing PurchaseOrdersController#create (for 0.0.0.0 at 2010-02-13 19:25:54) [POST]
+  Parameters: {"purchase_order"=>{"supplier_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mPurchaseOrder Create (0.2ms)[0m   [0mINSERT INTO `purchase_orders` (`updated_at`, `is_received`, `is_paid`, `amount`, `supplier_id`, `created_by_user_id`, `comment`, `created_at`) VALUES('2010-02-13 09:25:54', 0, 0, 0.0, 1, NULL, NULL, '2010-02-13 09:25:54')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/3/edit
+Completed in 7ms (DB: 2) | 302 Found [http://test.host/purchase_orders?purchase_order%5Bsupplier_id%5D=1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;36;1mSQL (63.8ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#destroy (for 0.0.0.0 at 2010-02-13 19:25:54) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPurchaseOrder Destroy (0.2ms)[0m   [0;1mDELETE FROM `purchase_orders` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders
+Completed in 3ms (DB: 66) | 302 Found [http://test.host/purchase_orders/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `purchase_orders` [0m
+  [4;35;1mSQL (61.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.4ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#edit (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM `products` WHERE (supplier_id = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 5) [0m
+Rendering template within layouts/application
+Rendering purchase_orders/edit
+  [4;35;1mSupplier Load (0.4ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 37ms (View: 30, DB: 65) | 200 OK [http://test.host/purchase_orders/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PurchaseOrdersController#index (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` [0m
+Rendering template within layouts/application
+Rendering purchase_orders/index
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mPurchaseOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.4ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 2) [0m
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Completed in 41ms (View: 38, DB: 3) | 200 OK [http://test.host/purchase_orders]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PurchaseOrdersController#new (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering purchase_orders/new
+Completed in 15ms (View: 13, DB: 1) | 200 OK [http://test.host/purchase_orders/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.3ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#show (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPurchaseOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering purchase_orders/show
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mPurchaseOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_order_items` WHERE (`purchase_order_items`.purchase_order_id = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 19ms (View: 17, DB: 2) | 200 OK [http://test.host/purchase_orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPurchaseOrder Load (0.2ms)[0m   [0mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+
+
+Processing PurchaseOrdersController#update (for 0.0.0.0 at 2010-02-13 19:25:54) [PUT]
+  Parameters: {"id"=>"1", "purchase_order"=>{}}
+  [4;36;1mPurchaseOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `purchase_orders` WHERE (`purchase_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/purchase_orders/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/purchase_orders/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+
+
+Processing SalesOrderItemsController#create (for 0.0.0.0 at 2010-02-13 19:25:54) [POST]
+  Parameters: {"sales_order_item"=>{"product_id"=>1, "sales_order_id"=>1}}
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:54) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSalesOrderItem Destroy (0.3ms)[0m   [0;1mDELETE FROM `sales_order_items` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_orders/1/edit
+Completed in 3ms (DB: 2) | 302 Found [http://test.host/sales_order_items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_order_items` [0m
+  [4;35;1mSQL (3.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#edit (for 0.0.0.0 at 2010-02-13 19:25:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_order_items/edit
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SalesOrderItemsController#index (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;35;1mSalesOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `sales_order_items` [0m
+Rendering template within layouts/application
+Rendering sales_order_items/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SalesOrderItemsController#new (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+Rendering template within layouts/application
+Rendering sales_order_items/new
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSalesOrderItem Load (0.8ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#show (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_order_items/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+
+
+Processing SalesOrderItemsController#update (for 0.0.0.0 at 2010-02-13 19:25:55) [PUT]
+  Parameters: {"sales_order_item"=>{}, "id"=>"1"}
+  [4;35;1mSalesOrderItem Load (0.2ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_order_items/1
+Completed in 7ms (DB: 1) | 302 Found [http://test.host/sales_order_items/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+
+
+Processing SalesOrdersController#create (for 0.0.0.0 at 2010-02-13 19:25:55) [POST]
+  Parameters: {"sales_order"=>{"user_id"=>1}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sales_orders` [0m
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#destroy (for 0.0.0.0 at 2010-02-13 19:25:55) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSalesOrder Destroy (0.2ms)[0m   [0;1mDELETE FROM `sales_orders` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/2
+Completed in 3ms (DB: 2) | 302 Found [http://test.host/sales_orders/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sales_orders` [0m
+  [4;35;1mSQL (13.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.2ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#edit (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mProductType Load (0.1ms)[0m   [0;1mSELECT * FROM `product_types` [0m
+Rendering template within layouts/application
+Rendering sales_orders/edit
+Rendered sales_orders/_product (0.6ms)
+  [4;35;1mSalesOrderItem Load (0.3ms)[0m   [0mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.sales_order_id = 1) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;35;1mProductType Load (0.1ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.1ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;35;1mProductType Load (0.2ms)[0m   [0mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;36;1mSupplier Load (0.2ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 32ms (View: 28, DB: 16) | 200 OK [http://test.host/sales_orders/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SalesOrdersController#index (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;36;1mSalesOrder Load (0.3ms)[0m   [0;1mSELECT * FROM `sales_orders` [0m
+Rendering template within layouts/application
+Rendering sales_orders/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Completed in 20ms (View: 18, DB: 1) | 200 OK [http://test.host/sales_orders]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SalesOrdersController#new (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.3ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#show (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sales_orders/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSalesOrderItem Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_order_items` WHERE (`sales_order_items`.sales_order_id = 1) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+  [4;36;1mProductType Load (0.1ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.1ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 2) [0m
+  [4;36;1mProductType Load (0.1ms)[0m   [0;1mSELECT * FROM `product_types` WHERE (`product_types`.`id` = 2) [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 1) [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 3) [0m
+Completed in 19ms (View: 17, DB: 3) | 200 OK [http://test.host/sales_orders/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSalesOrder Load (0.4ms)[0m   [0mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+
+
+Processing SalesOrdersController#update (for 0.0.0.0 at 2010-02-13 19:25:55) [PUT]
+  Parameters: {"sales_order"=>{}, "id"=>"1"}
+  [4;36;1mSalesOrder Load (0.2ms)[0m   [0;1mSELECT * FROM `sales_orders` WHERE (`sales_orders`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (is_customer = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sales_orders/1
+Completed in 5ms (DB: 2) | 302 Found [http://test.host/sales_orders/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_locations` [0m
+
+
+Processing StorageLocationsController#create (for 0.0.0.0 at 2010-02-13 19:25:55) [POST]
+  Parameters: {"storage_location"=>{}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageLocation Load (0.7ms)[0m   [0mSELECT `storage_locations`.id FROM `storage_locations` WHERE (`storage_locations`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering storage_locations/new
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://test.host/storage_locations?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#destroy (for 0.0.0.0 at 2010-02-13 19:25:55) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mStorageLocation Destroy (0.2ms)[0m   [0;1mDELETE FROM `storage_locations` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_locations
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/storage_locations/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_locations` [0m
+  [4;35;1mSQL (47.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStorageLocation Load (0.3ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#edit (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageLocation Load (0.3ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_locations/edit
+Completed in 16ms (View: 15, DB: 49) | 200 OK [http://test.host/storage_locations/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing StorageLocationsController#index (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;35;1mStorageLocation Load (0.3ms)[0m   [0mSELECT * FROM `storage_locations` [0m
+Rendering template within layouts/application
+Rendering storage_locations/index
+Completed in 20ms (View: 18, DB: 1) | 200 OK [http://test.host/storage_locations]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing StorageLocationsController#new (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+Rendering template within layouts/application
+Rendering storage_locations/new
+Completed in 12ms (View: 12, DB: 0) | 200 OK [http://test.host/storage_locations/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageLocation Load (0.3ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#show (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_locations/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/storage_locations/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageLocation Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+
+
+Processing StorageLocationsController#update (for 0.0.0.0 at 2010-02-13 19:25:55) [PUT]
+  Parameters: {"id"=>"1", "storage_location"=>{}}
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT * FROM `storage_locations` WHERE (`storage_locations`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageLocation Load (0.2ms)[0m   [0mSELECT `storage_locations`.id FROM `storage_locations` WHERE (`storage_locations`.`name` = BINARY 'Fridge 2' AND `storage_locations`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_locations/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/storage_locations/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_types` [0m
+
+
+Processing StorageTypesController#create (for 0.0.0.0 at 2010-02-13 19:25:55) [POST]
+  Parameters: {"storage_type"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT `storage_types`.id FROM `storage_types` WHERE (`storage_types`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering storage_types/new
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://test.host/storage_types?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#destroy (for 0.0.0.0 at 2010-02-13 19:25:55) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mStorageType Destroy (0.3ms)[0m   [0;1mDELETE FROM `storage_types` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_types
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/storage_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `storage_types` [0m
+  [4;35;1mSQL (45.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#edit (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStorageType Load (0.2ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_types/edit
+Completed in 12ms (View: 10, DB: 46) | 200 OK [http://test.host/storage_types/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing StorageTypesController#index (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;35;1mStorageType Load (0.3ms)[0m   [0mSELECT * FROM `storage_types` [0m
+Rendering template within layouts/application
+Rendering storage_types/index
+Completed in 16ms (View: 15, DB: 0) | 200 OK [http://test.host/storage_types]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing StorageTypesController#new (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+Rendering template within layouts/application
+Rendering storage_types/new
+Completed in 7ms (View: 7, DB: 0) | 200 OK [http://test.host/storage_types/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageType Load (0.3ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#show (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering storage_types/show
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/storage_types/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStorageType Load (0.3ms)[0m   [0;1mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+
+
+Processing StorageTypesController#update (for 0.0.0.0 at 2010-02-13 19:25:55) [PUT]
+  Parameters: {"storage_type"=>{}, "id"=>"1"}
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT * FROM `storage_types` WHERE (`storage_types`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mStorageType Load (0.2ms)[0m   [0mSELECT `storage_types`.id FROM `storage_types` WHERE (`storage_types`.`name` = BINARY 'Cold' AND `storage_types`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/storage_types/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/storage_types/1?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+
+
+Processing SuppliersController#create (for 0.0.0.0 at 2010-02-13 19:25:55) [POST]
+  Parameters: {"supplier"=>{}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSupplier Create (0.2ms)[0m   [0mINSERT INTO `suppliers` (`name`, `account_name`, `city`, `phone_mobile`, `updated_at`, `postcode`, `country`, `website`, `delivery_rules`, `suburb_town`, `phone_home`, `description`, `address_line_1`, `phone_work`, `address_line_2`, `account_number`, `comment`, `email`, `state`, `created_at`) VALUES(NULL, NULL, NULL, NULL, '2010-02-13 09:25:55', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2010-02-13 09:25:55')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers/7
+Completed in 6ms (DB: 1) | 302 Found [http://test.host/suppliers?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;36;1mSQL (19.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#destroy (for 0.0.0.0 at 2010-02-13 19:25:55) [DELETE]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSupplier Destroy (0.2ms)[0m   [0;1mDELETE FROM `suppliers` WHERE `id` = 6[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers
+Completed in 2ms (DB: 21) | 302 Found [http://test.host/suppliers/6]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `suppliers` [0m
+  [4;35;1mSQL (131.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSupplier Load (0.4ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#edit (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering suppliers/edit
+Rendered suppliers/_form (8.4ms)
+Completed in 22ms (View: 20, DB: 132) | 200 OK [http://test.host/suppliers/6/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SuppliersController#index (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+  [4;35;1mSupplier Load (0.4ms)[0m   [0mSELECT * FROM `suppliers` [0m
+Rendering template within layouts/application
+Rendering suppliers/index
+Completed in 33ms (View: 32, DB: 1) | 200 OK [http://test.host/suppliers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SuppliersController#new (for 0.0.0.0 at 2010-02-13 19:25:55) [GET]
+Rendering template within layouts/application
+Rendering suppliers/new
+Rendered suppliers/_form (3.5ms)
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/suppliers/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSupplier Load (0.4ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#show (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mSupplier Load (0.3ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+Rendering template within layouts/application
+Rendering suppliers/show
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/suppliers/6]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSupplier Load (0.3ms)[0m   [0;1mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+
+
+Processing SuppliersController#update (for 0.0.0.0 at 2010-02-13 19:25:56) [PUT]
+  Parameters: {"supplier"=>{}, "id"=>"6"}
+  [4;35;1mSupplier Load (0.2ms)[0m   [0mSELECT * FROM `suppliers` WHERE (`suppliers`.`id` = 6) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/suppliers/6
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/suppliers/6?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+
+
+Processing UnitsOfMeasuresController#create (for 0.0.0.0 at 2010-02-13 19:25:56) [POST]
+  Parameters: {"units_of_measure"=>{}}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT `units_of_measures`.id FROM `units_of_measures` WHERE (`units_of_measures`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering units_of_measures/new
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://test.host/units_of_measures?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#destroy (for 0.0.0.0 at 2010-02-13 19:25:56) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUnitsOfMeasure Destroy (0.2ms)[0m   [0mDELETE FROM `units_of_measures` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/units_of_measures
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/units_of_measures/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `units_of_measures` [0m
+  [4;36;1mSQL (132.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#edit (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering units_of_measures/edit
+Completed in 17ms (View: 16, DB: 133) | 200 OK [http://test.host/units_of_measures/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UnitsOfMeasuresController#index (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` [0m
+Rendering template within layouts/application
+Rendering units_of_measures/index
+Completed in 36ms (View: 35, DB: 1) | 200 OK [http://test.host/units_of_measures]
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing UnitsOfMeasuresController#new (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+Rendering template within layouts/application
+Rendering units_of_measures/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://test.host/units_of_measures/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUnitsOfMeasure Load (0.2ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#show (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering units_of_measures/show
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/units_of_measures/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUnitsOfMeasure Load (0.3ms)[0m   [0mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+
+
+Processing UnitsOfMeasuresController#update (for 0.0.0.0 at 2010-02-13 19:25:56) [PUT]
+  Parameters: {"id"=>"1", "units_of_measure"=>{}}
+  [4;36;1mUnitsOfMeasure Load (0.2ms)[0m   [0;1mSELECT * FROM `units_of_measures` WHERE (`units_of_measures`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUnitsOfMeasure Load (0.3ms)[0m   [0;1mSELECT `units_of_measures`.id FROM `units_of_measures` WHERE (`units_of_measures`.`name` = BINARY 'each' AND `units_of_measures`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/units_of_measures/1
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/units_of_measures/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UserSessionsController#create (for 0.0.0.0 at 2010-02-13 19:25:56) [POST]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://test.host/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UserSessionsController#new (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UsersController#create (for 0.0.0.0 at 2010-02-13 19:25:56) [POST]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (12.0ms)
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://test.host/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing UsersController#create (for 0.0.0.0 at 2010-02-13 19:25:56) [POST]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`is_staff`, `city`, `updated_at`, `account_balance_cached`, `phone_mobile`, `crypted_password`, `postcode`, `username`, `password_salt`, `is_admin`, `lock_version`, `country`, `suburb_town`, `phone_home`, `percentage_discount`, `address_line_1`, `phone_work`, `persistence_token`, `address_line_2`, `first_name`, `is_customer`, `last_name`, `email`, `created_at`, `state`) VALUES(0, NULL, '2010-02-13 09:25:56', 0.0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2010-02-13 09:25:56', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/users]
+  [4;35;1mSQL (31.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+
+
+Processing UsersController#edit (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+  Parameters: {"id"=>#<User id: 1, username: "admin", email: nil, crypted_password: "303a9b5d289b4f8f1ffa97caa66e2fd07650048cc0c225a54b1...", password_salt: "20f5f9799367de66e00270357765b809f28ba87977a2300c8ef...", persistence_token: nil, first_name: "System", last_name: "Admin", created_at: "2010-02-13 09:25:49", updated_at: "2010-02-13 09:25:49", is_admin: true, is_staff: false, is_customer: false, account_balance_cached: #<BigDecimal:411fd88,'0.0',4(8)>, percentage_discount: 0, lock_version: 0, address_line_1: nil, address_line_2: nil, suburb_town: nil, city: nil, state: nil, postcode: nil, country: nil, phone_mobile: nil, phone_home: nil, phone_work: nil>}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (10.5ms)
+Completed in 23ms (View: 21, DB: 32) | 200 OK [http://test.host/users/1/edit]
+  [4;35;1mSQL (0.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing UsersController#new (for 0.0.0.0 at 2010-02-13 19:25:56) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.6ms)
+Completed in 15ms (View: 14, DB: 1) | 200 OK [http://test.host/users/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
