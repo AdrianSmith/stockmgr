@@ -1,12 +1,13 @@
 <h1>Dashboard</h1>
 
-<h4><%= link_to(@customers_count.to_s + ' Customers', users_path) %></h4>
+<div id='right_small'>
+  <h4><%= link_to('Administration', :controller => 'administration', :action => 'index') %></h4> 
+</div>  
 
-<%= link_to(image_tag("/images/customers.png"), users_path) %>
-
-<h4><%= link_to(@suppliers_count.to_s + ' Suppliers', suppliers_path) %></h4>
-
-<h4><%= link_to(@products_count.to_s + ' Products', products_path) %></h4>
-<h4><%= link_to(@purchase_orders_count.to_s + ' Purchase Orders', purchase_orders_path) %></h4>
-<h4><%= link_to(@sales_orders_count.to_s + ' Sales Orders', sales_orders_path) %></h4>
-<h4><%= link_to('Administration', :controller => 'administration', :action => 'index') %></h4>
+<div id='left_large'>
+  <h4><%= @customers_count %> <%= link_to('Customers', users_path) %></h4>
+  <h4><%= @suppliers_count %> <%= link_to('Suppliers', suppliers_path) %></h4>
+  <h4><%= @products_count %> <%= link_to('Products', products_path) %></h4>
+  <h4><%= @purchase_orders_count %> <%= link_to('Purchase Orders', purchase_orders_path) %></h4>
+  <h4><%= @sales_orders_count %> <%= link_to('Sales Orders', sales_orders_path) %></h4>
+</div>

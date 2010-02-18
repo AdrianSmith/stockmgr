@@ -1,45 +1,78 @@
 require 'test_helper'
 
 class PaymentTypesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:payment_types)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create payment_type" do
-    assert_difference('PaymentType.count') do
-      post :create, :payment_type => { }
+  context "as a user" do
+    setup do
+      @payment_type = Factory.build(:payment_type, :id => 1)
     end
 
-    assert_redirected_to payment_type_path(assigns(:payment_type))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show payment_type" do
-    get :show, :id => payment_types(:one).to_param
-    assert_response :success
-  end
+      should_assign_to :payment_types, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
+    end  
 
-  test "should get edit" do
-    get :edit, :id => payment_types(:one).to_param
-    assert_response :success
-  end
+    context "GET to :show" do
 
-  test "should update payment_type" do
-    put :update, :id => payment_types(:one).to_param, :payment_type => { }
-    assert_redirected_to payment_type_path(assigns(:payment_type))
-  end
+      setup do
+        get :show, :id => @payment_type.id
+      end
 
-  test "should destroy payment_type" do
-    assert_difference('PaymentType.count', -1) do
-      delete :destroy, :id => payment_types(:one).to_param
+      should_assign_to :payment_type, :class => PaymentType
+      should_respond_with :success
+      should_render_template :show
+      should_not_set_the_flash
+    end 
+
+    context "GET to :new" do
+      setup do
+        get :new
+      end
+
+      should_assign_to :payment_type, :class => PaymentType
+      should_respond_with :success
+      should_render_template :new
+      should_not_set_the_flash
+    end   
+
+    context "POST to :create with valid data" do  
+      setup do
+        post :create, :payment_type => {:name => "Credit"}
+      end
+
+      should_assign_to :payment_type, :class => PaymentType 
+      should_respond_with :redirect
+      should_redirect_to("index page"){@payment_type}
+      should_set_the_flash_to /successfully created/
     end
 
-    assert_redirected_to payment_types_path
-  end
+    context "GET to :edit" do
+      setup do
+        get :edit, :id => @payment_type.id
+      end
+
+      should_assign_to(:payment_type){@payment_type}
+      should_respond_with :success
+      should_render_template :edit
+      should_not_set_the_flash
+
+    end
+
+    context "PUT to :update with valid data" do
+      setup do
+        put :update, :id => @payment_type.id, :payment_type => {}
+      end
+
+      should_assign_to(:payment_type){@payment_type}
+      should_respond_with :redirect
+#      should_redirect_to("user show page"){@payment_type.user}
+      should_set_the_flash_to /successfully updated/
+    end   
+  end 
 end

@@ -1,26 +1,33 @@
-<h1>Listing certifiers</h1>
+<h1>Certifiers</h1>
 
-<table>
+<div style='float: right; padding: 5px'>
+  <%= button_to 'New Certifier', new_certifier_path %>
+</div>
+
+<table class="listing" width="100%">
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Website</th>
-    <th>Logo image url</th>
+    <th>Logo</th>
+    <th></th>
   </tr>
 
 <% @certifiers.each do |certifier| %>
-  <tr>
-    <td><%=h certifier.name %></td>
+<tr class="<%= cycle('','even') %>">
+    <td><%= link_to(certifier.name, certifier) %></td>
     <td><%=h certifier.description %></td>
-    <td><%=h certifier.website %></td>
-    <td><%=h certifier.logo_image_url %></td>
-    <td><%= link_to 'Show', certifier %></td>
-    <td><%= link_to 'Edit', edit_certifier_path(certifier) %></td>
-    <td><%= link_to 'Destroy', certifier, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to(certifier.website, certifier.website) if certifier.website %></td>
+
+    <% if certifier.logo_image_url %>
+      <td class="text"><%= link_to(image_tag(certifier.logo_image_url, :width => 40), certifier) %></td>
+    <% else %>
+      <td class="text"> </td>
+    <% end %>
+    
+    <td class="status">
+      <%= link_to icon_edit,  edit_certifier_path(certifier) %>
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New certifier', new_certifier_path %>

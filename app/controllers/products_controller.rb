@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        flash[:notice] = 'UnitsOfMeasure was successfully updated.'
+        flash[:notice] = 'Product was successfully updated.'
         format.html { redirect_to(@product) }
         format.xml  { head :ok }
       else

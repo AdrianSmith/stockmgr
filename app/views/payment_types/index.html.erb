@@ -1,22 +1,23 @@
-<h1>Listing Payment_Types</h1>
+<h1>Payment Types</h1>
 
-<table>
+<div style='float: right; padding: 5px'>
+  <%= button_to 'New Payment Type', new_payment_type_path %>
+</div>
+
+<table class="listing" width="100%">
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th></th>
   </tr>
 
-<% @payment_types.each do |payment_type| %>
-  <tr>
-    <td><%=h payment_type.name %></td>
+  <% @payment_types.each do |payment_type| %>
+  <tr class="<%= cycle('','even') %>">
+    <td><%= link_to(payment_type.name, payment_type) %></td>
     <td><%=h payment_type.description %></td>
-    <td><%= link_to 'Show', payment_type %></td>
-    <td><%= link_to 'Edit', edit_payment_type_path(payment_type) %></td>
-    <td><%= link_to 'Destroy', payment_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="status">
+      <%= link_to icon_edit, edit_payment_type_path(payment_type) %>
+    </td>
   </tr>
-<% end %>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New payment_type', new_payment_type_path %>
