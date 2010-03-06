@@ -13,15 +13,9 @@
 </p>
 <p>
   <%= f.label :supplier_product_code %> <%= f.text_field :supplier_reference %>
-</p>
+</p> 
 <p>
   <%= f.label :certifier_id %> <%= f.select :certifier_id, @certifiers, :prompt => 'Select ...' %>
-</p>
-<p>
-  <%= f.label :units_of_measure_id %> <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
-</p>
-<p>
-  <%= f.label :minimum_quantity %> <%= f.text_field :minimum_quantity %>
 </p>
 <p>
   <%= f.label :storage_type_id %> <%= f.select :storage_type_id, @storage_types, :prompt => 'Select ...'  %>
@@ -32,11 +26,18 @@
 <p>
   <%= f.label :physical_form_id %> <%= f.select :physical_form_id, @physical_forms, :prompt => 'Select ...'  %>
 </p>
+<hr>
+<p>
+  <%= f.label :units_of_measure_id %> <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
+</p>
+<p>
+  <%= f.label :minimum_quantity %> <%= f.text_field :minimum_quantity %>
+</p>
 <p>
   <%= f.label :stock_quantity %> <%= f.text_field :stock_quantity %>
 </p>
 <p>
-  <%= f.label :stock_cost %> <%= f.text_field :stock_cost %>
+  <%= f.label 'purchase cost' %> <%= f.text_field :stock_cost %>
 </p>  
 <p>
   <%= f.label :sale_price %> <%= f.text_field :sale_price %>

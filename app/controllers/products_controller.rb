@@ -94,7 +94,7 @@ class ProductsController < ApplicationController
   def prepare_common_variables
     @product_types = ProductType.find(:all).map{|t| [t.name.titleize, t.id]}
     @suppliers = Supplier.find(:all).map{|t| [t.name.titleize, t.id]}
-    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.name, t.id]}
+    @units_of_measure = UnitsOfMeasure.find(:all, :order => 'id').map{|t| [t.short_name, t.id]}
     @storage_types = StorageType.find(:all).map{|t| [t.name.titleize, t.id]}
     @storage_locations = StorageLocation.find(:all).map{|t| [t.name.titleize, t.id]}
     @physical_forms = PhysicalForm.find(:all).map{|t| [t.name.titleize, t.id]}
