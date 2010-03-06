@@ -1,5 +1,6 @@
 # ignore log files
 *.log
+log
 
 # ignore all uploads
 uploads
