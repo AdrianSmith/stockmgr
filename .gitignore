@@ -15,3 +15,7 @@ netbeans
 
 # ignore tmp
 tmp
+
+# ignore coverage
+coverage
+coverage.data

@@ -17,7 +17,7 @@
 <tr class="<%= cycle('','even') %>">
     <td><%= link_to(certifier.name, certifier) %></td>
     <td><%=h certifier.description %></td>
-    <td><%= link_to(certifier.website, certifier.website) if certifier.website %></td>
+    <td><%= link_to(certifier.website, certifier.website, :popup => true) if certifier.website %></td>
 
     <% if certifier.logo_image_url %>
       <td class="text"><%= link_to(image_tag(certifier.logo_image_url, :width => 40), certifier) %></td>

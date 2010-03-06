@@ -1,5 +1,5 @@
 
- <p>
+<p>
   <%= f.label :name %> <%= f.text_field :name %>
 </p>
 <p>
@@ -36,5 +36,8 @@
   <%= f.label :stock_quantity %> <%= f.text_field :stock_quantity %>
 </p>
 <p>
-  <label for="price">Price</label> <%= text_field :product_price, :amount, :value => @price %>
+  <%= f.label :stock_cost %> <%= f.text_field :stock_cost %>
+</p>  
+<p>
+  <%= f.label :sale_price %> <%= f.text_field :sale_price %>
 </p>
