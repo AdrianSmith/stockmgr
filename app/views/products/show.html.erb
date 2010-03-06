@@ -58,16 +58,5 @@
   <%=h @product.stock_quantity.to_s + @product.units_of_measure.short_name %>
 </p>
 
-<p>
-  <b>Stock Cost:</b>
-  <%= format_currency(@product.total_stock_cost) %>
-</p>
-
-<p>
-  <b>Stock Vale:</b>
-  <%= format_currency(@product.total_stock_price) %>
-</p>
-
-
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

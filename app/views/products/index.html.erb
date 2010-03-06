@@ -11,8 +11,6 @@
     <th>Supplier</th>
     <th>Storage</th>
     <th>Location</th>
-    <th>Minimum<br />Quantity</th>
-    <th>Available<br />Stock</th>
     <th>Cost<br />Price</th>
     <th>Sale<br />Price</th>
     <th></th>
@@ -25,8 +23,6 @@
     <td class="text"><%=link_to product.supplier.name, product.supplier %></td>
     <td class="status"><%=h product.storage_type.name %></td>
     <td class="text"><%=h product.storage_location.name %></td>
-    <td class="status"><%=h product.minimum_quantity.to_s + product.units_of_measure.short_name %></td>
-    <td class="status"><%=h product.stock_quantity.to_s + product.units_of_measure.short_name %></td>
     <td class="number"><%= format_currency(product.cost) %></td>
     <td class="number"><%= format_currency(product.price) %></td>
     <td class="status">
@@ -35,9 +31,4 @@
     </td>
   </tr>
   <% end %> 
-  <tr>
-    <td class="number" colspan="8">Total</td>
-    <td class="number_bothline"><%= format_currency(@total_stock_cost) %></td>
-    <td class="number_bothline"><%= format_currency(@total_stock_price) %></td>
-  </tr>
 </table>

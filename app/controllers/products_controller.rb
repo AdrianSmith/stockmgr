@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.all
-    @total_stock_cost = @products.inject(0) {|sum, o| sum + o.total_stock_cost }
-    @total_stock_price = @products.inject(0) {|sum, o| sum + o.total_stock_price }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,6 +45,7 @@ class ProductsController < ApplicationController
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
+    @product.minimum_quantity = 1
 
     respond_to do |format|
       if @product.save
