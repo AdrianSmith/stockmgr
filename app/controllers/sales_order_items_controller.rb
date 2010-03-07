@@ -44,7 +44,7 @@ class SalesOrderItemsController < ApplicationController
     @sales_order_item = SalesOrderItem.new
     @sales_order_item.sales_order_id = @sales_order.id
     @sales_order_item.product_id = params[:product_id]
-    @sales_order_item.quantity = params[:quantity]
+    @sales_order_item.quantity = params[:quantity].to_f
 
     respond_to do |format|
       if @sales_order_item.save

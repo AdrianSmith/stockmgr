@@ -40,7 +40,7 @@ class Product < ActiveRecord::Base
    end
 
    def cost
-     self.stock_cost
+     self.purchase_price
    end
    
    def total_stock_price 

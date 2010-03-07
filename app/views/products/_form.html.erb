@@ -31,8 +31,9 @@
   <%= f.label :units_of_measure_id %> <%= f.select :units_of_measure_id, @units_of_measure, :prompt => 'Select ...'  %>
 </p>
 <p>
-  <%= f.label :stock_cost %> <%= f.text_field :stock_cost %>
+  <%= f.label :purchase_price %> <%= f.text_field :purchase_price %>
 </p>  
 <p>
   <%= f.label :sale_price %> <%= f.text_field :sale_price %>
 </p>
+<%= f.hidden_field :minimum_quantity, :value => 1 %>

@@ -10,7 +10,7 @@
 </p>
 
 <p>
-  Quantity <%= select_tag :quantity, options_for_select(@available_quantities) %>
+  Quantity <%= text_field_tag :quantity %> <%= @uom %>
 </p>
 
 <%= submit_tag 'Add Item' %>

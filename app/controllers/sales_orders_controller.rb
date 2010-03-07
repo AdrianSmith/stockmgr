@@ -110,7 +110,7 @@ class SalesOrdersController < ApplicationController
 
   def update_products 
     products = Product.find(:all, :conditions => ['product_type_id = ?', params[:product_type]], :order => 'name')
-    @available_products = ["Select ..."] + products.map{|p| [p.name, p.id]}
+    @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + p.minimum_quantity.to_s + p.units_of_measure.name + ']', p.id]}
     render :update do |page|
       page.replace_html 'product', :partial => 'product', :object => nil
     end
@@ -132,7 +132,7 @@ class SalesOrdersController < ApplicationController
     item = BasketItem.new
     product = Product.find(params[:product_id])
     item.product_id = params[:product_id]
-    item.quantity = params[:quantity] 
+    item.quantity = params[:quantity].to_f 
     
     item.product_type_name = product.product_type.name
     item.product_name = product.name
