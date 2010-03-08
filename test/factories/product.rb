@@ -15,7 +15,7 @@
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
-#  stock_cost          :integer(10)
+#  purchase_price      :integer(10)
 #  sale_price          :integer(10)
 #  created_at          :datetime
 #  updated_at          :datetime
@@ -24,7 +24,7 @@
 Factory.define :product do |p|
   p.name 'Almonds'
   p.stock_quantity 100
-  p.stock_cost { BigDecimal.new("2.53") }
+  p.purchase_price { BigDecimal.new("2.53") }
   p.sale_price { BigDecimal.new("5.24") }
   p.supplier { Supplier.new }
   p.certifier { Certifier.new }

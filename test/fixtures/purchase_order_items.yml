@@ -5,7 +5,7 @@
 #  id                :integer(4)      not null, primary key
 #  product_id        :integer(4)
 #  purchase_order_id :integer(4)
-#  quantity          :integer(4)
+#  quantity          :integer(10)
 #  created_at        :datetime
 #  updated_at        :datetime
 #

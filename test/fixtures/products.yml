@@ -15,8 +15,8 @@
 #  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
-#  stock_quantity      :integer(10)
-#  stock_cost          :decimal(8, 2)   default(0.0)
+#  stock_quantity      :integer(4)
+#  purchase_price      :decimal(8, 2)   default(0.0)
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime
 #  updated_at          :datetime
@@ -36,7 +36,7 @@ almonds:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 20 
-  stock_cost: 2.35 
+  purchase_price: 2.35 
   sale_price: 3.50 
   supplier_reference: abc123
 
@@ -53,7 +53,7 @@ brazils:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 10
-  stock_cost: 1.40 
+  purchase_price: 1.40 
   sale_price: 2.50 
   supplier_reference: 1231231
 
@@ -70,7 +70,7 @@ carob:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 2
-  stock_cost: 1.2 
+  purchase_price: 1.2 
   sale_price: 3.50 
   supplier_reference: 123werwe
 
@@ -87,7 +87,7 @@ cashews:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 1
-  stock_cost: 1.3 
+  purchase_price: 1.3 
   sale_price: 5.50 
   supplier_reference: 12sdf
 
@@ -104,7 +104,7 @@ cocoa:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 2
-  stock_cost: 1.4 
+  purchase_price: 1.4 
   sale_price: 4.50 
   supplier_reference: 12sdds
 
@@ -121,7 +121,7 @@ cheddar:
   storage_type_id: 1
   physical_form_id: 1
   stock_quantity: 1
-  stock_cost: 5 
+  purchase_price: 5 
   sale_price: 8.50 
   supplier_reference: 121212s
   
