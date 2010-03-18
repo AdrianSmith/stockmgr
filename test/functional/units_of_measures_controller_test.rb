@@ -14,7 +14,7 @@ class UnitsOfMeasuresControllerTest < ActionController::TestCase
 
   test "should create units_of_measure" do
     assert_difference('UnitsOfMeasure.count') do
-      post :create, :units_of_measure => { }
+      post :create, :units_of_measure => {:name => "test" }
     end
 
     assert_redirected_to units_of_measure_path(assigns(:units_of_measure))

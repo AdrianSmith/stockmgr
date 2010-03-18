@@ -1,45 +1,78 @@
 require 'test_helper'
 
 class SalesOrdersControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sales_orders)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create sales_order" do
-    assert_difference('SalesOrder.count') do
-      post :create, :sales_order => {:user_id => 1,  }
+  context "as a user" do
+    setup do
+      @sales_orders = Factory.build(:sales_order, :id => 1)
     end
 
-    assert_redirected_to sales_order_path(assigns(:sales_order))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show sales_order" do
-    get :show, :id => sales_orders(:one).to_param
-    assert_response :success
-  end
+      should_assign_to :sales_orders, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
+    end  
 
-  test "should get edit" do
-    get :edit, :id => sales_orders(:one).to_param
-    assert_response :success
-  end
-
-  test "should update sales_order" do
-    put :update, :id => sales_orders(:one).to_param, :sales_order => { }
-    assert_redirected_to sales_order_path(assigns(:sales_order))
-  end
-
-  test "should destroy sales_order" do
-    assert_difference('SalesOrder.count', -1) do
-      delete :destroy, :id => sales_orders(:one).to_param
-    end
-
-    assert_redirected_to sales_orders_path
-  end
+    context "GET to :show" do
+  
+      setup do
+        get :show, :id => @sales_orders.id
+      end
+  
+      should_assign_to :sales_order, :class => SalesOrder
+      should_respond_with :success
+      should_render_template :show
+      should_not_set_the_flash
+    end 
+  
+    context "GET to :new" do
+      setup do
+        get :new
+      end
+  
+      should_assign_to :sales_order, :class => SalesOrder
+      should_respond_with :success
+      should_render_template :new
+      should_not_set_the_flash
+    end   
+  
+  #   context "POST to :create with valid data" do  
+  #     setup do
+  #       post :create, :sales_orders => {:name => 'test2'}
+  #     end
+  # 
+  #     should_assign_to :sales_orders, :class => Certifier 
+  #     should_respond_with :redirect
+  #     should_redirect_to("index page"){sales_orderss_path}
+  #     should_set_the_flash_to /successfully created/
+  #   end
+  # 
+  #   context "GET to :edit" do
+  #     setup do
+  #       get :edit, :id => @sales_orders.id
+  #     end
+  # 
+  #     should_assign_to(:sales_orders){@sales_orders}
+  #     should_respond_with :success
+  #     should_render_template :edit
+  #     should_not_set_the_flash
+  # 
+  #   end
+  # 
+  #   context "PUT to :update with valid data" do
+  #     setup do
+  #       put :update, :id => @sales_orders.id, :sales_orders => {}
+  #     end
+  # 
+  #     should_assign_to(:sales_orders){@sales_orders}
+  #     should_respond_with :redirect
+  #     should_redirect_to("index page"){sales_orderss_path}
+  #     should_set_the_flash_to /successfully updated/
+  #   end   
+   end    
 end

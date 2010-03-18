@@ -14,7 +14,7 @@ class StorageLocationsControllerTest < ActionController::TestCase
 
   test "should create storage_location" do
     assert_difference('StorageLocation.count') do
-      post :create, :storage_location => { }
+      post :create, :storage_location => {:name => 'test' }
     end
 
     assert_redirected_to storage_location_path(assigns(:storage_location))

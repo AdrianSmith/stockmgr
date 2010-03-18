@@ -33,5 +33,3 @@ end
 
 
 RoodiTask.new 'roodi', ['app/**/*.rb'], File.dirname(__FILE__) + "/roodi.yml"
-
-task :quality => [:flog, :flay, :roodi, 'metrics:all']

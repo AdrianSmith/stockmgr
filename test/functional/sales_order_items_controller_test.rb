@@ -39,7 +39,5 @@ class SalesOrderItemsControllerTest < ActionController::TestCase
     assert_difference('SalesOrderItem.count', -1) do
       delete :destroy, :id => sales_order_items(:one).to_param
     end
-
-    assert_redirected_to sales_order_items_path
   end
 end

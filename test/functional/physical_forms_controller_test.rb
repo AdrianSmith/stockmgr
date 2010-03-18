@@ -1,45 +1,78 @@
 require 'test_helper'
 
 class PhysicalFormsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:physical_forms)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create physical_form" do
-    assert_difference('PhysicalForm.count') do
-      post :create, :physical_form => { }
+  context "as a user" do
+    setup do
+      @physical_form = Factory.build(:physical_form, :id => 1)
     end
 
-    assert_redirected_to physical_form_path(assigns(:physical_form))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show physical_form" do
-    get :show, :id => physical_forms(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => physical_forms(:one).to_param
-    assert_response :success
-  end
-
-  test "should update physical_form" do
-    put :update, :id => physical_forms(:one).to_param, :physical_form => { }
-    assert_redirected_to physical_form_path(assigns(:physical_form))
-  end
-
-  test "should destroy physical_form" do
-    assert_difference('PhysicalForm.count', -1) do
-      delete :destroy, :id => physical_forms(:one).to_param
+      should_assign_to :physical_forms, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
     end
 
-    assert_redirected_to physical_forms_path
+    context "GET to :show" do
+
+      setup do
+        get :show, :id => @physical_form.id
+      end
+
+      should_assign_to :physical_form, :class => PhysicalForm
+      should_respond_with :success
+      should_render_template :show
+      should_not_set_the_flash
+    end
+
+    context "GET to :new" do
+      setup do
+        get :new
+      end
+
+      should_assign_to :physical_form, :class => PhysicalForm
+      should_respond_with :success
+      should_render_template :new
+      should_not_set_the_flash
+    end
+
+    context "POST to :create with valid data" do
+      setup do
+        post :create, :physical_form => {:name => 'test2'}
+
+      end
+      should_assign_to :physical_form, :class => PhysicalForm
+      should_respond_with :redirect
+      should_redirect_to("index page"){physical_forms_path}
+      should_set_the_flash_to /successfully created/
+    end
+
+    context "GET to :edit" do
+      setup do
+        get :edit, :id => @physical_form.id
+      end
+
+      should_assign_to(:physical_form){@physical_form}
+      should_respond_with :success
+      should_render_template :edit
+      should_not_set_the_flash
+
+    end
+
+    context "PUT to :update with valid data" do
+      setup do
+        put :update, :id => @physical_form.id, :physical_form => {}
+      end
+
+      should_assign_to(:physical_form){@physical_form}
+      should_respond_with :redirect
+      should_redirect_to("index page"){physical_forms_path}
+      should_set_the_flash_to /successfully updated/
+    end
   end
 end

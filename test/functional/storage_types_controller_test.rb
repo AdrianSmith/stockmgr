@@ -14,7 +14,7 @@ class StorageTypesControllerTest < ActionController::TestCase
 
   test "should create storage_type" do
     assert_difference('StorageType.count') do
-      post :create, :storage_type => { }
+      post :create, :storage_type => {:name => 'test' }
     end
 
     assert_redirected_to storage_type_path(assigns(:storage_type))
