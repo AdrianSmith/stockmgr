@@ -22,8 +22,7 @@ class SalesOrderItemsController < ApplicationController
     @sales_order_item = SalesOrderItem.find(params[:id])
     @sales_order = @sales_order_item.sales_order
     @sales_order_item.destroy
-
-    format.html { redirect_to edit_sales_order_path(@sales_order) }
+    redirect_to edit_sales_order_path(@sales_order)
   end
 
 end
