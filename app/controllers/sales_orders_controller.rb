@@ -50,7 +50,6 @@ class SalesOrdersController < ApplicationController
 
   def update
     @sales_order = SalesOrder.find(params[:id])
-#    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
 
     if @sales_order.update_attributes(params[:sales_order])
       flash[:notice] = 'SalesOrder was successfully updated.'

@@ -9,7 +9,7 @@
 
 <div class="field required">
   <label for="quantity">Quantity</label>
-  <%= select_tag :quantity, options_for_select(@available_quantities) %> <%= @uom %>
+   <%= text_field_tag :quantity %> <%= @uom %>
 </div>
 
 <%= submit_tag 'Add Item' %>

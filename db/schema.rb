@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307031434) do
+ActiveRecord::Schema.define(:version => 20100307021525) do
 
   create_table "certifiers", :force => true do |t|
     t.string   "name"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20100307031434) do
   create_table "purchase_order_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "purchase_order_id"
-    t.integer  "quantity",          :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "quantity",          :precision => 12, :scale => 3, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(:version => 20100307031434) do
   create_table "sales_order_items", :force => true do |t|
     t.integer  "sales_order_id"
     t.integer  "product_id"
-    t.integer  "quantity",         :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "custom_price",                   :precision => 8,  :scale => 2, :default => 0.0
-    t.boolean  "use_custom_price",                                              :default => false
+    t.decimal  "quantity",         :precision => 12, :scale => 3, :default => 0.0
+    t.decimal  "custom_price",     :precision => 8,  :scale => 2, :default => 0.0
+    t.boolean  "use_custom_price",                                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

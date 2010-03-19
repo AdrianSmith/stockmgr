@@ -5,7 +5,7 @@
 #  id                :integer(4)      not null, primary key
 #  product_id        :integer(4)
 #  purchase_order_id :integer(4)
-#  quantity          :integer(10)
+#  quantity          :decimal(12, 3)  default(0.0)
 #  created_at        :datetime
 #  updated_at        :datetime
 #
@@ -32,7 +32,16 @@ class PurchaseOrderItemTest < ActiveSupport::TestCase
      should "calculate price" do
        assert_equal(BigDecimal.new("250"), @item.price)
      end
-   end           
+   end 
+   
+   context "A valid Purchase Order Item with a decimal quantity" do
+
+      should "calculate price based on the quantity and the product price" do
+        test_quantity = BigDecimal.new("12.45")
+        @item = Factory.build(:purchase_order_item, :quantity => test_quantity)
+        assert_equal(test_quantity * @item.product.cost, @item.cost)
+      end
+    end             
   
 end
 

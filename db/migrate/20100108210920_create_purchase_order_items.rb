@@ -3,8 +3,7 @@ class CreatePurchaseOrderItems < ActiveRecord::Migration
     create_table :purchase_order_items do |t|
       t.integer :product_id
       t.integer :purchase_order_id
-      t.integer :quantity
-
+      t.decimal :quantity, :precision => 12, :scale => 3, :default => 0.0
       t.timestamps
     end
   end
