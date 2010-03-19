@@ -1,4 +1,4 @@
-<h1>Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
+<h1>Sales Order <%= @sales_order.id %> [<%= link_to(@sales_order.user.pretty_name, @sales_order.user) %>]</h1>
 
 <table width="500">
   <tr><td width="100"><b>Created</b></td><td><%= format_date(@sales_order.created_at) %></td></tr>

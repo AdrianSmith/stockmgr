@@ -1,45 +1,76 @@
 require 'test_helper'
 
 class PurchaseOrdersControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:purchase_orders)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create purchase_order" do
-    assert_difference('PurchaseOrder.count') do
-      post :create, :purchase_order => {:supplier_id => 1 }
+  context "as a user" do
+    setup do
+      @supplier = Factory.build(:supplier, :id => 1)
+      @purchase_order = Factory.build(:purchase_order, :id => 1)
     end
 
-    assert_redirected_to purchase_order_path(assigns(:purchase_order))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show purchase_order" do
-    get :show, :id => purchase_orders(:one).to_param
-    assert_response :success
-  end
+      should_assign_to :purchase_orders, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
+    end  
 
-  test "should get edit" do
-    get :edit, :id => purchase_orders(:one).to_param
-    assert_response :success
-  end
-
-  test "should update purchase_order" do
-    put :update, :id => purchase_orders(:one).to_param, :purchase_order => { }
-    assert_redirected_to purchase_order_path(assigns(:purchase_order))
-  end
-
-  test "should destroy purchase_order" do
-    assert_difference('PurchaseOrder.count', -1) do
-      delete :destroy, :id => purchase_orders(:one).to_param
+    context "GET to :show" do
+      
+       setup do
+         get :show, :id => @purchase_order.id
+       end
+      
+       should_assign_to :purchase_order, :class => PurchaseOrder
+       should_respond_with :success
+       should_render_template :show
+       should_not_set_the_flash
+     end 
+      
+      context "GET to :new" do
+        setup do
+          get :new, :id => @supplier.id
+        end
+       
+        should_assign_to :purchase_order, :class => PurchaseOrder
+        should_respond_with :success
+        should_render_template :new
+        should_not_set_the_flash
+      end           
+  
+    context "POST to :create with valid data" do  
+      setup do
+        post :create, :id => @supplier.id, :purchase_order => {}
+      end
+  
+      should_respond_with :redirect
+      should_not_set_the_flash
     end
-
-    assert_redirected_to purchase_orders_path
-  end
+  
+    context "GET to :edit" do
+      setup do
+        get :edit, :id => @purchase_order.id
+      end
+  
+      should_assign_to(:purchase_order){@purchase_order}
+      should_respond_with :success
+      should_render_template :edit
+      should_not_set_the_flash
+    end   
+  
+     context "PUT to :update with valid data" do
+       setup do
+         put :update, :id => @purchase_order.id, :purchase_order => {}
+       end
+   
+       should_assign_to(:purchase_order){@purchase_orders}
+       should_respond_with :redirect
+       should_redirect_to("purchase_order page"){purchase_order_path}
+       should_set_the_flash_to /successfully updated/
+     end   
+   end    
 end

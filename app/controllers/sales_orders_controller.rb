@@ -50,7 +50,7 @@ class SalesOrdersController < ApplicationController
 
   def update
     @sales_order = SalesOrder.find(params[:id])
-    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
+#    @customers = User.customers.map{|t| [t.pretty_name.titleize, t.id]}
 
     if @sales_order.update_attributes(params[:sales_order])
       flash[:notice] = 'SalesOrder was successfully updated.'
@@ -97,7 +97,7 @@ class SalesOrdersController < ApplicationController
     item = BasketItem.new
     product = Product.find(params[:product_id])
     item.product_id = params[:product_id]
-    item.quantity = params[:quantity].to_f 
+    item.quantity = BigDecimal.new(params[:quantity])
 
     item.product_type_name = product.product_type.name
     item.product_name = product.name
@@ -105,7 +105,7 @@ class SalesOrdersController < ApplicationController
     item.units_of_measure = product.units_of_measure.short_name
     item.units_of_measure = product.units_of_measure.short_name
     item.price = product.price
-    item.total_price = product.price * item.quantity.to_i
+    item.total_price = product.price * item.quantity
 
     basket.add(item)
   end 

@@ -19,7 +19,7 @@ class PhysicalFormsController < ApplicationController
     @physical_form = PhysicalForm.new(params[:physical_form])
     if @physical_form.save
       flash[:notice] = 'PhysicalForm was successfully created.'
-      redirect_to(@physical_form)
+      redirect_to physical_forms_path
     else
       render :action => "new"
     end
@@ -29,7 +29,7 @@ class PhysicalFormsController < ApplicationController
     @physical_form = PhysicalForm.find(params[:id])
     if @physical_form.update_attributes(params[:physical_form])
       flash[:notice] = 'PhysicalForm was successfully updated.'
-      redirect_to(@physical_form)
+      redirect_to physical_forms_path
     else
       render :action => "edit"
     end

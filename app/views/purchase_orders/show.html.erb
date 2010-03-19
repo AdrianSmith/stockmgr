@@ -1,7 +1,6 @@
-<h1>Purchase Order <%= @purchase_order.id %>  <%= link_to '[All Purchase Orders]', purchase_orders_path %></h1>
+<h1>Purchase Order <%= @purchase_order.id %>  [<%= link_to @purchase_order.supplier.name, @purchase_order.supplier %>]</h1>
 
 <table>
-  <tr><td width="100"><b>Supplier</b></td><td><%= link_to(@purchase_order.supplier.name, @purchase_order.supplier) %></td></tr>
   <tr><td width="100"><b>Created</b></td><td><%= format_date(@purchase_order.created_at) %></td></tr>
   <tr><td width="100"><b>Paid?</b></td><td><%= format_boolean(@purchase_order.is_paid) %></td></tr>
   <tr><td width="100"><b>Received?</b></td><td><%= format_boolean(@purchase_order.is_received) %></td></tr>

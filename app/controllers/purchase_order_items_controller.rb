@@ -1,91 +1,30 @@
 class PurchaseOrderItemsController < ApplicationController
-  # GET /purchase_order_items
-  # GET /purchase_order_items.xml
+
   def index
     @purchase_order_items = PurchaseOrderItem.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @purchase_order_items }
-    end
   end
 
-  # GET /purchase_order_items/1
-  # GET /purchase_order_items/1.xml
-  def show
-    @purchase_order_item = PurchaseOrderItem.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @purchase_order_item }
-    end
-  end
-
-  # GET /purchase_order_items/new
-  # GET /purchase_order_items/new.xml
-  def new
-    @purchase_order_item = PurchaseOrderItem.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @purchase_order_item }
-    end
-  end
-
-  # GET /purchase_order_items/1/edit
-  def edit
-    @purchase_order_item = PurchaseOrderItem.find(params[:id])
-  end
-
-  # POST /purchase_order_items
-  # POST /purchase_order_items.xml
-  def create 
+  def create
     @purchase_order = PurchaseOrder.find(params[:id])
     @purchase_order_item = PurchaseOrderItem.new
     @purchase_order_item.purchase_order_id = @purchase_order.id
     @purchase_order_item.product_id = params[:product]
-    @purchase_order_item.quantity = params[:quantity]
-    
-    respond_to do |format|
-      if @purchase_order_item.save
-        flash[:notice] = 'PurchaseOrderItem was successfully created.'
-        format.html { redirect_to(edit_purchase_order_path(@purchase_order)) }
-        format.xml  { render :xml => @purchase_order_item, :status => :created, :location => @purchase_order_item }
-      else
-        flash[:notice] = 'PurchaseOrderItem was NOT created.'
-        format.html { redirect_to(edit_purchase_order_path(@purchase_order)) }
-        format.xml  { render :xml => @purchase_order_item.errors, :status => :unprocessable_entity }
-      end
+    @purchase_order_item.quantity = BigDecimal.new(params[:quantity]) 
+
+    if @purchase_order_item.save
+      flash[:notice] = 'PurchaseOrderItem was successfully created.'
+      redirect_to(edit_purchase_order_path(@purchase_order))
+    else
+      flash[:notice] = 'PurchaseOrderItem was NOT created.'
+      redirect_to(edit_purchase_order_path(@purchase_order))
     end
   end
 
-  # PUT /purchase_order_items/1
-  # PUT /purchase_order_items/1.xml
-  def update
-    @purchase_order_item = PurchaseOrderItem.find(params[:id])
-
-    respond_to do |format|
-      if @purchase_order_item.update_attributes(params[:purchase_order_item])
-        flash[:notice] = 'PurchaseOrderItem was successfully updated.'
-        format.html { redirect_to(@purchase_order_item) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @purchase_order_item.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /purchase_order_items/1
-  # DELETE /purchase_order_items/1.xml
   def destroy
     @purchase_order_item = PurchaseOrderItem.find(params[:id])
     @purchase_order = @purchase_order_item.purchase_order
     @purchase_order_item.destroy
-
-    respond_to do |format|
-      format.html { redirect_to edit_purchase_order_path(@purchase_order) }
-      format.xml  { head :ok }
-    end
+    redirect_to edit_purchase_order_path(@purchase_order)
   end
+
 end

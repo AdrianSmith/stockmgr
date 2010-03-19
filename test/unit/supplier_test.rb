@@ -28,6 +28,8 @@
 require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
+  should_have_many :products
+  should_have_many :purchase_orders
 
   context "A valid supplier" do
      setup do

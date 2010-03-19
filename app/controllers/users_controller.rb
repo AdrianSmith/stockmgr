@@ -9,16 +9,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users_contact_details/1
-  # GET /users_contact_details/1.xml
   def show
     @user = User.find(params[:id])
     store_current_customer(@user)
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
-    end
   end
     
   def new
@@ -36,7 +29,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    #@user = current_user 
     @user = User.find(params[:id])
   end
   

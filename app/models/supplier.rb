@@ -27,6 +27,7 @@
 
 class Supplier < ActiveRecord::Base
   has_many :products
+  has_many :purchase_orders
 
   def pretty_phone
     if phone_mobile
@@ -47,6 +48,10 @@ class Supplier < ActiveRecord::Base
     address += "\n" + self.suburb_town.titleize if self.suburb_town
     address += " " + self.postcode.upcase if self.postcode
     address
+  end
+  
+  def total_purchase_orders
+    self.purchase_orders.inject(0){|sum, o| sum + o.total_cost}
   end
     
 end

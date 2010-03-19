@@ -1,0 +1,490 @@
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: stockmgr_development
+-- ------------------------------------------------------
+-- Server version	5.0.45
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `certifiers`
+--
+
+DROP TABLE IF EXISTS `certifiers`;
+CREATE TABLE `certifiers` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `website` varchar(255) collate utf8_unicode_ci default NULL,
+  `logo_image_url` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `certifiers`
+--
+
+LOCK TABLES `certifiers` WRITE;
+/*!40000 ALTER TABLE `certifiers` DISABLE KEYS */;
+INSERT INTO `certifiers` VALUES (1,'Uncertified Organic','Uncertified organic as separate from unknown',NULL,NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,'Demeter','Demeter is the only certification agent for Biodynamic® farms, processors and products in the United States. As a non-profit organization, Demeter’s mission is to improve the health of the planet and its people by providing certification of products whose ingredients are grown and processed according to the highest agricultural and environmental standards. From farm to market, only those companies that consistently meet these standards are permitted to display the Demeter certification mark.','http://www.demeter.org.au/','/images/certifiers/demeter.gif','2010-02-12 16:01:15','2010-02-12 16:01:15'),(3,'Biological Farmers Australia','The BFA actively works to influence standards development, represent your views at government level, and support the growth of the Australian organic market. It provides assistance in market intelligence, exporting requirements, and development of contacts and networks.','http://www.bfa.com.au/','/images/certifiers/bfa.gif','2010-02-12 16:01:15','2010-03-05 13:19:19'),(4,'Freshcare','The BFA actively works to influence standards development, represent your views at government level, and support the growth of the Australian organic market. It provides assistance in market intelligence, exporting requirements, and development of contacts and networks.','http://www.freshcare.com.au/','/images/certifiers/freshcare.png','2010-02-12 16:01:15','2010-02-12 16:01:15'),(5,'Australian Certified Organic','Australian Certified Organic (ACO) is Australia’s largest certifier for organic and biodynamic produce and has over 1500 operators within its certification system. ACO is a fully-owned subsidiary of Biological Farmers of Australia (BFA). ACO provides certification services to operators from all sectors of the organic industry.  Certification ensures compliance with national production standards and allows trace back of all products to their origin.','http://www.australianorganic.com.au/','/images/certifiers/aco.gif','2010-02-12 16:01:15','2010-02-12 16:01:15'),(6,'NASAA','The National Association for Sustainable Agriculture, Australia (NASAA) is the nation\'s leading organic certifier – focused on providing quality, cost efficient organic certification services. With operations both in Australia and Overseas, the company provides certification and inspection services, which assist in facilitating market access throughout the world for NASAA certified organic product.','http://www.nasaa.com.au/','/images/certifiers/nasaa.png','2010-02-12 16:01:15','2010-02-12 16:01:15'),(7,'no certification','','','','2010-03-05 11:31:04','2010-03-05 12:59:16'),(8,'BOLICERT','Bolicert was founded in 1996 as a certification organisation in order to assist the development of ecological agriculture in Bolivia. Bolicert is constituted as a civil, non-profit association. The organisation was first granted IFOAM Accreditation in 1988.\r\n\r\nbolicert@mail.megalink.com','','http://www.ioas.org/ibolilog.jpg','2010-03-05 11:41:10','2010-03-05 11:41:10'),(9,'BCS, Hand in Hand (Fair Trade Program)','','','','2010-03-06 08:30:26','2010-03-06 08:30:26');
+/*!40000 ALTER TABLE `certifiers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment_types`
+--
+
+DROP TABLE IF EXISTS `payment_types`;
+CREATE TABLE `payment_types` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `payment_types`
+--
+
+LOCK TABLES `payment_types` WRITE;
+/*!40000 ALTER TABLE `payment_types` DISABLE KEYS */;
+INSERT INTO `payment_types` VALUES (1,'Cash',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,'Cheque',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(3,'Transfer',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15');
+/*!40000 ALTER TABLE `payment_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payments`
+--
+
+DROP TABLE IF EXISTS `payments`;
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL auto_increment,
+  `amount` decimal(8,2) default '0.00',
+  `payment_type_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
+  `created_by_user_id` int(11) default NULL,
+  `received_at` datetime default NULL,
+  `comment` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_payments_on_payment_type_id` (`payment_type_id`),
+  KEY `index_payments_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+LOCK TABLES `payments` WRITE;
+/*!40000 ALTER TABLE `payments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `physical_forms`
+--
+
+DROP TABLE IF EXISTS `physical_forms`;
+CREATE TABLE `physical_forms` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `physical_forms`
+--
+
+LOCK TABLES `physical_forms` WRITE;
+/*!40000 ALTER TABLE `physical_forms` DISABLE KEYS */;
+INSERT INTO `physical_forms` VALUES (1,'Liquid',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,'Solid',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(3,'Powder',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15');
+/*!40000 ALTER TABLE `physical_forms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_types`
+--
+
+DROP TABLE IF EXISTS `product_types`;
+CREATE TABLE `product_types` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `product_types`
+--
+
+LOCK TABLES `product_types` WRITE;
+/*!40000 ALTER TABLE `product_types` DISABLE KEYS */;
+INSERT INTO `product_types` VALUES (1,'Grains','Spelt, rye, oat, wheat.','2010-02-12 16:01:15','2010-02-17 15:27:01'),(2,'Nuts & Seeds',NULL,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(4,'Dairy','Milk, cheddar cheese, feta cheese','2010-02-12 16:01:15','2010-02-17 15:28:26'),(5,'Enviro','EnviroClean and EnviroCare products.','2010-02-17 15:22:47','2010-02-17 15:24:43'),(6,'Other','Ones that dont fit into existing categories.','2010-02-17 15:25:49','2010-02-17 15:25:49'),(7,'Rice','','2010-02-17 15:27:52','2010-02-17 15:27:52'),(8,'Chocolate things','Cocao beans, cocoa butter and powder, drinking chocolate','2010-03-06 08:28:16','2010-03-06 08:28:16');
+/*!40000 ALTER TABLE `product_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `image_url` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `supplier_reference` text collate utf8_unicode_ci,
+  `product_type_id` int(11) default NULL,
+  `supplier_id` int(11) default NULL,
+  `certifier_id` int(11) default NULL,
+  `storage_type_id` int(11) default NULL,
+  `units_of_measure_id` int(11) default NULL,
+  `minimum_quantity` int(11) default NULL,
+  `storage_location_id` int(11) default NULL,
+  `physical_form_id` int(11) default NULL,
+  `stock_quantity` int(11) default NULL,
+  `purchase_price` decimal(8,2) default '0.00',
+  `sale_price` decimal(8,2) default '0.00',
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_products_on_certifier_id` (`certifier_id`),
+  KEY `index_products_on_physical_form_id` (`physical_form_id`),
+  KEY `index_products_on_product_type_id` (`product_type_id`),
+  KEY `index_products_on_storage_location_id` (`storage_location_id`),
+  KEY `index_products_on_storage_type_id` (`storage_type_id`),
+  KEY `index_products_on_supplier_id` (`supplier_id`),
+  KEY `index_products_on_units_of_measure_id` (`units_of_measure_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Almond Nuts',NULL,'Almond nuts','abc123',2,1,3,1,3,1,1,1,20,'2.35','3.50','2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,'Brazil Nuts',NULL,'Brazil nuts','NUT548',2,6,8,3,3,1,3,2,0,'22.00','25.00','2010-02-12 16:01:15','2010-03-05 12:21:30'),(3,'Carob',NULL,'Carob powder','123werwe',6,6,3,1,3,1,1,1,2,'1.20','3.50','2010-02-12 16:01:15','2010-02-17 17:14:00'),(4,'Cashew Nuts',NULL,'Cashew nuts','12sdf',2,6,3,1,3,1,1,1,1,'1.30','5.50','2010-02-12 16:01:15','2010-02-12 16:01:15'),(5,'Cocoa Beans',NULL,'Cocoa beans','12sdds',2,6,3,1,3,1,1,1,2,'1.40','4.50','2010-02-12 16:01:15','2010-02-12 16:01:15'),(6,'Cheddar Cheese',NULL,'Cheddar cheese','121212s',4,1,4,1,5,1,1,1,1,'5.00','8.50','2010-02-12 16:01:15','2010-02-12 16:01:15'),(7,'Ghee',NULL,'Ghee is formed from simmering unsalted butter until the water boils off and leaves the protein behind. Unlike butter, ghee can be stored for long periods of time without requiring refrigeration so long as it is kept in a sealed container. ','',6,6,7,1,5,800,1,2,0,'39.95','0.00','2010-03-05 12:58:48','2010-03-05 12:58:48'),(8,'Tahini, hulled organic',NULL,'Ghee is formed from simmering unsalted butter until the water boils off and leaves the protein behind. Unlike butter, ghee can be stored for long periods of time without requiring refrigeration so long as it is kept in a sealed container. ','',6,6,3,1,3,1,1,1,0,'16.30','0.00','2010-03-05 13:18:48','2010-03-05 13:18:48'),(10,'Chia Seed, black',NULL,'','',2,6,7,3,3,1,3,2,0,'15.95','15.95','2010-03-06 07:51:21','2010-03-06 07:51:21'),(11,'Chia Seed, white',NULL,'','',2,6,7,3,3,1,3,2,NULL,'15.95','15.95','2010-03-06 08:23:42','2010-03-06 08:23:42'),(12,'Chocolate, drinking, organic, 500g',NULL,'','',8,6,9,3,5,1,3,3,NULL,'13.15','13.15','2010-03-06 08:27:06','2010-03-06 08:30:57');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `purchase_order_items`
+--
+
+DROP TABLE IF EXISTS `purchase_order_items`;
+CREATE TABLE `purchase_order_items` (
+  `id` int(11) NOT NULL auto_increment,
+  `product_id` int(11) default NULL,
+  `purchase_order_id` int(11) default NULL,
+  `quantity` decimal(10,0) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_purchase_order_items_on_purchase_order_id` (`purchase_order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `purchase_order_items`
+--
+
+LOCK TABLES `purchase_order_items` WRITE;
+/*!40000 ALTER TABLE `purchase_order_items` DISABLE KEYS */;
+INSERT INTO `purchase_order_items` VALUES (1,1,2,'4','2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,2,1,'5','2010-02-12 16:01:15','2010-02-12 16:01:15'),(3,6,3,'4','2010-02-12 16:14:10','2010-02-12 16:14:10'),(4,1,3,'6','2010-02-12 16:14:21','2010-02-12 16:14:21'),(5,2,5,'3','2010-03-05 13:22:36','2010-03-05 13:22:36'),(6,7,5,'2','2010-03-05 13:22:43','2010-03-05 13:22:43'),(7,8,5,'3','2010-03-05 13:23:24','2010-03-05 13:23:24'),(8,10,5,'3','2010-03-06 07:52:45','2010-03-06 07:52:45'),(9,11,5,'1','2010-03-06 08:24:09','2010-03-06 08:24:09'),(10,12,5,'4','2010-03-06 08:33:44','2010-03-06 08:33:44');
+/*!40000 ALTER TABLE `purchase_order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `purchase_orders`
+--
+
+DROP TABLE IF EXISTS `purchase_orders`;
+CREATE TABLE `purchase_orders` (
+  `id` int(11) NOT NULL auto_increment,
+  `supplier_id` int(11) default NULL,
+  `comment` text collate utf8_unicode_ci,
+  `is_paid` tinyint(1) default '0',
+  `is_received` tinyint(1) default '0',
+  `created_by_user_id` int(11) default NULL,
+  `amount` decimal(8,2) default '0.00',
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_purchase_orders_on_supplier_id` (`supplier_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `purchase_orders`
+--
+
+LOCK TABLES `purchase_orders` WRITE;
+/*!40000 ALTER TABLE `purchase_orders` DISABLE KEYS */;
+INSERT INTO `purchase_orders` VALUES (4,5,'Wednesday 17th February, 2010',0,0,NULL,'0.00','2010-02-17 15:29:43','2010-02-17 15:29:43'),(5,6,'General food supplies order.',0,0,NULL,'0.00','2010-03-05 11:10:20','2010-03-05 11:10:20');
+/*!40000 ALTER TABLE `purchase_orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sales_order_items`
+--
+
+DROP TABLE IF EXISTS `sales_order_items`;
+CREATE TABLE `sales_order_items` (
+  `id` int(11) NOT NULL auto_increment,
+  `sales_order_id` int(11) default NULL,
+  `product_id` int(11) default NULL,
+  `quantity` decimal(10,0) default NULL,
+  `custom_price` decimal(8,2) default '0.00',
+  `use_custom_price` tinyint(1) default '0',
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_sales_order_items_on_sales_order_id` (`sales_order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sales_order_items`
+--
+
+LOCK TABLES `sales_order_items` WRITE;
+/*!40000 ALTER TABLE `sales_order_items` DISABLE KEYS */;
+INSERT INTO `sales_order_items` VALUES (1,1,1,'10','6.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(2,1,2,'3','40.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(3,2,4,'1','40.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(4,2,1,'2','0.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(5,2,5,'12','0.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(6,2,3,'21','4.00',0,'2010-02-12 16:01:15','2010-02-12 16:01:15'),(7,1,2,'2','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(8,1,1,'3','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(9,1,1,'0','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(10,1,2,'0','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(11,1,2,'0','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(12,1,1,'8','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(13,1,2,'0','0.00',0,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(14,2,2,'0','0.00',0,'2010-03-19 01:33:18','2010-03-19 01:33:18');
+/*!40000 ALTER TABLE `sales_order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sales_orders`
+--
+
+DROP TABLE IF EXISTS `sales_orders`;
+CREATE TABLE `sales_orders` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) default NULL,
+  `comment` text collate utf8_unicode_ci,
+  `created_by_user_id` int(11) default NULL,
+  `is_ordered` tinyint(1) default '0',
+  `is_invoiced` tinyint(1) default '0',
+  `is_paid` tinyint(1) default '0',
+  `invoice_amount` decimal(8,2) default '0.00',
+  `invoiced_at` datetime default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_sales_orders_on_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sales_orders`
+--
+
+LOCK TABLES `sales_orders` WRITE;
+/*!40000 ALTER TABLE `sales_orders` DISABLE KEYS */;
+INSERT INTO `sales_orders` VALUES (1,2,'',NULL,0,0,0,'0.00',NULL,'2010-03-19 01:30:23','2010-03-19 01:30:23'),(2,2,'',NULL,0,0,0,'0.00',NULL,'2010-03-19 01:33:18','2010-03-19 01:33:18');
+/*!40000 ALTER TABLE `sales_orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schema_migrations`
+--
+
+DROP TABLE IF EXISTS `schema_migrations`;
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `schema_migrations`
+--
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+INSERT INTO `schema_migrations` VALUES ('20091217081116'),('20100108070021'),('20100108072611'),('20100108072701'),('20100108072720'),('20100108072735'),('20100108072754'),('20100108074637'),('20100108193137'),('20100108193822'),('20100108210021'),('20100108210200'),('20100108210920'),('20100108215702'),('20100108222247'),('20100109214555'),('20100109231647'),('20100307021525'),('20100307030328'),('20100307031434');
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `storage_locations`
+--
+
+DROP TABLE IF EXISTS `storage_locations`;
+CREATE TABLE `storage_locations` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `storage_locations`
+--
+
+LOCK TABLES `storage_locations` WRITE;
+/*!40000 ALTER TABLE `storage_locations` DISABLE KEYS */;
+INSERT INTO `storage_locations` VALUES (1,'Fridge under house','Fridge under house','2010-02-12 16:01:16','2010-03-05 13:00:09'),(2,'Freezer under house','Freezer under house','2010-02-12 16:01:16','2010-03-05 13:00:40'),(3,'Bottle bulk storage under house','','2010-03-05 11:13:50','2010-03-05 11:13:50');
+/*!40000 ALTER TABLE `storage_locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `storage_types`
+--
+
+DROP TABLE IF EXISTS `storage_types`;
+CREATE TABLE `storage_types` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `storage_types`
+--
+
+LOCK TABLES `storage_types` WRITE;
+/*!40000 ALTER TABLE `storage_types` DISABLE KEYS */;
+INSERT INTO `storage_types` VALUES (1,'Cold','Stored between 0 degrees C and 4 degrees C','2010-02-12 16:01:16','2010-02-12 16:01:16'),(2,'Frozen','Stored below -5 degrees C','2010-02-12 16:01:16','2010-02-12 16:01:16'),(3,'Dry','Stored below 25 degrees C and below 50% relative humidity','2010-02-12 16:01:16','2010-02-12 16:01:16');
+/*!40000 ALTER TABLE `storage_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE `suppliers` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `website` varchar(255) collate utf8_unicode_ci default NULL,
+  `email` varchar(255) collate utf8_unicode_ci default NULL,
+  `account_name` varchar(255) collate utf8_unicode_ci default NULL,
+  `account_number` varchar(255) collate utf8_unicode_ci default NULL,
+  `comment` text collate utf8_unicode_ci,
+  `delivery_rules` text collate utf8_unicode_ci,
+  `address_line_1` varchar(255) collate utf8_unicode_ci default NULL,
+  `address_line_2` varchar(255) collate utf8_unicode_ci default NULL,
+  `suburb_town` varchar(255) collate utf8_unicode_ci default NULL,
+  `city` varchar(255) collate utf8_unicode_ci default NULL,
+  `state` varchar(255) collate utf8_unicode_ci default NULL,
+  `postcode` varchar(255) collate utf8_unicode_ci default NULL,
+  `country` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_mobile` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_home` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_work` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+LOCK TABLES `suppliers` WRITE;
+/*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
+INSERT INTO `suppliers` VALUES (1,'Eco Farms','Established in 1986, Eco-Farms is Australia\'s leading dedicated supplier and exporter of certified organic and biodynamic food. Suppling to the independent organic and wholefood specialist retailers, healthfood stores, major supermarkets, cafes, caterers and manufacturers throughout Australia. We have also developed a number of key export markets with customers in Asia, New Zealand, Europe and the USA.','http://www.ecofarms.com.au/','sales@ecofarms.com.au',NULL,NULL,'Avoid bring children as they are strict about health and safety in their warehouse','Orders over $200 may be delivered for free',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2010-02-12 16:01:16','2010-02-12 16:01:16'),(2,'Complete Health Products','','http://www.completehealthproducts.com.au','orders@completehealthproducts.com.au',NULL,NULL,'','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2010-02-12 16:01:16','2010-02-17 15:33:28'),(5,'Natural Remedies Group','NRG is an Australian family owned business and our Director, Glen Gillard is a Health Practitioner with more than twenty five years experience. NRG has been supplying natural medicines to the trade for the past 13 years.','http://www.nrgaust.com','',NULL,NULL,'Ph: 3889 8830.  Account code=BRIT25.  Website login:  username=BRIT25, password=PRABRIT25.','Freight free is $220 ex gst, and $242 inc gst.  ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2010-02-12 16:01:16','2010-02-16 08:33:29'),(6,'Santos Trading','Santos is a local community owned enterprise with over 150 shareholders and a commitment to providing the best possible quality and service to our valued customers.','http://santostrading.com.au/','',NULL,NULL,'Login details:  username=peaceandhealth; password=niaouli9','Pay postage per weight of order.  I have a 30day account set up with them.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2010-02-12 16:01:16','2010-03-05 11:09:33');
+/*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `units_of_measures`
+--
+
+DROP TABLE IF EXISTS `units_of_measures`;
+CREATE TABLE `units_of_measures` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `description` text collate utf8_unicode_ci,
+  `short_name` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `units_of_measures`
+--
+
+LOCK TABLES `units_of_measures` WRITE;
+/*!40000 ALTER TABLE `units_of_measures` DISABLE KEYS */;
+INSERT INTO `units_of_measures` VALUES (1,'each','Each','ea','2010-02-12 16:01:16','2010-02-12 16:01:16'),(2,'litre','Litres','L','2010-02-12 16:01:16','2010-02-12 16:01:16'),(3,'kilo','Kilograms','kg','2010-02-12 16:01:16','2010-02-12 16:01:16'),(4,'millilitre','Millilitres','ml','2010-02-12 16:01:16','2010-02-12 16:01:16'),(5,'gram','Grams','g','2010-02-12 16:01:16','2010-02-12 16:01:16'),(6,'dozen','12 Items','doz','2010-02-12 16:01:16','2010-02-12 16:01:16'),(7,'1/2 dozen','6 Items','1/2 doz','2010-02-12 16:01:16','2010-02-12 16:01:16'),(8,'bunch','Bunch','bunch','2010-02-12 16:01:16','2010-02-12 16:01:16'),(9,'Other','Undefined',NULL,'2010-02-12 16:01:16','2010-02-12 16:01:16');
+/*!40000 ALTER TABLE `units_of_measures` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(255) collate utf8_unicode_ci default NULL,
+  `email` varchar(255) collate utf8_unicode_ci default NULL,
+  `crypted_password` varchar(255) collate utf8_unicode_ci default NULL,
+  `password_salt` varchar(255) collate utf8_unicode_ci default NULL,
+  `persistence_token` varchar(255) collate utf8_unicode_ci default NULL,
+  `first_name` varchar(255) collate utf8_unicode_ci default NULL,
+  `last_name` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `is_admin` tinyint(1) default '0',
+  `is_staff` tinyint(1) default '0',
+  `is_customer` tinyint(1) default '1',
+  `account_balance_cached` decimal(8,2) default '0.00',
+  `percentage_discount` int(11) default '0',
+  `lock_version` int(11) default '0',
+  `address_line_1` varchar(255) collate utf8_unicode_ci default NULL,
+  `address_line_2` varchar(255) collate utf8_unicode_ci default NULL,
+  `suburb_town` varchar(255) collate utf8_unicode_ci default NULL,
+  `city` varchar(255) collate utf8_unicode_ci default NULL,
+  `state` varchar(255) collate utf8_unicode_ci default NULL,
+  `postcode` varchar(255) collate utf8_unicode_ci default NULL,
+  `country` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_mobile` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_home` varchar(255) collate utf8_unicode_ci default NULL,
+  `phone_work` varchar(255) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin',NULL,'686feab2911d2bda87093a6e3b9ebe36071549fa29cac9c48e99c445949fa14dfff2a3a34897363257821b1cb48c9517b55e87dd917a8011937d0ae66646c4d9','2b8f5614a57255d6228dfaa93684d52b70721f0b588e529d3dbb1e275b5b03d03f41e8be212c75f319b78242ebe537be49aceef8382b70badc637c18d25aba6b','8c79920f6adc37466f26eb483e53ac666587636ad3ebf115e9267919bd39c02fac7b4eea0c15c061bec89f235a21d057ce2f0e8e77f1204e2aede8bb482ab319','System','Admin','2010-02-12 16:01:16','2010-02-12 16:13:42',1,0,0,'0.00',0,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'brit','brit_selina@hotmail.com','bc01a8b056ea328e6d0e97d51141f05989df4c5815f4b6256ac517e444a7f824ce9977b8a92e68fe98c51fabb1e3bda24d84c53b323452d809fd52cee4e1a79a','bd91f4c7471e78690ec4df522ef1ca42d4371d11f2c7e99f603275609413d2414d86769f4d9bab20f905a4f1c55acfa80d97a269ff1c4e94f7b0a6d4861262c6',NULL,'Brit','Stephensen','2010-02-12 16:01:16','2010-03-19 01:33:18',1,1,1,'-338.50',0,9,'25 Devon Street',NULL,'Annerley','Brisbane','Queensland','4103','Australia','+61 434 247 990','+61 7 3160 5008','+61 7 3160 5008'),(3,'libby','libbyandcraig@gmail.com','2ebe76354f4a4409bc2becc4d0f118ed6804d1ae425b3b1a206b88f3d54184d30eff9134a5b30ae06f1e6115531c4dae27821fe0ff26cbc3fff3fb36ac117251','679d7ab4fc32dc82f51d9d10da5b27723d0ef97930f0e7304c6765c2f722502bb935abe5e0275932f4ad7c00402e3f0cf84875807d4d8ee086e499dcd2711bc8','4dc6bfb71f2f406f3181018faa3bc0f751495d210b6f385103456853d4cc023905bcae48877bad94f68c622393a1e387fb826d12b406f7849b366ae6b98cebca','Libby','Stephensen','2010-02-12 16:01:16','2010-02-16 08:47:18',0,1,1,'0.00',0,1,'','','','',NULL,'',NULL,'','07 3206 4150',''),(4,'adrian','adrianlloydsmith@gmail.com','fe358d5ba2b2ca3c2bb5147d944699d64e5d38b898fe84232b24596bb9728fff9ec250281482dc3afcf3a07a0ba1a7fd7f39c70d1c7fb6a3aaa9466b7c1b531f','c49ff6de29f1d163eceb7065e0ac700cae48fbb73edeaa63e7cac22ef7dce5c7da4068b82d17a2c17498ad57c126e62b0be3300f9aec2960b7caa355dc7a3bb0',NULL,'Adrian','Smith','2010-02-12 16:01:16','2010-02-12 16:01:16',1,1,1,'0.00',0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-03-19  1:36:46

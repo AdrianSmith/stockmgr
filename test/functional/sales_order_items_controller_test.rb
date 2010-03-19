@@ -1,43 +1,34 @@
 require 'test_helper'
 
 class SalesOrderItemsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sales_order_items)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create sales_order_item" do
-    assert_difference('SalesOrderItem.count') do
-      post :create, :sales_order_item => {:product_id => 1, :sales_order_id => 1}
+  context "as a user" do
+    setup do
+      @sales_order_item = Factory.build(:sales_order_item, :id => 1)
+      @sales_order = Factory.build(:sales_order, :id => 1)
+      @product = Factory.build(:product, :id => 1)
     end
 
-    assert_redirected_to sales_order_item_path(assigns(:sales_order_item))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show sales_order_item" do
-    get :show, :id => sales_order_items(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => sales_order_items(:one).to_param
-    assert_response :success
-  end
-
-  test "should update sales_order_item" do
-    put :update, :id => sales_order_items(:one).to_param, :sales_order_item => { }
-    assert_redirected_to sales_order_item_path(assigns(:sales_order_item))
-  end
-
-  test "should destroy sales_order_item" do
-    assert_difference('SalesOrderItem.count', -1) do
-      delete :destroy, :id => sales_order_items(:one).to_param
+      should_assign_to :sales_order_items, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
     end
+
+    context "POST to :create with valid data" do
+      setup do
+        post :create, :id => @sales_order.id, :product_id => @product.id, :quantity => '0.32'
+      end
+
+      should_assign_to :sales_order_item, :class => SalesOrderItem
+      should_respond_with :redirect
+      should_set_the_flash_to /successfully created/
+    end
+
   end
 end

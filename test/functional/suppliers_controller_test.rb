@@ -35,11 +35,4 @@ class SuppliersControllerTest < ActionController::TestCase
     assert_redirected_to supplier_path(assigns(:supplier))
   end
 
-  test "should destroy supplier" do
-    assert_difference('Supplier.count', -1) do
-      delete :destroy, :id => suppliers(:santos).to_param
-    end
-
-    assert_redirected_to suppliers_path
-  end
 end

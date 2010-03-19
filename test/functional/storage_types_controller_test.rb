@@ -1,45 +1,78 @@
 require 'test_helper'
 
 class StorageTypesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:storage_types)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create storage_type" do
-    assert_difference('StorageType.count') do
-      post :create, :storage_type => {:name => 'test' }
+  context "as a user" do
+    setup do
+      @storage_type = Factory.build(:storage_type, :id => 1)
     end
 
-    assert_redirected_to storage_type_path(assigns(:storage_type))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show storage_type" do
-    get :show, :id => storage_types(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => storage_types(:one).to_param
-    assert_response :success
-  end
-
-  test "should update storage_type" do
-    put :update, :id => storage_types(:one).to_param, :storage_type => { }
-    assert_redirected_to storage_type_path(assigns(:storage_type))
-  end
-
-  test "should destroy storage_type" do
-    assert_difference('StorageType.count', -1) do
-      delete :destroy, :id => storage_types(:one).to_param
+      should_assign_to :storage_types, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
     end
 
-    assert_redirected_to storage_types_path
+    context "GET to :show" do
+
+      setup do
+        get :show, :id => @storage_type.id
+      end
+
+      should_assign_to :storage_type, :class => StorageType
+      should_respond_with :success
+      should_render_template :show
+      should_not_set_the_flash
+    end
+
+    context "GET to :new" do
+      setup do
+        get :new
+      end
+
+      should_assign_to :storage_type, :class => StorageType
+      should_respond_with :success
+      should_render_template :new
+      should_not_set_the_flash
+    end
+
+    context "POST to :create with valid data" do
+      setup do
+        post :create, :storage_type => {:name => 'test2'}
+
+      end
+      should_assign_to :storage_type, :class => StorageType
+      should_respond_with :redirect
+      should_redirect_to("index page"){storage_types_path}
+      should_set_the_flash_to /successfully created/
+    end
+
+    context "GET to :edit" do
+      setup do
+        get :edit, :id => @storage_type.id
+      end
+
+      should_assign_to(:storage_type){@storage_type}
+      should_respond_with :success
+      should_render_template :edit
+      should_not_set_the_flash
+
+    end
+
+    context "PUT to :update with valid data" do
+      setup do
+        put :update, :id => @storage_type.id, :storage_type => {}
+      end
+
+      should_assign_to(:storage_type){@storage_type}
+      should_respond_with :redirect
+      should_redirect_to("index page"){storage_types_path}
+      should_set_the_flash_to /successfully updated/
+    end
   end
 end

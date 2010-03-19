@@ -1,45 +1,34 @@
 require 'test_helper'
 
 class PurchaseOrderItemsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:purchase_order_items)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create purchase_order_item" do
-    assert_difference('PurchaseOrderItem.count') do
-      post :create, :purchase_order_item => {:product_id => 1, :purchase_order_id => 1}
+  context "as a user" do
+    setup do
+      @purchase_order_item = Factory.build(:purchase_order_item, :id => 1)
+      @purchase_order = Factory.build(:purchase_order, :id => 1)
+      @product = Factory.build(:product, :id => 1)
     end
 
-    assert_redirected_to purchase_order_item_path(assigns(:purchase_order_item))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show purchase_order_item" do
-    get :show, :id => purchase_order_items(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => purchase_order_items(:one).to_param
-    assert_response :success
-  end
-
-  test "should update purchase_order_item" do
-    put :update, :id => purchase_order_items(:one).to_param, :purchase_order_item => {}
-    assert_redirected_to purchase_order_item_path(assigns(:purchase_order_item))
-  end
-
-  test "should destroy purchase_order_item" do
-    assert_difference('PurchaseOrderItem.count', -1) do
-      delete :destroy, :id => purchase_order_items(:one).to_param
+      should_assign_to :purchase_order_items, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
     end
 
-    assert_redirected_to purchase_order_items_path
+    context "POST to :create with valid data" do
+      setup do
+        post :create, :id => @purchase_order.id, :product => @product.id, :quantity => '0.32'
+      end
+
+      should_assign_to :purchase_order_item, :class => PurchaseOrderItem
+      should_respond_with :redirect
+      should_set_the_flash_to /successfully created/
+    end
+
   end
 end

@@ -1,45 +1,78 @@
 require 'test_helper'
 
 class ProductTypesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:product_types)
-  end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create product_type" do
-    assert_difference('ProductType.count') do
-      post :create, :product_type => { }
+  context "as a user" do
+    setup do
+      @product_type = Factory.build(:product_type, :id => 1)
     end
 
-    assert_redirected_to product_type_path(assigns(:product_type))
-  end
+    context "GET the :index" do
+      setup do
+        get :index
+      end
 
-  test "should show product_type" do
-    get :show, :id => product_types(:one).to_param
-    assert_response :success
-  end
+      should_assign_to :product_types, :class => Array
+      should_respond_with :success
+      should_render_template :index
+      should_not_set_the_flash
+    end  
 
-  test "should get edit" do
-    get :edit, :id => product_types(:one).to_param
-    assert_response :success
-  end
+    context "GET to :show" do
 
-  test "should update product_type" do
-    put :update, :id => product_types(:one).to_param, :product_type => { }
-    assert_redirected_to product_type_path(assigns(:product_type))
-  end
+      setup do
+        get :show, :id => @product_type.id
+      end
 
-  test "should destroy product_type" do
-    assert_difference('ProductType.count', -1) do
-      delete :destroy, :id => product_types(:one).to_param
+      should_assign_to :product_type, :class => ProductType
+      should_respond_with :success
+      should_render_template :show
+      should_not_set_the_flash
+    end 
+
+    context "GET to :new" do
+      setup do
+        get :new
+      end
+
+      should_assign_to :product_type, :class => ProductType
+      should_respond_with :success
+      should_render_template :new
+      should_not_set_the_flash
+    end   
+
+    context "POST to :create with valid data" do  
+      setup do
+        post :create, :product_type => {:name => 'test2'}
+      end
+
+      should_assign_to :product_type, :class => ProductType 
+      should_respond_with :redirect
+      should_redirect_to("index page"){product_types_path}
+      should_set_the_flash_to /successfully created/
     end
 
-    assert_redirected_to product_types_path
-  end
+    context "GET to :edit" do
+      setup do
+        get :edit, :id => @product_type.id
+      end
+
+      should_assign_to(:product_type){@product_type}
+      should_respond_with :success
+      should_render_template :edit
+      should_not_set_the_flash
+
+    end
+
+    context "PUT to :update with valid data" do
+      setup do
+        put :update, :id => @product_type.id, :product_type => {}
+      end
+
+      should_assign_to(:product_type){@product_type}
+      should_respond_with :redirect
+      should_redirect_to("index page"){product_types_path}
+      should_set_the_flash_to /successfully updated/
+    end   
+  end 
 end
