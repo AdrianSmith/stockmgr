@@ -9,8 +9,8 @@ class PurchaseOrdersController < ApplicationController
   end
 
   def new
-    @purchase_order = PurchaseOrder.new 
-    @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
+    @purchase_order = PurchaseOrder.new
+    @supplier = Supplier.find(params[:id]) 
   end
 
   def edit
