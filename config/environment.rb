@@ -20,17 +20,13 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"  
   
-  config.gem "authlogic"
-  config.gem "declarative_authorization", :source => "http://gemcutter.org"
-  config.gem "mocha"
-  config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-  config.gem 'thoughtbot-shoulda', :lib => false, :source => 'http://gems.github.com'
-  config.gem 'flog'
-  config.gem 'flay'
-  config.gem 'roodi'
-  config.gem 'rcov'
-  config.gem "rspec", :lib => false, :version => ">= 1.2.0"
-  config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
+  config.gem 'authlogic', :source => "http://gemcutter.org", :version '>= 2.1.3'
+  config.gem 'declarative_authorization', :source => "http://gemcutter.org", :version '>= 0.4'
+  config.gem 'prawn', :version '>= 0.7.1'
+  config.gem 'prawn-core', :version '>= 0.7.1'
+  config.gem 'prawn-format', :version '>= 0.2.3'
+  config.gem 'prawn-layout', :version '>= 0.7.1'
+  config.gem 'prawn-security', :version '>= 0.7.1'
  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
