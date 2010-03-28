@@ -1,8 +1,8 @@
 authlogic --version '>= 2.1.3' --source 'http://gemcutter.org'
 declarative_authorization --version '>= 0.4' --source 'http://gemcutter.org'
-prawn --version '>= 0.7.1'
-prawn-core --version '>= 0.7.1'
+prawn --version '>= 0.8.4'
+prawn-core --version '>= 0.8.4'
 prawn-format --version '>= 0.2.3'
-prawn-layout --version '>= 0.7.1'
-prawn-security --version '>= 0.7.1'
+prawn-layout --version '>= 0.8.4'
+prawn-security --version '>= 0.8.4'
 
