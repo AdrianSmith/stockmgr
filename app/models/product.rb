@@ -33,7 +33,7 @@ class Product < ActiveRecord::Base
   has_many :sales_order_items
   has_many :purchase_order_items 
   
-  validates_presence_of :name, :product_type, :supplier, :certifier, :units_of_measure, :minimum_quantity
+  validates_presence_of :name, :product_type, :supplier, :certifier, :units_of_measure, :minimum_quantity, :storage_type, :storage_location
 
    def price
      self.sale_price
