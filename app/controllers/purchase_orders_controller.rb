@@ -10,12 +10,12 @@ class PurchaseOrdersController < ApplicationController
 
   def new
     @purchase_order = PurchaseOrder.new
-    @supplier = Supplier.find(params[:id]) 
+    @supplier_id = params[:supplier_id] 
   end
 
   def edit
     @purchase_order = PurchaseOrder.find(params[:id])
-    @available_products = @available_products = ["Select ..."] + Product.find(:all, :conditions => ['supplier_id = ?', @purchase_order.supplier_id]).map{|p| [p.name + ' [' + p.minimum_quantity.to_s + p.units_of_measure.name + ']', p.id]}
+    @available_products = @available_products = ["Select ..."] + Product.find(:all, :conditions => ['supplier_id = ?', @purchase_order.supplier_id]).map{|p| [p.name + ' [per ' + p.units_of_measure.name + ']', p.id]}
     @available_quantities = (1..10).to_a
   end
 
