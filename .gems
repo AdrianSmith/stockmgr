@@ -1,3 +1,13 @@
-authlogic --version '>= 2.1.3' --source 'http://gemcutter.org'
+authlogic --version '>= 2.1.3'
 declarative_authorization --version '>= 0.4' --source 'http://gemcutter.org'
+thoughtbot-factory_girl --version '>= 1.2.2' --source 'http://gems.github.com'
+thoughtbot-shoulda --version '>= 2.10.2' --source 'http://gems.github.com'
+flog
+flay
+roodi
+rcov
+mocha
+rspec
+rspec-rails
+
 
