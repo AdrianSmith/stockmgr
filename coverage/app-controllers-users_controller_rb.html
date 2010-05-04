@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-users_controller_rb.html">app/controllers/users_controller.rb</a></td>
-            <td class='right_align'><tt>68</tt></td>
-            <td class='right_align'><tt>54</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>47.06%</tt></div>
+            <td class='right_align'><tt>60</tt></td>
+            <td class='right_align'><tt>50</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>60.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:47px"></div>
-            <div class="uncovered" style="width:53px"></div>
+            <div class="covered" style="width:60px"></div>
+            <div class="uncovered" style="width:40px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>38.89%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>54.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:39px"></div>
-            <div class="uncovered" style="width:61px"></div>
+            <div class="covered" style="width:54px"></div>
+            <div class="uncovered" style="width:46px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -74,43 +74,43 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line4">4</a>     @users = User.find(:all, :conditions =&gt; [&quot;is_customer = ?&quot;, true])</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line5">5</a> </pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line6">6</a>     respond_to do |format|</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line7">7</a>       format.html # index.html.erb</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line8">8</a>       format.xml  { render :xml =&gt; @users }</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line9">9</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line10">10</a>   end</pre></td>
           </tr>
         
@@ -122,266 +122,266 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line12">12</a>   # GET /users_contact_details/1</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line13">13</a>   # GET /users_contact_details/1.xml</pre></td>
-          </tr>
-        
-          
-          
           <tr class="marked">
-            <td><pre><a name="line14">14</a>   def show</pre></td>
+            <td><pre><a name="line12">12</a>   def show</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line15">15</a>     @user = User.find(params[:id])</pre></td>
+            <td><pre><a name="line13">13</a>     @user = User.find(params[:id])</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line16">16</a>     store_current_customer(@user)</pre></td>
+            <td><pre><a name="line14">14</a>     store_current_customer(@user)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line18">18</a>     respond_to do |format|</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line19">19</a>       format.html # show.html.erb</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line20">20</a>       format.xml  { render :xml =&gt; @user }</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line21">21</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line22">22</a>   end</pre></td>
+            <td><pre><a name="line15">15</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line23">23</a>     </pre></td>
+            <td><pre><a name="line16">16</a>     </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>   def new</pre></td>
+            <td><pre><a name="line17">17</a>   def new</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line25">25</a>     @user = User.new</pre></td>
+            <td><pre><a name="line18">18</a>     @user = User.new</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line26">26</a>   end</pre></td>
+            <td><pre><a name="line19">19</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line27">27</a>   </pre></td>
+            <td><pre><a name="line20">20</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line28">28</a>   def create</pre></td>
+            <td><pre><a name="line21">21</a>   def create</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line29">29</a>     @user = User.new(params[:user])</pre></td>
+            <td><pre><a name="line22">22</a>     @user = User.new(params[:user])</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line30">30</a>     if @user.save</pre></td>
+            <td><pre><a name="line23">23</a>     if @user.save</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line31">31</a>       flash[:notice] = &quot;Registration Successful&quot;</pre></td>
+            <td><pre><a name="line24">24</a>       flash[:notice] = &quot;Registration Successful&quot;</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line32">32</a>       redirect_to root_url</pre></td>
+            <td><pre><a name="line25">25</a>       redirect_to root_url</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a>     else</pre></td>
+            <td><pre><a name="line26">26</a>     else</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line34">34</a>       render :action =&gt; 'new'</pre></td>
+            <td><pre><a name="line27">27</a>       render :action =&gt; 'new'</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line35">35</a>     end</pre></td>
+            <td><pre><a name="line28">28</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line36">36</a>   end</pre></td>
+            <td><pre><a name="line29">29</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line37">37</a>   </pre></td>
+            <td><pre><a name="line30">30</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line38">38</a>   def edit</pre></td>
+            <td><pre><a name="line31">31</a>   def edit</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line32">32</a>     @user = User.find(params[:id])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line33">33</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line39">39</a>     #@user = current_user </pre></td>
+            <td><pre><a name="line34">34</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line40">40</a>     @user = User.find(params[:id])</pre></td>
+            <td><pre><a name="line35">35</a>   def update</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line41">41</a>   end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line36">36</a>     @user = User.find(params[:id])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line37">37</a>     if @user.update_attributes(params[:user])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line38">38</a>       flash[:notice] = &quot;Successfully Updated Profile&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line39">39</a>       redirect_to(@user)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line40">40</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line41">41</a>       render :action =&gt; 'edit'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line42">42</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line43">43</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line42">42</a>   </pre></td>
+            <td><pre><a name="line44">44</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line43">43</a>   def update</pre></td>
+            <td><pre><a name="line45">45</a>   def toggle_order_invoiced_status</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line44">44</a>     @user = User.find(params[:id])</pre></td>
+            <td><pre><a name="line46">46</a>     order = SalesOrder.find(params[:order_id])</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line45">45</a>     if @user.update_attributes(params[:user])</pre></td>
+            <td><pre><a name="line47">47</a>     order.is_invoiced = !order.is_invoiced</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line46">46</a>       flash[:notice] = &quot;Successfully Updated Profile&quot;</pre></td>
+            <td><pre><a name="line48">48</a>     order.save!</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line47">47</a>       redirect_to(@user)</pre></td>
+            <td><pre><a name="line49">49</a>     redirect_to(:controller =&gt; 'users', :action =&gt; 'show', :id =&gt; params[:id])  </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line48">48</a>     else</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line49">49</a>       render :action =&gt; 'edit'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line50">50</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line51">51</a>   end</pre></td>
+            <td><pre><a name="line50">50</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line52">52</a>   </pre></td>
+            <td><pre><a name="line51">51</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line53">53</a>   def toggle_order_invoiced_status</pre></td>
+            <td><pre><a name="line52">52</a>   def toggle_order_paid_status</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line54">54</a>     order = SalesOrder.find(params[:order_id])</pre></td>
+            <td><pre><a name="line53">53</a>     order = SalesOrder.find(params[:order_id])</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line55">55</a>     order.is_invoiced = !order.is_invoiced</pre></td>
+            <td><pre><a name="line54">54</a>     order.is_paid = !order.is_paid</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line55">55</a>     order.is_invoiced = true if order.is_paid</pre></td>
           </tr>
         
           
@@ -404,68 +404,20 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line59">59</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line60">60</a>   def toggle_order_paid_status</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line59">59</a>     </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line61">61</a>     order = SalesOrder.find(params[:order_id])</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line62">62</a>     order.is_paid = !order.is_paid</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line63">63</a>     order.is_invoiced = true if order.is_paid</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line64">64</a>     order.save!</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line65">65</a>     redirect_to(:controller =&gt; 'users', :action =&gt; 'show', :id =&gt; params[:id])  </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line66">66</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line67">67</a>     </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line68">68</a> end</pre></td>
+            <td><pre><a name="line60">60</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Thu Feb 18 21:18:35 +1000 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.7.1</a></p>
+    <p>Generated on Sun May 02 09:43:45 +1000 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

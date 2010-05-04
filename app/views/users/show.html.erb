@@ -60,7 +60,7 @@
     </table>
   </div>
 
-  <h2>Payments  <%= link_to('Add', new_payment_path) %></h2>
+  <h2>Payments  <%= link_to('Add', {:controller => 'payments', :action => 'new', :id => @user.id}) %></h2>
   <div style='height:200px; overflow:auto; border-width:1px; border-style:solid; padding: 2px;'>
     <table class="listing" width="100%">
       <tr>

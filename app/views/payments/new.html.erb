@@ -3,6 +3,13 @@
 <% form_for(@payment) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => 'form' , :locals=>{:f => f}%>
+  
+  <% unless params[:id] %>
+  <p>
+    <%= f.label 'Customer' %><br />
+    <%= f.select :user_id, @customers, :prompt => 'Select ...' %>
+  </p>
+  <% end %>
   <p>
     <%= f.submit 'Create' %>
   </p>

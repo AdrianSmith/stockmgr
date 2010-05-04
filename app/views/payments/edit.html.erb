@@ -4,6 +4,10 @@
   <%= f.error_messages %>
   <%= render :partial => 'form' , :locals=>{:f => f}%>
   <p>
+    <%= f.label 'Customer' %><br />
+    <%= f.select :user_id, @customers, :prompt => 'Select ...' %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
