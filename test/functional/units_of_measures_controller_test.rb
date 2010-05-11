@@ -35,11 +35,4 @@ class UnitsOfMeasuresControllerTest < ActionController::TestCase
     assert_redirected_to units_of_measure_path(assigns(:units_of_measure))
   end
 
-  test "should destroy units_of_measure" do
-    assert_difference('UnitsOfMeasure.count', -1) do
-      delete :destroy, :id => units_of_measures(:one).to_param
-    end
-
-    assert_redirected_to units_of_measures_path
-  end
 end

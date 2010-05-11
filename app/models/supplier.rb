@@ -24,31 +24,13 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #
+require 'contact_detail_formatter.rb'
 
 class Supplier < ActiveRecord::Base
+  include ContactDetailFormatter
+  
   has_many :products
   has_many :purchase_orders
-
-  def pretty_phone
-    if phone_mobile
-      phone_mobile
-    elsif phone_work
-      phone_work
-    elsif phone_home
-      phone_home
-    else
-      "None"
-    end
-  end
-
-  def pretty_address
-    address = String.new
-    address += self.address_line_1.titleize if self.address_line_1
-    address += "\n" + self.address_line_2.titleize if (self.address_line_2 and self.address_line_2.length > 0)
-    address += "\n" + self.suburb_town.titleize if self.suburb_town
-    address += " " + self.postcode.upcase if self.postcode
-    address
-  end
   
   def total_purchase_orders
     self.purchase_orders.inject(0){|sum, o| sum + o.total_cost}

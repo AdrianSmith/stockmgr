@@ -29,8 +29,10 @@
 #  phone_home             :string(255)
 #  phone_work             :string(255)
 #
+require 'contact_detail_formatter.rb'
 
 class User < ActiveRecord::Base
+  include ContactDetailFormatter
   #  attr_accessible :username, :email, :password
   acts_as_authentic 
   has_many :sales_orders
@@ -42,27 +44,6 @@ class User < ActiveRecord::Base
   def pretty_name
     self.first_name.titleize + " " + self.last_name.titleize
   end 
-
-  def pretty_phone
-    if phone_mobile
-      phone_mobile
-    elsif phone_work
-      phone_work
-    elsif phone_home
-      phone_home
-    else
-      "None"
-    end
-  end
-
-  def pretty_address
-    address = String.new
-    address += self.address_line_1.titleize if self.address_line_1
-    address += ", " + self.address_line_2.titleize if (self.address_line_2 and self.address_line_2.length > 0)
-    address += ", " + self.suburb_town.titleize if self.suburb_town
-    address += " " + self.postcode.upcase if self.postcode
-    address
-  end
 
   def self.customers
     self.find(:all, :conditions => ["is_customer = ?", true])

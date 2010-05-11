@@ -35,11 +35,4 @@ class StorageLocationsControllerTest < ActionController::TestCase
     assert_redirected_to storage_location_path(assigns(:storage_location))
   end
 
-  test "should destroy storage_location" do
-    assert_difference('StorageLocation.count', -1) do
-      delete :destroy, :id => storage_locations(:one).to_param
-    end
-
-    assert_redirected_to storage_locations_path
-  end
 end

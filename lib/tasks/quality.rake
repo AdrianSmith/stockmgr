@@ -7,7 +7,7 @@ require 'metric_fu'
 desc "Analyze for code complexity"
 task :flog do
   flog = Flog.new
-  flog.flog('app')
+  flog.flog('app/models')
   threshold = 40
 
   bad_methods = flog.totals.select do |name, score|
@@ -24,7 +24,7 @@ desc "Analyze for code duplication"
 task :flay do
   threshold = 50
   flay = Flay.new({:fuzzy => false, :verbose => false, :mass => threshold, :summary => false})
-  flay.process(*Flay.expand_dirs_to_files(['app']))
+  flay.process(*Flay.expand_dirs_to_files(['app/models', 'app/controllers']))
 
   flay.report
 

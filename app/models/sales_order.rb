@@ -17,6 +17,7 @@
 
 require 'rubygems'
 require 'prawn'
+require 'pdf_helper.rb'
 
 class SalesOrder < ActiveRecord::Base
   belongs_to :user
@@ -76,19 +77,20 @@ class SalesOrder < ActiveRecord::Base
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
-    helper.add_spacer(pdf)                
+    helper.add_spacer(pdf)
     
-    invoice_summary(pdf)
+    invoice_summary(pdf, helper)
+
     helper.add_spacer(pdf)     
     helper.add_spacer(pdf)
 
-    invoice_details(pdf)
+    invoice_details(pdf, helper)
     pdf
   end
 
   private
 
-  def invoice_summary(pdf)
+  def invoice_summary(pdf, helper)
     helper.add_heading(pdf, "Invoice Details")
 
     table_data =  [
@@ -111,7 +113,7 @@ class SalesOrder < ActiveRecord::Base
   end
 
 
-  def invoice_details(pdf)
+  def invoice_details(pdf, helper)
     helper.add_heading(pdf, "Order Details")
 
     table_data =  Array.new
