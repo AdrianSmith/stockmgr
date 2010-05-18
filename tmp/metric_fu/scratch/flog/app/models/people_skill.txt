@@ -1,5 +1,0 @@
-     2.2: flog total
-     2.2: flog/method average
-
-     2.2: PeopleSkill#none
-     2.2: belongs_to
