@@ -13,20 +13,20 @@
 <table class="listing" width="100%">
   <tr>
     <th>Type</th>
-    <th>Product</th>
     <th>Supplier</th>
-    <th>Quantity</th>
+    <th>Product</th>
     <th>Unit Price</th>
+    <th>Quantity</th>
     <th>Price</th>
   </tr>
 
   <% @sales_order.sales_order_items.each do |item| %>
   <tr class="<%= cycle('','even') %>">
     <td class="text"><%= item.product.product_type.name %></td>
-    <td class="text"><%= item.product.name %></td>
     <td class="text"><%= item.product.supplier.name %></td>
-    <td class="status"><%= item.quantity %> <%= item.product.units_of_measure.short_name %></td>
-    <td class="number"><%= format_currency(item.product.price) %></td>
+    <td class="text"><%= item.product.name %> [<%= item.product.units_of_measure.short_name %>]</td>
+    <td class="status"><%= format_currency(item.product.price) %></td>
+    <td class="status"><%= format_decimal_number(item.quantity) %></td>
     <td class="number"><%= format_currency(item.price) %></td>
   </tr>
   <% end %>

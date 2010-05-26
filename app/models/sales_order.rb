@@ -54,14 +54,14 @@ class SalesOrder < ActiveRecord::Base
       status = "PAID"
     else
       if self.is_invoiced
-        status = "ISSUED"
+        status = "INVOICED"
         if self.is_overdue
           status += ' (' + self.due_days.abs.to_s + " days overdue)"
         else
           status += " (due in " + self.due_days.to_s + ' days)'
         end
       else
-        status = "NOT ISSUED"
+        status = "NOT INVOICED"
       end
     end
     status
@@ -117,26 +117,26 @@ class SalesOrder < ActiveRecord::Base
     helper.add_heading(pdf, "Order Details")
 
     table_data =  Array.new
-    self.sales_order_items.each do |item|
-      table_data << [item.product.id,
-        item.product.name,
-        item.product.supplier.name,
-        item.quantity.to_s + ' ' + item.product.units_of_measure.short_name,
-        FormatHelper.format_currency(item.product.price)  + ' / ' + item.product.units_of_measure.short_name,
+    self.sales_order_items.each do |item| 
+      table_data << [
+        item.product.id,
+        item.product.name + ' [' + item.product.units_of_measure.short_name + ']',
+        FormatHelper.format_currency(item.product.price),
+        FormatHelper.format_decimal_number(item.quantity),
         FormatHelper.format_currency(item.price).to_s
       ]
     end
-    table_data << ["", "", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
-
+    table_data << ["", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
+    
     pdf.table table_data,
-    :headers            => ["ID", "Product", "Supplier", "Quantity", "Unit Price", "Price"],
+    :headers            => ["ID", "Product", "Unit Price", "Quantity", "Price"],
     :position           => :left,
     :width              => pdf.bounds.width,
     :row_colors         => :pdf_writer,
     :font_size          => 9,
     :border_style       => :underline_header,
-    :align_headers      => {3 => :center, 4 => :right, 5 => :right},
-    :align              => {0 => :left, 3 => :center, 4 => :right, 5 => :right},
+    :align_headers      => {2 => :center, 3 => :center, 4 => :right, 5 => :right},
+    :align              => {0 => :left, 2 => :center, 3 => :center, 4 => :right, 5 => :right},
     :vertical_padding   => 2,
     :horizontal_padding => 4
   end

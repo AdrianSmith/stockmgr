@@ -1,6 +1,16 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper 
 
+  def format_decimal_number(number)
+    str = String.new
+    if number == 1.0
+      str = '1'
+    else
+      str = number.to_s
+    end
+    str
+  end
+  
   def format_currency(number, hide_zero=false)
     format = String.new
     if number

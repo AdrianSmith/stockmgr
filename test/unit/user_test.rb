@@ -16,7 +16,7 @@
 #  is_staff               :boolean(1)      default(FALSE)
 #  is_customer            :boolean(1)      default(TRUE)
 #  account_balance_cached :decimal(8, 2)   default(0.0)
-#  percentage_discount    :integer(3)      default(0)
+#  percentage_discount    :integer(4)      default(0)
 #  lock_version           :integer(4)      default(0)
 #  address_line_1         :string(255)
 #  address_line_2         :string(255)

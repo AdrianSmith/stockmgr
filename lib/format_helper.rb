@@ -42,6 +42,16 @@ class FormatHelper
       str += comment + ", "
     end
     str.chop.chop
+  end  
+  
+  def self.format_decimal_number(number)
+    str = String.new
+    if number == 1.0
+      str = '1'
+    else
+      str = number.to_s
+    end
+    str
   end
 
 end

@@ -74,7 +74,7 @@ class SalesOrdersController < ApplicationController
 
   def update_products 
     products = Product.find(:all, :conditions => ['product_type_id = ?', params[:product_type]], :order => 'name')
-    @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + p.minimum_quantity.to_s + p.units_of_measure.name + ']', p.id]}
+    @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + p.units_of_measure.short_name + ']', p.id]}
     render :update do |page|
       page.replace_html 'product', :partial => 'product', :object => nil
     end

@@ -15,7 +15,7 @@
 #  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
-#  stock_quantity      :integer(10)
+#  stock_quantity      :integer(4)
 #  purchase_price      :decimal(8, 2)   default(0.0)
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime

@@ -22,10 +22,10 @@
   <tr>
     <th>Item</th>
     <th>Type</th>
-    <th>Product</th>
     <th>Supplier</th>
-    <th>Quantity</th>
+    <th>Product</th>
     <th>Unit Price</th>
+    <th>Quantity</th>
     <th>Price</th>
     <th></th>
   </tr>
@@ -34,11 +34,11 @@
   <% @basket.items.each do |item| %>
   <tr class="<%= cycle('','even') %>">
     <td class="status"><%= item_index %></td>
-    <td class="text"><%= item.product_type_name %></td>
-    <td class="text"><%= item.product_name %></td>
     <td class="text"><%= item.supplier_name %></td>
-    <td class="status"><%= item.quantity %> <%= item.units_of_measure %></td>
-    <td class="number"><%= format_currency(item.price) %></td>
+    <td class="text"><%= item.product_type_name %></td>
+    <td class="text"><%= item.product_name %> [<%= item.units_of_measure %>]</td>
+    <td class="status"><%= format_currency(item.price) %></td>
+    <td class="status"><%= format_decimal_number(item.quantity) %></td>
     <td class="number"><%= format_currency(item.total_price) %></td>
     <td class="status"><%= link_to(icon_delete, {:action => 'remove_basket_item_new', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
   </tr>
