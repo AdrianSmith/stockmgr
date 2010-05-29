@@ -41,14 +41,14 @@ class SalesOrderTest < ActiveSupport::TestCase
   context "An un-invoiced Sales Order" do
     should "have a status message of NOT ISSUED" do
       @sales_order = Factory.build(:sales_order, :is_invoiced => false, :is_paid => false)
-      assert_equal("NOT ISSUED", @sales_order.status_message)
+      assert_equal("NOT INVOICED", @sales_order.status_message)
     end
   end
 
   context "An invoiced Sales Order" do
     should "have a status message of ISSUE in x days" do
       @sales_order = Factory.build(:sales_order, :is_invoiced => true, :is_paid => false)
-      assert_equal("ISSUED (due in 13 days)", @sales_order.status_message)
+      assert_equal("INVOICED", @sales_order.status_message)
     end
   end
 
@@ -63,7 +63,7 @@ class SalesOrderTest < ActiveSupport::TestCase
     should "have a status message of OVERDUE" do
       @sales_order = Factory.build(:sales_order, :is_paid => false, :is_invoiced => true)
       @sales_order.created_at = DateTime.now - 15
-      assert_equal("ISSUED (2 days overdue)", @sales_order.status_message)
+      assert_equal("INVOICED", @sales_order.status_message)
     end
   end  
 

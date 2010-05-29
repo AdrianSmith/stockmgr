@@ -55,11 +55,6 @@ class SalesOrder < ActiveRecord::Base
     else
       if self.is_invoiced
         status = "INVOICED"
-        if self.is_overdue
-          status += ' (' + self.due_days.abs.to_s + " days overdue)"
-        else
-          status += " (due in " + self.due_days.to_s + ' days)'
-        end
       else
         status = "NOT INVOICED"
       end
@@ -96,7 +91,8 @@ class SalesOrder < ActiveRecord::Base
     table_data =  [
       ['Invoice', self.id.to_s, 'Invoice For', user.pretty_name], 
       ['Issue Date', FormatHelper.format_date(self.created_at), '', user.pretty_phone],
-      ['Due Date', FormatHelper.format_date(self.due_on), '', user.email], 
+      # ['Due Date', FormatHelper.format_date(self.due_on), '', user.email], 
+      ['', '', '', user.email], 
       ['Status', self.status_message, '', user.pretty_address], 
     ]
 
