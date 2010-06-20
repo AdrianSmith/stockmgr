@@ -9,8 +9,7 @@
     <th>Name</th>
     <th>Type</th>
     <th>Supplier</th>
-    <th>Storage</th>
-    <th>Location</th>
+    <th>Certifier</th>
     <th>Purchase<br />Price</th>
     <th>Sale<br />Price</th>
     <th></th>
@@ -20,9 +19,10 @@
   <tr class="<%= cycle('','even') %>">
     <td class="text"><%=link_to product.name, product %></td>
     <td class="status"><%=h product.product_type.name %></td>
-    <td class="text"><%=link_to product.supplier.name, product.supplier %></td>
-    <td class="status"><%=h product.storage_type.name %></td>
-    <td class="text"><%=h product.storage_location.name %></td>
+    <td class="text"><%= link_to product.supplier.name, product.supplier %></td>
+    
+    <td class="text"><%= link_to(truncate(product.certifier.name, :length => 10), product.certifier) if product.certifier %></td>
+
     <td class="number"><%= format_currency(product.cost) %></td>
     <td class="number"><%= format_currency(product.price) %></td>
     <td class="status">
