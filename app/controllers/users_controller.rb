@@ -1,5 +1,5 @@
-class UsersController < ApplicationController 
-  
+class UsersController < ApplicationController
+
   def index
     @users = User.find(:all, :conditions => ["is_customer = ?", true])
 
@@ -13,11 +13,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     store_current_customer(@user)
   end
-    
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
@@ -41,12 +41,18 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy unless current_user.id == @user.id
+    redirect_to root_url
+  end
+
   def toggle_order_invoiced_status
     order = SalesOrder.find(params[:order_id])
     order.is_invoiced = !order.is_invoiced
     order.save!
-    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])  
+    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])
   end
 
   def toggle_order_paid_status
@@ -54,7 +60,7 @@ class UsersController < ApplicationController
     order.is_paid = !order.is_paid
     order.is_invoiced = true if order.is_paid
     order.save!
-    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])  
+    redirect_to(:controller => 'users', :action => 'show', :id => params[:id])
   end
-    
+
 end
