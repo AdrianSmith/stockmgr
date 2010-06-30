@@ -40,7 +40,7 @@ class SalesOrder < ActiveRecord::Base
   end
 
   def is_overdue
-    Date.today > self.due_on
+    Date.today > self.due_on  and self.is_paid == false
   end
 
   def due_days
