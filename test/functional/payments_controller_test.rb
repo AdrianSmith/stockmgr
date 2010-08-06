@@ -12,10 +12,9 @@ class PaymentsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :payments, :class => Array
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
+      should assign_to(:payments), :class => Array
+      should respond_with :success
+      should render_template :index
     end  
 
     context "GET to :show" do
@@ -24,10 +23,9 @@ class PaymentsControllerTest < ActionController::TestCase
         get :show, :id => @payment.id
       end
 
-      should_assign_to :payment, :class => Payment
-      should_respond_with :success
-      should_render_template :show
-      should_not_set_the_flash
+      should assign_to(:payment), :class => Payment
+      should respond_with :success
+      should render_template :show
     end 
 
     context "GET to :new" do
@@ -35,10 +33,9 @@ class PaymentsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :payment, :class => Payment
-      should_respond_with :success
-      should_render_template :new
-      should_not_set_the_flash
+      should assign_to(:payment), :class => Payment
+      should respond_with :success
+      should render_template :new
     end   
 
     context "POST to :create with valid data" do  
@@ -46,10 +43,8 @@ class PaymentsControllerTest < ActionController::TestCase
         post :create, :payment => {:amount => BigDecimal.new("33.45"), :user => User.new, :payment_type => PaymentType.new}
       end
 
-      should_assign_to :payment, :class => Payment 
-      should_respond_with :redirect
-      should_redirect_to("payee's show page"){@payment.user}
-      should_set_the_flash_to /successfully created/
+      should assign_to(:payment), :class => Payment 
+      should respond_with :redirect
     end
 
     context "GET to :edit" do
@@ -57,11 +52,9 @@ class PaymentsControllerTest < ActionController::TestCase
         get :edit, :id => @payment.id
       end
 
-      should_assign_to(:payment){@payment}
-      should_respond_with :success
-      should_render_template :edit
-      should_not_set_the_flash
-
+      should assign_to(:payment){@payment}
+      should respond_with :success
+      should render_template :edit
     end
 
     context "PUT to :update with valid data" do
@@ -69,10 +62,8 @@ class PaymentsControllerTest < ActionController::TestCase
         put :update, :id => @payment.id, :payment => {}
       end
 
-      should_assign_to(:payment){@payment}
-      should_respond_with :redirect
-#      should_redirect_to("user show page"){@payment.user}
-      should_set_the_flash_to /successfully updated/
+      should assign_to(:payment){@payment}
+      should respond_with :redirect
     end   
   end 
 end

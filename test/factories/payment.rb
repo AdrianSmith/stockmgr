@@ -14,6 +14,4 @@
 #
 Factory.define :payment do |obj|
   obj.amount {BigDecimal.new("10.5")}
-  obj.payment_type {PaymentType.new(:name => 'cash')}
-  obj.user {User.new(:id => 2)}
 end

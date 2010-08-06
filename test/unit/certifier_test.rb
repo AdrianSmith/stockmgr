@@ -14,10 +14,7 @@
 require 'test_helper'
 
 class CertifierTest < ActiveSupport::TestCase
-  should_have_one :product
-  should_validate_presence_of :name
-  should_validate_uniqueness_of :name
+  should have_one(:product)
+  should validate_presence_of(:name)
+  should validate_uniqueness_of(:name)
 end
-
-
-

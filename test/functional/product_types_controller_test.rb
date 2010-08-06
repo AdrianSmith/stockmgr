@@ -12,10 +12,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :product_types, :class => Array
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
+      should assign_to(:product_types), :class => Array
+      should respond_with :success
+      should render_template :index
     end  
 
     context "GET to :show" do
@@ -24,10 +23,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :show, :id => @product_type.id
       end
 
-      should_assign_to :product_type, :class => ProductType
-      should_respond_with :success
-      should_render_template :show
-      should_not_set_the_flash
+      should assign_to(:product_type), :class => ProductType
+      should respond_with :success
+      should render_template :show
     end 
 
     context "GET to :new" do
@@ -35,10 +33,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :product_type, :class => ProductType
-      should_respond_with :success
-      should_render_template :new
-      should_not_set_the_flash
+      should assign_to(:product_type), :class => ProductType
+      should respond_with :success
+      should render_template :new
     end   
 
     context "POST to :create with valid data" do  
@@ -46,10 +43,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         post :create, :product_type => {:name => 'test2'}
       end
 
-      should_assign_to :product_type, :class => ProductType 
-      should_respond_with :redirect
-      should_redirect_to("index page"){product_types_path}
-      should_set_the_flash_to /successfully created/
+      should assign_to(:product_type), :class => ProductType 
+      should respond_with :redirect
+      should redirect_to("index page"){product_types_path}
     end
 
     context "GET to :edit" do
@@ -57,11 +53,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :edit, :id => @product_type.id
       end
 
-      should_assign_to(:product_type){@product_type}
-      should_respond_with :success
-      should_render_template :edit
-      should_not_set_the_flash
-
+      should assign_to(:product_type){@product_type}
+      should respond_with :success
+      should render_template :edit
     end
 
     context "PUT to :update with valid data" do
@@ -69,10 +63,9 @@ class ProductTypesControllerTest < ActionController::TestCase
         put :update, :id => @product_type.id, :product_type => {}
       end
 
-      should_assign_to(:product_type){@product_type}
-      should_respond_with :redirect
-      should_redirect_to("index page"){product_types_path}
-      should_set_the_flash_to /successfully updated/
+      should assign_to(:product_type){@product_type}
+      should respond_with :redirect
+      should redirect_to("index page"){product_types_path}
     end   
   end 
 end

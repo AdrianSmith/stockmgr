@@ -12,11 +12,10 @@ class CertifiersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :certifiers, :class => Array
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
-    end  
+      should assign_to(:certifiers), :class => Array
+      should respond_with(:success)
+      should render_template(:index)
+    end
 
     context "GET to :show" do
 
@@ -24,32 +23,29 @@ class CertifiersControllerTest < ActionController::TestCase
         get :show, :id => @certifier.id
       end
 
-      should_assign_to :certifier, :class => Certifier
-      should_respond_with :success
-      should_render_template :show
-      should_not_set_the_flash
-    end 
+      should assign_to(:certifier), :class => Certifier
+      should respond_with(:success)
+      should render_template(:show)
+    end
 
     context "GET to :new" do
       setup do
         get :new
       end
 
-      should_assign_to :certifier, :class => Certifier
-      should_respond_with :success
-      should_render_template :new
-      should_not_set_the_flash
-    end   
+      should assign_to(:certifier), :class => Certifier
+      should respond_with(:success)
+      should render_template(:new)
+    end
 
-    context "POST to :create with valid data" do  
+    context "POST to :create with valid data" do
       setup do
         post :create, :certifier => {:name => 'test2'}
       end
 
-      should_assign_to :certifier, :class => Certifier 
-      should_respond_with :redirect
-      should_redirect_to("index page"){certifiers_path}
-      should_set_the_flash_to /successfully created/
+      should assign_to(:certifier), :class => Certifier
+      should respond_with(:redirect)
+      should redirect_to("index page"){certifiers_path}
     end
 
     context "GET to :edit" do
@@ -57,11 +53,9 @@ class CertifiersControllerTest < ActionController::TestCase
         get :edit, :id => @certifier.id
       end
 
-      should_assign_to(:certifier){@certifier}
-      should_respond_with :success
-      should_render_template :edit
-      should_not_set_the_flash
-
+      should assign_to(:certifier){@certifier}
+      should respond_with(:success)
+      should render_template(:edit)
     end
 
     context "PUT to :update with valid data" do
@@ -69,10 +63,9 @@ class CertifiersControllerTest < ActionController::TestCase
         put :update, :id => @certifier.id, :certifier => {}
       end
 
-      should_assign_to(:certifier){@certifier}
-      should_respond_with :redirect
-      should_redirect_to("index page"){certifiers_path}
-      should_set_the_flash_to /successfully updated/
-    end   
-  end 
+      should assign_to(:certifier){@certifier}
+      should respond_with(:redirect)
+      should redirect_to("index page"){certifiers_path}
+    end
+  end
 end

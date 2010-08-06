@@ -4,7 +4,7 @@
 #
 #  id                 :integer(4)      not null, primary key
 #  user_id            :integer(4)
-#  comment            :text
+#  private_comment    :text
 #  created_by_user_id :integer(4)
 #  is_ordered         :boolean(1)      default(FALSE)
 #  is_invoiced        :boolean(1)      default(FALSE)
@@ -13,28 +13,36 @@
 #  invoiced_at        :datetime
 #  created_at         :datetime
 #  updated_at         :datetime
+#  public_comment     :text
 #
 
 require 'test_helper'
 
 class SalesOrderTest < ActiveSupport::TestCase 
-  should_validate_presence_of :user
-  should_have_many :sales_order_items
-  should_belong_to :user
+  should validate_presence_of(:user)
+  should have_many(:sales_order_items)
+  should belong_to(:user)
 
   context "A valid Sales Order" do
     setup do
-      items = [Factory.build(:sales_order_item), Factory.build(:sales_order_item)]
+      product = Factory.build(:product)
+      item_1 = Factory.build(:sales_order_item)
+      item_2 = Factory.build(:sales_order_item)
+      item_1.product = product
+      item_2.product = product
+      item_1.save
+      item_2.save
       @sales_order = Factory.build(:sales_order)
-      @sales_order.sales_order_items = items
+      @sales_order.sales_order_items = [item_1, item_2]
+      @sales_order.save
     end
 
     should "calculate total cost" do
-      assert_equal(BigDecimal.new("300.0"), @sales_order.total_cost)
+      assert_equal(BigDecimal.new("506.0"), @sales_order.total_cost)
     end
 
     should "calculate total price" do
-      assert_equal(BigDecimal.new("500.0"), @sales_order.total_price)
+      assert_equal(BigDecimal.new("1048.0"), @sales_order.total_price)
     end
   end
 

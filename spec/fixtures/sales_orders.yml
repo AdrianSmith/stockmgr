@@ -4,7 +4,7 @@
 #
 #  id                 :integer(4)      not null, primary key
 #  user_id            :integer(4)
-#  comment            :text
+#  private_comment    :text
 #  created_by_user_id :integer(4)
 #  is_ordered         :boolean(1)      default(FALSE)
 #  is_invoiced        :boolean(1)      default(FALSE)
@@ -13,6 +13,7 @@
 #  invoiced_at        :datetime
 #  created_at         :datetime
 #  updated_at         :datetime
+#  public_comment     :text
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

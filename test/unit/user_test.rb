@@ -33,13 +33,12 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  should_have_many :sales_orders
-  should_have_many :payments  
-
-  should_validate_presence_of :username
-  should_validate_uniqueness_of :username
-  should_validate_presence_of :email
-  should_validate_uniqueness_of :email
+  should have_many(:sales_orders)
+  should have_many(:payments  )
+  should validate_presence_of(:username)
+  should validate_uniqueness_of(:username)
+  should validate_presence_of(:email)
+  should validate_uniqueness_of(:email)
 
   context "A valid user" do
     setup do
@@ -48,7 +47,7 @@ class UserTest < ActiveSupport::TestCase
 
     should "create a pretty address string" do
       assert_not_nil(@user.pretty_address)
-    end             
+    end
 
     should "create a pretty phone string" do
       assert_not_nil(@user.pretty_phone)
@@ -60,31 +59,39 @@ class UserTest < ActiveSupport::TestCase
     setup do
       @user = Factory.build(:user)
       @user.payments = [Payment.new(:amount => BigDecimal('10.5')), Payment.new(:amount => BigDecimal('10.5'))]
-      
+
+      product = Factory.build(:product)
+      item_1 = Factory.build(:sales_order_item)
+      item_2 = Factory.build(:sales_order_item)
+      item_1.product = product
+      item_2.product = product
+      item_1.save
+      item_2.save
+
       sales_order = Factory.build(:sales_order)
-      sales_order.sales_order_items = [Factory.build(:sales_order_item), Factory.build(:sales_order_item)]
+      sales_order.sales_order_items = [item_1, item_2]
+      sales_order.save
+
       @user.sales_orders = [sales_order]
+      @user.save
     end
 
     should "have calculate total payments" do
       assert_equal(BigDecimal('21.0'), @user.total_payments)
-    end             
+    end
 
     should "have calculate total orders" do
-      assert_equal(BigDecimal('500.0'), @user.total_orders)
-    end             
+      assert_equal(BigDecimal('1048.0'), @user.total_orders)
+    end
 
     should "have calculate account balance" do
-      assert_equal(BigDecimal('-479.0'), @user.account_balance)
-    end             
+      assert_equal(BigDecimal('-1027.0'), @user.account_balance)
+    end
 
     should "have refresh account balance cache after account balance is calculated" do
       @user.account_balance
-      assert_equal(BigDecimal('-479.0'), @user.account_balance_cached)
-    end             
+      assert_equal(BigDecimal('-1027.0'), @user.account_balance_cached)
+    end
 
   end
 end
-
-
-

@@ -28,22 +28,20 @@
 require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
-  should_have_many :products
-  should_have_many :purchase_orders
+  should have_many(:products)
+  should have_many(:purchase_orders)
 
   context "A valid supplier" do
-     setup do
-       @supplier = Factory.build(:supplier)
-     end
-   
-     should "create a pretty address string" do
-       assert_not_nil(@supplier.pretty_address)
-     end             
+    setup do
+      @supplier = Factory.build(:supplier)
+    end
 
-     should "create a pretty phone string" do
-       assert_not_nil(@supplier.pretty_phone)
-     end             
-   end           
+    should "create a pretty address string" do
+      assert_not_nil(@supplier.pretty_address)
+    end
 
+    should "create a pretty phone string" do
+      assert_not_nil(@supplier.pretty_phone)
+    end
+  end
 end
-

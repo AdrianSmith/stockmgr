@@ -16,7 +16,7 @@ class SalesOrderItem < ActiveRecord::Base
   belongs_to :sales_order
   belongs_to :product
 
-  validates_presence_of :sales_order, :product, :quantity 
+  validates_presence_of :sales_order, :product, :quantity
 
   def cost
     product.cost * quantity
@@ -31,6 +31,3 @@ class SalesOrderItem < ActiveRecord::Base
   end
 
 end
-
-
-

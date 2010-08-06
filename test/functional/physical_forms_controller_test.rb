@@ -12,10 +12,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :physical_forms, :class => Array
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
+      should assign_to(:physical_forms), :class => Array
+      should respond_with :success
+      should render_template :index
     end
 
     context "GET to :show" do
@@ -24,10 +23,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :show, :id => @physical_form.id
       end
 
-      should_assign_to :physical_form, :class => PhysicalForm
-      should_respond_with :success
-      should_render_template :show
-      should_not_set_the_flash
+      should assign_to(:physical_form), :class => PhysicalForm
+      should respond_with :success
+      should render_template :show
     end
 
     context "GET to :new" do
@@ -35,10 +33,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :physical_form, :class => PhysicalForm
-      should_respond_with :success
-      should_render_template :new
-      should_not_set_the_flash
+      should assign_to(:physical_form), :class => PhysicalForm
+      should respond_with :success
+      should render_template :new
     end
 
     context "POST to :create with valid data" do
@@ -46,10 +43,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         post :create, :physical_form => {:name => 'test2'}
 
       end
-      should_assign_to :physical_form, :class => PhysicalForm
-      should_respond_with :redirect
-      should_redirect_to("index page"){physical_forms_path}
-      should_set_the_flash_to /successfully created/
+      should assign_to(:physical_form), :class => PhysicalForm
+      should respond_with :redirect
+      should redirect_to("index page"){physical_forms_path}
     end
 
     context "GET to :edit" do
@@ -57,11 +53,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :edit, :id => @physical_form.id
       end
 
-      should_assign_to(:physical_form){@physical_form}
-      should_respond_with :success
-      should_render_template :edit
-      should_not_set_the_flash
-
+      should assign_to(:physical_form){@physical_form}
+      should respond_with :success
+      should render_template :edit
     end
 
     context "PUT to :update with valid data" do
@@ -69,10 +63,9 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         put :update, :id => @physical_form.id, :physical_form => {}
       end
 
-      should_assign_to(:physical_form){@physical_form}
-      should_respond_with :redirect
-      should_redirect_to("index page"){physical_forms_path}
-      should_set_the_flash_to /successfully updated/
+      should assign_to(:physical_form){@physical_form}
+      should respond_with :redirect
+      should redirect_to("index page"){physical_forms_path}
     end
   end
 end

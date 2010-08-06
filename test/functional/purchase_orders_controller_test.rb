@@ -13,10 +13,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :purchase_orders, :class => Array
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
+      should assign_to(:purchase_orders), :class => Array
+      should respond_with :success
+      should render_template :index
     end
 
     context "GET to :show" do
@@ -25,10 +24,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :show, :id => @purchase_order.id
       end
     
-      should_assign_to :purchase_order, :class => PurchaseOrder
-      should_respond_with :success
-      should_render_template :show
-      should_not_set_the_flash
+      should assign_to(:purchase_order), :class => PurchaseOrder
+      should respond_with :success
+      should render_template :show
     end
     
     context "GET to :new" do
@@ -36,10 +34,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :new, :supplier_id => @supplier.id
       end
      
-      should_assign_to :purchase_order, :class => PurchaseOrder
-      should_respond_with :success
-      should_render_template :new
-      should_not_set_the_flash
+      should assign_to(:purchase_order), :class => PurchaseOrder
+      should respond_with :success
+      should render_template :new
     end           
 
     context "POST to :create with valid data" do
@@ -47,8 +44,7 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         post :create, :purchase_order => {:comment => 'Test', :supplier_id => @supplier.id}
       end
 
-      should_respond_with :redirect
-      should_set_the_flash_to /successfully created/
+      should respond_with :redirect
     end
 
     context "GET to :edit" do
@@ -56,10 +52,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :edit, :id => @purchase_order.id
       end
 
-      should_assign_to(:purchase_order){@purchase_order}
-      should_respond_with :success
-      should_render_template :edit
-      should_not_set_the_flash
+      should assign_to(:purchase_order){@purchase_order}
+      should respond_with :success
+      should render_template :edit
     end
 
     context "PUT to :update with valid data" do
@@ -67,10 +62,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         put :update, :id => @purchase_order.id, :purchase_order => {}
       end
  
-      should_assign_to(:purchase_order){@purchase_orders}
-      should_respond_with :redirect
-      should_redirect_to("purchase_order page"){purchase_order_path}
-      should_set_the_flash_to /successfully updated/
+      should assign_to(:purchase_order){@purchase_orders}
+      should respond_with :redirect
+      should redirect_to("purchase_order page"){purchase_order_path}
     end
   end
 end

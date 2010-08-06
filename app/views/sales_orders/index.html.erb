@@ -5,7 +5,7 @@
     <tr>
       <th>Order</th>
       <th>Customer</th>
-      <th>Comment</th>
+      <th>private_comment</th>
       <th>Invoiced?</th>
       <th>Paid?</th>
       <th>Amount</th>
@@ -16,7 +16,7 @@
     <tr class="<%= cycle('','even') %>">
       <td class="status"><%= link_to sales_order.id, sales_order %></td>
       <td class="text"><%= link_to sales_order.user.pretty_name, sales_order.user %></td>
-      <td class="text" width="50%"><%=h sales_order.comment %></td>
+      <td class="text" width="50%"><%=h sales_order.private_comment %></td>
       <td class="status"><%= format_boolean(sales_order.is_invoiced) %></td>
       <td class="status"><%= format_boolean(sales_order.is_paid) %></td>
       <td class="number"><%= format_currency(sales_order.invoice_amount) %></td>

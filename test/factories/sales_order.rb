@@ -16,11 +16,8 @@
 #
 
 Factory.define :sales_order do |o|
-  o.user { User.new }
   o.is_invoiced true
   o.is_paid true
   o.invoice_amount
   o.created_at {DateTime.now}
 end
-
-

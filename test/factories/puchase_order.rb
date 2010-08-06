@@ -15,9 +15,6 @@
 #
 
 Factory.define :purchase_order do |o|
-  o.supplier { Supplier.new }
-  o.amount
+  o.amount { BigDecimal.new("2.5") }
   o.created_at {DateTime.now}
 end
-
-

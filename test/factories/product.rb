@@ -26,7 +26,4 @@ Factory.define :product do |p|
   p.stock_quantity 100
   p.purchase_price { BigDecimal.new("2.53") }
   p.sale_price { BigDecimal.new("5.24") }
-  p.supplier { Supplier.new }
-  p.certifier { Certifier.new }
-  p.product_type { ProductType.new }
 end

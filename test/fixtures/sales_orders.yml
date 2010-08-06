@@ -4,7 +4,7 @@
 #
 #  id                 :integer(4)      not null, primary key
 #  user_id            :integer(4)
-#  comment            :text
+#  private_comment    :text
 #  created_by_user_id :integer(4)
 #  is_ordered         :boolean(1)      default(FALSE)
 #  is_invoiced        :boolean(1)      default(FALSE)
@@ -13,19 +13,20 @@
 #  invoiced_at        :datetime
 #  created_at         :datetime
 #  updated_at         :datetime
+#  public_comment     :text
 #
 
 one:
   id: 1
   user_id: 2
-  comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  private_comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   created_by_user_id: 1
   is_invoiced: false
 
 two:
   id: 2
   user_id: 2
-  comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  private_comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   created_by_user_id: 1
   is_invoiced: true
   invoice_amount: 45.99

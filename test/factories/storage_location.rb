@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: physical_forms
+# Table name: storage_locations
 #
 #  id          :integer(4)      not null, primary key
 #  name        :string(255)
@@ -9,6 +9,6 @@
 #  updated_at  :datetime
 #
 
-Factory.define :physical_form do |p|
-  p.name 'Solid'
+Factory.define :storage_location do |obj|
+  obj.name "Under house"
 end

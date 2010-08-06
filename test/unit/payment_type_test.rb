@@ -12,9 +12,8 @@
 require 'test_helper'
 
 class PaymentTypeTest < ActiveSupport::TestCase
-  should_have_many :payments
-
-  should_validate_presence_of :name
-  should_validate_uniqueness_of :name
+  should have_many(:payments)
+  should validate_presence_of(:name)
+  should validate_uniqueness_of(:name)
 
 end

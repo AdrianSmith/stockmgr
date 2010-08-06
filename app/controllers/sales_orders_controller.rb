@@ -33,7 +33,7 @@ class SalesOrdersController < ApplicationController
     # Create Sales Order
     sales_order = SalesOrder.new
     sales_order.user_id = user.id
-    sales_order.comment = params[:comment]
+    sales_order.private_comment = params[:private_comment]
     sales_order.save
 
     # Create Sales Order Items

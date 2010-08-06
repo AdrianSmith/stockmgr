@@ -8,13 +8,12 @@ class WelcomeControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_respond_with :success
-      should_render_template :index
-      should_not_set_the_flash
+      should respond_with :success
+      should render_template :index
 
-      should_assign_to :customers_count, :class => Integer
-      should_assign_to :suppliers_count, :class => Integer
-      should_assign_to :products_count, :class => Integer
+      should assign_to(:customers_count), :class => Integer
+      should assign_to(:suppliers_count), :class => Integer
+      should assign_to(:products_count), :class => Integer
     end
 
   end

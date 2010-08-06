@@ -16,10 +16,8 @@
 require 'test_helper'
 
 class PaymentTest < ActiveSupport::TestCase
-    should_validate_presence_of :user
-    should_belong_to :payment_type
-    should_belong_to :user
-    
+  should validate_presence_of(:user)
+  should belong_to(:payment_type)
+  should belong_to(:user)
+
 end
-
-

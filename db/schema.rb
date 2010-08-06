@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307021525) do
+ActiveRecord::Schema.define(:version => 20100622065246) do
 
   create_table "certifiers", :force => true do |t|
     t.string   "name"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
     t.integer  "minimum_quantity"
     t.integer  "storage_location_id"
     t.integer  "physical_form_id"
-    t.integer  "stock_quantity",      :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "purchase_price",                    :precision => 8,  :scale => 2, :default => 0.0
-    t.decimal  "sale_price",                        :precision => 8,  :scale => 2, :default => 0.0
+    t.integer  "stock_quantity"
+    t.decimal  "purchase_price",      :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "sale_price",          :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
   add_index "products", ["units_of_measure_id"], :name => "index_products_on_units_of_measure_id"
 
   create_table "purchase_order_items", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "purchase_order_id"
-    t.decimal  "quantity",          :precision => 12, :scale => 3, :default => 0.0
+    t.integer  "product_id",                                                        :null => false
+    t.integer  "purchase_order_id",                                                 :null => false
+    t.decimal  "quantity",          :precision => 12, :scale => 3, :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,9 +107,9 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
   add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
 
   create_table "sales_order_items", :force => true do |t|
-    t.integer  "sales_order_id"
-    t.integer  "product_id"
-    t.decimal  "quantity",         :precision => 12, :scale => 3, :default => 0.0
+    t.integer  "sales_order_id",                                                     :null => false
+    t.integer  "product_id",                                                         :null => false
+    t.decimal  "quantity",         :precision => 12, :scale => 3, :default => 0.0,   :null => false
     t.decimal  "custom_price",     :precision => 8,  :scale => 2, :default => 0.0
     t.boolean  "use_custom_price",                                :default => false
     t.datetime "created_at"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
 
   create_table "sales_orders", :force => true do |t|
     t.integer  "user_id"
-    t.text     "comment"
+    t.text     "private_comment"
     t.integer  "created_by_user_id"
     t.boolean  "is_ordered",                                       :default => false
     t.boolean  "is_invoiced",                                      :default => false
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
     t.datetime "invoiced_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "public_comment"
   end
 
   add_index "sales_orders", ["user_id"], :name => "index_sales_orders_on_user_id"
@@ -188,12 +189,12 @@ ActiveRecord::Schema.define(:version => 20100307021525) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_admin",                                                          :default => false
-    t.boolean  "is_staff",                                                          :default => false
-    t.boolean  "is_customer",                                                       :default => true
-    t.decimal  "account_balance_cached",              :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "percentage_discount",    :limit => 3,                               :default => 0
-    t.integer  "lock_version",                                                      :default => 0
+    t.boolean  "is_admin",                                             :default => false
+    t.boolean  "is_staff",                                             :default => false
+    t.boolean  "is_customer",                                          :default => true
+    t.decimal  "account_balance_cached", :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "percentage_discount",                                  :default => 0
+    t.integer  "lock_version",                                         :default => 0
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "suburb_town"
