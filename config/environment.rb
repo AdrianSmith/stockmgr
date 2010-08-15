@@ -21,11 +21,11 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"  
 
   config.gem 'authlogic', :source => "http://gemcutter.org", :version => '2.1.3'
-  # config.gem 'prawn', :version => '0.8.4'
-  # config.gem 'prawn-core', :version => '0.8.4'
-  # config.gem 'prawn-format', :version => '0.2.3'
-  # config.gem 'prawn-layout', :version => '0.8.4'
-  # config.gem 'prawn-security', :version => '0.8.4'    
+  config.gem 'prawn', :version => '0.8.4'
+  config.gem 'prawn-core', :version => '0.8.4'
+  config.gem 'prawn-format', :version => '0.2.3'
+  config.gem 'prawn-layout', :version => '0.8.4'
+  config.gem 'prawn-security', :version => '0.8.4'    
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
