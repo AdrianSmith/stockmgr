@@ -26,7 +26,7 @@ class PdfHelper
 
   def create_document()
     pdf_doc = Prawn::Document.new(:page_size => PAPER_SIZE) 
-    pdf_doc.image LOGO_IMAGE_FILE, :at => LOGO_IMAGE_POSN, :width => LOGO_IMAGE_WIDTH
+    # pdf_doc.image LOGO_IMAGE_FILE, :at => LOGO_IMAGE_POSN, :width => LOGO_IMAGE_WIDTH
 
     pdf_doc.font_size(FONT_SIZE_HEADER)
     pdf_doc.text_box ADDRESS_TEXT,

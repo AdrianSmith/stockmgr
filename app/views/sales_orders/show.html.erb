@@ -1,11 +1,12 @@
 <h1>Sales Order <%= @sales_order.id %> [<%= link_to(@sales_order.user.pretty_name, @sales_order.user) %>]</h1>
 
 <table width="500">
-  <tr><td width="100"><b>Created</b></td><td><%= format_date(@sales_order.created_at) %></td></tr>
-  <tr><td width="100"><b>Invoiced?</b></td><td><%= format_boolean(@sales_order.is_invoiced) %></td></tr>
-  <tr><td width="100"><b>Paid?</b></td><td><%= format_boolean(@sales_order.is_paid) %></td></tr>
-  <tr><td width="100"><b>Status:</b></td><td><%= @sales_order.status_message %></td></tr>
-  <tr><td width="100"><b>private_comment:</b></td><td><%=h @sales_order.private_comment %></td></tr>
+  <tr><td width="150"><b>Created</b></td><td><%= format_date(@sales_order.created_at) %></td></tr>
+  <tr><td width="150"><b>Invoiced?</b></td><td><%= format_boolean(@sales_order.is_invoiced) %></td></tr>
+  <tr><td width="150"><b>Paid?</b></td><td><%= format_boolean(@sales_order.is_paid) %></td></tr>
+  <tr><td width="150"><b>Status:</b></td><td><%= @sales_order.status_message %></td></tr>
+  <tr><td width="150"><b>Public Comment:</b></td><td><%=h @sales_order.public_comment %></td></tr>
+  <tr><td width="150"><b>Private Comment:</b></td><td><%=h @sales_order.private_comment %></td></tr>
 </table>  
 
 <hr>

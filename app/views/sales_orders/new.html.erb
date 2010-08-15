@@ -52,7 +52,11 @@
 
 <% form_tag :action => 'create', :id => @user.id do %>
 <p>
-  private_comment<br />
+  <b>Public Comment</b> (appears on statement)<br />
+  <%= text_area_tag :public_comment, nil, :rows => 4, :cols => 80 %>
+</p>
+<p>
+  <b>Private Comment</b><br />
   <%= text_area_tag :private_comment, nil, :rows => 4, :cols => 80 %>
 </p>
 
