@@ -12,6 +12,7 @@ class SalesOrdersController < ApplicationController
     @sales_order = SalesOrder.new
     @user = User.find(params[:id])
     @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
+    @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
     @available_products = []
     @available_quantities = (1..10).to_a
     @basket = find_basket
@@ -21,6 +22,7 @@ class SalesOrdersController < ApplicationController
     @sales_order = SalesOrder.find(params[:id])
     @user = @sales_order.user
     @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
+    @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
     @available_products = []
     @available_quantities = (1..10).to_a
     @basket = find_basket
@@ -44,9 +46,9 @@ class SalesOrdersController < ApplicationController
       sales_order_item.quantity = item.quantity
       sales_order_item.save
     end
-    empty_basket     
+    empty_basket
     redirect_to :controller => :users, :action => :show, :id => user.id
-  end         
+  end
 
   def update
     @sales_order = SalesOrder.find(params[:id])
@@ -72,14 +74,26 @@ class SalesOrdersController < ApplicationController
     send_data report.render, :filename => filename, :type => "application/pdf"
   end
 
-  def update_products 
-    products = Product.find(:all, :conditions => ['product_type_id = ?', params[:product_type]], :order => 'name')
-    @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + p.units_of_measure.short_name + ']', p.id]}
+  def update_products
+
+    if params[:product_type]
+      products = Product.find(:all, :conditions => ['product_type_id = ?', params[:product_type]], :order => 'name')
+    elsif params[:supplier]
+      products = Product.find(:all, :conditions => ['supplier_id = ?', params[:supplier]], :order => 'name')
+    else
+      products = Product.find(:all, :order => 'name')
+    end
+
+    if products.size > 0
+      @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + FormatHelper.format_currency(p.cost) + ' per ' + p.units_of_measure.short_name + ']', p.id]}
+    else
+      @available_products = ["None Available"]
+    end
+
     render :update do |page|
       page.replace_html 'product', :partial => 'product', :object => nil
     end
   end
-
 
   def add_basket_item_new
     add_basket_item
@@ -105,33 +119,36 @@ class SalesOrdersController < ApplicationController
     item.units_of_measure = product.units_of_measure.short_name
     item.price = product.price
     item.total_price = product.price * item.quantity
+    item.include_gst = product.include_gst
+    item.gst_message = product.gst_message
+    item.total_gst = product.gst * item.quantity
 
     basket.add(item)
-  end 
-
-  def remove_basket_item_new
-    remove_basket_item
-    redirect_to :action => :new, :id => params[:id]
-  end
-
-  def remove_basket_item_edit
-    remove_basket_item
-    redirect_to :action => :edit, :id => params[:id]
   end
 
   def remove_basket_item
-    @basket = find_basket
-    @basket.items.delete_at(params[:array_position].to_i - 1)
+    basket = find_basket
+    basket.items.delete_at(params[:array_position].to_i - 1)
+    redirect_to :action => :new, :id => params[:id]
+  end
+
+  def remove_sales_order_item
+    sales_order = SalesOrder.find(params[:id])
+    sales_order_item = sales_order.sales_order_items[params[:array_position].to_i - 1]
+    puts '>>>'
+    puts sales_order_item.attributes
+    sales_order_item.destroy
+    redirect_to :action => :edit, :id => params[:id]
   end
 
   private
 
-  def find_basket
-    session[:basket] ||= Basket.new
-  end
+    def find_basket
+      session[:basket] ||= Basket.new
+    end
 
-  def empty_basket
-    session[:basket] = nil
-  end
+    def empty_basket
+      session[:basket] = nil
+    end
 
 end

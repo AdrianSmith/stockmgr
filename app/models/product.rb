@@ -20,6 +20,7 @@
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime
 #  updated_at          :datetime
+#  include_gst         :boolean(1)
 #
 
 class Product < ActiveRecord::Base
@@ -31,28 +32,48 @@ class Product < ActiveRecord::Base
   belongs_to :storage_location
   belongs_to :physical_form
   has_many :sales_order_items
-  has_many :purchase_order_items 
-  
+  has_many :purchase_order_items
+
   validates_presence_of :name, :product_type, :supplier, :certifier, :units_of_measure, :minimum_quantity, :storage_type, :storage_location
 
-   def price
-     self.sale_price
-   end
+  def price
+    if self.include_gst
+      self.sale_price * 1.1
+    else
+      self.sale_price
+    end
+  end
 
-   def cost
-     self.purchase_price
-   end
-   
-   def total_stock_price 
-     price * stock_quantity
-   end
+  def cost
+    self.purchase_price
+  end
 
-   def total_stock_cost
-     cost * stock_quantity
-   end
-   
-   def suggested_quantities
-     [1, 2, 3, 4, 5, 10, 20, 50, 100].collect{|f| f * minimum_quantity}
-   end
-     
+  def total_stock_price
+    price * stock_quantity
+  end
+
+  def total_stock_cost
+    cost * stock_quantity
+  end
+
+  def gst_message
+    if self.include_gst
+      'Inc GST'
+    else
+      'Exc GST'
+    end
+  end
+  
+  def gst
+    if self.include_gst
+      self.sale_price * 0.1
+    else
+      BigDecimal("0.0")
+    end
+  end
+
+  def suggested_quantities
+    [1, 2, 3, 4, 5, 10, 20, 50, 100].collect{|f| f * minimum_quantity}
+  end
+
 end

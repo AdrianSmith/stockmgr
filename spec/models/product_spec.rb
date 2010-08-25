@@ -20,6 +20,7 @@
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime
 #  updated_at          :datetime
+#  include_gst         :boolean(1)
 #
 
 require 'spec_helper'

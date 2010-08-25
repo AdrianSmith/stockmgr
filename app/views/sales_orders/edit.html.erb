@@ -1,52 +1,46 @@
 <h1>Editing Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
 
-<% form_tag :controller => :sales_order_items, :action => :create, :id => @sales_order.id do %>
-
-<div class="field required">
-  <label for="product_type">Product Type</label>
-  <%= select_tag :product_type,  options_for_select(@available_product_types), {:onchange => remote_function(:url => {:action => :update_products}, :with => "'product_type='+value")} %>
-</div>
-
-<div class="field required">
-  <div id="product"><%= render :partial => 'product', :object => @available_products %></div>
-</div>
-
-<div class="field required">
-  <label for="quantity">Quantity</label>
-   <%= text_field_tag :quantity %> <%= @uom %>
-</div>
-
-<%= submit_tag 'Add Item' %>
-<% end %> 
+<% form_tag :action => 'add_basket_item_edit', :id => @user.id do %>
+  <%= render :partial => 'form_add_table' %>
+  <p><%= submit_tag 'Add Item' %></p>
+<% end %>
 
 <hr>
 
 <table class="listing" width="100%">
   <tr>
     <th>Item</th>
-    <th>Type</th>
     <th>Supplier</th>
+    <th>Type</th>
     <th>Product</th>
     <th>Unit Price</th>
+    <th>Inc GST</th>
     <th>Quantity</th>
     <th>Price</th>
     <th></th>
   </tr>
 
+  <% item_index = 1 %>
   <% @sales_order.sales_order_items.each do |item| %>
-  <tr class="<%= cycle('','even') %>">
-    <td class="status"><%= item.id %></td>
-    <td class="text"><%= item.product.product_type.name %></td>
-    <td class="text"><%= item.product.supplier.name %></td>
-    <td class="text"><%= item.product.name %> [<%= item.product.units_of_measure.short_name %>]</td>
-    <td class="number"><%= format_currency(item.product.price) %></td>
-    <td class="status"><%= format_decimal_number(item.quantity) %></td>
-    <td class="number"><%= format_currency(item.price) %></td>
-    <td class="status"><%= link_to(icon_delete, {:controller => 'sales_order_items', :action => 'destroy', :id => item.id}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
-  </tr>
+    <tr class="<%= cycle('','even') %>">
+      <td class="status"><%= item_index %></td>
+      <td class="text"><%= item.product.supplier.name %></td>
+      <td class="text"><%= item.product.product_type.name %></td>
+      <td class="text"><%= item.product.name %> [<%= item.product.units_of_measure.short_name %>]</td>
+      <td class="status"><%= format_currency(item.product.price) %></td>
+      <td class="status"><%= format_boolean(item.product.include_gst) %></td>
+      <td class="status"><%= format_decimal_number(item.quantity) %></td>
+      <td class="number"><%= format_currency(item.price) %></td>
+      <td class="status"><%= link_to(icon_delete, {:action => 'remove_sales_order_item', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
+    </tr>
+    <% item_index += 1 %>
   <% end %>
   <tr>
-    <td class="number" colspan="6">Total</td>
+    <td class="number" colspan="7">GST</td>
+    <td class="number_overline"><%= format_currency(@sales_order.total_gst) %></td>
+  </tr>
+  <tr>
+    <td class="number" colspan="7">Total</td>
     <td class="number_bothline"><%= format_currency(@sales_order.total_price) %></td>
   </tr>
 </table>
@@ -63,4 +57,4 @@
   <p>
     <%= f.submit 'Update' %>
   </p>
-  <% end %>
+<% end %>

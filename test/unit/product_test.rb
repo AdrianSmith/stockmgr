@@ -20,6 +20,7 @@
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime
 #  updated_at          :datetime
+#  include_gst         :boolean(1)
 #
 
 # == Schema Information
@@ -73,10 +74,24 @@ class ProductTest < ActiveSupport::TestCase
       assert_equal(BigDecimal.new("2.53"), @product.cost)
     end
 
-    should "calculate price" do
+    should "calculate price if excludes GST" do
       assert_equal(BigDecimal.new("5.24"), @product.price)
     end
-  end  
+
+    should "calculate 0.0 for GST if excludes GST" do
+      assert_equal(BigDecimal.new("0.0"), @product.gst)
+    end
+
+    should "calculate price if includes GST" do
+      @product.include_gst = true
+      assert_equal(BigDecimal.new("5.24") * 1.1, @product.price)
+    end
+
+    should "calculate GST component if includes GST" do
+      @product.include_gst = true
+      assert_equal(BigDecimal.new("5.24") * 0.1, @product.gst)
+    end
+  end
 
   context "A valid product with a minimum quantity" do
     should "calculate suggested quantities" do
@@ -84,10 +99,6 @@ class ProductTest < ActiveSupport::TestCase
       expected_data = [10, 20, 30, 40, 50, 100, 200, 500, 1000]
       assert_equal(expected_data, product.suggested_quantities)
     end
-  end            
+  end
 
 end
-
-
-
-

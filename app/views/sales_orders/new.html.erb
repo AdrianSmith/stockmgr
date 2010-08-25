@@ -1,30 +1,20 @@
 <h1>New Sales Order for Customer: <%= @user.pretty_name %></h1>
 
 <% form_tag :action => 'add_basket_item_new', :id => @user.id do %>
-<p>
-  Product Type <%= select_tag :product_type,  options_for_select(@available_product_types), {:onchange => remote_function(:url => {:action => :update_products}, :with => "'product_type='+value")} %>
-</p>
-
-<p>
-  <div id="product"><%= render :partial => 'product', :object => @available_products %></div>
-</p>
-
-<p>
-  Quantity <%= text_field_tag :quantity %> <%= @uom %>
-</p>
-
-<%= submit_tag 'Add Item' %>
-<% end %> 
+  <%= render :partial => 'form_add_table' %>
+  <p><%= submit_tag 'Add Item' %></p>
+<% end %>
 
 <hr>
 
 <table class="listing" width="100%">
   <tr>
     <th>Item</th>
-    <th>Type</th>
     <th>Supplier</th>
+    <th>Type</th>
     <th>Product</th>
     <th>Unit Price</th>
+    <th>Inc GST</th>
     <th>Quantity</th>
     <th>Price</th>
     <th></th>
@@ -38,29 +28,33 @@
     <td class="text"><%= item.product_type_name %></td>
     <td class="text"><%= item.product_name %> [<%= item.units_of_measure %>]</td>
     <td class="status"><%= format_currency(item.price) %></td>
+    <td class="status"><%= format_boolean(item.include_gst) %></td>
     <td class="status"><%= format_decimal_number(item.quantity) %></td>
     <td class="number"><%= format_currency(item.total_price) %></td>
-    <td class="status"><%= link_to(icon_delete, {:action => 'remove_basket_item_new', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
+    <td class="status"><%= link_to(icon_delete, {:action => 'remove_basket_item', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
   </tr>
   <% item_index += 1 %>
   <% end %>
   <tr>
-    <td class="number" colspan="6">Total</td>
+    <td class="number" colspan="7">GST</td>
+    <td class="number_overline"><%= format_currency(@basket.total_gst) %></td>
+  </tr>
+  <tr>
+    <td class="number" colspan="7">Total</td>
     <td class="number_bothline"><%= format_currency(@basket.total_price) %></td>
   </tr>
 </table>
 
 <% form_tag :action => 'create', :id => @user.id do %>
-<p>
-  <b>Public Comment</b> (appears on statement)<br />
-  <%= text_area_tag :public_comment, nil, :rows => 4, :cols => 80 %>
-</p>
-<p>
-  <b>Private Comment</b><br />
-  <%= text_area_tag :private_comment, nil, :rows => 4, :cols => 80 %>
-</p>
-
-<p>
-  <%= submit_tag 'Create Order' %>
-</p>                                                                
+  <p>
+    <b>Public Comment</b> (appears on statement)<br />
+    <%= text_area_tag :public_comment, nil, :rows => 4, :cols => 80 %>
+  </p>
+  <p>
+    <b>Private Comment</b><br />
+    <%= text_area_tag :private_comment, nil, :rows => 4, :cols => 80 %>
+  </p>
+  <p>
+    <%= submit_tag 'Create Order' %>
+  </p>                                                                
 <% end %>

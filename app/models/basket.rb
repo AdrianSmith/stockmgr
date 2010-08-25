@@ -14,4 +14,8 @@ class Basket
   def total_price
     items.inject(0){|sum, o| sum + o.total_price} 
   end
+
+  def total_gst
+    items.inject(0){|sum, o| sum + o.total_gst} 
+  end
 end

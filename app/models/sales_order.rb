@@ -28,6 +28,10 @@ class SalesOrder < ActiveRecord::Base
 
   PAYMENT_DAYS = 14
 
+  def total_gst
+    sales_order_items.inject(0){|sum, o| sum + o.total_gst} 
+  end
+
   def total_price
     sales_order_items.inject(0){|sum, o| sum + o.price}
   end

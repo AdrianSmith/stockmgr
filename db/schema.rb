@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100622065246) do
+ActiveRecord::Schema.define(:version => 20100823012848) do
 
   create_table "certifiers", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20100622065246) do
     t.decimal  "sale_price",          :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "include_gst"
   end
 
   add_index "products", ["certifier_id"], :name => "index_products_on_certifier_id"
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20100622065246) do
     t.decimal  "amount",             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "include_gst"
   end
 
   add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"

@@ -30,4 +30,8 @@ class SalesOrderItem < ActiveRecord::Base
     end
   end
 
+  def total_gst
+    product.gst * quantity
+  end
+
 end
