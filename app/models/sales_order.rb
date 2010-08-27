@@ -131,21 +131,24 @@ class SalesOrder < ActiveRecord::Base
           item.product.id,
           item.product.name + ' [' + item.product.units_of_measure.short_name + ']',
           FormatHelper.format_currency(item.product.price),
+          item.product.gst_message,
           FormatHelper.format_decimal_number(item.quantity),
           FormatHelper.format_currency(item.price).to_s
         ]
       end
-      table_data << ["", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
+      table_data << [" ", "", "", "", "", ""]
+      table_data << ["", "", "", "", "GST", FormatHelper.format_currency(self.total_gst)]
+      table_data << ["", "", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
 
       pdf.table table_data,
-        :headers            => ["ID", "Product", "Unit Price", "Quantity", "Price"],
+        :headers            => ["Product ID", "Product Name", "Unit Price", "", "Quantity", "Price"],
         :position           => :left,
         :width              => pdf.bounds.width,
         :row_colors         => :pdf_writer,
         :font_size          => 9,
         :border_style       => :underline_header,
-        :align_headers      => {2 => :center, 3 => :center, 4 => :right, 5 => :right},
-        :align              => {0 => :left, 2 => :center, 3 => :center, 4 => :right, 5 => :right},
+        :align_headers      => {0 => :left, 2 => :right, 3 => :left, 4 => :right, 5 => :right},
+        :align              => {0 => :center, 2 => :right, 3 => :left, 4 => :right, 5 => :right},
         :vertical_padding   => 2,
         :horizontal_padding => 4
     end

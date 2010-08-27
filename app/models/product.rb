@@ -60,7 +60,7 @@ class Product < ActiveRecord::Base
     if self.include_gst
       'Inc GST'
     else
-      'Exc GST'
+      ''
     end
   end
   
