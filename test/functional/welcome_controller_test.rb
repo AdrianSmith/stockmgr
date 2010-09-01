@@ -8,12 +8,10 @@ class WelcomeControllerTest < ActionController::TestCase
         get :index
       end
 
-      should respond_with :success
-      should render_template :index
-
-      should assign_to(:customers_count), :class => Integer
-      should assign_to(:suppliers_count), :class => Integer
-      should assign_to(:products_count), :class => Integer
+      should_respond_with :success
+      should_assign_to :customers_count, :class => Integer
+      should_assign_to :suppliers_count, :class => Integer
+      should_assign_to :products_count, :class => Integer
     end
 
   end

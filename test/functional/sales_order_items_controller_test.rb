@@ -14,9 +14,8 @@ class SalesOrderItemsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to(:sales_order_items), :class => Array
-      should respond_with :success
-      should render_template :index
+      should_assign_to :sales_order_items, :class => Array
+      should_respond_with :success
     end
 
     context "POST to :create with valid data" do
@@ -24,8 +23,8 @@ class SalesOrderItemsControllerTest < ActionController::TestCase
         post :create, :id => @sales_order.id, :product_id => @product.id, :quantity => '0.32'
       end
 
-      should assign_to(:sales_order_item), :class => SalesOrderItem
-      should respond_with :redirect
+      should_assign_to :sales_order_item, :class => SalesOrderItem
+      should_respond_with :redirect
     end
 
   end

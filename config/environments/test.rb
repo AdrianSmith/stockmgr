@@ -30,9 +30,6 @@ config.action_mailer.delivery_method = :test
 config.gem "mocha"
 config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
 config.gem 'thoughtbot-shoulda', :lib => false, :source => 'http://gems.github.com'
-config.gem 'flog'
-config.gem 'flay'
-config.gem 'roodi'
-config.gem 'rcov'
 config.gem "rspec", :lib => false, :version => ">= 1.3.0"
 config.gem "rspec-rails", :lib => false, :version => ">= 1.3.2"
+config.gem 'metric_fu'

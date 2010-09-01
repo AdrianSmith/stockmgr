@@ -12,9 +12,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to(:payment_types), :class => Array
-      should respond_with :success
-      should render_template :index
+      should_assign_to :payment_types, :class => Array
+      should_respond_with :success
     end  
 
     context "GET to :show" do
@@ -23,9 +22,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :show, :id => @payment_type.id
       end
 
-      should assign_to(:payment_type), :class => PaymentType
-      should respond_with :success
-      should render_template :show
+      should_assign_to :payment_type, :class => PaymentType
+      should_respond_with :success
     end 
 
     context "GET to :new" do
@@ -33,9 +31,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to(:payment_type), :class => PaymentType
-      should respond_with :success
-      should render_template :new
+      should_assign_to :payment_type, :class => PaymentType
+      should_respond_with :success
     end   
 
     context "POST to :create with valid data" do  
@@ -43,9 +40,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         post :create, :payment_type => {:name => "Credit"}
       end
 
-      should assign_to(:payment_type), :class => PaymentType 
-      should respond_with :redirect
-      should redirect_to("index page"){@payment_type}
+      should_assign_to :payment_type, :class => PaymentType 
+      should_respond_with :redirect
     end
 
     context "GET to :edit" do
@@ -53,9 +49,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :edit, :id => @payment_type.id
       end
 
-      should assign_to(:payment_type){@payment_type}
-      should respond_with :success
-      should render_template :edit
+      should_assign_to(:payment_type){@payment_type}
+      should_respond_with :success
     end
 
     context "PUT to :update with valid data" do
@@ -63,8 +58,8 @@ class PaymentTypesControllerTest < ActionController::TestCase
         put :update, :id => @payment_type.id, :payment_type => {}
       end
 
-      should assign_to(:payment_type){@payment_type}
-      should respond_with :redirect
+      should_assign_to(:payment_type){@payment_type}
+      should_respond_with :redirect
     end   
   end 
 end

@@ -12,9 +12,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to(:payments), :class => Array
-      should respond_with :success
-      should render_template :index
+      should_assign_to :payments, :class => Array
+      should_respond_with :success
     end  
 
     context "GET to :show" do
@@ -23,9 +22,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :show, :id => @payment.id
       end
 
-      should assign_to(:payment), :class => Payment
-      should respond_with :success
-      should render_template :show
+      should_assign_to :payment, :class => Payment
+      should_respond_with :success
     end 
 
     context "GET to :new" do
@@ -33,9 +31,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to(:payment), :class => Payment
-      should respond_with :success
-      should render_template :new
+      should_assign_to :payment, :class => Payment
+      should_respond_with :success
     end   
 
     context "POST to :create with valid data" do  
@@ -43,8 +40,7 @@ class PaymentsControllerTest < ActionController::TestCase
         post :create, :payment => {:amount => BigDecimal.new("33.45"), :user => User.new, :payment_type => PaymentType.new}
       end
 
-      should assign_to(:payment), :class => Payment 
-      should respond_with :redirect
+      should_assign_to :payment, :class => Payment 
     end
 
     context "GET to :edit" do
@@ -52,9 +48,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :edit, :id => @payment.id
       end
 
-      should assign_to(:payment){@payment}
-      should respond_with :success
-      should render_template :edit
+      should_assign_to(:payment){@payment}
+      should_respond_with :success
     end
 
     context "PUT to :update with valid data" do
@@ -62,8 +57,8 @@ class PaymentsControllerTest < ActionController::TestCase
         put :update, :id => @payment.id, :payment => {}
       end
 
-      should assign_to(:payment){@payment}
-      should respond_with :redirect
+      should_assign_to(:payment){@payment}
+      should_respond_with :redirect
     end   
   end 
 end

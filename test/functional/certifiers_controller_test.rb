@@ -12,9 +12,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to(:certifiers), :class => Array
-      should respond_with(:success)
-      should render_template(:index)
+      should_assign_to :certifiers, :class => Array
+      should_respond_with(:success)
     end
 
     context "GET to :show" do
@@ -23,9 +22,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :show, :id => @certifier.id
       end
 
-      should assign_to(:certifier), :class => Certifier
-      should respond_with(:success)
-      should render_template(:show)
+      should_assign_to :certifier, :class => Certifier
+      should_respond_with(:success)
     end
 
     context "GET to :new" do
@@ -33,9 +31,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to(:certifier), :class => Certifier
-      should respond_with(:success)
-      should render_template(:new)
+      should_assign_to :certifier, :class => Certifier
+      should_respond_with(:success)
     end
 
     context "POST to :create with valid data" do
@@ -43,9 +40,8 @@ class CertifiersControllerTest < ActionController::TestCase
         post :create, :certifier => {:name => 'test2'}
       end
 
-      should assign_to(:certifier), :class => Certifier
-      should respond_with(:redirect)
-      should redirect_to("index page"){certifiers_path}
+      should_assign_to :certifier, :class => Certifier
+      should_respond_with(:redirect)
     end
 
     context "GET to :edit" do
@@ -53,9 +49,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :edit, :id => @certifier.id
       end
 
-      should assign_to(:certifier){@certifier}
-      should respond_with(:success)
-      should render_template(:edit)
+      should_assign_to(:certifier){@certifier}
+      should_respond_with(:success)
     end
 
     context "PUT to :update with valid data" do
@@ -63,9 +58,8 @@ class CertifiersControllerTest < ActionController::TestCase
         put :update, :id => @certifier.id, :certifier => {}
       end
 
-      should assign_to(:certifier){@certifier}
-      should respond_with(:redirect)
-      should redirect_to("index page"){certifiers_path}
+      should_assign_to(:certifier){@certifier}
+      should_respond_with(:redirect)
     end
   end
 end

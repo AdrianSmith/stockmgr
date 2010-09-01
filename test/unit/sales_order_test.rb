@@ -19,9 +19,9 @@
 require 'test_helper'
 
 class SalesOrderTest < ActiveSupport::TestCase 
-  should validate_presence_of(:user)
-  should have_many(:sales_order_items)
-  should belong_to(:user)
+  should_validate_presence_of(:user)
+  should_have_many(:sales_order_items)
+  should_belong_to(:user)
 
   context "A valid Sales Order" do
     setup do

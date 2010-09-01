@@ -12,31 +12,6 @@
 #  certifier_id        :integer(4)
 #  storage_type_id     :integer(4)
 #  units_of_measure_id :integer(4)
-#  minimum_quantity    :integer(4)
-#  storage_location_id :integer(4)
-#  physical_form_id    :integer(4)
-#  stock_quantity      :integer(4)
-#  purchase_price      :decimal(8, 2)   default(0.0)
-#  sale_price          :decimal(8, 2)   default(0.0)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  include_gst         :boolean(1)
-#
-
-# == Schema Information
-#
-# Table name: products
-#
-#  id                  :integer(4)      not null, primary key
-#  name                :string(255)
-#  image_url           :string(255)
-#  description         :text
-#  supplier_reference  :text
-#  product_type_id     :integer(4)
-#  supplier_id         :integer(4)
-#  certifier_id        :integer(4)
-#  storage_type_id     :integer(4)
-#  units_of_measure_id :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
 #  stock_quantity      :integer(10)
@@ -48,22 +23,22 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
-  should belong_to(:product_type)
-  should belong_to(:supplier)
-  should belong_to(:certifier)
-  should belong_to(:units_of_measure)
-  should belong_to(:storage_type)
-  should belong_to(:storage_location)
-  should belong_to(:physical_form)
-  should have_many(:sales_order_items)
-  should have_many(:purchase_order_items)
+  should_belong_to(:product_type)
+  should_belong_to(:supplier)
+  should_belong_to(:certifier)
+  should_belong_to(:units_of_measure)
+  should_belong_to(:storage_type)
+  should_belong_to(:storage_location)
+  should_belong_to(:physical_form)
+  should_have_many(:sales_order_items)
+  should_have_many(:purchase_order_items)
 
-  should validate_presence_of(:name)
-  should validate_presence_of(:product_type)
-  should validate_presence_of(:supplier)
-  should validate_presence_of(:certifier)
-  should validate_presence_of(:units_of_measure)
-  should validate_presence_of(:minimum_quantity)
+  should_validate_presence_of(:name)
+  should_validate_presence_of(:product_type)
+  should_validate_presence_of(:supplier)
+  should_validate_presence_of(:certifier)
+  should_validate_presence_of(:units_of_measure)
+  should_validate_presence_of(:minimum_quantity)
 
   context "A valid product instance" do
     setup do

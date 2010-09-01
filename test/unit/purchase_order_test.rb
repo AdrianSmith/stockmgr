@@ -17,9 +17,9 @@
 require 'test_helper'
 
 class PurchaseOrderTest < ActiveSupport::TestCase
-  should have_many(:purchase_order_items)
-  should belong_to(:supplier)
-  should validate_presence_of(:supplier)
+  should_have_many(:purchase_order_items)
+  should_belong_to(:supplier)
+  should_validate_presence_of(:supplier)
 
   context "A valid Purchase Order" do
     setup do

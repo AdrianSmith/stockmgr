@@ -13,9 +13,8 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to(:sales_orders), :class => Array
-      should respond_with :success
-      should render_template :index
+      should_assign_to :sales_orders, :class => Array
+      should_respond_with :success
     end
 
     context "GET to :show" do
@@ -24,9 +23,8 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :show, :id => @sales_order.id
       end
 
-      should assign_to(:sales_order), :class => SalesOrder
-      should respond_with :success
-      should render_template :show
+      should_assign_to :sales_order, :class => SalesOrder
+      should_respond_with :success
     end
 
     context "GET to :new" do
@@ -34,9 +32,8 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :new, :id => @sales_order.id
       end
 
-      should assign_to(:sales_order), :class => SalesOrder
-      should respond_with :success
-      should render_template :new
+      should_assign_to :sales_order, :class => SalesOrder
+      should_respond_with :success
     end
 
     context "POST to :create with valid data" do
@@ -44,7 +41,7 @@ class SalesOrdersControllerTest < ActionController::TestCase
         post :create, :id => @sales_order.id, :sales_orders => {:private_comment => 'test2'}
       end
 
-      should respond_with :redirect
+      should_respond_with :redirect
     end
 
     context "GET to :edit" do
@@ -52,9 +49,8 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :edit, :id => @sales_order.id
       end
 
-      should assign_to(:sales_order){@sales_order}
-      should respond_with :success
-      should render_template :edit
+      should_assign_to(:sales_order){@sales_order}
+      should_respond_with :success
     end
 
     context "PUT to :update with valid data" do
@@ -62,9 +58,9 @@ class SalesOrdersControllerTest < ActionController::TestCase
         put :update, :id => @sales_order.id, :sales_order => {}
       end
 
-      should assign_to(:sales_order){@sales_orders}
-      should respond_with :redirect
-      should redirect_to("sales_order page"){sales_order_path}
+      should_assign_to(:sales_order){@sales_orders}
+      should_respond_with :redirect
+      should_redirect_to("sales_order page"){sales_order_path}
     end
   end
 end
