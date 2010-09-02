@@ -12,7 +12,7 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :product_types, :class => Array
+      should assign_to(:product_types), :class => Array
       should respond_with :success
     end  
 
@@ -22,7 +22,7 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :show, :id => @product_type.id
       end
 
-      should assign_to :product_type, :class => ProductType
+      should assign_to(:product_type), :class => ProductType
       should respond_with :success
     end 
 
@@ -31,7 +31,7 @@ class ProductTypesControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :product_type, :class => ProductType
+      should assign_to(:product_type), :class => ProductType
       should respond_with :success
     end   
 
@@ -40,7 +40,7 @@ class ProductTypesControllerTest < ActionController::TestCase
         post :create, :product_type => {:name => 'test2'}
       end
 
-      should assign_to :product_type, :class => ProductType 
+      should assign_to(:product_type), :class => ProductType 
       should respond_with :redirect
       should redirect_to("index page"){product_types_path}
     end

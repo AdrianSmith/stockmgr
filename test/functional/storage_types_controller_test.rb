@@ -12,7 +12,7 @@ class StorageTypesControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :storage_types, :class => Array
+      should assign_to(:storage_types), :class => Array
       should respond_with :success
     end
 
@@ -22,7 +22,7 @@ class StorageTypesControllerTest < ActionController::TestCase
         get :show, :id => @storage_type.id
       end
 
-      should assign_to :storage_type, :class => StorageType
+      should assign_to(:storage_type), :class => StorageType
       should respond_with :success
     end
 
@@ -31,7 +31,7 @@ class StorageTypesControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :storage_type, :class => StorageType
+      should assign_to(:storage_type), :class => StorageType
       should respond_with :success
     end
 
@@ -40,7 +40,7 @@ class StorageTypesControllerTest < ActionController::TestCase
         post :create, :storage_type => {:name => 'test2'}
 
       end
-      should assign_to :storage_type, :class => StorageType
+      should assign_to(:storage_type), :class => StorageType
       should respond_with :redirect
       should redirect_to("index page"){storage_types_path}
     end

@@ -9,9 +9,9 @@ class WelcomeControllerTest < ActionController::TestCase
       end
 
       should respond_with :success
-      should assign_to :customers_count, :class => Integer
-      should assign_to :suppliers_count, :class => Integer
-      should assign_to :products_count, :class => Integer
+      should assign_to(:customers_count), :class => Integer
+      should assign_to(:suppliers_count), :class => Integer
+      should assign_to(:products_count), :class => Integer
     end
 
   end

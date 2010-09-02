@@ -12,7 +12,7 @@ class PaymentsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :payments, :class => Array
+      should assign_to(:payments), :class => Array
       should respond_with :success
     end  
 
@@ -22,7 +22,7 @@ class PaymentsControllerTest < ActionController::TestCase
         get :show, :id => @payment.id
       end
 
-      should assign_to :payment, :class => Payment
+      should assign_to(:payment), :class => Payment
       should respond_with :success
     end 
 
@@ -31,7 +31,7 @@ class PaymentsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :payment, :class => Payment
+      should assign_to(:payment), :class => Payment
       should respond_with :success
     end   
 
@@ -40,7 +40,7 @@ class PaymentsControllerTest < ActionController::TestCase
         post :create, :payment => {:amount => BigDecimal.new("33.45"), :user => User.new, :payment_type => PaymentType.new}
       end
 
-      should assign_to :payment, :class => Payment 
+      should assign_to(:payment), :class => Payment 
     end
 
     context "GET to :edit" do

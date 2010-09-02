@@ -14,7 +14,7 @@ class PurchaseOrderItemsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :purchase_order_items, :class => Array
+      should assign_to(:purchase_order_items), :class => Array
       should respond_with :success
     end
 
@@ -23,7 +23,7 @@ class PurchaseOrderItemsControllerTest < ActionController::TestCase
         post :create, :id => @purchase_order.id, :product => @product.id, :quantity => '0.32'
       end
 
-      should assign_to :purchase_order_item, :class => PurchaseOrderItem
+      should assign_to(:purchase_order_item), :class => PurchaseOrderItem
       should respond_with :redirect
     end
 

@@ -13,7 +13,7 @@ namespace :test do
 
   desc 'Runs all the tests'
   task :all do
-    errors = %w(test:units test:functionals test:integration spec cucumber).collect do |task|
+    errors = %w(test:units test:functionals test:integration spec).collect do |task|
       begin
         Rake::Task[task].invoke
         nil

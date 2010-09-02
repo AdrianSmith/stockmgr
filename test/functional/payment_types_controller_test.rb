@@ -12,7 +12,7 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :payment_types, :class => Array
+      should assign_to(:payment_types), :class => Array
       should respond_with :success
     end  
 
@@ -22,7 +22,7 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :show, :id => @payment_type.id
       end
 
-      should assign_to :payment_type, :class => PaymentType
+      should assign_to(:payment_type), :class => PaymentType
       should respond_with :success
     end 
 
@@ -31,7 +31,7 @@ class PaymentTypesControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :payment_type, :class => PaymentType
+      should assign_to(:payment_type), :class => PaymentType
       should respond_with :success
     end   
 
@@ -40,7 +40,7 @@ class PaymentTypesControllerTest < ActionController::TestCase
         post :create, :payment_type => {:name => "Credit"}
       end
 
-      should assign_to :payment_type, :class => PaymentType 
+      should assign_to(:payment_type), :class => PaymentType 
       should respond_with :redirect
     end
 

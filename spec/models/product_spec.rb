@@ -15,7 +15,7 @@
 #  minimum_quantity    :integer(4)
 #  storage_location_id :integer(4)
 #  physical_form_id    :integer(4)
-#  stock_quantity      :integer(4)
+#  stock_quantity      :integer(10)
 #  purchase_price      :decimal(8, 2)   default(0.0)
 #  sale_price          :decimal(8, 2)   default(0.0)
 #  created_at          :datetime
@@ -31,7 +31,17 @@ describe Product do
     @supplier = Supplier.new
     @certifier = Certifier.new
     @units_of_measure = UnitsOfMeasure.new
-    @valid_attributes = {:name => 'Almonds', :product_type => @product_type, :supplier => @supplier, :certifier => @certifier, :units_of_measure => @units_of_measure}
+    @minimum_quantity = 1
+    @storage_type = StorageType.new
+    @storage_location = StorageLocation.new
+    @valid_attributes = {:name => 'Almonds', 
+                         :product_type => @product_type, 
+                         :supplier => @supplier, 
+                         :certifier => @certifier, 
+                         :minimum_quantity => @minimum_quantity,
+                         :storage_location => @storage_location,
+                         :storage_type => @storage_type,
+                         :units_of_measure => @units_of_measure}
   end
 
   it "should create a new instance given valid attributes" do

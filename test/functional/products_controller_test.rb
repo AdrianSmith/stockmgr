@@ -12,7 +12,7 @@ class ProductsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :products, :class => Array
+      should assign_to(:products), :class => Array
       should respond_with :success
     end
 
@@ -22,7 +22,7 @@ class ProductsControllerTest < ActionController::TestCase
         get :show, :id => @product.id
       end
 
-      should assign_to :product, :class => Product
+      should assign_to(:product), :class => Product
       should respond_with :success
     end
 
@@ -31,7 +31,7 @@ class ProductsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :product, :class => Product
+      should assign_to(:product), :class => Product
       should respond_with :success
     end
 
@@ -47,7 +47,7 @@ class ProductsControllerTest < ActionController::TestCase
                                    :storage_location => StorageLocation.new}
       end
 
-      should assign_to :product, :class => Product
+      should assign_to(:product), :class => Product
       should respond_with :redirect
       should redirect_to("index page"){products_path}
     end

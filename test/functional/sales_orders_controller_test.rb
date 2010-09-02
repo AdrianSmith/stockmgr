@@ -13,7 +13,7 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :sales_orders, :class => Array
+      should assign_to(:sales_orders), :class => Array
       should respond_with :success
     end
 
@@ -23,7 +23,7 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :show, :id => @sales_order.id
       end
 
-      should assign_to :sales_order, :class => SalesOrder
+      should assign_to(:sales_order), :class => SalesOrder
       should respond_with :success
     end
 
@@ -32,7 +32,7 @@ class SalesOrdersControllerTest < ActionController::TestCase
         get :new, :id => @sales_order.id
       end
 
-      should assign_to :sales_order, :class => SalesOrder
+      should assign_to(:sales_order), :class => SalesOrder
       should respond_with :success
     end
 

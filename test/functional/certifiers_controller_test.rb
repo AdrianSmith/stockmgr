@@ -12,7 +12,7 @@ class CertifiersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :certifiers, :class => Array
+      should assign_to(:certifiers), :class => Array
       should respond_with(:success)
     end
 
@@ -22,7 +22,7 @@ class CertifiersControllerTest < ActionController::TestCase
         get :show, :id => @certifier.id
       end
 
-      should assign_to :certifier, :class => Certifier
+      should assign_to(:certifier), :class => Certifier
       should respond_with(:success)
     end
 
@@ -31,7 +31,7 @@ class CertifiersControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :certifier, :class => Certifier
+      should assign_to(:certifier), :class => Certifier
       should respond_with(:success)
     end
 
@@ -40,7 +40,7 @@ class CertifiersControllerTest < ActionController::TestCase
         post :create, :certifier => {:name => 'test2'}
       end
 
-      should assign_to :certifier, :class => Certifier
+      should assign_to(:certifier), :class => Certifier
       should respond_with(:redirect)
     end
 

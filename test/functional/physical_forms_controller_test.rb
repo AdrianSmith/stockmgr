@@ -12,7 +12,7 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should assign_to :physical_forms, :class => Array
+      should assign_to(:physical_forms), :class => Array
       should respond_with :success
     end
 
@@ -22,7 +22,7 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :show, :id => @physical_form.id
       end
 
-      should assign_to :physical_form, :class => PhysicalForm
+      should assign_to(:physical_form), :class => PhysicalForm
       should respond_with :success
     end
 
@@ -31,7 +31,7 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should assign_to :physical_form, :class => PhysicalForm
+      should assign_to(:physical_form), :class => PhysicalForm
       should respond_with :success
     end
 
@@ -40,7 +40,7 @@ class PhysicalFormsControllerTest < ActionController::TestCase
         post :create, :physical_form => {:name => 'test2'}
 
       end
-      should assign_to :physical_form, :class => PhysicalForm
+      should assign_to(:physical_form), :class => PhysicalForm
       should respond_with :redirect
       should redirect_to("index page"){physical_forms_path}
     end
