@@ -33,12 +33,12 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  should_have_many(:sales_orders)
-  should_have_many(:payments  )
-  should_validate_presence_of(:username)
-  should_validate_uniqueness_of(:username)
-  should_validate_presence_of(:email)
-  should_validate_uniqueness_of(:email)
+  should have_many(:sales_orders)
+  should have_many(:payments  )
+  should validate_presence_of(:username)
+  should validate_uniqueness_of(:username)
+  should validate_presence_of(:email)
+  should validate_uniqueness_of(:email)
 
   context "A valid user" do
     setup do

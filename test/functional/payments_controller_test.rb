@@ -12,8 +12,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :payments, :class => Array
-      should_respond_with :success
+      should assign_to :payments, :class => Array
+      should respond_with :success
     end  
 
     context "GET to :show" do
@@ -22,8 +22,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :show, :id => @payment.id
       end
 
-      should_assign_to :payment, :class => Payment
-      should_respond_with :success
+      should assign_to :payment, :class => Payment
+      should respond_with :success
     end 
 
     context "GET to :new" do
@@ -31,8 +31,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :payment, :class => Payment
-      should_respond_with :success
+      should assign_to :payment, :class => Payment
+      should respond_with :success
     end   
 
     context "POST to :create with valid data" do  
@@ -40,7 +40,7 @@ class PaymentsControllerTest < ActionController::TestCase
         post :create, :payment => {:amount => BigDecimal.new("33.45"), :user => User.new, :payment_type => PaymentType.new}
       end
 
-      should_assign_to :payment, :class => Payment 
+      should assign_to :payment, :class => Payment 
     end
 
     context "GET to :edit" do
@@ -48,8 +48,8 @@ class PaymentsControllerTest < ActionController::TestCase
         get :edit, :id => @payment.id
       end
 
-      should_assign_to(:payment){@payment}
-      should_respond_with :success
+      should assign_to(:payment){@payment}
+      should respond_with :success
     end
 
     context "PUT to :update with valid data" do
@@ -57,8 +57,8 @@ class PaymentsControllerTest < ActionController::TestCase
         put :update, :id => @payment.id, :payment => {}
       end
 
-      should_assign_to(:payment){@payment}
-      should_respond_with :redirect
+      should assign_to(:payment){@payment}
+      should respond_with :redirect
     end   
   end 
 end

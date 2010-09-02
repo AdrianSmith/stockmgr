@@ -15,13 +15,3 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
-
-config.gem "mocha"
-config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-config.gem 'thoughtbot-shoulda', :lib => false, :source => 'http://gems.github.com'
-config.gem 'flog'
-config.gem 'flay'
-config.gem 'roodi'
-config.gem 'rcov'
-config.gem "rspec", :lib => false, :version => ">= 1.3.0"
-config.gem "rspec-rails", :lib => false, :version => ">= 1.3.2"

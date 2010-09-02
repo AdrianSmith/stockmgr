@@ -23,22 +23,22 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
-  should_belong_to(:product_type)
-  should_belong_to(:supplier)
-  should_belong_to(:certifier)
-  should_belong_to(:units_of_measure)
-  should_belong_to(:storage_type)
-  should_belong_to(:storage_location)
-  should_belong_to(:physical_form)
-  should_have_many(:sales_order_items)
-  should_have_many(:purchase_order_items)
+  should belong_to(:product_type)
+  should belong_to(:supplier)
+  should belong_to(:certifier)
+  should belong_to(:units_of_measure)
+  should belong_to(:storage_type)
+  should belong_to(:storage_location)
+  should belong_to(:physical_form)
+  should have_many(:sales_order_items)
+  should have_many(:purchase_order_items)
 
-  should_validate_presence_of(:name)
-  should_validate_presence_of(:product_type)
-  should_validate_presence_of(:supplier)
-  should_validate_presence_of(:certifier)
-  should_validate_presence_of(:units_of_measure)
-  should_validate_presence_of(:minimum_quantity)
+  should validate_presence_of(:name)
+  should validate_presence_of(:product_type)
+  should validate_presence_of(:supplier)
+  should validate_presence_of(:certifier)
+  should validate_presence_of(:units_of_measure)
+  should validate_presence_of(:minimum_quantity)
 
   context "A valid product instance" do
     setup do

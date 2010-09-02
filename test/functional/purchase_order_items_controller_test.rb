@@ -14,8 +14,8 @@ class PurchaseOrderItemsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :purchase_order_items, :class => Array
-      should_respond_with :success
+      should assign_to :purchase_order_items, :class => Array
+      should respond_with :success
     end
 
     context "POST to :create with valid data" do
@@ -23,8 +23,8 @@ class PurchaseOrderItemsControllerTest < ActionController::TestCase
         post :create, :id => @purchase_order.id, :product => @product.id, :quantity => '0.32'
       end
 
-      should_assign_to :purchase_order_item, :class => PurchaseOrderItem
-      should_respond_with :redirect
+      should assign_to :purchase_order_item, :class => PurchaseOrderItem
+      should respond_with :redirect
     end
 
   end

@@ -12,8 +12,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :certifiers, :class => Array
-      should_respond_with(:success)
+      should assign_to :certifiers, :class => Array
+      should respond_with(:success)
     end
 
     context "GET to :show" do
@@ -22,8 +22,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :show, :id => @certifier.id
       end
 
-      should_assign_to :certifier, :class => Certifier
-      should_respond_with(:success)
+      should assign_to :certifier, :class => Certifier
+      should respond_with(:success)
     end
 
     context "GET to :new" do
@@ -31,8 +31,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :certifier, :class => Certifier
-      should_respond_with(:success)
+      should assign_to :certifier, :class => Certifier
+      should respond_with(:success)
     end
 
     context "POST to :create with valid data" do
@@ -40,8 +40,8 @@ class CertifiersControllerTest < ActionController::TestCase
         post :create, :certifier => {:name => 'test2'}
       end
 
-      should_assign_to :certifier, :class => Certifier
-      should_respond_with(:redirect)
+      should assign_to :certifier, :class => Certifier
+      should respond_with(:redirect)
     end
 
     context "GET to :edit" do
@@ -49,8 +49,8 @@ class CertifiersControllerTest < ActionController::TestCase
         get :edit, :id => @certifier.id
       end
 
-      should_assign_to(:certifier){@certifier}
-      should_respond_with(:success)
+      should assign_to(:certifier){@certifier}
+      should respond_with(:success)
     end
 
     context "PUT to :update with valid data" do
@@ -58,8 +58,8 @@ class CertifiersControllerTest < ActionController::TestCase
         put :update, :id => @certifier.id, :certifier => {}
       end
 
-      should_assign_to(:certifier){@certifier}
-      should_respond_with(:redirect)
+      should assign_to(:certifier){@certifier}
+      should respond_with(:redirect)
     end
   end
 end

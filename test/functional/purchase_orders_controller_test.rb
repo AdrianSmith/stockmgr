@@ -13,8 +13,8 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :purchase_orders, :class => Array
-      should_respond_with :success
+      should assign_to :purchase_orders, :class => Array
+      should respond_with :success
     end
 
     context "GET to :show" do
@@ -23,8 +23,8 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :show, :id => @purchase_order.id
       end
     
-      should_assign_to :purchase_order, :class => PurchaseOrder
-      should_respond_with :success
+      should assign_to :purchase_order, :class => PurchaseOrder
+      should respond_with :success
     end
     
     context "GET to :new" do
@@ -32,8 +32,8 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :new, :supplier_id => @supplier.id
       end
      
-      should_assign_to :purchase_order, :class => PurchaseOrder
-      should_respond_with :success
+      should assign_to :purchase_order, :class => PurchaseOrder
+      should respond_with :success
     end           
 
     context "POST to :create with valid data" do
@@ -48,8 +48,8 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         get :edit, :id => @purchase_order.id
       end
 
-      should_assign_to(:purchase_order){@purchase_order}
-      should_respond_with :success
+      should assign_to(:purchase_order){@purchase_order}
+      should respond_with :success
     end
 
     context "PUT to :update with valid data" do
@@ -57,9 +57,9 @@ class PurchaseOrdersControllerTest < ActionController::TestCase
         put :update, :id => @purchase_order.id, :purchase_order => {}
       end
  
-      should_assign_to(:purchase_order){@purchase_orders}
-      should_respond_with :redirect
-      should_redirect_to("purchase_order page"){purchase_order_path}
+      should assign_to(:purchase_order){@purchase_orders}
+      should respond_with :redirect
+      should redirect_to("purchase_order page"){purchase_order_path}
     end
   end
 end

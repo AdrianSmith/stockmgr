@@ -12,8 +12,8 @@ class ProductsControllerTest < ActionController::TestCase
         get :index
       end
 
-      should_assign_to :products, :class => Array
-      should_respond_with :success
+      should assign_to :products, :class => Array
+      should respond_with :success
     end
 
     context "GET to :show" do
@@ -22,8 +22,8 @@ class ProductsControllerTest < ActionController::TestCase
         get :show, :id => @product.id
       end
 
-      should_assign_to :product, :class => Product
-      should_respond_with :success
+      should assign_to :product, :class => Product
+      should respond_with :success
     end
 
     context "GET to :new" do
@@ -31,8 +31,8 @@ class ProductsControllerTest < ActionController::TestCase
         get :new
       end
 
-      should_assign_to :product, :class => Product
-      should_respond_with :success
+      should assign_to :product, :class => Product
+      should respond_with :success
     end
 
     context "POST to :create with valid data" do
@@ -47,9 +47,9 @@ class ProductsControllerTest < ActionController::TestCase
                                    :storage_location => StorageLocation.new}
       end
 
-      should_assign_to :product, :class => Product
-      should_respond_with :redirect
-      should_redirect_to("index page"){products_path}
+      should assign_to :product, :class => Product
+      should respond_with :redirect
+      should redirect_to("index page"){products_path}
     end
 
     context "GET to :edit" do
@@ -57,9 +57,9 @@ class ProductsControllerTest < ActionController::TestCase
         get :edit, :id => @product.id
       end
 
-      should_assign_to(:product){@product}
-      should_respond_with :success
-      should_render_template :edit
+      should assign_to(:product){@product}
+      should respond_with :success
+      should render_template :edit
     end
 
     context "PUT to :update with valid data" do
@@ -67,9 +67,9 @@ class ProductsControllerTest < ActionController::TestCase
         put :update, :id => @product.id, :product => {}
       end
 
-      should_assign_to(:product){@product}
-      should_respond_with :redirect
-      should_redirect_to("index page"){products_path}
+      should assign_to(:product){@product}
+      should respond_with :redirect
+      should redirect_to("index page"){products_path}
     end
   end
 end
