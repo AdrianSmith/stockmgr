@@ -11,16 +11,16 @@ class SalesOrdersController < ApplicationController
   def new
     @sales_order = SalesOrder.new
     @user = User.find(params[:id])
-    @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
-    @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
-    @available_products = []
-    @available_quantities = (1..10).to_a
-    @basket = find_basket
+    prepare_common_variables
   end
 
   def edit
     @sales_order = SalesOrder.find(params[:id])
     @user = @sales_order.user
+    prepare_common_variables
+  end
+
+  def prepare_common_variables
     @available_product_types = ["Select ..."] + ProductType.find(:all).map{|p| [p.name, p.id]}
     @available_suppliers = ["Select ..."] + Supplier.find(:all).map{|p| [p.name, p.id]}
     @available_products = []
@@ -85,7 +85,7 @@ class SalesOrdersController < ApplicationController
     end
 
     if products.size > 0
-      @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + FormatHelper.format_currency(p.cost) + ' per ' + p.units_of_measure.short_name + ']', p.id]}
+      @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + FormatHelper.format_currency(p.cost) + ']', p.id]}
     else
       @available_products = ["None Available"]
     end
@@ -95,13 +95,22 @@ class SalesOrdersController < ApplicationController
     end
   end
 
-  def add_basket_item_new
-    add_basket_item
-    redirect_to :action => :new, :id => params[:id]
+  def add_sales_order_item
+    sales_order = SalesOrder.find(params[:id])
+    sales_order_item = SalesOrderItem.new
+    sales_order_item.product_id = params[:product_id]
+    sales_order_item.quantity = BigDecimal.new(params[:quantity])
+    sales_order_item.save
+
+    sales_order.sales_order_items << sales_order_item
+    sales_order.save
+    redirect_to :action => :edit, :id => params[:id]
   end
 
-  def add_basket_item_edit
-    add_basket_item
+  def remove_sales_order_item
+    sales_order = SalesOrder.find(params[:id])
+    sales_order_item = sales_order.sales_order_items[params[:array_position].to_i - 1]
+    sales_order_item.destroy
     redirect_to :action => :edit, :id => params[:id]
   end
 
@@ -121,9 +130,11 @@ class SalesOrdersController < ApplicationController
     item.total_price = product.price * item.quantity
     item.include_gst = product.include_gst
     item.gst_message = product.gst_message
+    item.gst = product.gst
     item.total_gst = product.gst * item.quantity
 
     basket.add(item)
+    redirect_to :action => :new, :id => params[:id]
   end
 
   def remove_basket_item
@@ -132,23 +143,14 @@ class SalesOrdersController < ApplicationController
     redirect_to :action => :new, :id => params[:id]
   end
 
-  def remove_sales_order_item
-    sales_order = SalesOrder.find(params[:id])
-    sales_order_item = sales_order.sales_order_items[params[:array_position].to_i - 1]
-    puts '>>>'
-    puts sales_order_item.attributes
-    sales_order_item.destroy
-    redirect_to :action => :edit, :id => params[:id]
-  end
-
   private
 
-    def find_basket
-      session[:basket] ||= Basket.new
-    end
+  def find_basket
+    session[:basket] ||= Basket.new
+  end
 
-    def empty_basket
-      session[:basket] = nil
-    end
+  def empty_basket
+    session[:basket] = nil
+  end
 
 end

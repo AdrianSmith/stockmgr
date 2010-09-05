@@ -17,8 +17,9 @@
     <th>Supplier</th>
     <th>Product</th>
     <th>Unit Price</th>
+    <th>GST</th>
     <th>Quantity</th>
-    <th>Price</th>
+    <th>Price<br/>(Inc GST)</th>
   </tr>
 
   <% @sales_order.sales_order_items.each do |item| %>
@@ -27,12 +28,19 @@
     <td class="text"><%= item.product.supplier.name %></td>
     <td class="text"><%= item.product.name %> [<%= item.product.units_of_measure.short_name %>]</td>
     <td class="status"><%= format_currency(item.product.price) %></td>
+    <td class="status"><%= format_currency(item.product.gst) %></td>
     <td class="status"><%= format_decimal_number(item.quantity) %></td>
     <td class="number"><%= format_currency(item.price) %></td>
   </tr>
   <% end %>
   <tr>
-    <td class="number" colspan="5">Total</td>
+    <td class="number" colspan="6">Total GST</td>
+    <td class="number_overline"><%= format_currency(@sales_order.total_gst) %></td>
+  </tr>
+  <tr>
+    <td class="number" colspan="6">Total Price</td>
     <td class="number_bothline"><%= format_currency(@sales_order.total_price) %></td>
     </tr>
 </table>
+
+<%= link_to 'Edit', edit_sales_order_path(@sales_order) %>

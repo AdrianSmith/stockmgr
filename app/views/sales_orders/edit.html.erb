@@ -1,6 +1,6 @@
 <h1>Editing Sales Order <%= @sales_order.id %> for Customer: <%= link_to(@sales_order.user.pretty_name, @sales_order.user) %></h1>
 
-<% form_tag :action => 'add_basket_item_edit', :id => @user.id do %>
+<% form_tag :action => 'add_sales_order_item', :id => @user.id do %>
   <%= render :partial => 'form_add_table' %>
   <p><%= submit_tag 'Add Item' %></p>
 <% end %>
@@ -13,10 +13,10 @@
     <th>Supplier</th>
     <th>Type</th>
     <th>Product</th>
-    <th>Unit Price</th>
-    <th>Inc GST</th>
+    <th>Unit Price<br/>(Inc GST)</th>
     <th>Quantity</th>
-    <th>Price</th>
+    <th>GST</th>
+    <th>Total Price<br/>(Inc GST)</th>
     <th></th>
   </tr>
 
@@ -27,20 +27,17 @@
       <td class="text"><%= item.product.supplier.name %></td>
       <td class="text"><%= item.product.product_type.name %></td>
       <td class="text"><%= item.product.name %> [<%= item.product.units_of_measure.short_name %>]</td>
-      <td class="status"><%= format_currency(item.product.price) %></td>
-      <td class="status"><%= format_boolean(item.product.include_gst) %></td>
-      <td class="status"><%= format_decimal_number(item.quantity) %></td>
+      <td class="number"><%= format_currency(item.product.price) %></td>
+      <td class="number"><%= format_decimal_number(item.quantity) %></td>
+      <td class="number"><%= format_currency(item.total_gst) %></td>
       <td class="number"><%= format_currency(item.price) %></td>
       <td class="status"><%= link_to(icon_delete, {:action => 'remove_sales_order_item', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
     </tr>
     <% item_index += 1 %>
   <% end %>
   <tr>
-    <td class="number" colspan="7">GST</td>
-    <td class="number_overline"><%= format_currency(@sales_order.total_gst) %></td>
-  </tr>
-  <tr>
-    <td class="number" colspan="7">Total</td>
+    <td class="number" colspan="6"><b>Total for Order</b></td>
+    <td class="number_bothline"><%= format_currency(@sales_order.total_gst) %></td>
     <td class="number_bothline"><%= format_currency(@sales_order.total_price) %></td>
   </tr>
 </table>

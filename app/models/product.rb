@@ -71,7 +71,7 @@ class Product < ActiveRecord::Base
       BigDecimal("0.0")
     end
   end
-
+  
   def suggested_quantities
     [1, 2, 3, 4, 5, 10, 20, 50, 100].collect{|f| f * minimum_quantity}
   end

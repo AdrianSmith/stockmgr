@@ -39,6 +39,10 @@ class SalesOrder < ActiveRecord::Base
   def total_cost
     sales_order_items.inject(0){|sum, o| sum + o.cost}
   end
+  
+  def total_items
+    sales_order_items.inject(0){|sum, o| sum + o.quantity} 
+  end
 
   def due_on
     self.created_at.to_datetime + PAYMENT_DAYS
@@ -141,7 +145,7 @@ class SalesOrder < ActiveRecord::Base
       table_data << ["", "", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
 
       pdf.table table_data,
-        :headers            => ["Product ID", "Product Name", "Unit Price", "", "Quantity", "Price"],
+        :headers            => ["Product ID", "Product Name", "Unit Price", "  ", "Quantity", "Price"],
         :position           => :left,
         :width              => pdf.bounds.width,
         :row_colors         => :pdf_writer,

@@ -1,6 +1,6 @@
 <h1>New Sales Order for Customer: <%= @user.pretty_name %></h1>
 
-<% form_tag :action => 'add_basket_item_new', :id => @user.id do %>
+<% form_tag :action => 'add_basket_item', :id => @user.id do %>
   <%= render :partial => 'form_add_table' %>
   <p><%= submit_tag 'Add Item' %></p>
 <% end %>
@@ -13,10 +13,10 @@
     <th>Supplier</th>
     <th>Type</th>
     <th>Product</th>
-    <th>Unit Price</th>
-    <th>Inc GST</th>
+    <th>Unit Price<br/>(Inc GST)</th>
     <th>Quantity</th>
-    <th>Price</th>
+    <th>GST</th>
+    <th>Total Price<br/>(Inc GST)</th>
     <th></th>
   </tr>
 
@@ -27,20 +27,17 @@
     <td class="text"><%= item.supplier_name %></td>
     <td class="text"><%= item.product_type_name %></td>
     <td class="text"><%= item.product_name %> [<%= item.units_of_measure %>]</td>
-    <td class="status"><%= format_currency(item.price) %></td>
-    <td class="status"><%= format_boolean(item.include_gst) %></td>
-    <td class="status"><%= format_decimal_number(item.quantity) %></td>
+    <td class="number"><%= format_currency(item.price) %></td>
+    <td class="number"><%= format_decimal_number(item.quantity) %></td>
+    <td class="number"><%= format_currency(item.total_gst) %></td>
     <td class="number"><%= format_currency(item.total_price) %></td>
     <td class="status"><%= link_to(icon_delete, {:action => 'remove_basket_item', :id => @user.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete) %></td>
   </tr>
   <% item_index += 1 %>
   <% end %>
   <tr>
-    <td class="number" colspan="7">GST</td>
-    <td class="number_overline"><%= format_currency(@basket.total_gst) %></td>
-  </tr>
-  <tr>
-    <td class="number" colspan="7">Total</td>
+    <td class="number" colspan="6"><b>Total for Order</b></td>
+    <td class="number_bothline"><%= format_currency(@basket.total_gst) %> </td>
     <td class="number_bothline"><%= format_currency(@basket.total_price) %></td>
   </tr>
 </table>
