@@ -141,11 +141,11 @@ class SalesOrder < ActiveRecord::Base
         ]
       end
       table_data << [" ", "", "", "", "", ""]
-      table_data << ["", "", "", "", "GST", FormatHelper.format_currency(self.total_gst)]
-      table_data << ["", "", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
+      table_data << ["", "", "", "", "TOTAL GST", FormatHelper.format_currency(self.total_gst)]
+      table_data << ["", "", "", "", "TOTAL SALE", FormatHelper.format_currency(self.total_price)]
 
       pdf.table table_data,
-        :headers            => ["Product ID", "Product Name", "Unit Price", "  ", "Quantity", "Price"],
+        :headers            => ["Product ID", "Product Name", "Sale Price", "  ", "Quantity", "Price"],
         :position           => :left,
         :width              => pdf.bounds.width,
         :row_colors         => :pdf_writer,

@@ -1,0 +1,7 @@
+== TODO
+- Migrate tests to RSpec
+- Replace controller tests with Cucumber acceptance tests
+- Add CanCan Authorisation to pages
+- Move session store to DB
+- Migrate to PG
+- Ensure GST calculations are correct

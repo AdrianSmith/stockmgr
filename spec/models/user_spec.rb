@@ -30,33 +30,50 @@
 #  phone_work             :string(255)
 #
 
-require 'test_helper'
+require 'spec_helper'
 
-class UserTest < ActiveSupport::TestCase
-  should have_many(:sales_orders)
-  should have_many(:payments  )
-  should validate_presence_of(:username)
-  should validate_uniqueness_of(:username)
-  should validate_presence_of(:email)
-  should validate_uniqueness_of(:email)
+describe User do
+  before(:each) do
+    @valid_attributes = {
+      :username => 'username',
+      :password => 'password',
+      :password_confirmation => 'password',
+      :email => 'joe@example.com'
+    }
+  end
+
+  it "should create a new instance given valid attributes" do
+    User.create!(@valid_attributes)
+  end
+
+  context "instanciated with valid attributes" do
+    before do
+      Factory(:user)
+    end
+    it {should have_many(:sales_orders)}
+    it {should have_many(:payments)}
+    it {should validate_presence_of(:username)}
+    it {should validate_uniqueness_of(:username)}
+    it {should validate_presence_of(:email)}
+    it {should validate_uniqueness_of(:email)}
+  end
 
   context "A valid user" do
-    setup do
+    before do
       @user = Factory.build(:user)
     end
 
-    should "create a pretty address string" do
+    it "should create a pretty address string" do
       assert_not_nil(@user.pretty_address)
     end
 
-    should "create a pretty phone string" do
+    it "should create a pretty phone string" do
       assert_not_nil(@user.pretty_phone)
     end
-
   end
 
   context "A valid user with Payments and Sales Orders" do
-    setup do
+    before do
       @user = Factory.build(:user)
       @user.payments = [Payment.new(:amount => BigDecimal('10.5')), Payment.new(:amount => BigDecimal('10.5'))]
 
@@ -76,22 +93,21 @@ class UserTest < ActiveSupport::TestCase
       @user.save
     end
 
-    should "have calculate total payments" do
+    it "should have calculate total payments" do
       assert_equal(BigDecimal('21.0'), @user.total_payments)
     end
 
-    should "have calculate total orders" do
+    it "should have calculate total orders" do
       assert_equal(BigDecimal('1048.0'), @user.total_orders)
     end
 
-    should "have calculate account balance" do
+    it "should have calculate account balance" do
       assert_equal(BigDecimal('-1027.0'), @user.account_balance)
     end
 
-    should "have refresh account balance cache after account balance is calculated" do
+    it "should have refresh account balance cache after account balance is calculated" do
       @user.account_balance
       assert_equal(BigDecimal('-1027.0'), @user.account_balance_cached)
     end
-
   end
 end

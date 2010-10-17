@@ -10,25 +10,14 @@
 #  updated_at        :datetime
 #
 
-class PurchaseOrderItem < ActiveRecord::Base 
-  belongs_to :purchase_order
-  belongs_to :product    
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-  validates_presence_of :product, :purchase_order, :quantity
-
-  def cost
-    product.cost * quantity
-  end
-
-  def price
-    product.price * quantity
-  end
-
-end
-
-
-
-
-
-
-
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

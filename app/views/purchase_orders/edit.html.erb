@@ -25,29 +25,25 @@
 <hr>
 <table class="listing" width="100%">
   <tr>
-    <th>
-      Product
-    </th>
-    <th>
-      Quantity
-    </th>
-    <th>
-      Unit Cost
-    </th>
-    <th>
-      Cost
-    </th>
+    <th>Product</th>
+    <th>Purchase Cost<br/>(inc GST)</th>
+    <th>Quantity</th>
+    <th>Total Cost<br/>(inc GST)</th>
+    <th>GST</th>
     <th></th>
   </tr><% @purchase_order.purchase_order_items.each do |item| %>
   <tr class="<%= cycle('','even') %>">
     <td class="text">
       <%= link_to(item.product.name, item.product) %>
     </td>
+    <td class="number">
+      <%= format_currency(item.product.cost) %>
+    </td>
     <td class="status">
-      <%= item.quantity.to_s + ' x ' + item.product.minimum_quantity.to_s + item.product.units_of_measure.short_name %>
+      <%= item.quantity.to_s + ' ' + item.product.units_of_measure.short_name %>
     </td>
     <td class="number">
-      <%= format_currency(item.product.cost) %> <%= item.product.gst_message %>
+      <%= format_currency(item.cost) %>
     </td>
     <td class="number">
       <%= format_currency(item.cost) %>
@@ -58,7 +54,7 @@
   </tr><% end %>
   <tr>
     <td class="number" colspan="3">
-      Total
+      TOTAL
     </td>
     <td class="number_bothline">
       <%= format_currency(@purchase_order.total_cost) %>
