@@ -1,37 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :certifiers
-
   map.resources :product_types
-
   map.resources :units_of_measures
-
   map.resources :purchase_order_items
-
   map.resources :purchase_orders
-
   map.resources :sales_order_items
-
   map.resources :sales_orders
-
   map.resources :products
-
   map.resources :suppliers
-
   map.resources :physical_forms
-
   map.resources :storage_locations
-
   map.resources :storage_types
-
   map.resources :payment_types
-
   map.resources :payments
   
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   
   map.resources :user_sessions
-
   map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
