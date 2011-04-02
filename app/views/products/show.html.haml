@@ -1,0 +1,65 @@
+%h1 
+  = "Product: #{@product.name}"
+  
+%table
+  %tr
+    %td
+      %b Description
+    %td= @product.description
+  %tr
+    %td
+      %b Product Type
+    %td= link_to @product.product_type.name, @product.product_type.name
+  %tr
+    %td
+      %b Supplier
+    %td= link_to @product.supplier.name, @product.supplier.name
+  %tr
+    %td
+      %b Supplier's Reference
+    %td= @product.supplier_reference
+  %tr
+    %td
+      %b Units of Measure
+    %td= link_to @product.units_of_measure.name, @product.units_of_measure.name
+    
+%br
+    
+%table
+  %tr
+    %td 
+      %h3 PRICING
+  %tr
+    %td
+      %b Includes GST?
+    %td{:align => "right"}= format_boolean(@product.include_gst)
+  %tr
+    %td
+      %b Purchase Price (ex GST)
+    %td{:align => "right", :width => "100px"}= format_currency(@product.purchase_price - @product.gst_purchase_price)
+    %td 
+      %small Excludes GST
+  %tr
+    %td
+      %b Purchase Price (inc GST)
+    %td{:align => "right", :width => "100px"}= format_currency(@product.purchase_price)
+    %td 
+      %small= "Includes #{format_currency(@product.gst_purchase_price)} GST"
+  %tr
+    %td
+      %b Sale Price
+    %td{:align => "right", :width => "100px"}= format_currency(@product.sale_price)
+    %td 
+      %small= "Includes #{format_currency(@product.gst_sale_price)} GST"
+  %tr
+    %td
+      %b Mark Up
+    %td{:align => "right", :width => "100px"}= format_currency(@product.markup_amount)
+    %td 
+      %small= "(#{number_to_percentage(@product.markup_percentage, :precision => 0)})"
+
+%br
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

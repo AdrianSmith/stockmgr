@@ -1,0 +1,25 @@
+%h1 Products
+
+%p
+  = link_to 'New Product', new_product_path
+  
+%table{:class => "listing", :width => "100%"}
+  %tr
+    %th Supplier
+    %th Name
+    %th Type
+    %th Purchase Cost<br/>(Inc GST)
+    %th Sale Price<br/>(Inc GST) 
+    %th
+
+  - @products.each do |product|
+    %tr{:class=>(cycle 'odd', 'even')} 
+      %td= link_to product.supplier.name, product.supplier
+      %td= link_to product.name, product
+      %td= product.product_type.name
+      %td{:class => "number", :width => '15%'}= format_currency(product.purchase_price) 
+      %td{:class => "number", :width => '10%'}= format_currency(product.sale_price)
+      %td= link_to icon_edit, edit_product_path(product)
+
+
+

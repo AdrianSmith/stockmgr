@@ -1,0 +1,21 @@
+%h1 Listing product_prices
+
+%table
+  %tr
+    %th Product
+    %th Amount
+    %th
+    %th
+    %th
+
+  - @product_prices.each do |product_price|
+    %tr
+      %td= product_price.product_id
+      %td= product_price.amount
+      %td= link_to 'Show', product_price
+      %td= link_to 'Edit', edit_product_price_path(product_price)
+      %td= link_to 'Destroy', product_price, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Product price', new_product_price_path

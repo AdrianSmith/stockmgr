@@ -1,5 +1,5 @@
 body {
-	background-color: #444258;
+	background-color: #1b232a;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
 	color: #333;
@@ -10,7 +10,7 @@ a img {
 }
 
 a {
-	color: #0000FF;
+	color: blue;
 }
 
 .clear {
@@ -20,7 +20,7 @@ a {
 }
 
 /* Regions */
-#center { 
+#center {
 	clear: both;
 	background : white;
 	text-align: justify;
@@ -36,7 +36,8 @@ a {
 }
 
 #left_half {
-	margin-right: 510px;
+	float: left;
+	width: 400px;
 	text-align: justify;
 	padding: 5px;
 	background: white;
@@ -75,7 +76,6 @@ a {
 
 
 /* Navigation */
-
 #link {
 	clear: both;
 	width: 100%;
@@ -91,17 +91,17 @@ a {
 }
 
 #link a:hover {
-	color: #000; 
-	background: #999; 
-	text-decoration: none; 
+	color: #000;
+	background: #999;
+	text-decoration: none;
 }
 
 #container {
-	width: 1000px; 
-	margin: 0 auto 0 auto; 
+	width: 1000px;
+	margin: 0 auto 0 auto;
 	position: relative;
 	clear: both;
-	background: white; 
+	background: white;
 	overflow: auto;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -110,7 +110,7 @@ a {
 
 #message {
 	position: absolute;
-	right: 10px; 
+	right: 10px;
 	height: 60px;
 	width: 300px;
 	text-align: right;
@@ -123,6 +123,14 @@ a {
 	width: 700px;
 	overflow: hidden;
 	font-size: 1.2em;
+}
+
+#box {
+	height: 200px;
+	overflow:auto;
+	border-width: 1px;
+	border-style: solid;
+	padding: 2px;
 }
 
 #flash_notice, #flash_error {
@@ -299,3 +307,6 @@ form span.required {
 	font-weight: bold;
 }
 
+.field_with_errors {
+  display: inline-block;
+}

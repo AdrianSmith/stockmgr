@@ -1,0 +1,25 @@
+%h1 Customers
+
+%table{:class => 'listing', :width => '100%'}
+  %tr
+    %th Name
+    %th Email
+    %th Phone
+    %th Total Orders
+    %th Total Payments
+    %th Account Balance
+    %th
+
+  - @customers.each do |customer|
+    %tr{:class=>(cycle 'odd', 'even')} 
+      %td= link_to customer.pretty_name, customer
+      %td= mail_to(customer.email, customer.email, :subject => "Stock & Sales Manager") if customer.email
+      %td= customer.preferred_phone
+      %td{:class => 'number'}= format_currency(customer.total_orders)
+      %td{:class => 'number'}= format_currency(customer.total_payments)
+      %td{:class => 'number'}= format_currency(customer.account_balance_cached)
+      %td= link_to icon_edit, edit_customer_path(customer)
+
+%br
+
+= link_to 'New Customer', new_customer_path

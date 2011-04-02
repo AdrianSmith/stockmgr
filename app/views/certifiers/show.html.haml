@@ -1,0 +1,16 @@
+%p
+  %b Name:
+  = @certifier.name
+%p
+  %b Description:
+  = @certifier.description
+%p
+  %b Website:
+  = @certifier.website
+%p
+  %b Logo image url:
+  = @certifier.logo_image_url
+
+= link_to 'Edit', edit_certifier_path(@certifier)
+\|
+= link_to 'Back', certifiers_path

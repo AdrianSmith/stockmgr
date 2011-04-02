@@ -1,14 +1,3 @@
-# == Schema Information
-#
-# Table name: payment_types
-#
-#  id          :integer(4)      not null, primary key
-#  name        :string(255)
-#  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
 require 'spec_helper'
 
 describe PaymentType do

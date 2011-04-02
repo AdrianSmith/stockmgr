@@ -1,7 +1,0 @@
-ruby script/generate scaffold person first_name:string last_name:string 
-ruby script/generate scaffold skill name:string description:text 
-ruby script/generate scaffold task name:string description:text skill_id:integer start:date finish:date fte_load:decimal 
-ruby script/generate scaffold project name:string description:text
-ruby script/generate scaffold assignment person_id:integer task_id:integer
-ruby script/generate scaffold people_skills person_id:integer skill_id:integer
-

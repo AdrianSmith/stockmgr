@@ -1,0 +1,54 @@
+%h1 
+  = 'Sales Order: '
+  = @sales_order.id
+  = ' for Customer:'
+  = link_to @customer.pretty_name, @customer
+
+%table{:width => "100%"}
+  %tr
+    %td{:width => "10%"} Created
+    %td{:width => "20%"}
+      = format_date(@sales_order.created_at)
+    %td{:width => "10%"} Public Comment:
+    %td{:colspan => 2}= @sales_order.public_comment
+  %tr
+    %td{:width => "10%"} Updated
+    %td{:width => "20%"}
+      = format_date(@sales_order.updated_at)
+  %tr
+    %td{:width => "10%"} Invoiced?
+    %td= format_boolean(@sales_order.invoiced?)
+    %td{:width => "10%"} Private Comment:
+    %td{:colspan => 2}= @sales_order.private_comment
+  %tr
+    %td{:width => "10%"} Paid?
+    %td= format_boolean(@sales_order.paid?)
+
+%hr
+
+%table{:class => "listing", :width => "100%"}
+  %tr
+    %th Type
+    %th Supplier
+    %th Product
+    %th Unit Price<br/>(Inc GST)
+    %th Quantity
+    %th Sale Price<br/>(Inc GST)
+    %th Total<br/>GST
+
+  - @sales_order.sales_order_items.each do |item|
+    %tr{:class => (cycle 'odd', 'even')}
+      %td{:class => "text"}= item.product.product_type.name
+      %td{:class => "text"}= link_to item.product.supplier.name, item.product.supplier
+      %td{:class => "text"}= link_to "#{item.product.name} [#{item.product.units_of_measure.short_name}]", item.product
+      %td{:class => "number"}= format_currency(item.unit_price)
+      %td{:class => "status"}= format_decimal_number(item.quantity)
+      %td{:class => "number"}= format_currency(item.price)
+      %td{:class => "number"}= format_currency(item.gst)
+  %tr
+    %td{:class => "number", :colspan => "5"} TOTAL
+    %td{:class => "number_bothline"}= format_currency(@sales_order.total_price)
+    %td{:class => "number_bothline"}= format_currency(@sales_order.total_gst)
+
+= link_to 'Edit', edit_sales_order_path(@sales_order)
+

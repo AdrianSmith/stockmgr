@@ -1,0 +1,59 @@
+%h2
+  = 'Editing Purchase Order'
+  = @purchase_order.id
+  = 'for Supplier:' 
+  = link_to(@purchase_order.supplier.name, @purchase_order.supplier)
+  
+= form_tag :controller  => :purchase_order_items, :action  => :create, :id  => @purchase_order.id do
+  %table{:border  => "0", :cellspacing => "5", :cellpadding => "5"}
+    %tr
+      %td Product
+      %td= select_tag :product, options_for_select(@available_products)
+    %tr
+      %td Quantity
+      %td= text_field_tag :quantity
+  = submit_tag 'Add Item'
+
+%hr
+%table{:class => "listing", :width => "100%"}
+  %tr
+    %th Product
+    %th 
+      = 'Unit Price'
+      %br
+      = '(inc GST)'
+    %th Quantity
+    %th 
+      = 'Purchase Price'
+      %br
+      = '(inc GST)'
+    %th GST
+    %th
+    
+  - @purchase_order.purchase_order_items.each do |item|
+    %tr{:class => (cycle 'odd', 'even')}
+      %td{:class => "text"}= link_to(item.product.name, item.product)
+      %td{:class => "number"}= format_currency(item.product.purchase_price)
+      %td{:class => "status"}
+        = item.quantity.to_s 
+        = item.product.units_of_measure.short_name
+      %td{:class => "number"}= format_currency(item.price)
+      %td{:class => "number"}= format_currency(item.gst)
+      %td{:class => "status"}= link_to(icon_delete, {:controller  => 'purchase_order_items', :action  => 'destroy', :id  => item.id}, :confirm  => 'Delete - Are you sure?', :method  => :delete)
+  %tr
+    %td{:class => "number", :colspan => "3"} TOTAL
+    %td{:class => "number_bothline"}= format_currency(@purchase_order.total_price)
+    %td{:class => "number_bothline"}= format_currency(@purchase_order.total_gst)
+
+%hr
+
+= form_for(@purchase_order) do |f| 
+  -if @purchase_order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@purchase_order.errors.count, "error")} prohibited this purchase_order from being saved:"
+      %ul
+        - @purchase_order.errors.full_messages.each do |msg|
+          %li= msg
+  %p          
+    = f.text_area :comment,  :cols  => 40, :rows  => 4
+  = f.submit 'Update'

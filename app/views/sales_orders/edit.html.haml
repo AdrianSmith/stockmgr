@@ -1,0 +1,64 @@
+%h1 
+  = 'Editing Sales Order: '
+  = @sales_order.id
+  = ' for Customer:'
+  = link_to @customer.pretty_name, @customer
+
+- form_tag add_sales_order_item_sales_order_url(:id => @sales_order.id), :method => :put  do
+ 
+  %table{:border => "0", :cellspacing => "5", :cellpadding => "0"}
+    %tr
+      %td Product
+      %td= select_tag(:product_id, options_for_select(@available_products), {:prompt => "Select ..."})
+    %tr
+      %td Quantity
+      %td= text_field_tag :quantity 
+  = submit_tag 'Add Item'
+
+%hr
+
+%table{:class => "listing", :width => "100%"}
+  %tr
+    %th Item
+    %th Supplier
+    %th Type
+    %th Product
+    %th 
+      = 'Unit Price'
+      %br
+      = '(Inc GST)'
+    %th Quantity
+    %th 
+      = 'Sale Price'
+      %br
+      = '(Inc GST)'
+    %th GST
+    %th
+    - item_index = 1
+    - @sales_order.sales_order_items.each do |item|
+      %tr{:class => (cycle 'odd', 'even')}
+        %td{:class => "status"}= item_index
+        %td{:class => "text"}= link_to item.product.supplier.name, Supplier.find_by_name(item.product.supplier.name)
+        %td{:class => "text"}= item.product.product_type.name
+        %td{:class => "text"}= link_to "#{item.product.name} [#{item.product.units_of_measure.name}]", Product.find(item.product_id)
+        %td{:class => "number"}= format_currency(item.product.sale_price(Time.now))
+        %td{:class => "status"}= format_decimal_number(item.quantity)
+        %td{:class => "number"}= format_currency(item.price)
+        %td{:class => "number"}= format_currency(item.gst)
+        %td{:class => "status"}= link_to icon_delete, {:action => 'remove_sales_order_item', :id => @customer.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete
+      - item_index += 1
+    %tr
+      %td{:class => "number", :colspan => "6"}
+        %b= 'TOTAL'
+      %td{:class => "number_bothline"}
+        %b= format_currency(@sales_order.total_price)
+      %td{:class => "number_bothline"}
+        %b= format_currency(@sales_order.total_gst)
+
+- form_for @sales_order do |f|
+  %p Public Comment (appears on statement)
+  = f.text_area :public_comment, :rows => 4, :cols => 80
+  %p Private Comment
+  = f.text_area :private_comment, :rows => 4, :cols => 80
+  %p
+    = f.submit 'Update Order'

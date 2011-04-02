@@ -1,0 +1,42 @@
+= form_for @product do |f|
+  -if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description, :rows => 4, :cols => 40
+  .field
+    = f.label :product_type_id
+    = f.select :product_type_id, @product_types, :prompt => 'Select ...'
+  .field
+    = f.label :supplier_id
+    = f.select :supplier_id, @suppliers, :prompt => 'Select ...'
+  .field
+    = f.label :supplier_reference
+    = f.text_field :supplier_reference
+  .field
+    = f.label :units_of_measure_id
+    = f.select :units_of_measure_id, @units_of_measures, :prompt => 'Select ...'
+  .field
+    = f.label :purchase_price
+    = '(ex GST)'
+    = f.text_field :purchase_price
+  .field
+    = 'GST?'
+    = f.check_box :include_gst
+  .field
+    = 'Purchase Price (inc GST) = '
+    = 'purchase_price * 1.1'
+  .field
+    = f.label :sale_price
+    = '(Inc GST)'
+    = text_field :product_price, :amount, :value => @sale_price
+  .actions
+    = f.submit 'Save'

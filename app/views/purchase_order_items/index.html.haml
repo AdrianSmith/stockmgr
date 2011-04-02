@@ -1,0 +1,23 @@
+%h1 Listing purchase_order_items
+
+%table
+  %tr
+    %th Product
+    %th Purchase order
+    %th Quantity
+    %th
+    %th
+    %th
+
+  - @purchase_order_items.each do |purchase_order_item|
+    %tr
+      %td= purchase_order_item.product_id
+      %td= purchase_order_item.purchase_order_id
+      %td= purchase_order_item.quantity
+      %td= link_to 'Show', purchase_order_item
+      %td= link_to 'Edit', edit_purchase_order_item_path(purchase_order_item)
+      %td= link_to 'Destroy', purchase_order_item, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Purchase order item', new_purchase_order_item_path

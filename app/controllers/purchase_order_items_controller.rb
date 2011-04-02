@@ -1,8 +1,5 @@
-class PurchaseOrderItemsController < ApplicationController
-
-  def index
-    @purchase_order_items = PurchaseOrderItem.all
-  end
+class PurchaseOrderItemsController < InheritedResources::Base
+  before_filter :authenticate_user!
 
   def create
     @purchase_order = PurchaseOrder.find(params[:id])
@@ -26,5 +23,5 @@ class PurchaseOrderItemsController < ApplicationController
     @purchase_order_item.destroy
     redirect_to edit_purchase_order_path(@purchase_order)
   end
-
+    
 end

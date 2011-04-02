@@ -1,0 +1,42 @@
+%h1 
+  = 'Purchase Order' 
+  = @purchase_order.id
+  = link_to @purchase_order.supplier.name, @purchase_order.supplier
+
+%table{}
+  %tr
+    %td{:width => "100"} Created
+    %td= format_date(@purchase_order.created_at)
+  %tr
+    %td{:width => "100"} Paid?
+    %td= format_boolean(@purchase_order.paid?)
+  %tr
+    %td{:width => "100"} Received?
+    %td= format_boolean(@purchase_order.received?)
+  %tr
+    %td{:width => "100"} Comment:
+    %td= @purchase_order.comment
+
+%hr
+
+%table{:class => "listing", :width => "100%"}
+  %tr
+    %th Product
+    %th Quantity
+    %th Unit Cost
+    %th Cost
+
+  - @purchase_order.purchase_order_items.each do |item|
+    %tr{:class => (cycle 'odd', 'even')}
+    %td{:class => "text"}= link_to(item.product.name, item.product)
+    %td{:class => "status"}
+      = item.quantity 
+      = item.product.units_of_measure.short_name
+    %td{:class =>"number"}= format_currency(item.product.purchase_price)
+    %td{:class => "number"}= format_currency(item.price)
+ 
+  %tr
+    %td{:class => "number", :colspan => "3"} Total
+    %td{:class => "number_bothline"}= format_currency(@purchase_order.total_price)
+
+= link_to 'Edit Purchase Order', edit_purchase_order_path(@purchase_order)

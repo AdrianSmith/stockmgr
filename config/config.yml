@@ -1,0 +1,12 @@
+defaults: &defaults
+  gst: 0.1
+  payment_days: 14
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

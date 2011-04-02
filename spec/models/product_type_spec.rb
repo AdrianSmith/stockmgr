@@ -1,14 +1,3 @@
-# == Schema Information
-#
-# Table name: product_types
-#
-#  id          :integer(4)      not null, primary key
-#  name        :string(255)
-#  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
 require 'spec_helper'
 
 describe ProductType do
@@ -30,5 +19,4 @@ describe ProductType do
     it {should validate_presence_of(:name)}
     it {should validate_uniqueness_of(:name)}
   end
-  
 end

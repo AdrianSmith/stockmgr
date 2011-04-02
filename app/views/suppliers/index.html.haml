@@ -1,0 +1,21 @@
+%h1 Suppliers
+
+%table{:class => 'listing', :width => '100%'}
+  %tr
+    %th Name
+    %th Website
+    %th Email
+    %th Phone
+    %th
+
+  - @suppliers.each do |supplier|
+    %tr{:class=>(cycle 'odd', 'even')} 
+      %td= link_to supplier.name, supplier
+      %td= link_to supplier.website, supplier.website
+      %td= mail_to(supplier.email, supplier.email, :subject => "Stock & Sales Manager") if supplier.email
+      %td= supplier.preferred_phone
+      %td= link_to icon_edit,  edit_supplier_path(supplier)
+
+%br
+
+= link_to 'New Supplier', new_supplier_path

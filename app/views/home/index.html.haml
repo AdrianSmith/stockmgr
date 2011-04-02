@@ -1,0 +1,78 @@
+%h2
+  = "Welcome #{current_user.email}"
+%p Stock and Sales Manager is a simple application for tracking purchases and sales of products for customers and balancing payments.
+#right_small
+  %h2 Administration
+  %h3 
+    = @number_of_certifiers
+    = link_to 'Certifiers', certifiers_path
+  %h3
+    = @number_of_payment_types
+    = link_to 'Payment Types', payment_types_path
+  %h3
+    = @number_of_physical_forms
+    = link_to 'Physical Forms', physical_forms_path
+  %h3
+    = @number_of_product_types
+    = link_to 'Product Types', product_types_path
+  %h3
+    = @number_of_storage_locations
+    = link_to 'Storage Locations', storage_locations_path
+  %h3
+    = @number_of_storage_types 
+    = link_to 'Storage Types', storage_types_path
+  %h3 
+    = @number_of_units_of_measures
+    = link_to 'Units of Measures', units_of_measures_path
+
+#left_large
+  %h2 Operations
+  %h3
+    = @number_of_customers
+    = link_to 'Customers', customers_path
+    = link_to icon_add, new_customer_path
+  %h3
+    = @number_of_suppliers
+    = link_to 'Suppliers', suppliers_path
+    = link_to icon_add, new_supplier_path
+  %h3
+    = @number_of_products
+    = link_to 'Products', products_path
+    = link_to icon_add, new_product_path
+  
+  %br
+
+  %h3 Statistics
+  %small
+    %table{:class => "listing", :width => '90%'}
+      %tr
+        %th Total Sales
+        %th Total Payments
+        %th Balance
+      %tr
+        %td{:class => "status"}
+          %b= format_currency(@total_sales)
+        %td{:class => "status"}
+          %b= format_currency(@total_payments)
+        %td{:class => "status"}
+          %b= format_currency(@balance)
+    
+  %h3 Unpaid Invoices
+  %small
+    %table{:class => "listing", :width => '90%'}
+      %tr
+        %th Invoiced Date
+        %th Customer
+        %th Amount (Inc GST) 
+      - @unpaid_sales_orders.each do |sales_order|
+        %tr{:class=>(cycle 'odd', 'even')} 
+          %td{:width => "20%"}= format_date(sales_order.invoiced_at)
+          %td= link_to sales_order.customer.pretty_name, sales_order
+          %td{:class => "number", :width => "25%"}= format_currency(sales_order.total_price)
+      %tr
+        %td{:class => "number", :colspan => "2"}
+          %b TOTAL
+        %td{:class => "number_bothline"}
+          %b= format_currency(@total_unpaid)
+      
+    

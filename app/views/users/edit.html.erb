@@ -1,9 +1,0 @@
-<h1>Editing <%= @user.pretty_name%></h1>
-
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => 'form' , :locals=>{:f => f}%>
-  <div id="center">
-    <%= f.submit 'Update' %>
-  </div>
-<% end %>

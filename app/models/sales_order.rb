@@ -1,55 +1,36 @@
-# == Schema Information
-#
-# Table name: sales_orders
-#
-#  id                 :integer(4)      not null, primary key
-#  user_id            :integer(4)
-#  private_comment    :text
-#  created_by_user_id :integer(4)
-#  is_ordered         :boolean(1)      default(FALSE)
-#  is_invoiced        :boolean(1)      default(FALSE)
-#  is_paid            :boolean(1)      default(FALSE)
-#  invoice_amount     :decimal(8, 2)   default(0.0)
-#  invoiced_at        :datetime
-#  created_at         :datetime
-#  updated_at         :datetime
-#  public_comment     :text
-#
-
 require 'rubygems'
 require 'prawn'
 require 'pdf_helper.rb'
 
 class SalesOrder < ActiveRecord::Base
-  belongs_to :user
-  has_many :sales_order_items
+  belongs_to :customer
+  has_many :sales_order_items, :dependent => :destroy
 
-  validates_presence_of :user
+  validates_presence_of :customer
 
-  PAYMENT_DAYS = 14
+  def update_invoice_time
+    self.invoiced_at = Time.now
+    save!
+  end
 
   def total_gst
-    sales_order_items.inject(0){|sum, o| sum + o.total_gst} 
+    sales_order_items.inject(0){|sum, o| sum + o.gst}
   end
 
   def total_price
     sales_order_items.inject(0){|sum, o| sum + o.price}
   end
 
-  def total_cost
-    sales_order_items.inject(0){|sum, o| sum + o.cost}
-  end
-  
   def total_items
-    sales_order_items.inject(0){|sum, o| sum + o.quantity} 
+    sales_order_items.inject(0){|sum, o| sum + o.quantity}
   end
 
   def due_on
-    self.created_at.to_datetime + PAYMENT_DAYS
+    self.created_at.to_datetime + APP_CONFIG['payment_days']
   end
 
-  def is_overdue
-    Date.today > self.due_on  and self.is_paid == false
+  def overdue?
+    Date.today > self.due_on  and self.paid? == false
   end
 
   def due_days
@@ -59,10 +40,10 @@ class SalesOrder < ActiveRecord::Base
   def status_message
     status = ""
 
-    if self.is_paid
+    if self.paid?
       status = "PAID"
     else
-      if self.is_invoiced
+      if self.invoiced?
         status = "INVOICED"
       else
         status = "NOT INVOICED"
@@ -76,8 +57,9 @@ class SalesOrder < ActiveRecord::Base
     pdf = helper.create_document
 
     helper.add_spacer(pdf)
+    helper.add_spacer(pdf)
     helper.add_title(pdf, "TAX INVOICE")
-    helper.add_sub_title(pdf, "*** Invoice Overdue ***") if self.is_overdue
+    helper.add_sub_title(pdf, "*** Invoice Overdue ***") if self.overdue?
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
@@ -86,14 +68,17 @@ class SalesOrder < ActiveRecord::Base
     invoice_summary(pdf, helper)
 
     helper.add_spacer(pdf)
-    helper.add_spacer(pdf) 
-    
+    helper.add_spacer(pdf)
+
     invoice_comments(pdf, helper)
 
     helper.add_spacer(pdf)
-    helper.add_spacer(pdf) 
+    helper.add_spacer(pdf)
 
     invoice_details(pdf, helper)
+    
+    helper.add_footer(pdf)
+    
     pdf
   end
 
@@ -103,10 +88,9 @@ class SalesOrder < ActiveRecord::Base
       helper.add_heading(pdf, "Invoice Details")
 
       table_data =  [
-        ['Invoice', self.id.to_s, 'Invoice For', user.pretty_name],
-        ['Issue Date', FormatHelper.format_date(self.created_at), '', user.pretty_phone],
-        ['', '', '', user.email],
-        ['Status', self.status_message, '', user.pretty_address],
+        ['Invoice Id', self.id.to_s, 'Invoice For', customer.pretty_name],
+        ['Issue Date', FormatHelper.format_date(self.created_at), '', customer.email],
+        ['Status', self.status_message, '', customer.pretty_address],
       ]
 
       pdf.table table_data,
@@ -134,7 +118,7 @@ class SalesOrder < ActiveRecord::Base
         table_data << [
           item.product.id,
           item.product.name + ' [' + item.product.units_of_measure.short_name + ']',
-          FormatHelper.format_currency(item.product.price),
+          FormatHelper.format_currency(item.product.sale_price),
           item.product.gst_message,
           FormatHelper.format_decimal_number(item.quantity),
           FormatHelper.format_currency(item.price).to_s
@@ -142,10 +126,10 @@ class SalesOrder < ActiveRecord::Base
       end
       table_data << [" ", "", "", "", "", ""]
       table_data << ["", "", "", "", "TOTAL GST", FormatHelper.format_currency(self.total_gst)]
-      table_data << ["", "", "", "", "TOTAL SALE", FormatHelper.format_currency(self.total_price)]
+      table_data << ["", "", "", "", "TOTAL PRICE", FormatHelper.format_currency(self.total_price)]
 
       pdf.table table_data,
-        :headers            => ["Product ID", "Product Name", "Sale Price", "  ", "Quantity", "Price"],
+        :headers            => ["Product ID", "Product Name", "Unit Price", "  ", "Quantity", "Price"],
         :position           => :left,
         :width              => pdf.bounds.width,
         :row_colors         => :pdf_writer,
@@ -156,5 +140,4 @@ class SalesOrder < ActiveRecord::Base
         :vertical_padding   => 2,
         :horizontal_padding => 4
     end
-
 end

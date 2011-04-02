@@ -1,0 +1,10 @@
+%p
+  %b Name:
+  = @storage_location.name
+%p
+  %b Description:
+  = @storage_location.description
+
+= link_to 'Edit', edit_storage_location_path(@storage_location)
+\|
+= link_to 'Back', storage_locations_path

@@ -1,0 +1,19 @@
+%h1 New Purchase Order
+
+= form_for @purchase_order do |f|
+  -if @purchase_order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@purchase_order.errors.count, "error")} prohibited this purchase_order from being saved:"
+      %ul
+        - @purchase_order.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.hidden_field :supplier_id, :value => params[:supplier_id]
+  .field
+    = f.label :comment
+    = f.text_area :comment, :cols  => 40, :rows  => 4
+  .actions
+    = f.submit 'Save'
+
+= link_to 'Back', purchase_orders_path

@@ -1,0 +1,21 @@
+%h1 Listing storage_locations
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @storage_locations.each do |storage_location|
+    %tr
+      %td= storage_location.name
+      %td= storage_location.description
+      %td= link_to 'Show', storage_location
+      %td= link_to 'Edit', edit_storage_location_path(storage_location)
+      %td= link_to 'Destroy', storage_location, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Storage location', new_storage_location_path

@@ -1,0 +1,20 @@
+%h1 Listing certifiers
+
+= link_to 'New Certifier', new_certifier_path
+
+%table{:class => 'listing', :width => '100%'}
+  %tr
+    %th Name
+    %th Description
+    %th Website
+    %th Logo
+    %th
+
+  - @certifiers.each do |certifier|
+    %tr{:class=>(cycle 'odd', 'even')} 
+      %td= link_to(certifier.name, certifier)
+      %td= certifier.description
+      %td= link_to(certifier.website, certifier.website, :popup => true) if certifier.website
+      - if certifier.logo_image_url
+        %td= link_to(image_tag(certifier.logo_image_url, :width => 40), certifier)
+      %td= link_to icon_edit,  edit_certifier_path(certifier)

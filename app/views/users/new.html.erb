@@ -1,9 +1,0 @@
-<h1>New Customer</h1>
-
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => 'form' , :locals=>{:f => f}%>
-  <div id="center">
-    <%= f.submit 'Create' %>
-  </div>
-<% end %>

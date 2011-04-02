@@ -1,0 +1,21 @@
+%h1 Listing storage_types
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @storage_types.each do |storage_type|
+    %tr
+      %td= storage_type.name
+      %td= storage_type.description
+      %td= link_to 'Show', storage_type
+      %td= link_to 'Edit', edit_storage_type_path(storage_type)
+      %td= link_to 'Destroy', storage_type, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Storage type', new_storage_type_path

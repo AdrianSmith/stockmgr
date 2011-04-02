@@ -1,0 +1,13 @@
+%p
+  %b Sales order:
+  = @sales_order_item.sales_order_id
+%p
+  %b Product:
+  = @sales_order_item.product_id
+%p
+  %b Quantity:
+  = @sales_order_item.quantity
+
+= link_to 'Edit', edit_sales_order_item_path(@sales_order_item)
+\|
+= link_to 'Back', sales_order_items_path

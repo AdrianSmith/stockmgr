@@ -1,0 +1,13 @@
+%p
+  %b Name:
+  = @units_of_measure.name
+%p
+  %b Short name:
+  = @units_of_measure.short_name
+%p
+  %b Description:
+  = @units_of_measure.description
+
+= link_to 'Edit', edit_units_of_measure_path(@units_of_measure)
+\|
+= link_to 'Back', units_of_measures_path

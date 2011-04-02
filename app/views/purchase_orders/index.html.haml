@@ -1,0 +1,29 @@
+%h1 Listing purchase_orders
+
+%table
+  %tr
+    %th Supplier
+    %th Comment
+    %th Paid?
+    %th Received?
+    %th Amount
+    %th Include GST
+    %th
+    %th
+    %th
+
+  - @purchase_orders.each do |purchase_order|
+    %tr
+      %td= purchase_order.supplier_id
+      %td= purchase_order.comment
+      %td= purchase_order.paid?
+      %td= purchase_order.received?
+      %td= purchase_order.amount
+      %td= purchase_order.include_gst
+      %td= link_to 'Show', purchase_order
+      %td= link_to 'Edit', edit_purchase_order_path(purchase_order)
+      %td= link_to 'Destroy', purchase_order, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Purchase order', new_purchase_order_path

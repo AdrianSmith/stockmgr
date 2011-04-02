@@ -1,0 +1,77 @@
+#center
+  %h1
+    = @supplier.name 
+    = link_to '[All Suppliers]', suppliers_path
+
+#right_half
+  %h2 Account
+  %table{:width => "80%"}
+    %tr
+      %td Total Orders
+      %td{:class => "text"}= format_currency(@supplier.total_purchase_orders)
+    %tr
+      %td Delivery Rules
+      %td{:class => "text"}= @supplier.delivery_rules
+    %tr
+      %td Comments
+      %td{:class => "text"}= @supplier.comment
+
+
+#left_half
+  %h2 
+    = 'Details'
+    = link_to icon_edit, edit_supplier_path(@supplier)
+  %table{:width => "80%"}
+    %tr
+      %td Address
+      %td= @supplier.pretty_address
+    %tr
+      %td Email
+      %td= mail_to(@supplier.email, @supplier.email, :subject => "Stock & Sales Manager", :body => "Hi " + @supplier.name)
+    %tr
+      %td Phone
+      %td= @supplier.pretty_phone
+      
+#center
+  %h2 
+    = 'Products'
+  #box
+    %table{:class => "listing", :width => "100%"}
+      %tr
+        %th Name
+        %th Type
+        %th Purchase Cost<br/>(Inc GST)
+        %th Sale Price<br/>(Inc GST) 
+
+      - @supplier.products.each do |product|
+        %tr{:class=>(cycle 'odd', 'even')} 
+          %td= link_to product.name, product
+          %td= product.product_type.name
+          %td{:class => "number", :width => '15%'}= format_currency(product.purchase_price)
+          %td{:class => "number", :width => '10%'}= format_currency(product.sale_price)
+
+#center
+  %h2 
+    = 'Orders'
+    = link_to 'Add', new_purchase_order_path(:supplier_id => @supplier.id)
+  #box
+    %table{:class => "listing", :width => "100%"}
+      %tr
+        %th Order
+        %th Created
+        %th Comment                       
+        %th Paid?
+        %th Received?
+        %th Price
+        %th
+      - @supplier.purchase_orders.each do |order|
+        %tr{:class => (cycle 'odd', 'even')}
+          %td{:class => "status", :width => "7%"}= link_to order.id, order
+          %td{:class => "status", :width => "12%"}= format_date(order.created_at)
+          %td{:class => "text"}= order.comment
+          %td{:class => "status", :width => "8%"}= link_to format_boolean(order.paid?), toggle_order_paid_status_supplier_url(:id => @supplier.id, :order_id => order.id), :method => :put
+          %td{:class => "status", :width => "8%"}= link_to format_boolean(order.received?), toggle_order_received_status_supplier_url(:id => @supplier.id, :order_id => order.id), :method => :put
+          %td{:class => "number", :width => "8%"}= format_currency(order.total_price)
+          %td{:class => "status", :width => "12%"}
+            = link_to icon_edit, edit_purchase_order_path(order)
+            = link_to icon_delete, purchase_order_path(order), :confirm => 'Delete - Are you sure?', :method => :delete

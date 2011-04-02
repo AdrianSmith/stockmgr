@@ -1,28 +1,3 @@
-# == Schema Information
-#
-# Table name: products
-#
-#  id                  :integer(4)      not null, primary key
-#  name                :string(255)
-#  image_url           :string(255)
-#  description         :text
-#  supplier_reference  :text
-#  product_type_id     :integer(4)
-#  supplier_id         :integer(4)
-#  certifier_id        :integer(4)
-#  storage_type_id     :integer(4)
-#  units_of_measure_id :integer(4)
-#  minimum_quantity    :integer(4)
-#  storage_location_id :integer(4)
-#  physical_form_id    :integer(4)
-#  stock_quantity      :integer(4)
-#  purchase_price      :decimal(8, 2)   default(0.0)
-#  sale_price          :decimal(8, 2)   default(0.0)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  include_gst         :boolean(1)
-#
-
 require 'spec_helper'
 
 describe Product do
@@ -33,6 +8,7 @@ describe Product do
     @uom = Factory(:units_of_measure)
     @store_type = Factory(:storage_type)
     @store_location = Factory(:storage_location)
+    @form = Factory(:physical_form)
     @valid_attributes = {
       :name => 'Food',
       :product_type => @product_type,
@@ -41,7 +17,9 @@ describe Product do
       :units_of_measure => @uom,
       :storage_type => @store_type,
       :storage_location => @store_location,
-      :minimum_quantity => 10
+      :minimum_quantity => 10,
+      :purchase_price => 5.5,
+      :physical_form => @form
     }
   end
 
@@ -51,56 +29,42 @@ describe Product do
 
   context "instanciated with valid attributes" do
     before do
-      @product = Factory.build(:product)
-      @product.update_attributes(@valid_attributes)
+      @product = Product.create!(@valid_attributes)
+      @price_1 = Factory(:product_price, :product => @product, :amount => 10.5)
+      @price_2 = Factory(:product_price, :product => @product, :amount => 20.8)
     end
+    
     it {should belong_to(:product_type)}
     it {should belong_to(:supplier)}
-    it {should belong_to(:certifier)}
     it {should belong_to(:units_of_measure)}
-    it {should belong_to(:storage_type)}
-    it {should belong_to(:storage_location)}
-    it {should belong_to(:physical_form)}
     it {should have_many(:sales_order_items)}
     it {should have_many(:purchase_order_items)}
+    it {should have_many(:product_prices)}
 
     it {should validate_presence_of(:name)}
     it {should validate_presence_of(:product_type)}
     it {should validate_presence_of(:supplier)}
-    it {should validate_presence_of(:certifier)}
     it {should validate_presence_of(:units_of_measure)}
-    it {should validate_presence_of(:minimum_quantity)}
-    it {should validate_presence_of(:storage_type)}
-    it {should validate_presence_of(:storage_location)}
 
-    it "should calculate cost" do
-      assert_equal(BigDecimal.new("2.53"), @product.cost)
+    it {should validate_uniqueness_of(:name)}
+
+    it "should calculate purchase_price" do
+      assert_equal(BigDecimal.new("5.5"), @product.purchase_price)
+    end
+    
+    it "should calculate sale_price" do
+      assert_equal(BigDecimal.new("20.8"), @product.sale_price)
     end
 
-    it "calculate price if excludes GST" do
-      assert_equal(BigDecimal.new("5.24"), @product.price)
+    it "should calculate 0.0 for gst_sale_price if excludes GST" do
+      @product.include_gst = false
+      assert_equal(BigDecimal.new("0.0"), @product.gst_sale_price)
     end
-
-    it "calculate 0.0 for GST if excludes GST" do
-      assert_equal(BigDecimal.new("0.0"), @product.gst)
-    end
-
-    it "calculate price if includes GST" do
+    
+    it "should calculate GST component on sale_price if includes GST" do
       @product.include_gst = true
-      assert_equal(BigDecimal.new("5.24") * 1.1, @product.price)
-    end
-
-    it "calculate GST component if includes GST" do
-      @product.include_gst = true
-      assert_equal(BigDecimal.new("5.24") * 0.1, @product.gst)
-    end
-
-    it "calculate suggested quantities" do
-      @product.minimum_quantity = 10
-      expected_data = [10, 20, 30, 40, 50, 100, 200, 500, 1000]
-      assert_equal(expected_data, @product.suggested_quantities)
+      assert_equal(BigDecimal.new("20.8") * 0.1, @product.gst_sale_price)
     end
 
   end
-
 end

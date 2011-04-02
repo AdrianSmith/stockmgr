@@ -1,0 +1,21 @@
+%h1 Listing physical_forms
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @physical_forms.each do |physical_form|
+    %tr
+      %td= physical_form.name
+      %td= physical_form.description
+      %td= link_to 'Show', physical_form
+      %td= link_to 'Edit', edit_physical_form_path(physical_form)
+      %td= link_to 'Destroy', physical_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Physical form', new_physical_form_path

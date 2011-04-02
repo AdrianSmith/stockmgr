@@ -1,67 +1,103 @@
-ActionController::Routing::Routes.draw do |map|
+Stockmgr::Application.routes.draw do
 
-  map.resources :certifiers
-  map.resources :product_types
-  map.resources :units_of_measures
-  map.resources :purchase_order_items
-  map.resources :purchase_orders
-  map.resources :sales_order_items
-  map.resources :sales_orders
-  map.resources :products
-  map.resources :suppliers
-  map.resources :physical_forms
-  map.resources :storage_locations
-  map.resources :storage_types
-  map.resources :payment_types
-  map.resources :payments
-  
-  map.login "login", :controller => "user_sessions", :action => "new"
-  map.logout "logout", :controller => "user_sessions", :action => "destroy"
-  
-  map.resources :user_sessions
-  map.resources :users
+  resources :product_prices
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  resources :customers do
+    member do
+      put 'toggle_order_invoiced_status'
+      put 'toggle_order_paid_status'
+    end
+  end
+  resources :payments
+  resources :sales_orders do
+    member do
+      get 'invoice_pdf'
+      put 'add_basket_item'
+      put 'add_sales_order_item'
+      delete 'remove_basket_item'
+      delete 'remove_sales_order_item'
+    end
+  end
+  resources :sales_order_items
+  
+  
+  resources :suppliers do
+    member do
+      put 'toggle_order_received_status'
+      put 'toggle_order_paid_status'
+    end
+  end
+  resources :purchase_orders
+  resources :purchase_order_items
+  
+  resources :products
+
+  resources :product_types
+  resources :physical_forms
+  resources :payment_types
+  resources :certifiers
+  resources :units_of_measures
+  resources :storage_types
+  resources :storage_locations
+
+  devise_for :users
+
+  root :to => 'home#index'
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
+  #   resources :products
 
   # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
 
   # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
   # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
   #   end
 
   # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
   #   end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "welcome"
-  map.adminsistration '/administration', :controller => 'administration', :action => 'index'
-#  map.sales_order_invoice '/'
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
 end
