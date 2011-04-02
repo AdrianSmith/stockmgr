@@ -22,7 +22,7 @@ describe Payment do
     @valid_attributes = {
       :amount => BigDecimal.new('10.50'),
       :payment_type => @payment_type,
-      :user => @user,
+      :customer => @customer,
       :created_by_user_id => @user.id,
       :received_at => DateTime.now
     }

@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20100823012848) do
     t.integer  "minimum_quantity"
     t.integer  "storage_location_id"
     t.integer  "physical_form_id"
-    t.decimal  "stock_quantity"
+    t.integer  "stock_quantity"
     t.decimal  "purchase_price",      :precision => 8, :scale => 2, :default => 0.0
     t.decimal  "sale_price",          :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(:version => 20100823012848) do
   add_index "products", ["units_of_measure_id"], :name => "index_products_on_units_of_measure_id"
 
   create_table "purchase_order_items", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "purchase_order_id"
-    t.decimal  "quantity",          :precision => 12, :scale => 3, :default => 0.0
+    t.integer  "product_id",                                                        :null => false
+    t.integer  "purchase_order_id",                                                 :null => false
+    t.decimal  "quantity",          :precision => 12, :scale => 3, :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(:version => 20100823012848) do
   add_index "purchase_orders", ["supplier_id"], :name => "index_purchase_orders_on_supplier_id"
 
   create_table "sales_order_items", :force => true do |t|
-    t.integer  "sales_order_id"
-    t.integer  "product_id"
-    t.decimal  "quantity",         :precision => 12, :scale => 3, :default => 0.0
+    t.integer  "sales_order_id",                                                     :null => false
+    t.integer  "product_id",                                                         :null => false
+    t.decimal  "quantity",         :precision => 12, :scale => 3, :default => 0.0,   :null => false
     t.decimal  "custom_price",     :precision => 8,  :scale => 2, :default => 0.0
     t.boolean  "use_custom_price",                                :default => false
     t.datetime "created_at"
