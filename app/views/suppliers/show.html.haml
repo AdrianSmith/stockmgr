@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @supplier.name
+%p
+  %b Description:
+  = @supplier.description
+%p
+  %b Website:
+  = @supplier.website
+%p
+  %b Email:
+  = @supplier.email
+%p
+  %b Account name:
+  = @supplier.account_name
+%p
+  %b Account number:
+  = @supplier.account_number
+%p
+  %b Delivery rules:
+  = @supplier.delivery_rules
+%p
+  %b Address line 1:
+  = @supplier.address_line_1
+%p
+  %b Address line 2:
+  = @supplier.address_line_2
+%p
+  %b Suburb:
+  = @supplier.suburb
+%p
+  %b City:
+  = @supplier.city
+%p
+  %b Postcode:
+  = @supplier.postcode
+%p
+  %b Phone mobile:
+  = @supplier.phone_mobile
+%p
+  %b Phone home:
+  = @supplier.phone_home
+%p
+  %b Phone work:
+  = @supplier.phone_work
+%p
+  %b Comment:
+  = @supplier.comment
+%p
+  %b Active:
+  = @supplier.active
+
+= link_to 'Edit', edit_supplier_path(@supplier)
+\|
+= link_to 'Back', suppliers_path

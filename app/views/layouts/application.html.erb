@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prodmgr</title>
+  <title>Product Manager</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Product Manager</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <% if user_signed_in? %>
+              <li><%= link_to "Customers", users_learning_modules_path %></li>
+              <li><%= link_to "Products", learning_modules_path %></li>
+            <% else %>
+            <% end %>
+          </ul>
+        </div>
+        <div id="user_nav" class="pull-right">
+          <% if user_signed_in? %>
+            Signed in as <%= link_to current_user.email, edit_user_registration_path %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
-
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error"%>">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div class="row"><%= yield %></div>
+  <div>
 </body>
 </html>

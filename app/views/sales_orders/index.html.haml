@@ -1,0 +1,29 @@
+%h1 Listing sales_orders
+
+%table
+  %tr
+    %th Customer
+    %th State
+    %th Invoiced on
+    %th Paid on
+    %th Private comment
+    %th Public comment
+    %th
+    %th
+    %th
+
+  - @sales_orders.each do |sales_order|
+    %tr
+      %td= sales_order.customer_id
+      %td= sales_order.state
+      %td= sales_order.invoiced_on
+      %td= sales_order.paid_on
+      %td= sales_order.private_comment
+      %td= sales_order.public_comment
+      %td= link_to 'Show', sales_order
+      %td= link_to 'Edit', edit_sales_order_path(sales_order)
+      %td= link_to 'Destroy', sales_order, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Sales order', new_sales_order_path

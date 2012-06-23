@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Amount:
+  = @payment.amount
+%p
+  %b Payment type:
+  = @payment.payment_type_id
+%p
+  %b Customer:
+  = @payment.customer_id
+%p
+  %b Comment:
+  = @payment.comment
+%p
+  %b Received at:
+  = @payment.received_at
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path

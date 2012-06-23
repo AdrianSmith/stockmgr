@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Customer:
+  = @sales_order.customer_id
+%p
+  %b State:
+  = @sales_order.state
+%p
+  %b Invoiced on:
+  = @sales_order.invoiced_on
+%p
+  %b Paid on:
+  = @sales_order.paid_on
+%p
+  %b Private comment:
+  = @sales_order.private_comment
+%p
+  %b Public comment:
+  = @sales_order.public_comment
+
+= link_to 'Edit', edit_sales_order_path(@sales_order)
+\|
+= link_to 'Back', sales_orders_path

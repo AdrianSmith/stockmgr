@@ -1,0 +1,56 @@
+= form_for @customer, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :first_name, :class => 'control-label'
+    .controls
+      = f.text_field :first_name, :class => 'text_field'
+  .control-group
+    = f.label :last_name, :class => 'control-label'
+    .controls
+      = f.text_field :last_name, :class => 'text_field'
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'text_field'
+  .control-group
+    = f.label :address_line_1, :class => 'control-label'
+    .controls
+      = f.text_field :address_line_1, :class => 'text_field'
+  .control-group
+    = f.label :address_line_2, :class => 'control-label'
+    .controls
+      = f.text_field :address_line_2, :class => 'text_field'
+  .control-group
+    = f.label :suburb, :class => 'control-label'
+    .controls
+      = f.text_field :suburb, :class => 'text_field'
+  .control-group
+    = f.label :city, :class => 'control-label'
+    .controls
+      = f.text_field :city, :class => 'text_field'
+  .control-group
+    = f.label :postcode, :class => 'control-label'
+    .controls
+      = f.text_field :postcode, :class => 'text_field'
+  .control-group
+    = f.label :phone_mobile, :class => 'control-label'
+    .controls
+      = f.text_field :phone_mobile, :class => 'text_field'
+  .control-group
+    = f.label :phone_home, :class => 'control-label'
+    .controls
+      = f.text_field :phone_home, :class => 'text_field'
+  .control-group
+    = f.label :phone_work, :class => 'control-label'
+    .controls
+      = f.text_field :phone_work, :class => 'text_field'
+  .control-group
+    = f.label :account_balance_cached, :class => 'control-label'
+    .controls
+      = f.text_field :account_balance_cached, :class => 'text_field'
+  .control-group
+    = f.label :active, :class => 'control-label'
+    .controls
+      = f.check_box :active, :class => 'check_box'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), customers_path, :class => 'btn'

@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Supplier:
+  = @product.supplier_id
+%p
+  %b Supplier reference:
+  = @product.supplier_reference
+%p
+  %b Brand:
+  = @product.brand
+%p
+  %b Purchase price:
+  = @product.purchase_price
+%p
+  %b Gst:
+  = @product.gst
+%p
+  %b Active:
+  = @product.active
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

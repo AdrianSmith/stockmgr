@@ -1,0 +1,51 @@
+%h1 Listing suppliers
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Website
+    %th Email
+    %th Account name
+    %th Account number
+    %th Delivery rules
+    %th Address line 1
+    %th Address line 2
+    %th Suburb
+    %th City
+    %th Postcode
+    %th Phone mobile
+    %th Phone home
+    %th Phone work
+    %th Comment
+    %th Active
+    %th
+    %th
+    %th
+
+  - @suppliers.each do |supplier|
+    %tr
+      %td= supplier.name
+      %td= supplier.description
+      %td= supplier.website
+      %td= supplier.email
+      %td= supplier.account_name
+      %td= supplier.account_number
+      %td= supplier.delivery_rules
+      %td= supplier.address_line_1
+      %td= supplier.address_line_2
+      %td= supplier.suburb
+      %td= supplier.city
+      %td= supplier.postcode
+      %td= supplier.phone_mobile
+      %td= supplier.phone_home
+      %td= supplier.phone_work
+      %td= supplier.comment
+      %td= supplier.active
+      %td= link_to 'Show', supplier
+      %td= link_to 'Edit', edit_supplier_path(supplier)
+      %td= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Supplier', new_supplier_path

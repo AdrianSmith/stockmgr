@@ -1,0 +1,29 @@
+- model_class = @payment.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:amount) + ':'
+  %br
+  = @payment.amount
+%p
+  %strong= model_class.human_attribute_name(:payment_type_id) + ':'
+  %br
+  = @payment.payment_type_id
+%p
+  %strong= model_class.human_attribute_name(:customer_id) + ':'
+  %br
+  = @payment.customer_id
+%p
+  %strong= model_class.human_attribute_name(:comment) + ':'
+  %br
+  = @payment.comment
+%p
+  %strong= model_class.human_attribute_name(:received_at) + ':'
+  %br
+  = @payment.received_at
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), payment_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_payment_path(@payment), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), payment_path(@payment), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
