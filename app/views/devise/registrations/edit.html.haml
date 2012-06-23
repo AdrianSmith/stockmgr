@@ -1,0 +1,37 @@
+.span9
+  .page-header
+    %h1 Edit User Details
+
+  .form-horizontal
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      .field-set
+        .control-group
+          .control-label
+            = f.label :email
+          .controls
+            = f.email_field :email
+
+        .control-group
+          .control-label
+            = f.label :password
+          .controls
+            = f.password_field :password, :autocomplete => "off"
+
+        .control-group
+          .control-label
+            = f.label :password_confirmation
+          .controls
+            = f.password_field :password_confirmation
+
+        .control-group
+          .control-label
+            = f.label :current_password
+          .controls
+            = f.password_field :current_password
+            .help-block
+              %em (we need your current password to confirm your changes)
+
+        .control-group
+          .controls
+            = f.submit "Update", :class => 'btn btn-primary'

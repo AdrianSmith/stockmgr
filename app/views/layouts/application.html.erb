@@ -18,8 +18,8 @@
         <div class="nav-collapse">
           <ul class="nav">
             <% if user_signed_in? %>
-              <li><%= link_to "Customers", users_learning_modules_path %></li>
-              <li><%= link_to "Products", learning_modules_path %></li>
+              <li><%= link_to "Customers", customers_path %></li>
+              <li><%= link_to "Products", products_path %></li>
             <% else %>
             <% end %>
           </ul>

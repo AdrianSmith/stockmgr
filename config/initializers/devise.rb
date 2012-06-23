@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "e77c687207bb340179c1deac32dbd4bda1d0a6ab0afd27732f18e3fbb504504b0335d21f5e9950545cae5ab62316089228e70bd814cc5315b3deb5d3aac7ad00"
+  # config.pepper = "853e46890ba856ac23666837a5210342972343b91e3202055760e2b862bde54c31d2d1d071365a3acf1e26ffe400ffe86157169174ffc2824a235d5005ac98cf"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -125,9 +125,6 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
-  
-  # If true, expires auth token on session timeout.
-  # config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -184,8 +181,9 @@ Devise.setup do |config|
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 
-  # Set this configuration to false if you want /users/sign_out to sign out
-  # only the current scope. By default, Devise signs out all scopes.
+  # Configure sign_out behavior.
+  # Sign_out action can be scoped (i.e. /users/sign_out affects only :user scope).
+  # The default is true, which means any logout action will sign out all active scopes.
   # config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
@@ -200,7 +198,7 @@ Devise.setup do |config|
   # config.navigational_formats = ["*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -215,18 +213,4 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
-
-  # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
-  # is mountable, there are some extra configurations to be taken into account.
-  # The following options are available, assuming the engine is mounted as:
-  #
-  #     mount MyEngine, at: "/my_engine"
-  #
-  # The router that invoked `devise_for`, in the example above, would be:
-  # config.router_name = :my_engine
-  #
-  # When using omniauth, Devise cannot automatically set Omniauth path,
-  # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = "/my_engine/users/auth"
 end

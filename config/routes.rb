@@ -1,4 +1,5 @@
 Prodmgr::Application.routes.draw do
+
   resources :suppliers
 
   resources :sales_order_items

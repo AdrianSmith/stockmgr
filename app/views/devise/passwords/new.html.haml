@@ -1,0 +1,19 @@
+.span9
+  .page-header
+    %h2 Forgot your password?
+
+  .form-horizontal
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      = devise_error_messages!
+      .field-set
+        .control-group
+          .control-label
+            = f.label :email
+          .controls
+            = f.email_field :email
+        .control-group
+          .controls
+            = f.submit "Update", :class => 'btn btn-primary'
+
+.span3
+  = render :partial => "devise/shared/links"

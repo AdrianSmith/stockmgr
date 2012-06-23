@@ -1,0 +1,23 @@
+.span9
+  .page-header
+    %h1 Sign In
+
+  .form-horizontal
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      .field-set
+        .control-group
+          .control-label
+            = f.label :email
+          .controls
+            = f.email_field :email
+        .control-group
+          .control-label
+            = f.label :password
+          .controls
+            = f.password_field :password
+        .control-group
+          .controls
+            = f.submit "Sign in", :class => 'btn btn-primary'
+
+.span3
+  = render :partial => "devise/shared/links"
