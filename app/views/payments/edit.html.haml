@@ -1,7 +1,4 @@
-%h1 Editing payment
-
-= render 'form'
-
-= link_to 'Show', @payment
-\|
-= link_to 'Back', payments_path
+- model_class = @payment.class
+.page-header
+  %h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
+= render :partial => "form"

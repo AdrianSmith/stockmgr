@@ -1,28 +1,28 @@
-= form_for @sales_order do |f|
-  -if @sales_order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@sales_order.errors.count, "error")} prohibited this sales_order from being saved:"
-      %ul
-        - @sales_order.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :customer_id
-    = f.number_field :customer_id
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :invoiced_on
-    = f.date_select :invoiced_on
-  .field
-    = f.label :paid_on
-    = f.date_select :paid_on
-  .field
-    = f.label :private_comment
-    = f.text_field :private_comment
-  .field
-    = f.label :public_comment
-    = f.text_field :public_comment
-  .actions
-    = f.submit 'Save'
+= form_for @sales_order, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :customer_id, :class => 'control-label'
+    .controls
+      = f.number_field :customer_id, :class => 'number_field'
+  .control-group
+    = f.label :state, :class => 'control-label'
+    .controls
+      = f.text_field :state, :class => 'text_field'
+  .control-group
+    = f.label :invoiced_on, :class => 'control-label'
+    .controls
+      = f.date_select :invoiced_on, :class => 'date_select'
+  .control-group
+    = f.label :paid_on, :class => 'control-label'
+    .controls
+      = f.date_select :paid_on, :class => 'date_select'
+  .control-group
+    = f.label :private_comment, :class => 'control-label'
+    .controls
+      = f.text_area :private_comment, :class => 'text_area'
+  .control-group
+    = f.label :public_comment, :class => 'control-label'
+    .controls
+      = f.text_area :public_comment, :class => 'text_area'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), sales_orders_path, :class => 'btn'

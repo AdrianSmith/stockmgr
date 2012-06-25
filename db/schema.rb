@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
     t.string   "state",           :default => "ordered", :null => false
     t.date     "invoiced_on"
     t.date     "paid_on"
-    t.string   "private_comment"
-    t.string   "public_comment"
+    t.text     "private_comment"
+    t.text     "public_comment"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

@@ -1,25 +1,24 @@
-= form_for @payment do |f|
-  -if @payment.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@payment.errors.count, "error")} prohibited this payment from being saved:"
-      %ul
-        - @payment.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :payment_type_id
-    = f.number_field :payment_type_id
-  .field
-    = f.label :customer_id
-    = f.number_field :customer_id
-  .field
-    = f.label :comment
-    = f.text_area :comment
-  .field
-    = f.label :received_at
-    = f.datetime_select :received_at
-  .actions
-    = f.submit 'Save'
+= form_for @payment, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :amount, :class => 'control-label'
+    .controls
+      = f.text_field :amount, :class => 'text_field'
+  .control-group
+    = f.label :payment_type_id, :class => 'control-label'
+    .controls
+      = f.number_field :payment_type_id, :class => 'number_field'
+  .control-group
+    = f.label :customer_id, :class => 'control-label'
+    .controls
+      = f.number_field :customer_id, :class => 'number_field'
+  .control-group
+    = f.label :comment, :class => 'control-label'
+    .controls
+      = f.text_area :comment, :class => 'text_area'
+  .control-group
+    = f.label :received_at, :class => 'control-label'
+    .controls
+      = f.datetime_select :received_at, :class => 'datetime_select'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), payments_path, :class => 'btn'

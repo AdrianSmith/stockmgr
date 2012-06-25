@@ -5,8 +5,8 @@ class CreateSalesOrders < ActiveRecord::Migration
       t.string :state, :null => false, :default => 'ordered'
       t.date :invoiced_on
       t.date :paid_on
-      t.string :private_comment
-      t.string :public_comment
+      t.text :private_comment
+      t.text :public_comment
 
       t.timestamps
     end

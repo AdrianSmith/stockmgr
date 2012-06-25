@@ -1,24 +1,33 @@
-%p#notice= notice
+- model_class = @sales_order.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %b Customer:
+  %strong= model_class.human_attribute_name(:customer_id) + ':'
+  %br
   = @sales_order.customer_id
 %p
-  %b State:
+  %strong= model_class.human_attribute_name(:state) + ':'
+  %br
   = @sales_order.state
 %p
-  %b Invoiced on:
+  %strong= model_class.human_attribute_name(:invoiced_on) + ':'
+  %br
   = @sales_order.invoiced_on
 %p
-  %b Paid on:
+  %strong= model_class.human_attribute_name(:paid_on) + ':'
+  %br
   = @sales_order.paid_on
 %p
-  %b Private comment:
+  %strong= model_class.human_attribute_name(:private_comment) + ':'
+  %br
   = @sales_order.private_comment
 %p
-  %b Public comment:
+  %strong= model_class.human_attribute_name(:public_comment) + ':'
+  %br
   = @sales_order.public_comment
 
-= link_to 'Edit', edit_sales_order_path(@sales_order)
-\|
-= link_to 'Back', sales_orders_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), sales_orders_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_sales_order_path(@sales_order), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), sales_order_path(@sales_order), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

@@ -1,61 +1,72 @@
-= form_for @supplier do |f|
-  -if @supplier.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@supplier.errors.count, "error")} prohibited this supplier from being saved:"
-      %ul
-        - @supplier.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :website
-    = f.text_field :website
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :account_name
-    = f.text_field :account_name
-  .field
-    = f.label :account_number
-    = f.text_field :account_number
-  .field
-    = f.label :delivery_rules
-    = f.text_area :delivery_rules
-  .field
-    = f.label :address_line_1
-    = f.text_field :address_line_1
-  .field
-    = f.label :address_line_2
-    = f.text_field :address_line_2
-  .field
-    = f.label :suburb
-    = f.text_field :suburb
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :postcode
-    = f.text_field :postcode
-  .field
-    = f.label :phone_mobile
-    = f.text_field :phone_mobile
-  .field
-    = f.label :phone_home
-    = f.text_field :phone_home
-  .field
-    = f.label :phone_work
-    = f.text_field :phone_work
-  .field
-    = f.label :comment
-    = f.text_area :comment
-  .field
-    = f.label :active
-    = f.check_box :active
-  .actions
-    = f.submit 'Save'
+= form_for @supplier, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description, :class => 'text_area'
+  .control-group
+    = f.label :website, :class => 'control-label'
+    .controls
+      = f.text_field :website, :class => 'text_field'
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'text_field'
+  .control-group
+    = f.label :account_name, :class => 'control-label'
+    .controls
+      = f.text_field :account_name, :class => 'text_field'
+  .control-group
+    = f.label :account_number, :class => 'control-label'
+    .controls
+      = f.text_field :account_number, :class => 'text_field'
+  .control-group
+    = f.label :delivery_rules, :class => 'control-label'
+    .controls
+      = f.text_area :delivery_rules, :class => 'text_area'
+  .control-group
+    = f.label :address_line_1, :class => 'control-label'
+    .controls
+      = f.text_field :address_line_1, :class => 'text_field'
+  .control-group
+    = f.label :address_line_2, :class => 'control-label'
+    .controls
+      = f.text_field :address_line_2, :class => 'text_field'
+  .control-group
+    = f.label :suburb, :class => 'control-label'
+    .controls
+      = f.text_field :suburb, :class => 'text_field'
+  .control-group
+    = f.label :city, :class => 'control-label'
+    .controls
+      = f.text_field :city, :class => 'text_field'
+  .control-group
+    = f.label :postcode, :class => 'control-label'
+    .controls
+      = f.text_field :postcode, :class => 'text_field'
+  .control-group
+    = f.label :phone_mobile, :class => 'control-label'
+    .controls
+      = f.text_field :phone_mobile, :class => 'text_field'
+  .control-group
+    = f.label :phone_home, :class => 'control-label'
+    .controls
+      = f.text_field :phone_home, :class => 'text_field'
+  .control-group
+    = f.label :phone_work, :class => 'control-label'
+    .controls
+      = f.text_field :phone_work, :class => 'text_field'
+  .control-group
+    = f.label :comment, :class => 'control-label'
+    .controls
+      = f.text_area :comment, :class => 'text_area'
+  .control-group
+    = f.label :active, :class => 'control-label'
+    .controls
+      = f.check_box :active, :class => 'check_box'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), suppliers_path, :class => 'btn'
