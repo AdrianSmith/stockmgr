@@ -43,14 +43,6 @@
     = f.label :phone_work, :class => 'control-label'
     .controls
       = f.text_field :phone_work, :class => 'text_field'
-  .control-group
-    = f.label :account_balance_cached, :class => 'control-label'
-    .controls
-      = f.text_field :account_balance_cached, :class => 'text_field'
-  .control-group
-    = f.label :active, :class => 'control-label'
-    .controls
-      = f.check_box :active, :class => 'check_box'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), customers_path, :class => 'btn'

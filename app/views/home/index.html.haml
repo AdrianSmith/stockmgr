@@ -1,8 +1,7 @@
 .row
-  .span8
-    .hero-unit
-      %h1 Product Manager
-      %p Track products, sales orders and payments
-
-  .span4
-    %p asdasd
+  .hero-unit
+    %h1 Product Manager
+    %p Track products, sales orders and payments
+    %p
+      - unless user_signed_in?
+        = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'

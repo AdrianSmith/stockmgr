@@ -10,6 +10,9 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'state_machine'
 gem 'thin'
+gem "inherited_resources"
+gem "formtastic"
+gem "prawn"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
