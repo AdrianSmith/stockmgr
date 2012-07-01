@@ -1,24 +1,21 @@
-- model_class = ProductType.new.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  .row
+    .span11
+      %h1 Product Types
+    .span1
+      = link_to "New", new_product_type_path, :class => 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:active)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th Name
+      %th Description
+      %th Products
   %tbody
     - @product_types.each do |product_type|
       %tr
-        %td= link_to product_type.id, product_type_path(product_type)
-        %td= product_type.name
+        %td= link_to product_type.name, product_type_path(product_type)
         %td= product_type.description
-        %td= product_type.active
-        %td=l product_type.created_at
+        %td= product_type.products.length
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_type_path(product_type), :class => 'btn btn-mini'
-
-= link_to t('.new', :default => t("helpers.links.new")), new_product_type_path, :class => 'btn btn-primary'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_type_path(product_type), :class => 'btn btn-mini btn-info'
