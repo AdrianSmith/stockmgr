@@ -13,12 +13,10 @@ describe Supplier do
 
   context "instanciated with valid attributes" do
     before do
-      @supplier = Factory.build(:supplier)
-      Factory(:supplier)
+      @supplier = FactoryGirl.create(:supplier)
     end
 
     it {should have_many(:products)}
-    it {should have_many(:purchase_orders)}
     it {should validate_presence_of(:name)}
     it {should validate_uniqueness_of(:name)}
 

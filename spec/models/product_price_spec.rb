@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe ProductPrice do
   before(:each) do
-    @product = Factory(:product, :product_type => Factory(:product_type), :supplier => Factory(:supplier), :units_of_measure => Factory(:units_of_measure))
+    @product = FactoryGirl.create(:product, :product_type_id => FactoryGirl.create(:product_type).id, :supplier_id => FactoryGirl.create(:supplier).id)
     @valid_attributes = {
       :amount => BigDecimal.new("10.5"),
-      :product => @product
+      :product_id => @product.id
     }
   end
 

@@ -87,14 +87,15 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
   end
 
   create_table "sales_orders", :force => true do |t|
-    t.integer  "customer_id",                            :null => false
-    t.string   "state",           :default => "ordered", :null => false
-    t.date     "invoiced_on"
-    t.date     "paid_on"
+    t.integer  "customer_id",     :null => false
+    t.boolean  "invoiced"
+    t.datetime "invoiced_at"
+    t.boolean  "paid"
+    t.datetime "paid_at"
     t.text     "private_comment"
     t.text     "public_comment"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "suppliers", :force => true do |t|

@@ -14,7 +14,7 @@ describe PaymentType do
 
   context "instanciated with valid attributes" do
     before do
-      Factory(:payment_type)
+      FactoryGirl.create(:payment_type)
     end
     it {should have_many(:payments)}
     it {should validate_presence_of(:name)}

@@ -11,11 +11,11 @@
   %br
   = @sales_order.state
 %p
-  %strong= model_class.human_attribute_name(:invoiced_on) + ':'
+  %strong= model_class.human_attribute_name(:invoiced_at) + ':'
   %br
   = @sales_order.invoiced_on
 %p
-  %strong= model_class.human_attribute_name(:paid_on) + ':'
+  %strong= model_class.human_attribute_name(:paid_at) + ':'
   %br
   = @sales_order.paid_on
 %p

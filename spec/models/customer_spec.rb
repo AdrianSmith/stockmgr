@@ -7,10 +7,8 @@ describe Customer do
       :last_name => 'Citizen',
       :email => 'john.citizen@gmail.com',
       :address_line_1 => '25 Brisbane St',
-      :suburb_town => 'Brisbane',
+      :suburb => 'Brisbane',
       :postcode => '4000',
-      :state => 'Queensland',
-      :country => 'Australia',
     }
   end
 
@@ -20,7 +18,7 @@ describe Customer do
 
   context "instanciated with valid attributes" do
     before do
-      Factory(:customer)
+      FactoryGirl.create(:customer)
     end
     it {should have_many(:sales_orders)}
     it {should have_many(:payments)}
@@ -32,15 +30,15 @@ describe Customer do
 
   context "A valid customer" do
     before do
-      @customer = Factory.build(:customer)
+      @customer = FactoryGirl.build(:customer)
     end
 
     it "should create a pretty address string" do
-      assert_not_nil(@customer.pretty_address)
+      @customer.pretty_address.should_not be nil
     end
 
     it "should create a pretty phone string" do
-      assert_not_nil(@customer.pretty_phone)
+      @customer.pretty_phone.should_not be nil
     end
 
     it "should save names properly" do

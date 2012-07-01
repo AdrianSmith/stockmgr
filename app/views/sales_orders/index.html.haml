@@ -7,8 +7,8 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:customer_id)
       %th= model_class.human_attribute_name(:state)
-      %th= model_class.human_attribute_name(:invoiced_on)
-      %th= model_class.human_attribute_name(:paid_on)
+      %th= model_class.human_attribute_name(:invoiced_at)
+      %th= model_class.human_attribute_name(:paid_at)
       %th= model_class.human_attribute_name(:private_comment)
       %th= model_class.human_attribute_name(:public_comment)
       %th= model_class.human_attribute_name(:created_at)
@@ -19,8 +19,8 @@
         %td= link_to sales_order.id, sales_order_path(sales_order)
         %td= sales_order.customer_id
         %td= sales_order.state
-        %td= sales_order.invoiced_on
-        %td= sales_order.paid_on
+        %td= sales_order.invoiced_at
+        %td= sales_order.paid_at
         %td= sales_order.private_comment
         %td= sales_order.public_comment
         %td=l sales_order.created_at

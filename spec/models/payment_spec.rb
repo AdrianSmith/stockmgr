@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe Payment do
   before(:each) do
-    @customer = Factory(:customer)
-    @payment_type = Factory(:payment_type)
+    @customer = FactoryGirl.create(:customer)
+    @payment_type = FactoryGirl.create(:payment_type)
     @valid_attributes = {
       :amount => BigDecimal.new('10.50'),
-      :payment_type => @payment_type,
-      :customer => @customer,
+      :payment_type_id => @payment_type.id,
+      :customer_id => @customer.id,
       :received_at => DateTime.now
     }
   end
@@ -18,7 +18,7 @@ describe Payment do
 
   context "instanciated with valid attributes" do
     before do
-      payment = Factory.build(:payment)
+      payment = FactoryGirl.build(:payment)
       payment.update_attributes(@valid_attributes)
     end
     it {should belong_to(:payment_type)}

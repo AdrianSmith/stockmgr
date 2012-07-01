@@ -13,7 +13,7 @@ describe ProductType do
 
   context "instanciated with valid attributes" do
     before do
-      Factory(:product_type)
+      FactoryGirl.create(:product_type)
     end
     it {should have_many(:products)}
     it {should validate_presence_of(:name)}
