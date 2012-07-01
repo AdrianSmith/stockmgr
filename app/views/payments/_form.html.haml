@@ -6,19 +6,15 @@
   .control-group
     = f.label :payment_type_id, :class => 'control-label'
     .controls
-      = f.number_field :payment_type_id, :class => 'number_field'
+      = f.select :payment_type_id, @payment_types, :prompt => 'Select ...', :class => 'number_field'
   .control-group
     = f.label :customer_id, :class => 'control-label'
     .controls
-      = f.number_field :customer_id, :class => 'number_field'
+      = f.select :customer_id, @customers, :prompt => 'Select ...', :class => 'number_field'
   .control-group
     = f.label :comment, :class => 'control-label'
     .controls
-      = f.text_area :comment, :class => 'text_area'
-  .control-group
-    = f.label :received_at, :class => 'control-label'
-    .controls
-      = f.datetime_select :received_at, :class => 'datetime_select'
+      = f.text_area :comment, :class => 'input-xlarge', :rows => '3'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), payments_path, :class => 'btn'
