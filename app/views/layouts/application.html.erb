@@ -19,7 +19,9 @@
           <ul class="nav">
             <% if user_signed_in? %>
               <li><%= link_to "Customers", customers_path %></li>
+              <li><%= link_to "Sales", sales_orders_path %></li>
               <li><%= link_to "Products", products_path %></li>
+              <li><%= link_to "Suppliers", suppliers_path %></li>
             <% else %>
             <% end %>
           </ul>

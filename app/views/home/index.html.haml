@@ -1,7 +1,12 @@
 .row
-  .hero-unit
-    %h1 Product Manager
-    %p Track products, sales orders and payments
-    %p
-      - unless user_signed_in?
-        = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'
+  .span8
+    .hero-unit
+      %h1 Product Manager
+      %p Track products, sales orders and payments
+      %p
+        - unless user_signed_in?
+          = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'
+  .span2.offset2
+    %h2 Configuration
+    %p= link_to 'Product Types', product_types_path, :class => 'btn btn-primary btn-large'
+    %p= link_to 'Payment Types', payment_types_path, :class => 'btn btn-primary btn-large'
