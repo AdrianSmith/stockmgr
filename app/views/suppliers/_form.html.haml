@@ -6,7 +6,7 @@
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_area :description, :class => 'text_area'
+      = f.text_area :description, :class => 'text_area', :rows => 3
   .control-group
     = f.label :website, :class => 'control-label'
     .controls
@@ -26,7 +26,7 @@
   .control-group
     = f.label :delivery_rules, :class => 'control-label'
     .controls
-      = f.text_area :delivery_rules, :class => 'text_area'
+      = f.text_area :delivery_rules, :class => 'text_area', :rows => 3
   .control-group
     = f.label :address_line_1, :class => 'control-label'
     .controls
@@ -62,11 +62,7 @@
   .control-group
     = f.label :comment, :class => 'control-label'
     .controls
-      = f.text_area :comment, :class => 'text_area'
-  .control-group
-    = f.label :active, :class => 'control-label'
-    .controls
-      = f.check_box :active, :class => 'check_box'
+      = f.text_area :comment, :class => 'text_area', :rows => 3
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), suppliers_path, :class => 'btn'
