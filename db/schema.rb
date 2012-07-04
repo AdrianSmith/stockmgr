@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623095256) do
+ActiveRecord::Schema.define(:version => 20120704091821) do
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
@@ -49,12 +49,17 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
     t.datetime "updated_at",                                                     :null => false
   end
 
+  add_index "payments", ["customer_id"], :name => "index_payments_on_customer_id"
+  add_index "payments", ["payment_type_id"], :name => "index_payments_on_payment_type_id"
+
   create_table "product_prices", :force => true do |t|
     t.integer  "product_id",                                                :null => false
     t.decimal  "amount",     :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
   end
+
+  add_index "product_prices", ["product_id"], :name => "index_product_prices_on_product_id"
 
   create_table "product_types", :force => true do |t|
     t.string   "name",                          :null => false
@@ -78,6 +83,9 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
     t.datetime "updated_at",                                                          :null => false
   end
 
+  add_index "products", ["product_type_id"], :name => "index_products_on_product_type_id"
+  add_index "products", ["supplier_id"], :name => "index_products_on_supplier_id"
+
   create_table "sales_order_items", :force => true do |t|
     t.integer  "sales_order_id",                                                 :null => false
     t.integer  "product_id",                                                     :null => false
@@ -85,6 +93,9 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
     t.datetime "created_at",                                                     :null => false
     t.datetime "updated_at",                                                     :null => false
   end
+
+  add_index "sales_order_items", ["product_id"], :name => "index_sales_order_items_on_product_id"
+  add_index "sales_order_items", ["sales_order_id"], :name => "index_sales_order_items_on_sales_order_id"
 
   create_table "sales_orders", :force => true do |t|
     t.integer  "customer_id",     :null => false
@@ -97,6 +108,8 @@ ActiveRecord::Schema.define(:version => 20120623095256) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "sales_orders", ["customer_id"], :name => "index_sales_orders_on_customer_id"
 
   create_table "suppliers", :force => true do |t|
     t.string   "name",                             :null => false
