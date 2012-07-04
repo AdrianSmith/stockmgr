@@ -1,45 +1,58 @@
-- model_class = @product.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1 Product
 
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @product.name
-%p
-  %strong= model_class.human_attribute_name(:product_type_id) + ':'
-  %br
-  = @product.product_type_id
-%p
-  %strong= model_class.human_attribute_name(:description) + ':'
-  %br
-  = @product.description
-%p
-  %strong= model_class.human_attribute_name(:supplier_id) + ':'
-  %br
-  = @product.supplier_id
-%p
-  %strong= model_class.human_attribute_name(:supplier_reference) + ':'
-  %br
-  = @product.supplier_reference
-%p
-  %strong= model_class.human_attribute_name(:brand) + ':'
-  %br
-  = @product.brand
-%p
-  %strong= model_class.human_attribute_name(:purchase_price) + ':'
-  %br
-  = @product.purchase_price
-%p
-  %strong= model_class.human_attribute_name(:gst) + ':'
-  %br
-  = @product.gst
-%p
-  %strong= model_class.human_attribute_name(:active) + ':'
-  %br
-  = @product.active
+.row
+  .span6
+    %p
+      %strong Name
+      %br
+        = @product.name
+    %p
+      %strong Type
+      %br
+      = @product.product_type.name
+    %p
+      %strong Brand
+      %br
+      = @product.brand
+    %p
+      %strong Supplier
+      %br
+      = @product.supplier.name
+    %p
+      %strong Reference
+      %br
+      = @product.supplier_reference
+    %p
+      %strong Description
+      %br
+      = @product.description
+
+  .span6
+    %p
+      %strong Includes GST?
+      %br
+      = @product.gst
+    %p
+      %strong Purchase Price (ex GST)
+      %br
+      = format_currency(@product.purchase_price)
+    %p
+      %strong Purchase Price (inc GST)
+      %br
+      = format_currency(@product.purchase_price + @product.gst_purchase_price)
+      %small= "Includes #{format_currency(@product.gst_purchase_price)} GST"
+    %p
+      %strong Sale Price (inc GST)
+      %br
+      = format_currency(@product.sale_price)
+      %small= "Includes #{format_currency(@product.gst_sale_price)} GST"
+    %p
+      %strong Mark Up
+      %br
+      = format_currency(@product.markup_amount)
+      %small= "(#{number_to_percentage(@product.markup_percentage, :precision => 0)})"
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(@product), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

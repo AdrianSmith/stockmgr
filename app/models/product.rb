@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :active, :brand, :description, :gst, :name, :purchase_price, :supplier_id, :supplier_reference, :product_type, :supplier
+  attr_accessible :active, :brand, :description, :gst, :name, :purchase_price, :supplier_id, :supplier, :supplier_reference, :product_type_id, :product_type, :sale_price
 
   belongs_to :product_type
   belongs_to :supplier

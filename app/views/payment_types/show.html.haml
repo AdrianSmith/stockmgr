@@ -10,10 +10,6 @@
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   = @payment_type.description
-%p
-  %strong= model_class.human_attribute_name(:active) + ':'
-  %br
-  = @payment_type.active
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), payment_types_path, :class => 'btn'

@@ -6,15 +6,15 @@
   .control-group
     = f.label :product_type_id, :class => 'control-label'
     .controls
-      = f.number_field :product_type_id, :class => 'number_field'
+      = f.select :product_type_id, @product_types, :class => 'number_field', :prompt => 'Select ...'
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_area :description, :class => 'text_area'
+      = f.text_area :description, :class => 'text_area', :rows => 3
   .control-group
     = f.label :supplier_id, :class => 'control-label'
     .controls
-      = f.number_field :supplier_id, :class => 'number_field'
+      = f.select :supplier_id, @suppliers, :class => 'number_field', :prompt => 'Select ...'
   .control-group
     = f.label :supplier_reference, :class => 'control-label'
     .controls
@@ -28,13 +28,13 @@
     .controls
       = f.text_field :purchase_price, :class => 'text_field'
   .control-group
-    = f.label :gst, :class => 'control-label'
+    = f.label 'GST?', :class => 'control-label'
     .controls
       = f.check_box :gst, :class => 'check_box'
   .control-group
-    = f.label :active, :class => 'control-label'
+    = f.label :sale_price, :class => 'control-label'
     .controls
-      = f.check_box :active, :class => 'check_box'
+      = f.text_field :sale_price, :class => 'text_field', :hint => '(Including GST)'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn'

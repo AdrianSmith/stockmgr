@@ -7,10 +7,6 @@
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_area :description, :class => 'text_area', :rows => '3'
-  .control-group
-    = f.label :active, :class => 'control-label'
-    .controls
-      = f.check_box :active, :class => 'check_box'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), product_types_path, :class => 'btn'
