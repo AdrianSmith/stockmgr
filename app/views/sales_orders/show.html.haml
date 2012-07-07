@@ -1,29 +1,53 @@
-- model_class = @sales_order.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1
+    = "Sales Order for "
+    = link_to @customer.pretty_name, customer_path(@customer)
+.row
+  .span4
+    %p= "Created: #{format_date(@sales_order.created_at)}"
+    %p= "Updated: #{format_date(@sales_order.updated_at)}"
+    %p
+      = "Invoiced:"
+      = format_boolean(@sales_order.invoiced?)
+      = "Paid:"
+      = format_boolean(@sales_order.paid?)
 
-%p
-  %strong Customer:
-  %br
-  = @sales_order.customer.name
-%p
-  %strong= model_class.human_attribute_name(:invoiced_at) + ':'
-  %br
-  = @sales_order.invoiced_on
-%p
-  %strong= model_class.human_attribute_name(:paid_at) + ':'
-  %br
-  = @sales_order.paid_on
-%p
-  %strong= model_class.human_attribute_name(:private_comment) + ':'
-  %br
-  = @sales_order.private_comment
-%p
-  %strong= model_class.human_attribute_name(:public_comment) + ':'
-  %br
-  = @sales_order.public_comment
+  .span8
+    %p
+      %strong Private Comment:
+      <br/>
+      = @sales_order.private_comment
+    %p
+      %strong Public Comment:
+      <br/>
+      = @sales_order.public_comment
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), sales_orders_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_sales_order_path(@sales_order), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), sales_order_path(@sales_order), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+.page-header
+  %h2 Orders Items
+
+%table.table.striped
+  %thead
+    %th Product Type
+    %th Supplier
+    %th Product Name
+    %th Unit Price<br/>(Inc GST)
+    %th Quantity
+    %th Sale Price<br/>(Inc GST)
+    %th Total<br/>GST
+
+  - @sales_order.sales_order_items.each do |item|
+    %tr{:class => (cycle 'odd', 'even')}
+      %td{:class => "text"}= item.product.product_type.name
+      %td{:class => "text"}= link_to item.product.supplier.name, item.product.supplier
+      %td{:class => "text"}= link_to "#{item.product.name}", item.product
+      %td{:class => "number"}= format_currency(item.unit_price)
+      %td{:class => "status"}= format_decimal_number(item.quantity)
+      %td{:class => "number"}= format_currency(item.price)
+      %td{:class => "number"}= format_currency(item.gst)
+  %tr
+    %td{:class => "number", :colspan => "5"} TOTAL
+    %td{:class => "number_bothline"}= format_currency(@sales_order.total_price)
+    %td{:class => "number_bothline"}= format_currency(@sales_order.total_gst)
+
+%p= link_to 'Edit Order', edit_sales_order_path(@sales_order), :class => 'btn btn-warning'
+

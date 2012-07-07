@@ -61,7 +61,7 @@ class SalesOrdersController < InheritedResources::Base
     products = find_products_for_selection
 
     if products.size > 0
-      @available_products = ["Select ..."] + products.map{|p| [p.name + ' [' + FormatHelper.format_currency(p.sale_price) + ']', p.id]}
+      @available_products = products.map{|p| [p.name + ' [' + FormatHelper.format_currency(p.sale_price) + ']', p.id]}
     else
       @available_products = ["None Available"]
     end
@@ -114,14 +114,14 @@ class SalesOrdersController < InheritedResources::Base
     end
 
     def prepare_common_variables
-      @available_product_types = ["Select ..."] + ProductType.ordered_by_name.map{|p| [p.name, p.id]}
-      @available_suppliers = ["Select ..."] + Supplier.ordered_by_name.map{|p| [p.name, p.id]}
+      @available_product_types = ProductType.ordered_by_name.map{|p| [p.name, p.id]}
+      @available_suppliers = Supplier.ordered_by_name.map{|p| [p.name, p.id]}
       @available_products = []
       @basket = find_basket
     end
 
     def prepare_available_products
-      @available_products = ["Select ..."] + Product.ordered_by_name.map{|p| [p.name + ' [' + p.sale_price.to_s + ']', p.id]}
+      @available_products = Product.ordered_by_name.map{|p| [p.name + ' [' + p.sale_price.to_s + ']', p.id]}
     end
 
     def find_basket
