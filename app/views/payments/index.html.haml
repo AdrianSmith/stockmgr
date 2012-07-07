@@ -1,9 +1,5 @@
 .page-header
-  .row
-    .span11
-      %h1 Payments
-    .span1
-      = link_to "New", new_payment_path, :class => 'btn btn-primary'
+  %h1 Payments
 
 %table.table.table-striped
   %thead
@@ -22,5 +18,5 @@
         %td= truncate(payment.comment, :length => 50, :omission => '...')
         %td= format_currency(payment.amount)
         %td
-          = link_to 'Edit', edit_payment_path(payment), :class => 'btn btn-info btn-mini'
+          = link_to 'Edit', edit_payment_path(payment), :class => 'btn btn-warning btn-mini'
           = link_to 'Delete', payment, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'

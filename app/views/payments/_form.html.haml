@@ -12,6 +12,10 @@
     .controls
       = f.select :customer_id, @customers, :prompt => 'Select ...', :class => 'number_field'
   .control-group
+    = f.label :received_at, :class => 'control-label'
+    .controls
+      = f.date_select :received_at, :class => 'date_select'
+  .control-group
     = f.label :comment, :class => 'control-label'
     .controls
       = f.text_area :comment, :class => 'input-xlarge', :rows => '3'

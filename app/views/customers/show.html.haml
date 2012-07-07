@@ -1,60 +1,78 @@
-- model_class = @customer.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1= @customer.pretty_name
+.row
+  .span6
+    %h2 Contact Details
+    %p= @customer.pretty_address
+    %p= mail_to(@customer.email, @customer.email, :subject => "StockMgr", :body => "Hi " + @customer.first_name)
+    %p= @customer.pretty_phone
+    %p= link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(@customer), :class => 'btn btn-mini btn-warning'
 
-%p
-  %strong= model_class.human_attribute_name(:first_name) + ':'
-  %br
-  = @customer.first_name
-%p
-  %strong= model_class.human_attribute_name(:last_name) + ':'
-  %br
-  = @customer.last_name
-%p
-  %strong= model_class.human_attribute_name(:email) + ':'
-  %br
-  = @customer.email
-%p
-  %strong= model_class.human_attribute_name(:address_line_1) + ':'
-  %br
-  = @customer.address_line_1
-%p
-  %strong= model_class.human_attribute_name(:address_line_2) + ':'
-  %br
-  = @customer.address_line_2
-%p
-  %strong= model_class.human_attribute_name(:suburb) + ':'
-  %br
-  = @customer.suburb
-%p
-  %strong= model_class.human_attribute_name(:city) + ':'
-  %br
-  = @customer.city
-%p
-  %strong= model_class.human_attribute_name(:postcode) + ':'
-  %br
-  = @customer.postcode
-%p
-  %strong= model_class.human_attribute_name(:phone_mobile) + ':'
-  %br
-  = @customer.phone_mobile
-%p
-  %strong= model_class.human_attribute_name(:phone_home) + ':'
-  %br
-  = @customer.phone_home
-%p
-  %strong= model_class.human_attribute_name(:phone_work) + ':'
-  %br
-  = @customer.phone_work
-%p
-  %strong= model_class.human_attribute_name(:account_balance_cached) + ':'
-  %br
-  = @customer.account_balance_cached
-%p
-  %strong= model_class.human_attribute_name(:active) + ':'
-  %br
-  = @customer.active
+  .span6
+    %h2 Account Details
+    %p
+      %strong Total Orders
+      = format_currency(@customer.total_orders)
+    %p
+      %strong Total Payments
+      = format_currency(@customer.total_payments)
+    %p
+      %strong Account Balance
+      = format_currency(@customer.account_balance)
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), customers_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(@customer), :class => 'btn'
+.page-header
+  %h2
+    = 'Orders'
+    = link_to 'Add Order', {:controller => 'sales_orders', :action => 'new', :id => @customer.id}, :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %th Order
+    %th Created
+    %th Public<br/>Comment
+    %th Private<br/>Comment
+    %th Invoiced?
+    %th Paid?
+    %th Amount
+  %tbody
+    - @customer.sales_orders.order('created_at DESC').each do |order|
+      %tr
+        %td{:width => "5%"}= link_to order.id, order
+        %td= format_date(order.created_at)
+        %td= truncate(order.public_comment, :length => 25, :omission => '...')
+        %td= truncate(order.private_comment, :length => 25, :omission => '...')
+        %td= link_to format_boolean(order.invoiced?), toggle_order_invoiced_status_customer_url(:id => @customer.id, :order_id => order.id), :method => :put
+        %td= link_to format_boolean(order.paid?), toggle_order_paid_status_customer_url(:id => @customer.id, :order_id => order.id), :method => :put
+        %td{:width => "10%"}=  format_currency(order.total_price)
+        %td{:width => "15%"}
+          - if order.invoiced?
+            = link_to 'Download', {:controller => 'sales_orders', :action => 'invoice_pdf', :id => order.id}, :class => 'btn btn-mini btn-info'
+          - else
+            = link_to 'Download', {:controller => 'sales_orders', :action => 'invoice_pdf', :id => order.id}, :class => 'btn btn-mini btn-info'
+            = link_to 'Edit', edit_sales_order_path(order), :class => 'btn btn-warning btn-mini'
+            = link_to 'Delete', sales_order_path(order), :confirm => 'Delete - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+.page-header
+  %h2
+    = 'Payments'
+    = link_to link_to 'Add Payment', {:controller => 'payments', :action => 'new', :id => @customer.id}, :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %th Payment
+    %th Received
+    %th Comment
+    %th Type
+    %th Amount
+  %tbody
+  - @customer.payments.order('created_at DESC').each do |payment|
+    %tr
+      %td{:width => "5%"}= link_to payment.id, payment
+      %td= format_date(payment.received_at)
+      %td= truncate(payment.comment, :length => 50, :omission => '...')
+      %td= payment.payment_type_name
+      %td{:width => "10%"}= format_currency(payment.amount)
+      %td{:width => "15%"}
+        = link_to 'Edit', edit_payment_path(payment), :class => 'btn btn-warning btn-mini'
+        = link_to 'Delete', payment, :confirm => 'Delete - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+

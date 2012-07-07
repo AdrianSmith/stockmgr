@@ -1,3 +1,4 @@
+
 class SalesOrder < ActiveRecord::Base
   attr_accessible :customer_id, :invoiced, :invoiced_at, :paid, :paid_at, :private_comment, :public_comment
 
@@ -123,7 +124,7 @@ class SalesOrder < ActiveRecord::Base
       self.sales_order_items.each do |item|
         table_data << [
           item.product.id,
-          item.product.name + ' [' + item.product.units_of_measure.short_name + ']',
+          item.product.name,
           FormatHelper.format_currency(item.product.sale_price),
           item.product.gst_message,
           FormatHelper.format_decimal_number(item.quantity),

@@ -12,5 +12,5 @@
   = @payment_type.description
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), payment_types_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_payment_type_path(@payment_type), :class => 'btn'
+  = link_to t('.back', :default => t("helpers.links.back")), payment_types_path, :class => 'btn btn-mini'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_payment_type_path(@payment_type), :class => 'btn btn-mini btn-warning'

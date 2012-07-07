@@ -3,13 +3,9 @@
   %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %strong= model_class.human_attribute_name(:customer_id) + ':'
+  %strong Customer:
   %br
-  = @sales_order.customer_id
-%p
-  %strong= model_class.human_attribute_name(:state) + ':'
-  %br
-  = @sales_order.state
+  = @sales_order.customer.name
 %p
   %strong= model_class.human_attribute_name(:invoiced_at) + ':'
   %br

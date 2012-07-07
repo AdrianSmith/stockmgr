@@ -12,8 +12,8 @@
       %strong= model_class.human_attribute_name(:description) + ':'
       %br
       = @supplier.description
-    = link_to t('.back', :default => t("helpers.links.back")), suppliers_path, :class => 'btn'
-    = link_to t('.edit', :default => t("helpers.links.edit")), edit_supplier_path(@supplier), :class => 'btn'
+    = link_to t('.back', :default => t("helpers.links.back")), suppliers_path, :class => 'btn btn-mini'
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_supplier_path(@supplier), :class => 'btn btn-mini btn-warning'
 
 
   .span4

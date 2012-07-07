@@ -1,31 +1,29 @@
-- model_class = SalesOrder.new.class
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  %h1 Sales Orders
+
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:customer_id)
-      %th= model_class.human_attribute_name(:state)
-      %th= model_class.human_attribute_name(:invoiced_at)
-      %th= model_class.human_attribute_name(:paid_at)
-      %th= model_class.human_attribute_name(:private_comment)
-      %th= model_class.human_attribute_name(:public_comment)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th ID
+      %th Customer
+      %th Items
+      %th Amount
+      %th Invoiced?
+      %th Paid?
+      %th Private<br/>Comment
+      %th Public<br/>Comment
   %tbody
     - @sales_orders.each do |sales_order|
       %tr
         %td= link_to sales_order.id, sales_order_path(sales_order)
-        %td= sales_order.customer_id
-        %td= sales_order.state
-        %td= sales_order.invoiced_at
-        %td= sales_order.paid_at
-        %td= sales_order.private_comment
-        %td= sales_order.public_comment
-        %td=l sales_order.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_sales_order_path(sales_order), :class => 'btn btn-mini'
+        %td= sales_order.customer.name
+        %td= sales_order.sales_order_items.size
+        %td= format_currency(sales_order.total_price)
+        %td= sales_order.invoiced?
+        %td= sales_order.paid?
+        %td= truncate(sales_order.private_comment, :length => 30, :omission => '...')
+        %td= truncate(sales_order.public_comment, :length => 30, :omission => '...')
+        %td{:width => "10%"}
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_sales_order_path(sales_order), :class => 'btn btn-mini btn-warning'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), sales_order_path(sales_order), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_sales_order_path, :class => 'btn btn-primary'
