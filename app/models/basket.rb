@@ -18,11 +18,9 @@ class Basket
     item.product_type_name = product.product_type_name
     item.product_name = product.name
     item.supplier_name = product.supplier_name
-    item.units_of_measure = product.units_of_measure_short_name
-    item.units_of_measure = product.units_of_measure_short_name
     item.price = product.sale_price
     item.total_price = product.sale_price * item.quantity
-    item.include_gst = product.include_gst
+    item.include_gst = product.gst
     item.gst_message = product.gst_message
     item.gst = product.gst_sale_price
     item.total_gst = product.gst_sale_price * item.quantity

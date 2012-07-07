@@ -1,4 +1,54 @@
-- model_class = @sales_order.class
 .page-header
-  %h1=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.titleize}")
-= render :partial => "form"
+  %h1
+    = "New Sales Order for "
+    = link_to @customer.pretty_name, customer_path(@customer)
+
+
+.form-horizontal
+  = form_tag add_basket_item_sales_order_url(:id => @customer.id), :method => :put  do
+    = "Product"
+    = select_tag(:product_id, options_for_select(@available_products), {:prompt => "Select ..."})
+    = "Quantity"
+    = text_field_tag :quantity
+    = submit_tag 'Add Item', :class => 'btn btn-primary'
+
+%table.table.striped
+  %thead
+    %th Item
+    %th Supplier
+    %th Type
+    %th Product
+    %th Unit Price<br/><small>(Inc GST)</small>
+    %th Quantity
+    %th Sale Price<br/>(Inc GST)
+    %th GST
+  %tbody
+    - item_index = 1
+    - @basket.items.each do |item|
+      %tr
+        %td= item_index
+        %td= link_to item.supplier_name, Supplier.find_by_name(item.supplier_name)
+        %td= item.product_type_name
+        %td= link_to "#{item.product_name}", "/products/#{item.product_id}"
+        %td= format_currency(item.price)
+        %td= format_decimal_number(item.quantity)
+        %td= format_currency(item.total_price)
+        %td= format_currency(item.total_gst)
+        %td= link_to 'Remove', {:action => 'remove_basket_item', :id => @customer.id, :array_position => item_index}, :confirm => 'Remove Item - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+      - item_index += 1
+    %tr
+      %td{:colspan => "6"} TOTAL
+      %td= format_currency(@basket.total_price)
+      %td= format_currency(@basket.total_gst)
+
+.form-horizontal
+  = form_tag :action => 'create', :customer_id => @customer.id do
+    .control-group
+      %label{:class => 'control-label'} Public comment
+      .controls
+        = text_area_tag :public_comment, nil, :rows => 4
+    .control-group
+      %label{:class => 'control-label'} Private comment
+      .controls
+        = text_area_tag :private_comment, nil, :rows => 4
+    = submit_tag 'Create Order', :class => 'btn btn-primary'
