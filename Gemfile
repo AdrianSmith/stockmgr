@@ -25,6 +25,7 @@ group :development do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'quiet_assets'
+  gem 'taps', :require => false
 end
 
 group :test do

@@ -7,45 +7,46 @@
     - unless user_signed_in?
       = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'
 
-.row
-  .span4
-    %h2 Key Statistics
-    %table.table
-      %thead
-        %th Total Sales
-        %th Total Payments
-        %th Balance
-      %tbody
-        %tr
-          %td= format_currency(@total_sales)
-          %td= format_currency(@total_payments)
-          %td= format_currency(@balance)
-    %p
-      = "Number Customers = #{@number_of_customers}"
-      = link_to 'New Customer', new_customer_path, :class => 'btn btn-info btn-mini'
-    %p
-      = "Number Products = #{@number_of_products}"
-      = link_to 'New Product', new_product_path, :class => 'btn btn-info btn-mini'
+- if user_signed_in?
+  .row
+    .span4
+      %h2 Key Statistics
+      %table.table
+        %thead
+          %th Total Sales
+          %th Total Payments
+          %th Balance
+        %tbody
+          %tr
+            %td= format_currency(@total_sales)
+            %td= format_currency(@total_payments)
+            %td= format_currency(@balance)
+      %p
+        = "Number Customers = #{@number_of_customers}"
+        = link_to 'New Customer', new_customer_path, :class => 'btn btn-info btn-mini'
+      %p
+        = "Number Products = #{@number_of_products}"
+        = link_to 'New Product', new_product_path, :class => 'btn btn-info btn-mini'
 
-  .span4
-    %h2 Open Orders
-    %table.table
-      %thead
-        %tr
-          %th Customer
-          %th Invoice Date
-          %th Amount
-      %tbody
-      - @unpaid_sales_orders.each do |sales_order|
-        %tr
-          %td= link_to sales_order.customer.pretty_name, sales_order
-          - if sales_order.invoiced
-            %td{:class => "status"}= format_date(sales_order.invoiced_at)
-          - else
-            %td{:class => "status"}= 'not yet invoiced'
-          %td{:class => "number", :width => "25%"}= format_currency(sales_order.total_price)
-  .span4
-    %h2 Quick Links
-    %p= link_to 'New Supplier', new_supplier_path, :class => 'btn btn-info btn-mini'
-    %p= link_to 'Product Types', product_types_path, :class => 'btn btn-info btn-mini'
-    %p= link_to 'Payment Types', payment_types_path, :class => 'btn btn-info btn-mini'
+    .span4
+      %h2 Open Orders
+      %table.table
+        %thead
+          %tr
+            %th Customer
+            %th Invoice Date
+            %th Amount
+        %tbody
+        - @unpaid_sales_orders.each do |sales_order|
+          %tr
+            %td= link_to sales_order.customer.pretty_name, sales_order
+            - if sales_order.invoiced
+              %td{:class => "status"}= format_date(sales_order.invoiced_at)
+            - else
+              %td{:class => "status"}= 'not yet invoiced'
+            %td{:class => "number", :width => "25%"}= format_currency(sales_order.total_price)
+    .span4
+      %h2 Quick Links
+      %p= link_to 'New Supplier', new_supplier_path, :class => 'btn btn-info btn-mini'
+      %p= link_to 'Product Types', product_types_path, :class => 'btn btn-info btn-mini'
+      %p= link_to 'Payment Types', payment_types_path, :class => 'btn btn-info btn-mini'
