@@ -1,11 +1,13 @@
 .hero-unit
-  .span4
-    = image_tag 'twf-logo.png', :width => 300, :height => 97
-  %h1 Product Manager
-  %p Track products, sales orders and payments
-  %p
-    - unless user_signed_in?
-      = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'
+  .row
+    .span7
+      %h1 Product Manager
+      %p Track products, sales orders and payments
+      %p
+        - unless user_signed_in?
+          = link_to 'Sign In', new_user_session_path, :class => 'btn btn-primary btn-large'
+    .span4
+      = image_tag 'twf-logo.png', :width => 300, :height => 97
 
 - if user_signed_in?
   .row
