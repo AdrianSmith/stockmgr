@@ -49,5 +49,8 @@
     %td{:class => "number_bothline"}= format_currency(@sales_order.total_price)
     %td{:class => "number_bothline"}= format_currency(@sales_order.total_gst)
 
-%p= link_to 'Edit Order', edit_sales_order_path(@sales_order), :class => 'btn btn-warning'
+%p
+  = link_to 'Edit Order', edit_sales_order_path(@sales_order), :class => 'btn btn-warning'
+  = link_to 'Download', {:controller => 'sales_orders', :action => 'invoice_pdf', :id => @sales_order.id}, :class => 'btn btn-info'
+
 
