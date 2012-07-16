@@ -66,22 +66,13 @@ class SalesOrder < ActiveRecord::Base
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
 
-    helper.add_title(pdf, "TAX INVOICE")
-
-    helper.add_sub_title(pdf, "*** Invoice Overdue ***") if self.overdue?
-    helper.add_spacer(pdf)
-    helper.add_spacer(pdf)
-    helper.add_spacer(pdf)
+    helper.add_title(pdf, "INVOICE")
     helper.add_spacer(pdf)
 
     invoice_summary(pdf, helper)
-
-    helper.add_spacer(pdf)
     helper.add_spacer(pdf)
 
     invoice_comments(pdf, helper)
-
-    helper.add_spacer(pdf)
     helper.add_spacer(pdf)
 
     invoice_details(pdf, helper)
@@ -94,65 +85,51 @@ class SalesOrder < ActiveRecord::Base
   private
 
   def invoice_summary(pdf, helper)
-    helper.add_heading(pdf, "Invoice Details")
+    helper.add_heading(pdf, customer.pretty_name)
+    helper.add_text(pdf, customer.email)
+    helper.add_text(pdf, customer.pretty_address)
 
-    table_data =  [
-      ['Invoice Ref ', self.id.to_s, 'Invoice For', customer.pretty_name],
-      ['Invoice Date', FormatHelper.format_date(self.created_at), '', customer.email],
-      ['Status      ', self.status_message, '', customer.pretty_address],
-    ]
+    helper.add_spacer(pdf)
+
+    helper.add_heading(pdf, "Details")
+    helper.add_text(pdf, "Reference: #{self.id.to_s}")
+    helper.add_text(pdf, "Date: #{FormatHelper.format_date(self.created_at)}")
+    helper.add_text(pdf, "Status: #{self.status_message}")
+  end
+
+  def invoice_comments(pdf, helper)
+    helper.add_heading(pdf, "Comments")
+    helper.add_text(pdf, self.public_comment, 8) if self.public_comment
+  end
+
+  def invoice_details(pdf, helper)
+    helper.add_heading(pdf, "Order Details")
+
+    table_data =  [["Product ID", "Product Name", "Unit Price", "Quantity", "Price"]]
+    self.sales_order_items.each do |item|
+      table_data << [
+        item.product.id,
+        item.product.name,
+        FormatHelper.format_currency(item.product.sale_price),
+        FormatHelper.format_decimal_number(item.quantity),
+        FormatHelper.format_currency(item.price).to_s
+      ]
+    end
+    table_data << ["", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
+    table_rows = table_data.length - 1
 
     pdf.table(table_data) do
       cells.borders = []
       cells.padding = 2
 
-      column(0).style(:width => 50 , :font_style => :bold)
-      column(1).style(:width => 90 )
-      column(2).style(:width => 180, :font_style => :bold, :align => :right)
-      column(3).style(:width => 200)
-    end
-
-    def invoice_comments(pdf, helper)
-      helper.add_heading(pdf, "Comments")
-      helper.add_text(pdf, self.public_comment, 8) if self.public_comment
-    end
-
-    def invoice_details(pdf, helper)
-      helper.add_heading(pdf, "Order Details")
-
-      table_data =  [["Product ID", "Product Name", "Unit Price", "  ", "Quantity", "Price"]]
-      self.sales_order_items.each do |item|
-        table_data << [
-          item.product.id,
-          item.product.name,
-          FormatHelper.format_currency(item.product.sale_price),
-          item.product.gst_message,
-          FormatHelper.format_decimal_number(item.quantity),
-          FormatHelper.format_currency(item.price).to_s
-        ]
-      end
-      table_data << ["", "", "", "", "TOTAL GST", FormatHelper.format_currency(self.total_gst)]
-      table_data << ["", "", "", "", "TOTAL PRICE", FormatHelper.format_currency(self.total_price)]
-      table_rows = table_data.length - 1
-
-      pdf.table(table_data) do
-        cells.borders = []
-        cells.padding = 2
-
-        row(0).style(:font_style => :bold, :borders => [:bottom])
-        column(0).style(:width => 50)
-        column(1).style(:width => 200)
-        column(2).style(:width => 70, :align => :right)
-        column(3).style(:size => 7)
-        column(4).style(:width => 70, :align => :right)
-        column(5).style(:width => 70, :align => :right)
-        row(table_rows - 1).style(:font_style => :bold)
-        row(table_rows).style(:font_style => :bold)
-        cells[table_rows - 1,4].style(:borders => [:top])
-        cells[table_rows - 1,5].style(:borders => [:top])
-        cells[table_rows,4].style(:borders => [:bottom])
-        cells[table_rows,5].style(:borders => [:bottom])
-      end
+      row(0).style(:font_style => :bold, :borders => [:bottom])
+      column(0).style(:width => 50)
+      column(1).style(:width => 200)
+      column(2).style(:width => 70, :align => :right)
+      column(3).style(:width => 70, :align => :right)
+      column(4).style(:width => 70, :align => :right)
+      row(table_rows).style(:font_style => :bold)
+      cells[table_rows, 4].style(:borders => [:top, :bottom])
     end
   end
 end
