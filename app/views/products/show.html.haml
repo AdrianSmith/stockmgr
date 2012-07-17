@@ -16,6 +16,9 @@
       %br
       = @product.brand
     %p
+      %strong Active
+      = format_boolean(@product.active)
+    %p
       %strong Supplier
       %br
       = @product.supplier.name
@@ -55,4 +58,4 @@
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn btn-warning'

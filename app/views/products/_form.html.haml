@@ -24,6 +24,10 @@
     .controls
       = f.text_field :brand, :class => 'text_field'
   .control-group
+    = f.label 'Active?', :class => 'control-label'
+    .controls
+      = f.check_box :active, :class => 'check_box'
+  .control-group
     = f.label :purchase_price, :class => 'control-label'
     .controls
       = f.text_field :purchase_price, :class => 'text_field'

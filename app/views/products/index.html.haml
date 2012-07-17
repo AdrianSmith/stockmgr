@@ -12,6 +12,7 @@
       %th Type
       %th Name
       %th Brand
+      %th Active
       %th Purchase Price
       %th Sale Price
       %th GST
@@ -22,6 +23,7 @@
         %td= link_to product.product_type.name, product_type_path(product.product_type)
         %td= link_to product.name, product_path(product)
         %td= product.brand
+        %td= format_boolean(product.active?)
         %td= format_currency(product.purchase_price)
         %td= format_currency(product.sale_price)
         %td= product.gst
