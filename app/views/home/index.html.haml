@@ -36,16 +36,18 @@
         %thead
           %tr
             %th Customer
+            %th Id
             %th Invoice Date
             %th Amount
         %tbody
         - @unpaid_sales_orders.each do |sales_order|
           %tr
-            %td= link_to sales_order.customer.pretty_name, sales_order
+            %td= link_to sales_order.customer.pretty_name, sales_order.customer
+            %td= link_to sales_order.id, sales_order
             - if sales_order.invoiced
-              %td{:class => "status"}= format_date(sales_order.invoiced_at)
+              %td= format_date(sales_order.invoiced_at)
             - else
-              %td{:class => "status"}= 'not yet invoiced'
+              %td= 'not yet invoiced'
             %td{:class => "number", :width => "25%"}= format_currency(sales_order.total_price)
     .span4
       %h2 Quick Links
