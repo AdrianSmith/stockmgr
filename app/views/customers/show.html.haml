@@ -48,7 +48,6 @@
           - if order.invoiced?
             = link_to 'Download', {:controller => 'sales_orders', :action => 'invoice_pdf', :id => order.id}, :class => 'btn btn-mini btn-info'
           - else
-            = link_to 'Download', {:controller => 'sales_orders', :action => 'invoice_pdf', :id => order.id}, :class => 'btn btn-mini btn-info'
             = link_to 'Edit', edit_sales_order_path(order), :class => 'btn btn-warning btn-mini'
             = link_to 'Delete', sales_order_path(order), :confirm => 'Delete - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 

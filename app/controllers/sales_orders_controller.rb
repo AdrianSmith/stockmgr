@@ -49,11 +49,8 @@ class SalesOrdersController < InheritedResources::Base
 
   def invoice_pdf
     report = @sales_order.create_invoice_pdf
-    if @sales_order.invoiced?
-      filename = 'Invoice-' + @sales_order.customer.pretty_name + '-' + FormatHelper.format_date(@sales_order.invoiced_at) + '.pdf'
-    else
-      filename = 'UN-INVOICED-' + @sales_order.customer.pretty_name + '.pdf'
-    end
+    date = @sales_order.invoiced_at .strftime("%d%b%y")
+    filename = "Invoice#{@sales_order.id} #{@sales_order.customer.first_name}#{@sales_order.customer.last_name} #{date}.pdf"
     send_data report.render, :filename => filename, :type => "application/pdf"
   end
 
