@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120704091821) do
+ActiveRecord::Schema.define(:version => 20120724104032) do
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
@@ -98,15 +98,15 @@ ActiveRecord::Schema.define(:version => 20120704091821) do
   add_index "sales_order_items", ["sales_order_id"], :name => "index_sales_order_items_on_sales_order_id"
 
   create_table "sales_orders", :force => true do |t|
-    t.integer  "customer_id",     :null => false
-    t.boolean  "invoiced"
+    t.integer  "customer_id",                        :null => false
+    t.boolean  "invoiced",        :default => false
     t.datetime "invoiced_at"
-    t.boolean  "paid"
+    t.boolean  "paid",            :default => false
     t.datetime "paid_at"
     t.text     "private_comment"
     t.text     "public_comment"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "sales_orders", ["customer_id"], :name => "index_sales_orders_on_customer_id"
