@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @number_of_customers = Customer.count
     @number_of_products = Product.count
 
-    @unpaid_sales_orders = SalesOrder.where(:paid => false).order('invoiced_at DESC')
+    @unpaid_sales_orders = SalesOrder.where(:paid => false) + SalesOrder.where(:paid => nil)
 
     @total_sales = SalesOrder.all.inject(0){|sum, o| sum + o.total_price}
     @total_payments = Payment.all.inject(0){|sum, o| sum + o.amount}
