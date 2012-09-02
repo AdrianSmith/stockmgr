@@ -2,7 +2,7 @@
   %h1 Product
 
 .row
-  .span6
+  .span4
     %p
       %strong Name
       %br
@@ -31,7 +31,7 @@
       %br
       = @product.description
 
-  .span6
+  .span4
     %p
       %strong Includes GST?
       %br
@@ -55,6 +55,18 @@
       %br
       = format_currency(@product.markup_amount)
       %small= "(#{number_to_percentage(@product.markup_percentage, :precision => 0)})"
+
+  .span4
+    .well
+      %h4 Historic Sale Prices
+      %table.table
+        %tr
+          %th Date
+          %th Sale Price
+        - @product.product_prices.each do |price|
+          %tr
+            %td= format_date(price.created_at)
+            %td= format_currency(price.amount)
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn'
