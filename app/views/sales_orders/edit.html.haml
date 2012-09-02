@@ -24,13 +24,14 @@
     %th GST
   %tbody
     - item_index = 1
+    - binding.pry
     - @sales_order.sales_order_items.each do |item|
       %tr
         %td= item_index
         %td= link_to item.product.supplier.name, Supplier.find_by_name(item.product.supplier.name)
         %td= item.product.product_type.name
         %td= link_to "#{item.product.name}", "/products/#{item.product_id}"
-        %td= format_currency(item.product.sale_price(Time.now))
+        %td= format_currency(item.unit_price)
         %td= format_decimal_number(item.quantity)
         %td= format_currency(item.price)
         %td= format_currency(item.gst)
