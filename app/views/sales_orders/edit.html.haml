@@ -4,51 +4,59 @@
     = link_to @customer.pretty_name, customer_path(@customer)
 
 
-.form-horizontal
-  = form_tag add_sales_order_item_sales_order_url(:id => @sales_order.id), :method => :put  do
-    = "Product"
-    = select_tag(:product_id, options_for_select(@available_products), {:prompt => "Select ..."})
-    = "Quantity"
-    = text_field_tag :quantity
-    = submit_tag 'Add Item', :class => 'btn btn-primary'
+.well
+  %h2 Order Items
+  %p
+    .form-horizontal
+      = form_tag add_sales_order_item_sales_order_url(:id => @sales_order.id), :method => :put  do
+        = "Product"
+        = select_tag(:product_id, options_for_select(@available_products), {:prompt => "Select ..."})
+        = "Quantity"
+        = text_field_tag :quantity
+        = submit_tag 'Add Item', :class => 'btn btn-primary'
 
-%table.table.striped
-  %thead
-    %th Item
-    %th Supplier
-    %th Type
-    %th Product
-    %th Unit Price<br/>(Inc GST)
-    %th Quantity
-    %th Sale Price<br/>(Inc GST)
-    %th GST
-  %tbody
-    - item_index = 1
-    - @sales_order.sales_order_items.each do |item|
+  %table.table.striped
+    %thead
+      %th Item
+      %th Supplier
+      %th Type
+      %th Product
+      %th Unit Price<br/>(Inc GST)
+      %th Quantity
+      %th Sale Price<br/>(Inc GST)
+      %th GST
+    %tbody
+      - item_index = 1
+      - @sales_order.sales_order_items.each do |item|
+        %tr
+          %td= item_index
+          %td= link_to item.product.supplier.name, Supplier.find_by_name(item.product.supplier.name)
+          %td= item.product.product_type.name
+          %td= link_to "#{item.product.name}", "/products/#{item.product_id}"
+          %td= format_currency(item.unit_price)
+          %td= format_decimal_number(item.quantity)
+          %td= format_currency(item.price)
+          %td= format_currency(item.gst)
+          %td= link_to 'Remove', {:action => 'remove_sales_order_item', :id => @sales_order.id, :array_position => item_index}, :confirm => 'Remove Item - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        - item_index += 1
       %tr
-        %td= item_index
-        %td= link_to item.product.supplier.name, Supplier.find_by_name(item.product.supplier.name)
-        %td= item.product.product_type.name
-        %td= link_to "#{item.product.name}", "/products/#{item.product_id}"
-        %td= format_currency(item.unit_price)
-        %td= format_decimal_number(item.quantity)
-        %td= format_currency(item.price)
-        %td= format_currency(item.gst)
-        %td= link_to 'Remove', {:action => 'remove_sales_order_item', :id => @sales_order.id, :array_position => item_index}, :confirm => 'Remove Item - Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-      - item_index += 1
-    %tr
-      %td{:colspan => "6"} TOTAL
-      %td= format_currency(@sales_order.total_price)
-      %td= format_currency(@sales_order.total_gst)
+        %td{:colspan => "6"} TOTAL
+        %td= format_currency(@sales_order.total_price)
+        %td= format_currency(@sales_order.total_gst)
 
-.form-horizontal
+.well
+  %h2 Order Comments
+  %p
   = form_for @sales_order do |f|
-    .control-group
-      = f.label :public_comment, :class => 'control-label'
-      .controls
-        = f.text_area :public_comment, :rows => 4
-    .control-group
-      = f.label :private_comment, :class => 'control-label'
-      .controls
-        = f.text_area :private_comment, :rows => 4
-    = f.submit 'Update Order', :class => 'btn btn-primary'
+    .row
+      .span3
+        %p
+          %strong Public Comments
+          (displayed on invoice)
+        = f.text_area :public_comment, :class => 'input-xlarge', :rows => 4
+      .span3
+        %p
+          %strong Private Comments
+        = f.text_area :private_comment, :class => 'input-xlarge', :rows => 4
+      .span3
+        = f.submit 'Update Comments', :class => 'btn btn-primary'
