@@ -19,6 +19,15 @@ class Product < ActiveRecord::Base
 
   scope :ordered_by_name, :order => 'name'
 
+  def self.search(query)
+    conditions = <<-EOS
+      to_tsvector('english',
+        coalesce(products.name, '') || ' ' || coalesce(products.description, '') || ' ' || coalesce(products.brand, '') || ' ' || coalesce(suppliers.name, '') || ' ' || coalesce(product_types.name, '') 
+        ) @@ plainto_tsquery('english', ?)
+    EOS
+   joins(:supplier, :product_type).where(conditions, query)
+  end
+
   def sale_price=(value)
     self.product_prices.build(:amount => value)
   end

@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
   before_filter :find_product, :only => [:show, :update, :edit]
 
   def index
-    @products = Product.joins(:supplier, :product_type).order('suppliers.name ASC, products.name DESC').all
+    if params[:query] && params[:query].length > 0
+      @products = Product.search(params[:query])
+    else
+      @products = Product.joins(:supplier, :product_type).order('suppliers.name ASC, products.name DESC').page(params[:page]).per(20)
+    end
   end
 
   def show
