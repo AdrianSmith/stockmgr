@@ -33,7 +33,10 @@
         %td= format_currency(product.purchase_price)
         %td= format_currency(product.sale_price)
         %td= product.gst
-        %td= link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-warning btn-mini'
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-warning btn-mini'
+          - unless product.has_orders?
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(product), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
 
 - unless params[:query] && params[:query].length > 0
   = paginate @products unless params[:query]

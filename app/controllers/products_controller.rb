@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class ProductsController < InheritedResources::Base
   before_filter :authenticate_user!, :prepare_common_variables
   before_filter :find_product, :only => [:show, :update, :edit]
 

@@ -22,10 +22,14 @@ class Product < ActiveRecord::Base
   def self.search(query)
     conditions = <<-EOS
       to_tsvector('english',
-        coalesce(products.name, '') || ' ' || coalesce(products.description, '') || ' ' || coalesce(products.brand, '') || ' ' || coalesce(suppliers.name, '') || ' ' || coalesce(product_types.name, '') 
+        coalesce(products.name, '') || ' ' || coalesce(products.description, '') || ' ' || coalesce(products.brand, '') || ' ' || coalesce(suppliers.name, '') || ' ' || coalesce(product_types.name, '')
         ) @@ plainto_tsquery('english', ?)
     EOS
    joins(:supplier, :product_type).where(conditions, query)
+  end
+
+  def has_orders?
+    self.sales_order_items.size > 0
   end
 
   def sale_price=(value)
