@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
     conditions = <<-EOS
       to_tsvector('english',
         coalesce(products.name, '') || ' ' || coalesce(products.description, '') || ' ' || coalesce(products.brand, '') || ' ' || coalesce(suppliers.name, '') || ' ' || coalesce(product_types.name, '')
-        ) @@ plainto_tsquery('english', ?)
+        ) @@ regexp_replace(plainto_tsquery('english', ?)::text, E'(\\')( & \\')|$', E'\\\\1:*\\\\2', 'g')::tsquery
     EOS
    joins(:supplier, :product_type).where(conditions, query)
   end
