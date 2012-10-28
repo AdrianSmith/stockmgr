@@ -32,8 +32,6 @@ describe Product do
     it {should validate_presence_of(:product_type)}
     it {should validate_presence_of(:supplier)}
 
-    it {should validate_uniqueness_of(:name)}
-
     it "should calculate purchase_price" do
       @product.purchase_price.should == BigDecimal.new("5.5")
     end

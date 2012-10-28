@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   delegate :name, :to => :physical_form, :prefix => true
 
   validates_presence_of :name, :product_type, :supplier
-  validates_uniqueness_of :name
+  validates :name, :uniqueness => { :scope => [:brand, :supplier_id] }
 
   scope :ordered_by_name, :order => 'name'
 

@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
       flash[:notice] = 'Product was successfully created.'
       redirect_to(@product)
     else
+      flash[:error] = "Error: Product not created - #{@product.errors.full_messages}"
       render :new
     end
   end
@@ -41,6 +42,7 @@ class ProductsController < ApplicationController
       flash[:notice] = 'Product was successfully updated.'
       redirect_to(@product)
     else
+      flash[:error] = "Error: Product not updated - #{@product.errors.full_messages}"
       render :edit
     end
   end
