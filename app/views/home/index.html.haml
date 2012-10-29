@@ -25,12 +25,19 @@
             %td= format_currency(@balance)
       %p
         = "Number Customers = #{@number_of_customers}"
-        = link_to 'New Customer', new_customer_path, :class => 'btn btn-info btn-mini'
       %p
         = "Number Products = #{@number_of_products}"
+      %hr
+      %h2 Quick Links
+      %p
+        = link_to 'New Customer', new_customer_path, :class => 'btn btn-info btn-mini'
         = link_to 'New Product', new_product_path, :class => 'btn btn-info btn-mini'
+        = link_to 'New Supplier', new_supplier_path, :class => 'btn btn-info btn-mini'
+      %p
+        = link_to 'Product Types', product_types_path, :class => 'btn btn-info btn-mini'
+        = link_to 'Payment Types', payment_types_path, :class => 'btn btn-info btn-mini'
 
-    .span4
+    .span8
       %h2 Open Orders
       %table.table
         %thead
@@ -49,8 +56,3 @@
             - else
               %td= 'not yet invoiced'
             %td{:class => "number", :width => "25%"}= format_currency(sales_order.total_price)
-    .span4
-      %h2 Quick Links
-      %p= link_to 'New Supplier', new_supplier_path, :class => 'btn btn-info btn-mini'
-      %p= link_to 'Product Types', product_types_path, :class => 'btn btn-info btn-mini'
-      %p= link_to 'Payment Types', payment_types_path, :class => 'btn btn-info btn-mini'
