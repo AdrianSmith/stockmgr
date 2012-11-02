@@ -105,17 +105,18 @@ class SalesOrder < ActiveRecord::Base
   def invoice_details(pdf, helper)
     helper.add_heading(pdf, "Order Details")
 
-    table_data =  [["Product ID", "Product Name", "Unit Price", "Quantity", "Price"]]
+    table_data =  [["ID", "Brand", "Product Name", "Unit Price", "Quantity", "Price"]]
     self.sales_order_items.each do |item|
       table_data << [
         item.product.id,
+        item.product.brand,
         item.product.name,
         FormatHelper.format_currency(item.product.sale_price),
         FormatHelper.format_decimal_number(item.quantity),
         FormatHelper.format_currency(item.price).to_s
       ]
     end
-    table_data << ["", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
+    table_data << ["", "", "", "", "TOTAL", FormatHelper.format_currency(self.total_price)]
     table_rows = table_data.length - 1
 
     pdf.table(table_data) do
@@ -123,13 +124,14 @@ class SalesOrder < ActiveRecord::Base
       cells.padding = 2
 
       row(0).style(:font_style => :bold, :borders => [:bottom])
-      column(0).style(:width => 50)
-      column(1).style(:width => 200)
-      column(2).style(:width => 70, :align => :right)
-      column(3).style(:width => 70, :align => :right)
-      column(4).style(:width => 70, :align => :right)
+      column(0).style(:width => 25)
+      column(1).style(:width => 100)
+      column(2).style(:width => 240)
+      column(3).style(:width => 50, :align => :right)
+      column(4).style(:width => 50, :align => :right)
+      column(5).style(:width => 50, :align => :right)
       row(table_rows).style(:font_style => :bold)
-      cells[table_rows, 4].style(:borders => [:top, :bottom])
+      cells[table_rows, 5].style(:borders => [:top, :bottom])
     end
   end
 end
