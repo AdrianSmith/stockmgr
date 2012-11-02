@@ -118,7 +118,7 @@ class SalesOrdersController < InheritedResources::Base
     end
 
     def prepare_available_products
-      @available_products = Product.where(:active => true).ordered_by_name.map{|p| [p.name + ' [' + p.sale_price.to_s + ']', p.id]}
+      @available_products = Product.where(:active => true).ordered_by_name.map{|p| [p.name + ' | ' + p.brand +  ' [' + p.sale_price.to_s + ']', p.id]}
     end
 
     def find_basket
