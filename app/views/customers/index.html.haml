@@ -5,7 +5,7 @@
     .span1
       = link_to "New", new_customer_path, :class => 'btn btn-primary'
 
-%table.table.table-striped
+%table.table.table-striped.table-condensed
   %thead
     %tr
       %th Name
@@ -21,4 +21,4 @@
         %td= format_currency(customer.total_orders)
         %td= format_currency(customer.total_payments)
         %td= format_currency(customer.account_balance_cached)
-        %td= link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(customer), :class => 'btn btn-mini'
+        %td= link_to t('.edit', :default => t("helpers.links.eit")), edit_customer_path(customer), :class => 'btn btn-mini'

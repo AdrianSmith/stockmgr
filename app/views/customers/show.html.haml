@@ -1,22 +1,26 @@
 .page-header
-  %h1= @customer.pretty_name
+  %h1
+    = @customer.pretty_name
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(@customer), :class => 'btn btn-mini btn-warning'
 .row
   .span6
     %h2 Contact Details
-    %p= @customer.pretty_address
-    %p= mail_to(@customer.email, @customer.email, :subject => "StockMgr", :body => "Hi " + @customer.first_name)
-    %p= @customer.pretty_phone
-    %p= link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(@customer), :class => 'btn btn-mini btn-warning'
+    %p
+      = @customer.pretty_address
+      %br
+      = mail_to(@customer.email, @customer.email, :subject => "StockMgr", :body => "Hi " + @customer.first_name)
+      %br
+      = @customer.pretty_phone
 
   .span6
     %h2 Account Details
     %p
       %strong Total Orders
       = format_currency(@customer.total_orders)
-    %p
+      %br
       %strong Total Payments
       = format_currency(@customer.total_payments)
-    %p
+      %br
       %strong Account Balance
       = format_currency(@customer.account_balance)
 
@@ -25,7 +29,7 @@
     = 'Orders'
     = link_to 'Add Order', {:controller => 'sales_orders', :action => 'new', :id => @customer.id}, :class => 'btn btn-primary'
 
-%table.table.table-striped
+%table.table.table-striped.table-condensed
   %thead
     %th Order
     %th Created
@@ -56,7 +60,7 @@
     = 'Payments'
     = link_to link_to 'Add Payment', {:controller => 'payments', :action => 'new', :id => @customer.id}, :class => 'btn btn-primary'
 
-%table.table.table-striped
+%table.table.table-striped.table-condensed
   %thead
     %th Payment
     %th Received
