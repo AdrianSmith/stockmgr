@@ -9,16 +9,19 @@
   %thead
     %tr
       %th Name
-      %th Phone
       %th Orders
       %th Payments
       %th Balance
   %tbody
     - @customers.each do |customer|
+      - total_orders = customer.total_orders
       %tr
-        %td= link_to customer.pretty_name, customer_path(customer)
-        %td= customer.preferred_phone
-        %td= format_currency(customer.total_orders)
+        %td
+          = link_to customer.pretty_name, customer_path(customer)
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_customer_path(customer), :class => 'btn btn-mini'
+        %td
+          = format_currency(total_orders)
+          .progress
+            .bar{:style => "width: #{(total_orders/@total_sales * 100).to_i}%"}
         %td= format_currency(customer.total_payments)
         %td= format_currency(customer.account_balance_cached)
-        %td= link_to t('.edit', :default => t("helpers.links.eit")), edit_customer_path(customer), :class => 'btn btn-mini'

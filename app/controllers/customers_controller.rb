@@ -4,6 +4,7 @@ class CustomersController < InheritedResources::Base
 
   def index
     @customers = Customer.includes(:sales_orders, :payments ).ordered_by_last_name
+    @total_sales = SalesOrder.all.inject(0){|sum, o| sum + o.total_price}
   end
 
   def toggle_order_invoiced_status
